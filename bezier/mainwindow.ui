@@ -44,12 +44,12 @@
         <property name="title">
          <string>Параметры</string>
         </property>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <property name="geometry">
           <rect>
            <x>60</x>
            <y>40</y>
-           <width>185</width>
+           <width>193</width>
            <height>161</height>
           </rect>
          </property>
@@ -66,7 +66,7 @@
             <item>
              <layout class="QFormLayout" name="formLayout">
               <item row="0" column="1">
-               <widget class="QRadioButton" name="radioButton">
+               <widget class="QRadioButton" name="compositeBezierRadioBtn">
                 <property name="text">
                  <string>Составное</string>
                 </property>
@@ -76,7 +76,7 @@
                </widget>
               </item>
               <item row="0" column="0">
-               <widget class="QRadioButton" name="radioButton_2">
+               <widget class="QRadioButton" name="simpleBezierRadioBtn">
                 <property name="text">
                  <string>Простое</string>
                 </property>
@@ -90,21 +90,20 @@
            </layout>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="clearBtn">
             <property name="text">
              <string>Очистить</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="closeCurveBtn">
             <property name="text">
              <string>Замкнуть</string>
             </property>
            </widget>
           </item>
          </layout>
-         <zorder>pushButton</zorder>
         </widget>
        </widget>
       </item>

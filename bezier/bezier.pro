@@ -26,10 +26,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        Bezier.cpp \
+        Curve.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+        Bezier.h \
+        Curve.h
 
 FORMS += \
         mainwindow.ui

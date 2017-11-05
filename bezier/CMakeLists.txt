@@ -18,7 +18,7 @@ set(SOURCE_FILES
         main.cpp
         mainwindow.cpp
         mainwindow.h
-        mainwindow.ui)
+        mainwindow.ui curves/Bezier.cpp curves/Bezier.h curves/Curve.cpp curves/Curve.h curves/CompositeBezier.cpp curves/CompositeBezier.h)
 
 add_executable(bezier ${SOURCE_FILES})
 
