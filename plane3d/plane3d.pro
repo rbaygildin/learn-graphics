@@ -25,10 +25,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        affine/affine.cpp \
+        figures/cube.cpp \
+        figures/pyramid.cpp \
+        figures/octahedron.cpp \
+        figures/icosahedron.cpp
+
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+        affine/affine.h \
+        figures/figure.h \
+        figures/cube.h \
+        figures/pyramid.h \
+        figures/octahedron.h \
+        figures/icosahedron.h
 
 FORMS += \
         mainwindow.ui
