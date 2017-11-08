@@ -1,7 +1,3 @@
-#include <QFileDialog>
-#include <QJsonObject>
-#include <QJsonDocument>
-#include <QJsonArray>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -13,7 +9,7 @@ double sliderToRotate(int tick) {
 }
 
 double sliderToScale(int tick) {
-    return (tick * 1.0 + 1.0) / 50.0;
+    return (tick * 1.0 + 1.0) / 20.0;
 }
 
 double d2r(double degrees) {
@@ -51,7 +47,9 @@ void MainWindow::createActions() {
 
     //Context menu
     ui->graphicsView->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(ui->graphicsView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
+    connect(ui->graphicsView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showGraphicsViewMenu(QPoint)));
+    ui->listWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->listWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showListWidgetMenu(QPoint)));
 
     //Rotation
     //Rotate x
@@ -80,8 +78,13 @@ void MainWindow::createActions() {
     //Move z
     connect(ui->dzInput, SIGNAL(editingFinished()), this, SLOT(moveZ()));
 
+    //FOV
+    connect(ui->fovInp, SIGNAL(valueChanged(int)), this, SLOT(redraw()));
+    connect(ui->farInp, SIGNAL(valueChanged(int)), this, SLOT(redraw()));
+    connect(ui->nearInp, SIGNAL(valueChanged(int)), this, SLOT(redraw()));
+
     //Select figure
-    connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem * )), this, SLOT(selectFigure(QListWidgetItem * )));
+    connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem * )), this, SLOT(select(QListWidgetItem * )));
 }
 
 void MainWindow::about() {
@@ -95,7 +98,7 @@ void MainWindow::about() {
     msgBox.exec();
 }
 
-void MainWindow::contextMenuRequested(QPoint pos) {
+void MainWindow::showGraphicsViewMenu(QPoint pos) {
     auto *menu = new QMenu(this);
     QAction *drawCubeAction = new QAction("Add cube", this);
     QAction *drawPyramidAction = new QAction("Add pyramid", this);
@@ -135,10 +138,17 @@ void MainWindow::contextMenuRequested(QPoint pos) {
 
 void MainWindow::redraw() {
     drawAxes();
-    for (auto &figure : figures) {
-        figure->removeHiddenLines(ui->removeLinesCheckBox->isChecked())
-                ->parProject()
-                ->paint();
+    sort(figures.begin(), figures.end(), [](const IFigure *a, const IFigure *b) -> bool {
+        return const_cast<IFigure *>(a)->zIndex() < const_cast<IFigure *>(b)->zIndex();
+    });
+    if (ui->ortRadioBtn->isChecked()) {
+        for (auto &figure : figures) {
+            figure->paint(false);
+        }
+    } else {
+        for (auto &figure : figures) {
+            figure->paint(false, ui->farInp->value() + 10, -(ui->nearInp->value() + 10), ui->fovInp->value());
+        }
     }
 }
 
@@ -180,27 +190,36 @@ void MainWindow::open() {
         QJsonObject figure = item.toObject();
         if (figure["type"] == "CUBE") {
             auto cube = new Cube(figure["edge"].toDouble(), scene);
+            QJsonArray trArray = figure["transformations"].toArray();
+            for(int i = 0; i < trArray.size(); i++)
+                cube->transform(i, trArray.at(i).toDouble());
             figures.emplace_back(cube);
             QListWidgetItem *widgetItem = new QListWidgetItem("Cube");
             widgetItem->setData(Qt::UserRole, qVariantFromValue((void *) cube));
             ui->listWidget->addItem(widgetItem);
-        }
-        else if (figure["type"] == "PYRAMID") {
+        } else if (figure["type"] == "PYRAMID") {
             auto pyramid = new Pyramid(figure["edge"].toDouble(), scene);
+            QJsonArray trArray = figure["transformations"].toArray();
+            for(int i = 0; i < trArray.size(); i++)
+                pyramid->transform(i, trArray.at(i).toDouble());
             figures.emplace_back(pyramid);
             QListWidgetItem *widgetItem = new QListWidgetItem("Pyramid");
             widgetItem->setData(Qt::UserRole, qVariantFromValue((void *) pyramid));
             ui->listWidget->addItem(widgetItem);
-        }
-        else if (figure["type"] == "OCTAHEDRON") {
+        } else if (figure["type"] == "OCTAHEDRON") {
             auto octahedron = new Octahedron(figure["edge"].toDouble(), scene);
+            QJsonArray trArray = figure["transformations"].toArray();
+            for(int i = 0; i < trArray.size(); i++)
+                octahedron->transform(i, trArray.at(i).toDouble());
             figures.emplace_back(octahedron);
             QListWidgetItem *widgetItem = new QListWidgetItem("Octahedron");
             widgetItem->setData(Qt::UserRole, qVariantFromValue((void *) octahedron));
             ui->listWidget->addItem(widgetItem);
-        }
-        else if (figure["type"] == "ICOSAHEDRON") {
+        } else if (figure["type"] == "ICOSAHEDRON") {
             auto icosahedron = new Icosahedron(figure["edge"].toDouble(), scene);
+            QJsonArray trArray = figure["transformations"].toArray();
+            for(int i = 0; i < trArray.size(); i++)
+                icosahedron->transform(i, trArray.at(i).toDouble());
             figures.emplace_back(icosahedron);
             QListWidgetItem *widgetItem = new QListWidgetItem("Icosahedron");
             widgetItem->setData(Qt::UserRole, qVariantFromValue((void *) icosahedron));
@@ -288,7 +307,7 @@ void MainWindow::restore() {
     redraw();
 }
 
-void MainWindow::selectFigure(QListWidgetItem *item) {
+void MainWindow::select(QListWidgetItem *item) {
     if (selectedFigure != nullptr)
         selectedFigure->setSelected(false);
     selectedFigure = (IFigure *) item->data(Qt::UserRole).value<void *>();
@@ -297,102 +316,76 @@ void MainWindow::selectFigure(QListWidgetItem *item) {
 
 void MainWindow::rotateX() {
     if (selectedFigure != nullptr) {
-        selectedFigure->rotate(
-                sliderToRotate(ui->xRotateInput->value()),
-                0,
-                0
-        );
+        selectedFigure->transform(IFigure::RotateX, sliderToRotate(ui->xRotateInput->value()));
         redraw();
     }
 }
 
 void MainWindow::rotateY() {
     if (selectedFigure != nullptr) {
-        selectedFigure->rotate(
-                0,
-                sliderToRotate(ui->yRotateInput->value()),
-                0
-        );
+        selectedFigure->transform(IFigure::RotateY, sliderToRotate(ui->yRotateInput->value()));
         redraw();
     }
 }
 
 void MainWindow::rotateZ() {
     if (selectedFigure != nullptr) {
-        selectedFigure->rotate(
-                0,
-                0,
-                sliderToRotate(ui->zRotateInput->value())
-        );
+        selectedFigure->transform(IFigure::RotateZ, sliderToRotate(ui->zRotateInput->value()));
         redraw();
     }
 }
 
 void MainWindow::scaleX() {
     if (selectedFigure != nullptr) {
-        selectedFigure->restore();
-        selectedFigure->scale(
-                sliderToScale(ui->xScaleInput->value()),
-                1,
-                1
-        );
+        selectedFigure->transform(IFigure::ScaleX, sliderToScale(ui->xScaleInput->value()));
         redraw();
     }
 }
 
 void MainWindow::scaleY() {
     if (selectedFigure != nullptr) {
-        selectedFigure->restore();
-        selectedFigure->scale(
-                1,
-                sliderToScale(ui->yScaleInput->value()),
-                1
-        );
+        selectedFigure->transform(IFigure::ScaleY, sliderToScale(ui->yScaleInput->value()));
         redraw();
     }
 }
 
 void MainWindow::scaleZ() {
     if (selectedFigure != nullptr) {
-        selectedFigure->restore();
-        selectedFigure->scale(
-                1,
-                1,
-                sliderToScale(ui->zScaleInput->value())
-        );
+        selectedFigure->transform(IFigure::ScaleZ, sliderToScale(ui->zScaleInput->value()));
         redraw();
     }
 }
 
 void MainWindow::moveX() {
     if (selectedFigure != nullptr) {
-        selectedFigure->translate(
-                ui->dxInput->text().toDouble(),
-                0,
-                0
-        );
+        selectedFigure->transform(IFigure::TranslateX, ui->dxInput->text().toDouble());
         redraw();
     }
 }
 
 void MainWindow::moveY() {
     if (selectedFigure != nullptr) {
-        selectedFigure->translate(
-                0,
-                ui->dyInput->text().toDouble(),
-                0
-        );
+        selectedFigure->transform(IFigure::TranslateY, ui->dyInput->text().toDouble());
         redraw();
     }
 }
 
 void MainWindow::moveZ() {
     if (selectedFigure != nullptr) {
-        selectedFigure->translate(
-                0,
-                0,
-                ui->dzInput->text().toDouble()
-        );
+        selectedFigure->transform(IFigure::TranslateZ, ui->dzInput->text().toDouble());
         redraw();
     }
+}
+
+void MainWindow::showListWidgetMenu(QPoint pos) {
+    QPoint globalPos = ui->listWidget->mapToGlobal(pos);
+    QMenu menu;
+    menu.addAction("Delete", this, [this]() {
+//        for (int i = 0; i < this->ui->listWidget->selectedItems().size(); i++) {
+//            QListWidgetItem *item = this->ui->listWidget->takeItem(this->ui->listWidget->currentRow());
+//            item->data(Qt::UserRole)
+//            delete item;
+//        }
+    });
+    menu.exec(globalPos);
 }

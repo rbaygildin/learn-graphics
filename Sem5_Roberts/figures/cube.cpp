@@ -5,7 +5,17 @@ Cube::Cube(double edge, QGraphicsScene *scene) : Figure<8, 12, 6, 4>(edge, scene
 {
     this->v = vertex();
     this->f = faces();
-    this->originalV = this->v;
+    xC = 0;
+    yC = 0;
+    zC = 0;
+    for(int i = 0; i < V; i++){
+        xC += v(0, i);
+        yC += v(1, i);
+        zC += v(2, i);
+    }
+    xC /= V;
+    yC /= V;
+    zC /= V;
 }
 
 QGenericMatrix<V, 3, qreal> Cube::vertex() {
@@ -82,12 +92,11 @@ QGenericMatrix<F, P, qreal> Cube::faces() {
 }
 
 QRectF Cube::bound() {
-    return QRectF(QPointF(v(XC, V5), v(YC, V5)), QPointF(v(XC, V2), v(YC, V2)));
+    return QRectF(QPointF(originalV(XC, V5), originalV(YC, V5)), QPointF(originalV(XC, V2), originalV(YC, V2)));
 }
 
 QJsonObject Cube::toJson() {
-    QJsonObject json;
+    QJsonObject json = Figure::toJson();
     json.insert("type", "CUBE");
-    json.insert("edge", edge);
     return json;
 }

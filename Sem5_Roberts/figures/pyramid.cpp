@@ -6,9 +6,20 @@
 #include "pyramid.h"
 
 Pyramid::Pyramid(double edge, QGraphicsScene *scene) : Figure(edge, scene) {
-    this->v = vertex();
+    this->originalV = vertex();
     this->f = faces();
-    this->originalV = this->v;
+    this->v = this->originalV;
+    xC = 0;
+    yC = 0;
+    zC = 0;
+    for(int i = 0; i < PYRAMID_V; i++){
+        xC += v(0, i);
+        yC += v(1, i);
+        zC += v(2, i);
+    }
+    xC /= PYRAMID_V;
+    yC /= PYRAMID_V;
+    zC /= PYRAMID_V;
 }
 
 QGenericMatrix<PYRAMID_V, 3, qreal> Pyramid::vertex() {
@@ -55,12 +66,11 @@ QGenericMatrix<PYRAMID_F, PYRAMID_P, qreal> Pyramid::faces() {
 }
 
 QRectF Pyramid::bound() {
-    return QRectF(QPointF(v(0, PYRAMID_V1), v(1, PYRAMID_V4)), QPointF(v(0, PYRAMID_V3), v(1, PYRAMID_V3)));
+    return QRectF(QPointF(originalV(0, PYRAMID_V1), originalV(1, PYRAMID_V4)), QPointF(originalV(0, PYRAMID_V3), originalV(1, PYRAMID_V3)));
 }
 
 QJsonObject Pyramid::toJson() {
-    QJsonObject json;
+    QJsonObject json = Figure::toJson();
     json.insert("type", "PYRAMID");
-    json.insert("edge", edge);
     return json;
 }

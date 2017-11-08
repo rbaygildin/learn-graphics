@@ -6,9 +6,20 @@
 #include "octahedron.h"
 
 Octahedron::Octahedron(double edge, QGraphicsScene *scene) : Figure(edge, scene) {
-    this->v = vertex();
+    this->originalV = vertex();
     this->f = faces();
-    this->originalV = this->v;
+    this->v = this->originalV;
+    xC = 0;
+    yC = 0;
+    zC = 0;
+    for(int i = 0; i < OCT_V; i++){
+        xC += v(0, i);
+        yC += v(1, i);
+        zC += v(2, i);
+    }
+    xC /= OCT_V;
+    yC /= OCT_V;
+    zC /= OCT_V;
 }
 
 QGenericMatrix<OCT_V, 3, qreal> Octahedron::vertex() {
@@ -79,12 +90,11 @@ QGenericMatrix<OCT_F, OCT_P, qreal> Octahedron::faces() {
 }
 
 QRectF Octahedron::bound() {
-    return QRectF(QPointF(v(0, OCT_V1), v(1, OCT_V5)), QPointF(v(0, OCT_V4), v(1, OCT_V6)));
+    return QRectF(QPointF(originalV(0, OCT_V1), originalV(1, OCT_V5)), QPointF(originalV(0, OCT_V4), originalV(1, OCT_V6)));
 }
 
 QJsonObject Octahedron::toJson() {
-    QJsonObject json;
+    QJsonObject json = Figure::toJson();
     json.insert("type", "OCTAHEDRON");
-    json.insert("edge", edge);
     return json;
 }

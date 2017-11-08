@@ -338,7 +338,7 @@
            <item>
             <widget class="QSlider" name="fovInp">
              <property name="value">
-              <number>50</number>
+              <number>0</number>
              </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -359,7 +359,7 @@
            <item>
             <widget class="QSlider" name="farInp">
              <property name="value">
-              <number>50</number>
+              <number>0</number>
              </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -380,7 +380,7 @@
            <item>
             <widget class="QSlider" name="nearInp">
              <property name="value">
-              <number>50</number>
+              <number>10</number>
              </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>

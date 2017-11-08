@@ -6,9 +6,20 @@
 #include "icosahedron.h"
 
 Icosahedron::Icosahedron(double edge, QGraphicsScene *scene) : Figure(edge, scene) {
-    this->v = vertex();
+    this->originalV = vertex();
     this->f = faces();
-    this->originalV = this->v;
+    this->v = this->originalV;
+    xC = 0;
+    yC = 0;
+    zC = 0;
+    for(int i = 0; i < ICOS_V; i++){
+        xC += v(0, i);
+        yC += v(1, i);
+        zC += v(2, i);
+    }
+    xC /= ICOS_V;
+    yC /= ICOS_V;
+    zC /= ICOS_V;
 }
 
 QGenericMatrix<ICOS_V, 3, qreal> Icosahedron::vertex() {
@@ -128,12 +139,11 @@ QGenericMatrix<ICOS_F, ICOS_P, qreal> Icosahedron::faces() {
 }
 
 QRectF Icosahedron::bound() {
-    return QRectF(QPointF(v(0, ICOS_TOP_V5), v(1, ICOS_TOP)), QPointF(v(0, ICOS_BOTTOM_V2), v(1, ICOS_BOTTOM)));
+    return QRectF(QPointF(originalV(0, ICOS_TOP_V5), originalV(1, ICOS_TOP)), QPointF(originalV(0, ICOS_BOTTOM_V2), originalV(1, ICOS_BOTTOM)));
 }
 
 QJsonObject Icosahedron::toJson() {
-    QJsonObject json;
+    QJsonObject json = Figure::toJson();
     json.insert("type", "ICOSAHEDRON");
-    json.insert("edge", edge);
     return json;
 }
