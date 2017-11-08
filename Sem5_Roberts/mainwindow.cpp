@@ -1,3 +1,7 @@
+#include <QFileDialog>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QJsonArray>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -41,7 +45,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::createActions() {
     //About
-    connect(ui->actionAbout, SIGNAL(triggered(bool)), this, SLOT(aboutMenuItemClicked()));
+    connect(ui->actionAbout, SIGNAL(triggered(bool)), this, SLOT(about()));
+    connect(ui->actionSave, SIGNAL(triggered(bool)), this, SLOT(save()));
+    connect(ui->actionOpen, SIGNAL(triggered(bool)), this, SLOT(open()));
 
     //Context menu
     ui->graphicsView->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -78,7 +84,7 @@ void MainWindow::createActions() {
     connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem * )), this, SLOT(selectFigure(QListWidgetItem * )));
 }
 
-void MainWindow::aboutMenuItemClicked() {
+void MainWindow::about() {
     QMessageBox msgBox;
     msgBox.setText(
             "<p>Разработка: Ярных Роман, студент БПИ141, 2017</p>"
@@ -134,6 +140,74 @@ void MainWindow::redraw() {
                 ->parProject()
                 ->paint();
     }
+}
+
+void MainWindow::save() {
+    QString fileName = QFileDialog::getSaveFileName(this,
+                                                    tr("Save figures"), "",
+                                                    tr("Figures (*.json);;All files (*)"));
+    if (fileName.isEmpty())
+        return;
+    QFile file(fileName);
+    if (!file.open(QIODevice::WriteOnly)) {
+        QMessageBox::warning(this, QString("Could not save a file"), file.errorString());
+    }
+    QJsonObject obj;
+    QJsonArray array;
+    for (auto &figure : figures) {
+        array.append(figure->toJson());
+    }
+    obj.insert("figures", array);
+    QJsonDocument doc(obj);
+    file.write(doc.toJson());
+    file.close();
+}
+
+void MainWindow::open() {
+    QString fileName = QFileDialog::getOpenFileName(this,
+                                                    tr("Open figures"), "",
+                                                    tr("Figures (*.json);;All files (*)"));
+    if (fileName.isEmpty())
+        return;
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::warning(this, QString("Could not to open a file"), file.errorString());
+    }
+    QJsonObject obj = QJsonDocument::fromJson(file.readAll()).object();
+    file.close();
+    clear();
+    for (auto &&item : obj["figures"].toArray()) {
+        QJsonObject figure = item.toObject();
+        if (figure["type"] == "CUBE") {
+            auto cube = new Cube(figure["edge"].toDouble(), scene);
+            figures.emplace_back(cube);
+            QListWidgetItem *widgetItem = new QListWidgetItem("Cube");
+            widgetItem->setData(Qt::UserRole, qVariantFromValue((void *) cube));
+            ui->listWidget->addItem(widgetItem);
+        }
+        else if (figure["type"] == "PYRAMID") {
+            auto pyramid = new Pyramid(figure["edge"].toDouble(), scene);
+            figures.emplace_back(pyramid);
+            QListWidgetItem *widgetItem = new QListWidgetItem("Pyramid");
+            widgetItem->setData(Qt::UserRole, qVariantFromValue((void *) pyramid));
+            ui->listWidget->addItem(widgetItem);
+        }
+        else if (figure["type"] == "OCTAHEDRON") {
+            auto octahedron = new Octahedron(figure["edge"].toDouble(), scene);
+            figures.emplace_back(octahedron);
+            QListWidgetItem *widgetItem = new QListWidgetItem("Octahedron");
+            widgetItem->setData(Qt::UserRole, qVariantFromValue((void *) octahedron));
+            ui->listWidget->addItem(widgetItem);
+        }
+        else if (figure["type"] == "ICOSAHEDRON") {
+            auto icosahedron = new Icosahedron(figure["edge"].toDouble(), scene);
+            figures.emplace_back(icosahedron);
+            QListWidgetItem *widgetItem = new QListWidgetItem("Icosahedron");
+            widgetItem->setData(Qt::UserRole, qVariantFromValue((void *) icosahedron));
+            ui->listWidget->addItem(widgetItem);
+        }
+    }
+    redraw();
 }
 
 void MainWindow::addCube(QPoint pos) {
@@ -203,35 +277,7 @@ void MainWindow::clear() {
 
 bool MainWindow::eventFilter(QObject *target, QEvent *event) {
     if (target == ui->graphicsView) {
-//        if (event->type() == QEvent::Wheel) {
-//            auto *wheelEvent = dynamic_cast<QWheelEvent *>(event);
-//            scene->clear();
-//            //Rotation y
-//            if (wheelEvent->orientation() == Qt::Horizontal) {
-//                for (auto &figure : figures) {
-//                    figure->restore();
-//                    figure->rotate(0, d2r(wheelEvent->delta() / 120.0), 0)
-//                            ->parProject()
-//                            ->paint();
-//                }
-//            }//Rotation x or z
-//            else if (wheelEvent->orientation() == Qt::Vertical) {
-//                for (auto &figure : figures) {
-//                    figure->restore();
-//                    if (ui->checkBox->isChecked()) {
-//                        figure->rotate(0, 0, d2r(wheelEvent->delta() / 120.0))
-//                                ->parProject()
-//                                ->paint();
-//                    } else {
-//                        figure->rotate(d2r(wheelEvent->delta() / 120.0), 0, 0)
-//                                ->parProject()
-//                                ->paint();
-//                    }
-//                }
-//            }
-//            return true;
-//        }
-//    }
+
     }
     return QMainWindow::eventFilter(target, event);
 }
@@ -247,42 +293,6 @@ void MainWindow::selectFigure(QListWidgetItem *item) {
         selectedFigure->setSelected(false);
     selectedFigure = (IFigure *) item->data(Qt::UserRole).value<void *>();
     selectedFigure->setSelected(true);
-}
-
-void MainWindow::scale() {
-    if (selectedFigure != nullptr) {
-        selectedFigure->restore();
-        selectedFigure->scale(
-                sliderToScale(ui->xScaleInput->value()),
-                sliderToScale(ui->yScaleInput->value()),
-                sliderToScale(ui->zScaleInput->value())
-        );
-        redraw();
-    }
-}
-
-void MainWindow::rotate() {
-    if (selectedFigure != nullptr) {
-        selectedFigure->restore();
-        selectedFigure->rotate(
-                sliderToRotate(ui->xRotateInput->value()),
-                sliderToRotate(ui->yRotateInput->value()),
-                sliderToRotate(ui->zRotateInput->value())
-        );
-        redraw();
-    }
-}
-
-void MainWindow::move() {
-    if (selectedFigure != nullptr) {
-        selectedFigure->restore();
-        selectedFigure->translate(
-                ui->dxInput->text().toDouble(),
-                ui->dyInput->text().toDouble(),
-                ui->dzInput->text().toDouble()
-        );
-        redraw();
-    }
 }
 
 void MainWindow::rotateX() {

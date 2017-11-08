@@ -34,11 +34,11 @@ public:
     ~MainWindow() override;
 
 private slots:
-    void aboutMenuItemClicked();
+    void save();
+    void open();
+    void about();
     void contextMenuRequested(QPoint pos);
     void redraw();
-    void scale();
-    void rotate();
     void rotateX();
     void rotateY();
     void rotateZ();
@@ -48,7 +48,6 @@ private slots:
     void moveX();
     void moveY();
     void moveZ();
-    void move();
     void clear();
     void restore();
     void selectFigure(QListWidgetItem* item);

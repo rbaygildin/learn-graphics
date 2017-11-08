@@ -84,5 +84,7 @@ QRectF Octahedron::bound() {
 
 QJsonObject Octahedron::toJson() {
     QJsonObject json;
+    json.insert("type", "OCTAHEDRON");
+    json.insert("edge", edge);
     return json;
 }

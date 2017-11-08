@@ -133,5 +133,7 @@ QRectF Icosahedron::bound() {
 
 QJsonObject Icosahedron::toJson() {
     QJsonObject json;
+    json.insert("type", "ICOSAHEDRON");
+    json.insert("edge", edge);
     return json;
 }

@@ -88,5 +88,6 @@ QRectF Cube::bound() {
 QJsonObject Cube::toJson() {
     QJsonObject json;
     json.insert("type", "CUBE");
+    json.insert("edge", edge);
     return json;
 }

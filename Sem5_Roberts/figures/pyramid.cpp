@@ -60,5 +60,7 @@ QRectF Pyramid::bound() {
 
 QJsonObject Pyramid::toJson() {
     QJsonObject json;
+    json.insert("type", "PYRAMID");
+    json.insert("edge", edge);
     return json;
 }
