@@ -5,7 +5,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_PREFIX_PATH "/Applications/Qt/5.9.2/clang_64")
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
-set(SOURCE_FILES main.cpp figures/cube.h figures/cube.cpp mainwindow.h mainwindow.cpp affine.cpp affine.h figures/figure.h figures/pyramid.cpp figures/pyramid.h figures/octahedron.cpp figures/octahedron.h figures/icosahedron.cpp figures/icosahedron.h figures/ifigure.h)
+set(SOURCE_FILES main.cpp figures/cube.h figures/cube.cpp mainwindow.h mainwindow.cpp affine.cpp affine.h figures/figure.h figures/pyramid.cpp figures/pyramid.h figures/octahedron.cpp figures/octahedron.h figures/icosahedron.cpp figures/icosahedron.h figures/ifigure.h
+        tetrahedroninput.h tetrahedroninput.cpp
+        figures/tetrahedron.h figures/pointf3d.h)
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Gui REQUIRED)

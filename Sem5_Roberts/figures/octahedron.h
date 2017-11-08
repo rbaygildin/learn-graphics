@@ -42,7 +42,7 @@ public:
 
 protected:
     QGenericMatrix<OCT_V, 3, qreal> vertex() override;
-    QGenericMatrix<OCT_F, OCT_P, qreal> faces() override;
+    QGenericMatrix<OCT_F, OCT_P, int> faces() override;
     QRectF bound() override;
 };
 

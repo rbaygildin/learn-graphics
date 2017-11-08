@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "figures/tetrahedron.h"
 
 #define PI 3.1459
 
@@ -104,6 +105,7 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     QAction *drawPyramidAction = new QAction("Add pyramid", this);
     QAction *drawOctahedronAction = new QAction("Add octahedron", this);
     QAction *drawIcosahedronAction = new QAction("Add icosahedron", this);
+    QAction *drawTetrahedronAction = new QAction("Add tetrahedron", this);
     QAction *drawAction = new QAction("Redraw", this);
     QAction *clearAction = new QAction("Clear", this);
     QAction *restoreAction = new QAction("Restore", this);
@@ -121,6 +123,9 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     connect(drawIcosahedronAction, &QAction::triggered, this, [this, pos]() {
         addIcosahedron(pos);
     });
+    connect(drawTetrahedronAction, &QAction::triggered, this, [this, pos]() {
+        addTetrahedron(pos);
+    });
     connect(drawAction, SIGNAL(triggered(bool)), this, SLOT(redraw()));
     connect(clearAction, SIGNAL(triggered(bool)), this, SLOT(clear()));
     connect(restoreAction, SIGNAL(triggered(bool)), this, SLOT(restore()));
@@ -130,6 +135,7 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     menu->addAction(drawPyramidAction);
     menu->addAction(drawOctahedronAction);
     menu->addAction(drawIcosahedronAction);
+    menu->addAction(drawTetrahedronAction);
     menu->addAction(drawAction);
     menu->addAction(clearAction);
     menu->addAction(restoreAction);
@@ -191,7 +197,7 @@ void MainWindow::open() {
         if (figure["type"] == "CUBE") {
             auto cube = new Cube(figure["edge"].toDouble(), scene);
             QJsonArray trArray = figure["transformations"].toArray();
-            for(int i = 0; i < trArray.size(); i++)
+            for (int i = 0; i < trArray.size(); i++)
                 cube->transform(i, trArray.at(i).toDouble());
             figures.emplace_back(cube);
             QListWidgetItem *widgetItem = new QListWidgetItem("Cube");
@@ -200,7 +206,7 @@ void MainWindow::open() {
         } else if (figure["type"] == "PYRAMID") {
             auto pyramid = new Pyramid(figure["edge"].toDouble(), scene);
             QJsonArray trArray = figure["transformations"].toArray();
-            for(int i = 0; i < trArray.size(); i++)
+            for (int i = 0; i < trArray.size(); i++)
                 pyramid->transform(i, trArray.at(i).toDouble());
             figures.emplace_back(pyramid);
             QListWidgetItem *widgetItem = new QListWidgetItem("Pyramid");
@@ -209,7 +215,7 @@ void MainWindow::open() {
         } else if (figure["type"] == "OCTAHEDRON") {
             auto octahedron = new Octahedron(figure["edge"].toDouble(), scene);
             QJsonArray trArray = figure["transformations"].toArray();
-            for(int i = 0; i < trArray.size(); i++)
+            for (int i = 0; i < trArray.size(); i++)
                 octahedron->transform(i, trArray.at(i).toDouble());
             figures.emplace_back(octahedron);
             QListWidgetItem *widgetItem = new QListWidgetItem("Octahedron");
@@ -218,7 +224,7 @@ void MainWindow::open() {
         } else if (figure["type"] == "ICOSAHEDRON") {
             auto icosahedron = new Icosahedron(figure["edge"].toDouble(), scene);
             QJsonArray trArray = figure["transformations"].toArray();
-            for(int i = 0; i < trArray.size(); i++)
+            for (int i = 0; i < trArray.size(); i++)
                 icosahedron->transform(i, trArray.at(i).toDouble());
             figures.emplace_back(icosahedron);
             QListWidgetItem *widgetItem = new QListWidgetItem("Icosahedron");
@@ -266,6 +272,17 @@ void MainWindow::addIcosahedron(QPoint pos) {
     item->setData(Qt::UserRole, qVariantFromValue((void *) cube));
     ui->listWidget->addItem(item);
     figures.emplace_back(cube);
+    redraw();
+}
+
+void MainWindow::addTetrahedron(QPoint point) {
+    auto *dialog = new TetrahedronInput(this);
+    dialog->exec();
+    auto tetrahedron = new Tetrahedron(scene, dialog->v1(), dialog->v2(), dialog->v3(), dialog->v4());
+    QListWidgetItem *item = new QListWidgetItem("Tetrahedron");
+    item->setData(Qt::UserRole, qVariantFromValue((void *) tetrahedron));
+    ui->listWidget->addItem(item);
+    figures.emplace_back(tetrahedron);
     redraw();
 }
 

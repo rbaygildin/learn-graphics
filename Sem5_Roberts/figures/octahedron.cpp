@@ -52,8 +52,8 @@ QGenericMatrix<OCT_V, 3, qreal> Octahedron::vertex() {
     return v2;
 }
 
-QGenericMatrix<OCT_F, OCT_P, qreal> Octahedron::faces() {
-    QGenericMatrix<OCT_F, OCT_P, qreal> f2;
+QGenericMatrix<OCT_F, OCT_P, int> Octahedron::faces() {
+    QGenericMatrix<OCT_F, OCT_P, int> f2;
     //front top
     f2(OCT_P1, OCT_FRONT_TOP) = OCT_V1;
     f2(OCT_P2, OCT_FRONT_TOP) = OCT_V2;

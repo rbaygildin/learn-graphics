@@ -13,6 +13,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include "tetrahedroninput.h"
 #include "figures/cube.h"
 #include "figures/pyramid.h"
 #include "figures/octahedron.h"
@@ -89,6 +90,8 @@ private:
     QGraphicsScene *scene;
     vector<IFigure *> figures;
     IFigure *selectedFigure;
+
+    void addTetrahedron(QPoint point);
 };
 
 #endif // MAINWINDOW_H

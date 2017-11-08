@@ -35,6 +35,8 @@ public:
         transformations[TranslateY] = 0.0;
         transformations[TranslateZ] = 0.0;
     }
+    virtual ~IFigure() = default;
+
 public:
     virtual IFigure *transform(int operation, double value){
         transformations[operation] = value;

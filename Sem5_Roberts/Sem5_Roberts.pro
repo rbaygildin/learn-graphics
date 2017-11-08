@@ -32,6 +32,7 @@ SOURCES += \
         figures/pyramid.cpp \
         figures/octahedron.cpp \
         figures/icosahedron.cpp \
+    tetrahedroninput.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,7 +41,9 @@ HEADERS += \
         figures/pyramid.h \
         figures/octahedron.h \
         figures/icosahedron.h \
+    tetrahedroninput.h
 
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    tetrahedroninput.ui

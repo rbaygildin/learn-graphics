@@ -44,8 +44,8 @@ QGenericMatrix<PYRAMID_V, 3, qreal> Pyramid::vertex() {
     return v2;
 }
 
-QGenericMatrix<PYRAMID_F, PYRAMID_P, qreal> Pyramid::faces() {
-    QGenericMatrix<PYRAMID_F, PYRAMID_P, qreal> f2;
+QGenericMatrix<PYRAMID_F, PYRAMID_P, int> Pyramid::faces() {
+    QGenericMatrix<PYRAMID_F, PYRAMID_P, int> f2;
     //side 1
     f2(PYRAMID_P1, PYRAMID_SIDE_LEFT) = PYRAMID_V1;
     f2(PYRAMID_P2, PYRAMID_SIDE_LEFT) = PYRAMID_V2;

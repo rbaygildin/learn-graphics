@@ -38,7 +38,7 @@ public:
 
 protected:
     QGenericMatrix<ICOS_V, 3, qreal> vertex() override;
-    QGenericMatrix<ICOS_F, ICOS_P, qreal> faces() override;
+    QGenericMatrix<ICOS_F, ICOS_P, int> faces() override;
     QRectF bound() override;
 };
 

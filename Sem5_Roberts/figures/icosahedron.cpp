@@ -50,8 +50,8 @@ QGenericMatrix<ICOS_V, 3, qreal> Icosahedron::vertex() {
     return v2;
 }
 
-QGenericMatrix<ICOS_F, ICOS_P, qreal> Icosahedron::faces() {
-    QGenericMatrix<ICOS_F, ICOS_P, qreal> f2;
+QGenericMatrix<ICOS_F, ICOS_P, int> Icosahedron::faces() {
+    QGenericMatrix<ICOS_F, ICOS_P, int> f2;
 
     //top
     f2(X, 0) = ICOS_TOP_V1;

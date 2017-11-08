@@ -52,7 +52,7 @@ public:
 
 protected:
     QGenericMatrix<V, 3, qreal> vertex() override;
-    QGenericMatrix<F, P, qreal> faces() override;
+    QGenericMatrix<F, P, int> faces() override;
 };
 
 #endif // CUBE_H

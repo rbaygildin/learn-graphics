@@ -26,7 +26,6 @@
 #define PYRAMID_P1 0
 #define PYRAMID_P2 1
 #define PYRAMID_P3 2
-#define PYRAMID_P4 3
 
 class Pyramid : public Figure<PYRAMID_V, PYRAMID_E, PYRAMID_F, PYRAMID_P>{
 public:
@@ -36,7 +35,7 @@ public:
 
 protected:
     QGenericMatrix<PYRAMID_V, 3, qreal> vertex() override;
-    QGenericMatrix<PYRAMID_F, PYRAMID_P, qreal> faces() override;
+    QGenericMatrix<PYRAMID_F, PYRAMID_P, int> faces() override;
     QRectF bound() override;
 };
 

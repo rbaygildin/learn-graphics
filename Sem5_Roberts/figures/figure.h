@@ -54,7 +54,7 @@ public:
     }
 
 protected:
-    vector<bool> removeLines(bool isRemoveLines, QGenericMatrix<V, 3, qreal> v2, QGenericMatrix<F, P, qreal> f2);
+    vector<bool> removeLines(bool isRemoveLines, QGenericMatrix<V, 3, qreal> v2, QGenericMatrix<F, P, int> f2);
 
     QGenericMatrix<V, 3, qreal> rotate(QGenericMatrix<V, 3, qreal> v2, double a, double b, double c);
 
@@ -68,7 +68,7 @@ protected:
 
     virtual QGenericMatrix<V, 3, qreal> vertex() = 0;
 
-    virtual QGenericMatrix<F, P, qreal> faces() = 0;
+    virtual QGenericMatrix<F, P, int> faces() = 0;
 
 protected:
     double rx2sx(double x);
@@ -80,7 +80,7 @@ protected:
     QGenericMatrix<V, 3, qreal> v;
     QGenericMatrix<V, 3, qreal> originalV;
     QGenericMatrix<V, 3, qreal> pV;
-    QGenericMatrix<F, P, qreal> f;
+    QGenericMatrix<F, P, int> f;
     double edge;
     double xC;
     double yC;
@@ -165,7 +165,7 @@ QGenericMatrix<V, 4, qreal> Figure<V, E, F, P>::perProject(QGenericMatrix<V, 3, 
 }
 
 template<int V, int E, int F, int P>
-vector<bool> Figure<V, E, F, P>::removeLines(bool isRemoveLines, QGenericMatrix<V, 3, qreal> v2, QGenericMatrix<F, P, qreal> f2) {
+vector<bool> Figure<V, E, F, P>::removeLines(bool isRemoveLines, QGenericMatrix<V, 3, qreal> v2, QGenericMatrix<F, P, int> f2) {
     vector<bool> hidden;
     for (int i = 0; i < F; i++) {
         hidden.push_back(false);

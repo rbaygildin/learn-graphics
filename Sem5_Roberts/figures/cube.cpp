@@ -56,8 +56,8 @@ QGenericMatrix<V, 3, qreal> Cube::vertex() {
     return v2;
 }
 
-QGenericMatrix<F, P, qreal> Cube::faces() {
-    QGenericMatrix<F, P, qreal> f2;
+QGenericMatrix<F, P, int> Cube::faces() {
+    QGenericMatrix<F, P, int> f2;
     //side 1
     f2(P1, SIDE_FRONT) = V1;
     f2(P2, SIDE_FRONT) = V2;
