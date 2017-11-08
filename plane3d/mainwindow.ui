@@ -51,13 +51,13 @@
        <property name="title">
         <string>GroupBox</string>
        </property>
-       <widget class="QWidget" name="layoutWidget">
+       <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
           <x>40</x>
-          <y>40</y>
+          <y>30</y>
           <width>271</width>
-          <height>541</height>
+          <height>601</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -82,6 +82,20 @@
            </item>
            <item>
             <widget class="QListWidget" name="listInp"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>Длина ребра</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="edgeInp"/>
            </item>
           </layout>
          </item>
@@ -307,31 +321,23 @@
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="">
-        <property name="geometry">
-         <rect>
-          <x>40</x>
-          <y>600</y>
-          <width>189</width>
-          <height>52</height>
-         </rect>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_11">
          <item>
-          <widget class="QCheckBox" name="zModeCheckBox">
-           <property name="text">
-            <string>По оси Z</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="removeHiddenLinesCheckBox">
-           <property name="text">
-            <string>Убрать невидимые линии</string>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <item>
+            <widget class="QCheckBox" name="zModeCheckBox">
+             <property name="text">
+              <string>По оси Z</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="removeHiddenLinesCheckBox">
+             <property name="text">
+              <string>Убрать невидимые линии</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>

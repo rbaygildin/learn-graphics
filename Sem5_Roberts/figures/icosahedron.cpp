@@ -2,11 +2,13 @@
 // Created by Roman Yarnykh on 01.11.17.
 //
 
+#include <QJsonObject>
 #include "icosahedron.h"
 
 Icosahedron::Icosahedron(double edge, QGraphicsScene *scene) : Figure(edge, scene) {
     this->v = vertex();
     this->f = faces();
+    this->originalV = this->v;
 }
 
 QGenericMatrix<ICOS_V, 3, qreal> Icosahedron::vertex() {
@@ -123,4 +125,13 @@ QGenericMatrix<ICOS_F, ICOS_P, qreal> Icosahedron::faces() {
     f2(Y, 19) = ICOS_TOP_V2;
     f2(Z, 19) = ICOS_BOTTOM_V2;
     return f2;
+}
+
+QRectF Icosahedron::bound() {
+    return QRectF(QPointF(v(0, ICOS_TOP_V5), v(1, ICOS_TOP)), QPointF(v(0, ICOS_BOTTOM_V2), v(1, ICOS_BOTTOM)));
+}
+
+QJsonObject Icosahedron::toJson() {
+    QJsonObject json;
+    return json;
 }

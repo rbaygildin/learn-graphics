@@ -4,13 +4,13 @@
 
 #include "pyramid.h"
 
-Pyramid::Pyramid(double edge, QGraphicsScene *scene) : Figure(edge, scene) {
+Pyramid::Pyramid(double edge, QGraphicsScene *scene) : Figure(edge, scene, 4, 6, 4, 3) {
     this->v = vertex();
     this->f = faces();
 }
 
 arma::mat Pyramid::vertex() {
-    arma::mat v2(1, 2);
+    arma::mat v2(static_cast<const arma::uword>(V), 3);
     //v 1
     v2(PYRAMID_V1, X) = -edge / 2.0;
     v2(PYRAMID_V1, Y) = 0;
@@ -32,7 +32,7 @@ arma::mat Pyramid::vertex() {
 }
 
 arma::mat Pyramid::faces() {
-    arma::mat f2;
+    arma::mat f2(F, 3);
     //side 1
     f2(PYRAMID_SIDE_LEFT, PYRAMID_P1) = PYRAMID_V1;
     f2(PYRAMID_SIDE_LEFT, PYRAMID_P2) = PYRAMID_V2;
@@ -52,18 +52,3 @@ arma::mat Pyramid::faces() {
     return f2;
 }
 
-int Pyramid::getV() {
-    return 4;
-}
-
-int Pyramid::getE() {
-    return 6;
-}
-
-int Pyramid::getF() {
-    return 4;
-}
-
-int Pyramid::getP() {
-    return 3;
-}

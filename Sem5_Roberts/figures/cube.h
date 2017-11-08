@@ -40,10 +40,15 @@ const int P2 = 1;
 const int P3 = 2;
 const int P4 = 3;
 
+/**
+ * Cube figure
+ */
 class Cube : public Figure<8, 12, 6, 4>
 {
 public:
     Cube(double edge, QGraphicsScene *scene);
+    QRectF bound() override;
+    QJsonObject toJson() override;
 
 protected:
     QGenericMatrix<V, 3, qreal> vertex() override;

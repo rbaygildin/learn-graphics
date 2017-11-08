@@ -21,9 +21,12 @@ using namespace std;
 
 #define PI 3.1459
 
+enum ProjMode {ORT, PER};
+
 class Figure {
 public:
-    Figure(double edge, QGraphicsScene *scene);
+    Figure(double edge, QGraphicsScene *scene, int V, int E, int F, int P);
+    virtual ~Figure();
 
 public:
     Figure *rotate(double a, double b, double c);
@@ -32,19 +35,15 @@ public:
 
     Figure *translate(double dx, double dy, double dz);
 
-    Figure *parProject();
+    arma::mat ortProject();
 
-    Figure *perspectiveProject(double depth);
+    arma::mat perProject(double depth);
 
 //    Figure *removeHiddenLines(bool flag);
 
-    void paint();
+    void paint(ProjMode projMode = ProjMode::ORT);
 
 protected:
-    virtual int getV() = 0;
-    virtual int getE() = 0;
-    virtual int getF() = 0;
-    virtual int getP() = 0;
     virtual arma::mat vertex() = 0;
     virtual arma::mat faces() = 0;
 
@@ -56,9 +55,12 @@ protected:
     bool isRemoveLines = false;
     QGraphicsScene *scene;
     arma::mat v;
-    arma::mat pV;
     arma::mat f;
-    vector<bool> hidden;
+    int V;
+    int E;
+    int F;
+    int P;
+    bool* hidden;
     double edge;
 };
 

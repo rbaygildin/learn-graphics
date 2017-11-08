@@ -100,27 +100,37 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::redraw() {
-
+    for(auto &figure : figures)
+        figure->paint();
 }
 
 void MainWindow::clear() {
-    for(int i = 0; i < figures.size(); i++)
-        delete(figures[i]);
+    for (auto &figure : figures)
+        delete figure;
     figures.clear();
+    scene->clear();
 }
 
 void MainWindow::addCube() {
-
+    auto fig = new Cube(ui->edgeInp->text().toDouble(), scene);
+    figures.emplace_back(fig);
+    redraw();
 }
 
 void MainWindow::addPyramid() {
-
+    auto fig = new Pyramid(ui->edgeInp->text().toDouble(), scene);
+    figures.emplace_back(fig);
+    redraw();
 }
 
 void MainWindow::addOctahedron() {
-
+    auto fig = new Octahedron(ui->edgeInp->text().toDouble(), scene);
+    figures.emplace_back(fig);
+    redraw();
 }
 
 void MainWindow::addIcosahedron() {
-
+    auto fig = new Icosahedron(ui->edgeInp->text().toDouble(), scene);
+    figures.emplace_back(fig);
+    redraw();
 }

@@ -2,11 +2,13 @@
 // Created by Roman Yarnykh on 31.10.17.
 //
 
+#include <QJsonObject>
 #include "pyramid.h"
 
 Pyramid::Pyramid(double edge, QGraphicsScene *scene) : Figure(edge, scene) {
     this->v = vertex();
     this->f = faces();
+    this->originalV = this->v;
 }
 
 QGenericMatrix<PYRAMID_V, 3, qreal> Pyramid::vertex() {
@@ -50,4 +52,13 @@ QGenericMatrix<PYRAMID_F, PYRAMID_P, qreal> Pyramid::faces() {
     f2(PYRAMID_P2, PYRAMID_BOTTOM) = PYRAMID_V2;
     f2(PYRAMID_P3, PYRAMID_BOTTOM) = PYRAMID_V3;
     return f2;
+}
+
+QRectF Pyramid::bound() {
+    return QRectF(QPointF(v(0, PYRAMID_V1), v(1, PYRAMID_V4)), QPointF(v(0, PYRAMID_V3), v(1, PYRAMID_V3)));
+}
+
+QJsonObject Pyramid::toJson() {
+    QJsonObject json;
+    return json;
 }

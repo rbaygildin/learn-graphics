@@ -32,9 +32,12 @@ class Pyramid : public Figure<PYRAMID_V, PYRAMID_E, PYRAMID_F, PYRAMID_P>{
 public:
     Pyramid(double edge, QGraphicsScene *scene);
 
+    QJsonObject toJson() override;
+
 protected:
     QGenericMatrix<PYRAMID_V, 3, qreal> vertex() override;
     QGenericMatrix<PYRAMID_F, PYRAMID_P, qreal> faces() override;
+    QRectF bound() override;
 };
 
 

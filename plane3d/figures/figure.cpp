@@ -4,10 +4,16 @@
 
 #include "figure.h"
 
-Figure::Figure(double edge, QGraphicsScene *scene) {
+
+Figure::Figure(double edge, QGraphicsScene *scene, int V, int E, int F, int P) {
     this->scene = scene;
     this->edge = edge;
-    for(int i = 0; i < getF(); i++){
+    this->V = V;
+    this->E = E;
+    this->F = F;
+    this->P = P;
+    hidden = new bool[this->F];
+    for (int i = 0; i < this->F; i++) {
         hidden[i] = false;
     }
 }
@@ -22,26 +28,26 @@ double Figure::ry2sy(double y) {
     return yc - y;
 }
 
-Figure* Figure::rotate(double a, double b, double c) {
+Figure *Figure::rotate(double a, double b, double c) {
     this->v = Affine::rotate(v, a, b, c);
     return this;
 }
 
-Figure* Figure::scale(double a, double b, double c) {
+Figure *Figure::scale(double a, double b, double c) {
     this->v = Affine::scale(v, a, b, c);
     return this;
 }
 
-Figure* Figure::translate(double dx, double dy, double dz) {
+Figure *Figure::translate(double dx, double dy, double dz) {
     arma::mat m4;
-    for (int i = 0; i < getV(); i++) {
+    for (int i = 0; i < V; i++) {
         m4(i, 0) = this->v(i, 0);
         m4(i, 1) = this->v(i, 1);
         m4(i, 2) = this->v(i, 2);
         m4(i, 3) = 1;
     }
     m4 = Affine::translate(m4, dx, dy, dz);
-    for (int i = 0; i < getV(); i++) {
+    for (int i = 0; i < V; i++) {
         this->v(i, 0) = m4(i, 0);
         this->v(i, 1) = m4(i, 1);
         this->v(i, 2) = m4(i, 2);
@@ -49,25 +55,20 @@ Figure* Figure::translate(double dx, double dy, double dz) {
     return this;
 }
 
-Figure* Figure::parProject() {
-    pV = Affine::parProject(v);
-    return this;
+arma::mat Figure::ortProject() {
+    return Affine::ortProject(v);
 }
 
-Figure* Figure::perspectiveProject(double depth) {
+arma::mat Figure::perProject(double depth) {
     arma::mat vExt;
-    for (int i = 0; i < getV(); i++) {
+    for (int i = 0; i < F; i++) {
         vExt(i, 0) = v(i, 0);
         vExt(i, 1) = v(i, 1);
         vExt(i, 2) = v(i, 2);
         vExt(i, 3) = 1;
     }
     arma::mat projectedV2 = Affine::perProject(vExt, depth);
-    for (int i = 0; i < getV(); i++) {
-        pV(i, 0) = projectedV2(i, 0);
-        pV(i, 1) = projectedV2(i, 1);
-    }
-    return this;
+    return projectedV2;
 }
 
 //Figure* Figure::removeHiddenLines(bool flag) {
@@ -105,20 +106,30 @@ Figure* Figure::perspectiveProject(double depth) {
 //    return this;
 //}
 
-void Figure::paint() {
+void Figure::paint(ProjMode projMode) {
     QPen pen(Qt::black);
     QBrush brush(Qt::white);
     pen.setWidth(3);
-    for (int i = 0; i < getF(); i++) {
+    arma::mat pV;
+    if (projMode == ProjMode::ORT)
+        pV = ortProject();
+    else
+        pV = perProject(0);
+    for (int i = 0; i < F; i++) {
         if (hidden[i])
             continue;
         QPolygonF face;
-        for (int j = 0; j < getP(); j++) {
+        for (int j = 0; j < P; j++) {
+            qreal x = rx2sx(pV(f(i, j), 0));
+            qreal y = ry2sy(pV(f(i, j), 1));
             face << QPointF(
-                    rx2sx(pV(f(j, i), 0)),
-                    ry2sy(pV(f(j, i), 1))
+                    x, y
             );
         }
         scene->addPolygon(face, pen);
     }
+}
+
+Figure::~Figure() {
+    delete hidden;
 }

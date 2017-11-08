@@ -1,13 +1,13 @@
 #include "cube.h"
 
-Cube::Cube(double edge, QGraphicsScene *scene) : Figure(edge, scene)
+Cube::Cube(double edge, QGraphicsScene *scene) : Figure(edge, scene, 8, 12, 6, 4)
 {
     this->v = vertex();
     this->f = faces();
 }
 
 arma::mat Cube::vertex() {
-    arma::mat v2;
+    arma::mat v2(static_cast<const arma::uword>(V), 3);
     //v 1
     v2(V1, XC) = -edge / 2.0;
     v2(V1, YC) = 0;
@@ -45,7 +45,7 @@ arma::mat Cube::vertex() {
 }
 
 arma::mat Cube::faces() {
-    arma::mat f2;
+    arma::mat f2(static_cast<const arma::uword>(F), static_cast<const arma::uword>(P));
     //side 1
     f2(SIDE_FRONT, P1) = V1;
     f2(SIDE_FRONT, P2) = V2;
@@ -79,18 +79,3 @@ arma::mat Cube::faces() {
     return f2;
 }
 
-int Cube::getV() {
-    return 8;
-}
-
-int Cube::getE() {
-    return 12;
-}
-
-int Cube::getF() {
-    return 6;
-}
-
-int Cube::getP() {
-    return 4;
-}

@@ -4,13 +4,13 @@
 
 #include "icosahedron.h"
 
-Icosahedron::Icosahedron(double edge, QGraphicsScene *scene) : Figure(edge, scene) {
+Icosahedron::Icosahedron(double edge, QGraphicsScene *scene) : Figure(edge, scene, 12, 30, 20, 3) {
     this->v = vertex();
     this->f = faces();
 }
 
 arma::mat Icosahedron::vertex() {
-    arma::mat v2;
+    arma::mat v2(static_cast<const arma::uword>(V), 3);
     double R = edge * sqrt(3.0) * (3.0 + sqrt(5.0)) / 12.0;
     double r = edge / (2.0 * sin(PI / 5.0));
     double alpha = acos((1 - edge * edge / 2 / R / R));
@@ -38,7 +38,7 @@ arma::mat Icosahedron::vertex() {
 }
 
 arma::mat Icosahedron::faces() {
-    arma::mat f2;
+    arma::mat f2(static_cast<const arma::uword>(F), 3);
 
     //top
     f2(0, X) = ICOS_TOP_V1;
@@ -125,18 +125,3 @@ arma::mat Icosahedron::faces() {
     return f2;
 }
 
-int Icosahedron::getV() {
-    return 12;
-}
-
-int Icosahedron::getE() {
-    return 30;
-}
-
-int Icosahedron::getF() {
-    return 20;
-}
-
-int Icosahedron::getP() {
-    return 3;
-}

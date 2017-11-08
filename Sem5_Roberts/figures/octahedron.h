@@ -38,9 +38,12 @@ class Octahedron : public Figure<OCT_V, OCT_E, OCT_F, OCT_P>{
 public:
     Octahedron(double edge, QGraphicsScene *scene);
 
+    QJsonObject toJson() override;
+
 protected:
     QGenericMatrix<OCT_V, 3, qreal> vertex() override;
     QGenericMatrix<OCT_F, OCT_P, qreal> faces() override;
+    QRectF bound() override;
 };
 
 

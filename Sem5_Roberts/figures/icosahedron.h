@@ -34,9 +34,12 @@ class Icosahedron : public Figure<ICOS_V, ICOS_E, ICOS_F, ICOS_P>{
 public:
     Icosahedron(double edge, QGraphicsScene *scene);
 
+    QJsonObject toJson() override;
+
 protected:
     QGenericMatrix<ICOS_V, 3, qreal> vertex() override;
     QGenericMatrix<ICOS_F, ICOS_P, qreal> faces() override;
+    QRectF bound() override;
 };
 
 

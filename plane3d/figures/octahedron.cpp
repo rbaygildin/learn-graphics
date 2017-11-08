@@ -4,13 +4,13 @@
 
 #include "octahedron.h"
 
-Octahedron::Octahedron(double edge, QGraphicsScene *scene) : Figure(edge, scene) {
+Octahedron::Octahedron(double edge, QGraphicsScene *scene) : Figure(edge, scene, 6, 12, 8, 3) {
     this->v = vertex();
     this->f = faces();
 }
 
 arma::mat Octahedron::vertex() {
-    arma::mat v2;
+    arma::mat v2(static_cast<const arma::uword>(V), 3);
     //v 1
     v2(OCT_V1, X) = -this->edge / 2.0;
     v2(OCT_V1, Y) = 0;
@@ -40,7 +40,7 @@ arma::mat Octahedron::vertex() {
 }
 
 arma::mat Octahedron::faces() {
-    arma::mat f2;
+    arma::mat f2(static_cast<const arma::uword>(F), 3);
     //front top
     f2(OCT_FRONT_TOP, OCT_P1) = OCT_V1;
     f2(OCT_FRONT_TOP, OCT_P2) = OCT_V2;
@@ -76,18 +76,3 @@ arma::mat Octahedron::faces() {
     return f2;
 }
 
-int Octahedron::getV() {
-    return 6;
-}
-
-int Octahedron::getE() {
-    return 12;
-}
-
-int Octahedron::getF() {
-    return 8;
-}
-
-int Octahedron::getP() {
-    return 3;
-}

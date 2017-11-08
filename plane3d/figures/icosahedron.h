@@ -28,10 +28,7 @@ public:
 protected:
     arma::mat vertex() override;
     arma::mat faces() override;
-    int getV() override;
-    int getE() override;
-    int getF() override;
-    int getP() override;
+
 };
 
 

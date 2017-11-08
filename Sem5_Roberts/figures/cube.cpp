@@ -1,9 +1,11 @@
+#include <QJsonObject>
 #include "cube.h"
 
 Cube::Cube(double edge, QGraphicsScene *scene) : Figure<8, 12, 6, 4>(edge, scene)
 {
     this->v = vertex();
     this->f = faces();
+    this->originalV = this->v;
 }
 
 QGenericMatrix<V, 3, qreal> Cube::vertex() {
@@ -77,4 +79,14 @@ QGenericMatrix<F, P, qreal> Cube::faces() {
     f2(P3, BOTTOM) = V3;
     f2(P4, BOTTOM) = V4;
     return f2;
+}
+
+QRectF Cube::bound() {
+    return QRectF(QPointF(v(XC, V5), v(YC, V5)), QPointF(v(XC, V2), v(YC, V2)));
+}
+
+QJsonObject Cube::toJson() {
+    QJsonObject json;
+    json.insert("type", "CUBE");
+    return json;
 }

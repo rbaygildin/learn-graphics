@@ -9,7 +9,7 @@ arma::mat Affine::inverse(arma::mat matrix) {
 }
 
 arma::mat Affine::scale(arma::mat matrix, double a, double b, double c) {
-    arma::mat sm;
+    arma::mat sm(3, 3);
     //first row x
     sm(0, 0) = a;
     sm(0, 1) = 0;
@@ -26,7 +26,7 @@ arma::mat Affine::scale(arma::mat matrix, double a, double b, double c) {
 }
 
 arma::mat Affine::translate(arma::mat matrix, double dx, double dy, double dz) {
-    arma::mat tm;
+    arma::mat tm(4, 4);
     //first row x
     tm(0, 0) = 1;
     tm(0, 1) = 0;
@@ -51,7 +51,7 @@ arma::mat Affine::translate(arma::mat matrix, double dx, double dy, double dz) {
 }
 
 arma::mat Affine::rotateX(arma::mat matrix, double phi) {
-    arma::mat rm;
+    arma::mat rm(3, 3);
     //first row x
     rm(0, 0) = 1;
     rm(0, 1) = 0;
@@ -68,7 +68,7 @@ arma::mat Affine::rotateX(arma::mat matrix, double phi) {
 }
 
 arma::mat Affine::rotateY(arma::mat matrix, double phi) {
-    arma::mat rm;
+    arma::mat rm(3, 3);
     //first row x
     rm(0, 0) = cos(phi);
     rm(0, 1) = 0;
@@ -85,7 +85,7 @@ arma::mat Affine::rotateY(arma::mat matrix, double phi) {
 }
 
 arma::mat Affine::rotateZ(arma::mat matrix, double phi) {
-    arma::mat rm;
+    arma::mat rm(3, 3);
     //first row x
     rm(0, 0) = cos(phi);
     rm(0, 1) = -sin(phi);
@@ -101,8 +101,8 @@ arma::mat Affine::rotateZ(arma::mat matrix, double phi) {
     return matrix * rm;
 }
 
-arma::mat Affine::parProject(arma::mat matrix) {
-    arma::mat pm;
+arma::mat Affine::ortProject(arma::mat matrix) {
+    arma::mat pm(3, 3);
     //first row x
     pm(0, 0) = 1;
     pm(0, 1) = 0;
@@ -119,7 +119,7 @@ arma::mat Affine::parProject(arma::mat matrix) {
 }
 
 arma::mat Affine::perProject(arma::mat matrix, double depth) {
-    arma::mat pm;
+    arma::mat pm(4, 4);
     //first row
     pm(0, 0) = 1;
     pm(0, 1) = 0;

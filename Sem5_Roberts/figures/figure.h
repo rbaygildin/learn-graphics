@@ -9,6 +9,7 @@
 #include <QGraphicsScene>
 #include <QGenericMatrix>
 #include "../affine.h"
+#include "ifigure.h"
 
 #define X 0
 #define Y 1
@@ -17,24 +18,30 @@
 #define PI 3.1459
 
 template<int V, int E, int F, int P>
-class Figure {
+class Figure : public IFigure {
 public:
     Figure(double edge, QGraphicsScene *scene);
 
 public:
-    Figure *rotate(double a, double b, double c);
+    Figure *rotate(double a, double b, double c) override;
 
-    Figure *scale(double a, double b, double c);
+    Figure *scale(double a, double b, double c) override;
 
-    Figure *translate(double dx, double dy, double dz);
+    Figure *translate(double dx, double dy, double dz) override;
 
-    Figure *parProject();
+    Figure *parProject() override;
 
-    Figure *perProject(double depth);
+    Figure *perProject(double fov, double far, double near) override;
 
-    Figure<V, E, F, P> *removeHiddenLines(bool flag);
+    Figure<V, E, F, P> *removeHiddenLines(bool flag) override;
 
-    void paint();
+    void paint(bool roberts = false, ProjectionMode mode = ProjectionMode::ORT);
+
+    void restore() override;
+
+    void setSelected(bool isSelected) {
+        this->isSelected = isSelected;
+    }
 
 protected:
     virtual QGenericMatrix<V, 3, qreal> vertex() = 0;
@@ -49,11 +56,13 @@ protected:
 protected:
     bool isRemoveLines = false;
     QGraphicsScene *scene;
+    QGenericMatrix<V, 3, qreal> originalV;
     QGenericMatrix<V, 3, qreal> v;
     QGenericMatrix<V, 3, qreal> pV;
     QGenericMatrix<F, P, qreal> f;
     bool hidden[F];
     double edge;
+    bool isSelected = false;
 };
 
 
@@ -61,7 +70,7 @@ template<int V, int E, int F, int P>
 Figure<V, E, F, P>::Figure(double edge, QGraphicsScene *scene) {
     this->scene = scene;
     this->edge = edge;
-    for(int i = 0; i < F; i++){
+    for (int i = 0; i < F; i++) {
         hidden[i] = false;
     }
 }
@@ -80,13 +89,13 @@ double Figure<V, E, F, P>::ry2sy(double y) {
 
 template<int V, int E, int F, int P>
 Figure<V, E, F, P> *Figure<V, E, F, P>::rotate(double a, double b, double c) {
-    this->v = rotationXMatrix(a) * rotationYMatrix(b) * rotationZMatrix(c) * this->v;
+    this->originalV = rotationXMatrix(a) * rotationYMatrix(b) * rotationZMatrix(c) * this->originalV;
     return this;
 }
 
 template<int V, int E, int F, int P>
 Figure<V, E, F, P> *Figure<V, E, F, P>::scale(double a, double b, double c) {
-    this->v = scaleMatrix(a, b, c) * this->v;
+    this->originalV = scaleMatrix(a, b, c) * this->originalV;
     return this;
 }
 
@@ -94,39 +103,43 @@ template<int V, int E, int F, int P>
 Figure<V, E, F, P> *Figure<V, E, F, P>::translate(double dx, double dy, double dz) {
     QGenericMatrix<V, 4, qreal> m4;
     for (int i = 0; i < V; i++) {
-        m4(0, i) = this->v(0, i);
-        m4(1, i) = this->v(1, i);
-        m4(2, i) = this->v(2, i);
+        m4(0, i) = this->originalV(0, i);
+        m4(1, i) = this->originalV(1, i);
+        m4(2, i) = this->originalV(2, i);
         m4(3, i) = 1;
     }
     m4 = translationMatrix(dx, dy, dz).transposed() * m4;
     for (int i = 0; i < V; i++) {
-        this->v(0, i) = m4(0, i);
-        this->v(1, i) = m4(1, i);
-        this->v(2, i) = m4(2, i);
+        this->originalV(0, i) = m4(0, i);
+        this->originalV(1, i) = m4(1, i);
+        this->originalV(2, i) = m4(2, i);
     }
     return this;
 }
 
 template<int V, int E, int F, int P>
 Figure<V, E, F, P> *Figure<V, E, F, P>::parProject() {
-    QGenericMatrix<3, 3, qreal> proj = parallelProjectionMatrix();
-    pV = proj * v;
+    QGenericMatrix<3, 3, qreal> proj = otrProjectionMatrix();
+    pV = proj * originalV;
     return this;
 }
 
 template<int V, int E, int F, int P>
-Figure<V, E, F, P> *Figure<V, E, F, P>::perProject(double depth) {
-    QGenericMatrix<4, 4, qreal> proj = perspectiveProjectionMatrix(depth);
+Figure<V, E, F, P> *Figure<V, E, F, P>::perProject(double fov, double far, double near) {
+    QGenericMatrix<4, 4, qreal> proj = perProjectionMatrix(fov, far, near);
     QGenericMatrix<V, 4, qreal> vExt;
     for (int i = 0; i < V; i++) {
-        vExt(0, i) = v(0, i);
-        vExt(1, i) = v(1, i);
-        vExt(2, i) = v(2, i);
+        vExt(0, i) = originalV(0, i);
+        vExt(1, i) = originalV(1, i);
+        vExt(2, i) = originalV(2, i);
         vExt(3, i) = 1;
     }
     QGenericMatrix<V, 4, qreal> projectedV2 = proj * vExt;
     for (int i = 0; i < V; i++) {
+        if(abs(projectedV2(3, i) - 1.0) >= 0.01) {
+            projectedV2(0, i) /= projectedV2(3, i);
+            projectedV2(1, i) /= projectedV2(3, i);
+        }
         pV(0, i) = projectedV2(0, i);
         pV(1, i) = projectedV2(1, i);
     }
@@ -135,14 +148,14 @@ Figure<V, E, F, P> *Figure<V, E, F, P>::perProject(double depth) {
 
 template<int V, int E, int F, int P>
 Figure<V, E, F, P> *Figure<V, E, F, P>::removeHiddenLines(bool flag) {
-    if(!flag)
+    if (!flag)
         return this;
     QGenericMatrix<1, 3, qreal> inner;
     inner.fill(0);
-    for(int i = 0; i < V; i++){
-        inner(0, 0) += v(0, i);
-        inner(1, 0) += v(1, i);
-        inner(2, 0) += v(2, i);
+    for (int i = 0; i < V; i++) {
+        inner(0, 0) += originalV(0, i);
+        inner(1, 0) += originalV(1, i);
+        inner(2, 0) += originalV(2, i);
     }
     inner(0, 0) /= V;
     inner(1, 0) /= V;
@@ -157,10 +170,10 @@ Figure<V, E, F, P> *Figure<V, E, F, P>::removeHiddenLines(bool flag) {
     view(2, 0) = -600000;
     for (int i = 0; i < F; i++) {
         QGenericMatrix<3, 3, qreal> x;
-        for(int vj = 0; vj < 3; vj++){
-            x(0, vj) = v(0, f(vj, i));
-            x(1, vj) = v(1, f(vj, i));
-            x(2, vj) = v(2, f(vj, i));
+        for (int vj = 0; vj < 3; vj++) {
+            x(0, vj) = originalV(0, f(vj, i));
+            x(1, vj) = originalV(1, f(vj, i));
+            x(2, vj) = originalV(2, f(vj, i));
         }
         QGenericMatrix<3, 1, qreal> coeff = d * inverseMatrix(x);
         double sign = get_sign(inner, coeff) + 1;
@@ -171,7 +184,7 @@ Figure<V, E, F, P> *Figure<V, E, F, P>::removeHiddenLines(bool flag) {
 }
 
 template<int V, int E, int F, int P>
-void Figure<V, E, F, P>::paint() {
+void Figure<V, E, F, P>::paint(bool roberts, ProjectionMode mode) {
     QPen pen(Qt::black);
     QBrush brush(Qt::white);
     pen.setWidth(3);
@@ -187,6 +200,13 @@ void Figure<V, E, F, P>::paint() {
         }
         scene->addPolygon(face, pen);
     }
+    if (isSelected)
+        scene->addRect(bound(), QPen(Qt::red));
+}
+
+template<int V, int E, int F, int P>
+void Figure<V, E, F, P>::restore() {
+    this->originalV = this->v;
 }
 
 

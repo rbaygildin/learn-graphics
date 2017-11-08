@@ -118,7 +118,7 @@ QGenericMatrix<3, 3, qreal> rotationZMatrix(double phi){
     return projMatrix;
 }
 
-QGenericMatrix<3, 3, qreal> parallelProjectionMatrix(){
+QGenericMatrix<3, 3, qreal> otrProjectionMatrix(){
     QGenericMatrix<3, 3, qreal> projMatrix;
     //first row x
     projMatrix(0, 0) = 1;
@@ -135,28 +135,30 @@ QGenericMatrix<3, 3, qreal> parallelProjectionMatrix(){
     return projMatrix;
 }
 
-QGenericMatrix<4, 4, qreal> perspectiveProjectionMatrix(double depth){
+QGenericMatrix<4, 4, qreal> perProjectionMatrix(double fov, double far, double near){
     QGenericMatrix<4, 4, qreal> pm;
+    double S = 1 / tan(fov * 3.1459 / 360.0);
+    double fn = far - near;
     //first row
-    pm(0, 0) = 1;
+    pm(0, 0) = S;
     pm(1, 0) = 0;
     pm(2, 0) = 0;
     pm(3, 0) = 0;
     //second row
     pm(0, 1) = 0;
-    pm(1, 1) = 1;
+    pm(1, 1) = S;
     pm(2, 1) = 0;
     pm(3, 1) = 0;
     //third row
     pm(0, 2) = 0;
     pm(1, 2) = 0;
-    pm(2, 2) = 0;
-    pm(3, 2) = -1.0 / depth;
+    pm(2, 2) = - far / fn;
+    pm(3, 2) = -1.0;
     //fourth row
     pm(0, 3) = 0;
     pm(1, 3) = 0;
-    pm(2, 3) = 0;
-    pm(3, 3) = 1;
+    pm(2, 3) = - far * near / fn;
+    pm(3, 3) = 0;
     return pm;
 };
 

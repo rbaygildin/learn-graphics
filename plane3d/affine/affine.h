@@ -16,7 +16,7 @@ public:
     static arma::mat rotateX(arma::mat matrix, double phi);
     static arma::mat rotateY(arma::mat matrix, double phi);
     static arma::mat rotateZ(arma::mat matrix, double phi);
-    static arma::mat parProject(arma::mat matrix);
+    static arma::mat ortProject(arma::mat matrix);
     static arma::mat perProject(arma::mat matrix, double depth);
     static double getSign(arma::mat v, arma::mat m);
 };
