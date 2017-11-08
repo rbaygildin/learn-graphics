@@ -230,6 +230,26 @@ void MainWindow::open() {
             QListWidgetItem *widgetItem = new QListWidgetItem("Icosahedron");
             widgetItem->setData(Qt::UserRole, qVariantFromValue((void *) icosahedron));
             ui->listWidget->addItem(widgetItem);
+        } else if (figure["type"] == "TETRAHEDRON") {
+            QJsonArray vArray = figure["vertex"].toArray();
+            vector<PointF3d> vertex;
+            for (int i = 0; i < 4; i++) {
+                vertex.emplace_back(
+                        PointF3d(
+                                vArray.at(i * 4 + 0).toDouble(),
+                                vArray.at(i * 4 + 1).toDouble(),
+                                vArray.at(i * 4 + 2).toDouble()
+                        )
+                );
+            }
+            auto tetrahedron = new Tetrahedron(scene, vertex[0], vertex[1], vertex[2], vertex[3]);
+            QJsonArray trArray = figure["transformations"].toArray();
+            for (int i = 0; i < trArray.size(); i++)
+                tetrahedron->transform(i, trArray.at(i).toDouble());
+            figures.emplace_back(tetrahedron);
+            QListWidgetItem *widgetItem = new QListWidgetItem("Tetrahedron");
+            widgetItem->setData(Qt::UserRole, qVariantFromValue((void *) tetrahedron));
+            ui->listWidget->addItem(widgetItem);
         }
     }
     redraw();
