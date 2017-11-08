@@ -27,6 +27,10 @@ public:
     void createActions();
     void drawAxes();
     bool eventFilter(QObject *target, QEvent *event) override;
+    void addCube(QPoint pos);
+    void addPyramid(QPoint pos);
+    void addOctahedron(QPoint pos);
+    void addIcosahedron(QPoint pos);
     ~MainWindow() override;
 
 private slots:
@@ -35,11 +39,16 @@ private slots:
     void redraw();
     void scale();
     void rotate();
+    void rotateX();
+    void rotateY();
+    void rotateZ();
+    void scaleX();
+    void scaleY();
+    void scaleZ();
+    void moveX();
+    void moveY();
+    void moveZ();
     void move();
-    void addCube();
-    void addPyramid();
-    void addOctahedron();
-    void addIcosahedron();
     void clear();
     void restore();
     void selectFigure(QListWidgetItem* item);

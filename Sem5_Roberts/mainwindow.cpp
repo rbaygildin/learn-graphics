@@ -9,7 +9,7 @@ double sliderToRotate(int tick) {
 }
 
 double sliderToScale(int tick) {
-    return (tick + 0.001) / 30.0;
+    return (tick * 1.0 + 1.0) / 50.0;
 }
 
 double d2r(double degrees) {
@@ -48,22 +48,31 @@ void MainWindow::createActions() {
     connect(ui->graphicsView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
 
     //Rotation
-    connect(ui->xRotateInput, SIGNAL(valueChanged(int)), this, SLOT(rotate()));
-    connect(ui->yRotateInput, SIGNAL(valueChanged(int)), this, SLOT(rotate()));
-    connect(ui->zRotateInput, SIGNAL(valueChanged(int)), this, SLOT(rotate()));
+    //Rotate x
+    connect(ui->xRotateInput, SIGNAL(valueChanged(int)), this, SLOT(rotateX()));
+    //Rotate y
+    connect(ui->yRotateInput, SIGNAL(valueChanged(int)), this, SLOT(rotateY()));
+    //Rotate z
+    connect(ui->zRotateInput, SIGNAL(valueChanged(int)), this, SLOT(rotateZ()));
 
     //Remove lines
     connect(ui->removeLinesCheckBox, SIGNAL(stateChanged(int)), this, SLOT(redraw()));
 
     //Scale
-    connect(ui->xScaleInput, SIGNAL(valueChanged(int)), this, SLOT(scale()));
-    connect(ui->yScaleInput, SIGNAL(valueChanged(int)), this, SLOT(scale()));
-    connect(ui->zScaleInput, SIGNAL(valueChanged(int)), this, SLOT(scale()));
+    //Scale x
+    connect(ui->xScaleInput, SIGNAL(valueChanged(int)), this, SLOT(scaleX()));
+    //Scale y
+    connect(ui->yScaleInput, SIGNAL(valueChanged(int)), this, SLOT(scaleY()));
+    //Scale y
+    connect(ui->zScaleInput, SIGNAL(valueChanged(int)), this, SLOT(scaleZ()));
 
     //Move
-    connect(ui->dxInput, SIGNAL(editingFinished()), this, SLOT(move()));
-    connect(ui->dyInput, SIGNAL(editingFinished()), this, SLOT(move()));
-    connect(ui->dzInput, SIGNAL(editingFinished()), this, SLOT(move()));
+    //Move x
+    connect(ui->dxInput, SIGNAL(editingFinished()), this, SLOT(moveX()));
+    //Move y
+    connect(ui->dyInput, SIGNAL(editingFinished()), this, SLOT(moveY()));
+    //Move z
+    connect(ui->dzInput, SIGNAL(editingFinished()), this, SLOT(moveZ()));
 
     //Select figure
     connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem * )), this, SLOT(selectFigure(QListWidgetItem * )));
@@ -92,16 +101,16 @@ void MainWindow::contextMenuRequested(QPoint pos) {
 
     //Connect
     connect(drawCubeAction, &QAction::triggered, this, [this, pos]() {
-        addCube();
+        addCube(pos);
     });
     connect(drawPyramidAction, &QAction::triggered, this, [this, pos]() {
-        addPyramid();
+        addPyramid(pos);
     });
     connect(drawOctahedronAction, &QAction::triggered, this, [this, pos]() {
-        addOctahedron();
+        addOctahedron(pos);
     });
     connect(drawIcosahedronAction, &QAction::triggered, this, [this, pos]() {
-        addIcosahedron();
+        addIcosahedron(pos);
     });
     connect(drawAction, SIGNAL(triggered(bool)), this, SLOT(redraw()));
     connect(clearAction, SIGNAL(triggered(bool)), this, SLOT(clear()));
@@ -127,7 +136,7 @@ void MainWindow::redraw() {
     }
 }
 
-void MainWindow::addCube() {
+void MainWindow::addCube(QPoint pos) {
     double r = ui->rInput->text().toDouble();
     auto cube = new Cube(r, this->scene);
     QListWidgetItem *item = new QListWidgetItem("Cube");
@@ -137,7 +146,7 @@ void MainWindow::addCube() {
     redraw();
 }
 
-void MainWindow::addPyramid() {
+void MainWindow::addPyramid(QPoint pos) {
     double r = ui->rInput->text().toDouble();
     auto cube = new Pyramid(r, this->scene);
     QListWidgetItem *item = new QListWidgetItem("Pyramid");
@@ -147,7 +156,7 @@ void MainWindow::addPyramid() {
     redraw();
 }
 
-void MainWindow::addOctahedron() {
+void MainWindow::addOctahedron(QPoint pos) {
     double r = ui->rInput->text().toDouble();
     auto cube = new Octahedron(r, this->scene);
     QListWidgetItem *item = new QListWidgetItem("Octahedron");
@@ -157,7 +166,7 @@ void MainWindow::addOctahedron() {
     redraw();
 }
 
-void MainWindow::addIcosahedron() {
+void MainWindow::addIcosahedron(QPoint pos) {
     double r = ui->rInput->text().toDouble();
     auto cube = new Icosahedron(r, this->scene);
     QListWidgetItem *item = new QListWidgetItem("Icosahedron");
@@ -188,6 +197,7 @@ void MainWindow::clear() {
     figures.clear();
     scene->clear();
     ui->listWidget->clear();
+    selectedFigure = nullptr;
 }
 
 
@@ -241,6 +251,7 @@ void MainWindow::selectFigure(QListWidgetItem *item) {
 
 void MainWindow::scale() {
     if (selectedFigure != nullptr) {
+        selectedFigure->restore();
         selectedFigure->scale(
                 sliderToScale(ui->xScaleInput->value()),
                 sliderToScale(ui->yScaleInput->value()),
@@ -252,6 +263,7 @@ void MainWindow::scale() {
 
 void MainWindow::rotate() {
     if (selectedFigure != nullptr) {
+        selectedFigure->restore();
         selectedFigure->rotate(
                 sliderToRotate(ui->xRotateInput->value()),
                 sliderToRotate(ui->yRotateInput->value()),
@@ -263,9 +275,112 @@ void MainWindow::rotate() {
 
 void MainWindow::move() {
     if (selectedFigure != nullptr) {
+        selectedFigure->restore();
         selectedFigure->translate(
                 ui->dxInput->text().toDouble(),
                 ui->dyInput->text().toDouble(),
+                ui->dzInput->text().toDouble()
+        );
+        redraw();
+    }
+}
+
+void MainWindow::rotateX() {
+    if (selectedFigure != nullptr) {
+        selectedFigure->rotate(
+                sliderToRotate(ui->xRotateInput->value()),
+                0,
+                0
+        );
+        redraw();
+    }
+}
+
+void MainWindow::rotateY() {
+    if (selectedFigure != nullptr) {
+        selectedFigure->rotate(
+                0,
+                sliderToRotate(ui->yRotateInput->value()),
+                0
+        );
+        redraw();
+    }
+}
+
+void MainWindow::rotateZ() {
+    if (selectedFigure != nullptr) {
+        selectedFigure->rotate(
+                0,
+                0,
+                sliderToRotate(ui->zRotateInput->value())
+        );
+        redraw();
+    }
+}
+
+void MainWindow::scaleX() {
+    if (selectedFigure != nullptr) {
+        selectedFigure->restore();
+        selectedFigure->scale(
+                sliderToScale(ui->xScaleInput->value()),
+                1,
+                1
+        );
+        redraw();
+    }
+}
+
+void MainWindow::scaleY() {
+    if (selectedFigure != nullptr) {
+        selectedFigure->restore();
+        selectedFigure->scale(
+                1,
+                sliderToScale(ui->yScaleInput->value()),
+                1
+        );
+        redraw();
+    }
+}
+
+void MainWindow::scaleZ() {
+    if (selectedFigure != nullptr) {
+        selectedFigure->restore();
+        selectedFigure->scale(
+                1,
+                1,
+                sliderToScale(ui->zScaleInput->value())
+        );
+        redraw();
+    }
+}
+
+void MainWindow::moveX() {
+    if (selectedFigure != nullptr) {
+        selectedFigure->translate(
+                ui->dxInput->text().toDouble(),
+                0,
+                0
+        );
+        redraw();
+    }
+}
+
+void MainWindow::moveY() {
+    if (selectedFigure != nullptr) {
+        selectedFigure->translate(
+                0,
+                ui->dyInput->text().toDouble(),
+                0
+        );
+        redraw();
+    }
+}
+
+void MainWindow::moveZ() {
+    if (selectedFigure != nullptr) {
+        selectedFigure->translate(
+                0,
+                0,
                 ui->dzInput->text().toDouble()
         );
         redraw();

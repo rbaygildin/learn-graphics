@@ -23,23 +23,23 @@ public:
     Figure(double edge, QGraphicsScene *scene);
 
 public:
-    Figure *rotate(double a, double b, double c) override;
+    Figure *rotate(double a = 0.0, double b = 0.0, double c = 0.0) final;
 
-    Figure *scale(double a, double b, double c) override;
+    Figure *scale(double a = 1.0, double b = 1.0, double c = 1.0) final;
 
-    Figure *translate(double dx, double dy, double dz) override;
+    Figure *translate(double dx = 0.0, double dy = 0.0, double dz = 0.0) final;
 
     Figure *parProject() override;
 
-    Figure *perProject(double fov, double far, double near) override;
+    Figure *perProject(double fov = 0.0, double far = -1.0, double near = 0.0) final;
 
     Figure<V, E, F, P> *removeHiddenLines(bool flag) override;
 
-    void paint(bool roberts = false, ProjectionMode mode = ProjectionMode::ORT);
+    void paint() final;
 
-    void restore() override;
+    void restore() final;
 
-    void setSelected(bool isSelected) {
+    void setSelected(bool isSelected) final{
         this->isSelected = isSelected;
     }
 
@@ -184,7 +184,7 @@ Figure<V, E, F, P> *Figure<V, E, F, P>::removeHiddenLines(bool flag) {
 }
 
 template<int V, int E, int F, int P>
-void Figure<V, E, F, P>::paint(bool roberts, ProjectionMode mode) {
+void Figure<V, E, F, P>::paint() {
     QPen pen(Qt::black);
     QBrush brush(Qt::white);
     pen.setWidth(3);
@@ -200,8 +200,6 @@ void Figure<V, E, F, P>::paint(bool roberts, ProjectionMode mode) {
         }
         scene->addPolygon(face, pen);
     }
-    if (isSelected)
-        scene->addRect(bound(), QPen(Qt::red));
 }
 
 template<int V, int E, int F, int P>

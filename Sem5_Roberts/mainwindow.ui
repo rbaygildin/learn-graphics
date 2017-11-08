@@ -178,6 +178,9 @@
              </item>
              <item>
               <widget class="QSlider" name="yScaleInput">
+               <property name="value">
+                <number>50</number>
+               </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>

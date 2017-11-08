@@ -26,7 +26,7 @@ public:
 
     virtual IFigure *removeHiddenLines(bool flag) = 0;
 
-    virtual void paint(bool roberts = false, ProjectionMode mode = ProjectionMode::ORT) = 0;
+    virtual void paint() = 0;
 
     virtual void restore() = 0;
 
