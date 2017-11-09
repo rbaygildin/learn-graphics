@@ -5,14 +5,17 @@
 #include <QMainWindow>
 #include <QSignalMapper>
 #include <QMessageBox>
+#include <QKeyEvent>
 #include <QDebug>
 #include <QGraphicsScene>
+#include <QGraphicsSceneMouseEvent>
 #include <QWheelEvent>
 #include <QListWidgetItem>
 #include <QFileDialog>
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include <QColor>
 #include "tetrahedroninput.h"
 #include "figures/cube.h"
 #include "figures/pyramid.h"
@@ -90,7 +93,12 @@ private:
     QGraphicsScene *scene;
     vector<IFigure *> figures;
     IFigure *selectedFigure;
-
+    QColor color;
+    double depth = 100;
+    QPointF mousePoint;
+    double rX = 0.0;
+    double rY = 0.0;
+    double rz = 0.0;
     void addTetrahedron(QPoint point);
 };
 

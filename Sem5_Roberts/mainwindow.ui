@@ -47,7 +47,7 @@
           <x>10</x>
           <y>30</y>
           <width>331</width>
-          <height>571</height>
+          <height>578</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
@@ -82,62 +82,67 @@
             </widget>
            </item>
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_7">
-               <item alignment="Qt::AlignHCenter">
-                <widget class="QLabel" name="label_7">
-                 <property name="text">
-                  <string>dx</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="dxInput">
-                 <property name="text">
-                  <string>0</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_8">
-               <item alignment="Qt::AlignHCenter">
-                <widget class="QLabel" name="label_8">
-                 <property name="text">
-                  <string>dy</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="dyInput">
-                 <property name="text">
-                  <string>0</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_9">
-               <item alignment="Qt::AlignHCenter">
-                <widget class="QLabel" name="label_9">
-                 <property name="text">
-                  <string>dz</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="dzInput">
-                 <property name="text">
-                  <string>0</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
+            <widget class="QLabel" name="label_16">
+             <property name="text">
+              <string>Dx</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="dxInp">
+             <property name="value">
+              <number>50</number>
+             </property>
+             <property name="sliderPosition">
+              <number>50</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_17">
+             <property name="text">
+              <string>Dy</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="dyInp">
+             <property name="value">
+              <number>50</number>
+             </property>
+             <property name="sliderPosition">
+              <number>50</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>Dz</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="dzInp">
+             <property name="value">
+              <number>50</number>
+             </property>
+             <property name="sliderPosition">
+              <number>50</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3"/>
            </item>
           </layout>
          </item>
@@ -338,7 +343,7 @@
            <item>
             <widget class="QSlider" name="fovInp">
              <property name="value">
-              <number>0</number>
+              <number>50</number>
              </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>

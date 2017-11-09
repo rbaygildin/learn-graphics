@@ -16,7 +16,7 @@ QGenericMatrix<3, 3, qreal> rotationXMatrix(double phi);
 QGenericMatrix<3, 3, qreal> rotationYMatrix(double phi);
 QGenericMatrix<3, 3, qreal> rotationZMatrix(double phi);
 QGenericMatrix<3, 3, qreal> otrProjectionMatrix();
-QGenericMatrix<4, 4, qreal> perProjectionMatrix(double fov, double far, double near);
+QGenericMatrix<4, 4, qreal> perProjectionMatrix(double fov, double near, double far, double aspectRatio);
 double get_sign(QGenericMatrix<1, 3, qreal> v, QGenericMatrix<3, 1, qreal> m);
 
 

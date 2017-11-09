@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -30,7 +30,7 @@
         <item>
          <widget class="QLabel" name="label_4">
           <property name="text">
-           <string>y1</string>
+           <string>y left</string>
           </property>
          </widget>
         </item>
@@ -44,7 +44,7 @@
         <item>
          <widget class="QLabel" name="label_9">
           <property name="text">
-           <string>z1</string>
+           <string>z left</string>
           </property>
          </widget>
         </item>
@@ -58,7 +58,7 @@
         <item>
          <widget class="QLabel" name="label_2">
           <property name="text">
-           <string>x2</string>
+           <string>x front</string>
           </property>
          </widget>
         </item>
@@ -72,7 +72,7 @@
         <item>
          <widget class="QLabel" name="label_6">
           <property name="text">
-           <string>y2</string>
+           <string>y front</string>
           </property>
          </widget>
         </item>
@@ -86,7 +86,7 @@
         <item>
          <widget class="QLabel" name="label_8">
           <property name="text">
-           <string>z2</string>
+           <string>z front</string>
           </property>
          </widget>
         </item>
@@ -100,7 +100,7 @@
         <item>
          <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>x3</string>
+           <string>x right</string>
           </property>
          </widget>
         </item>
@@ -114,7 +114,7 @@
         <item>
          <widget class="QLabel" name="label_7">
           <property name="text">
-           <string>y3</string>
+           <string>y right</string>
           </property>
          </widget>
         </item>
@@ -128,7 +128,7 @@
         <item>
          <widget class="QLabel" name="label_5">
           <property name="text">
-           <string>z3</string>
+           <string>z right</string>
           </property>
          </widget>
         </item>
@@ -142,7 +142,7 @@
         <item>
          <widget class="QLabel" name="label_10">
           <property name="text">
-           <string>x4</string>
+           <string>x top</string>
           </property>
          </widget>
         </item>
@@ -156,7 +156,7 @@
         <item>
          <widget class="QLabel" name="label_11">
           <property name="text">
-           <string>y4</string>
+           <string>y top</string>
           </property>
          </widget>
         </item>
@@ -170,7 +170,7 @@
         <item>
          <widget class="QLabel" name="label_12">
           <property name="text">
-           <string>z4</string>
+           <string>z top</string>
           </property>
          </widget>
         </item>
@@ -184,7 +184,7 @@
         <item>
          <widget class="QLabel" name="label">
           <property name="text">
-           <string>x1</string>
+           <string>x left</string>
           </property>
          </widget>
         </item>

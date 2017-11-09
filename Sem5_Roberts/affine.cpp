@@ -25,7 +25,7 @@ QGenericMatrix<3, 3, qreal> inverseMatrix(QGenericMatrix<3, 3, qreal> m) {
     return result;
 }
 
-QGenericMatrix<3, 3, qreal> scaleMatrix(double a, double b, double c){
+QGenericMatrix<3, 3, qreal> scaleMatrix(double a, double b, double c) {
     QGenericMatrix<3, 3, qreal> projMatrix;
     //first row x
     projMatrix(0, 0) = a;
@@ -42,7 +42,7 @@ QGenericMatrix<3, 3, qreal> scaleMatrix(double a, double b, double c){
     return projMatrix;
 }
 
-QGenericMatrix<4, 4, qreal> translationMatrix(double dx, double dy, double dz){
+QGenericMatrix<4, 4, qreal> translationMatrix(double dx, double dy, double dz) {
     QGenericMatrix<4, 4, qreal> projMatrix;
     //first row x
     projMatrix(0, 0) = 1;
@@ -67,7 +67,7 @@ QGenericMatrix<4, 4, qreal> translationMatrix(double dx, double dy, double dz){
     return projMatrix;
 }
 
-QGenericMatrix<3, 3, qreal> rotationXMatrix(double phi){
+QGenericMatrix<3, 3, qreal> rotationXMatrix(double phi) {
     QGenericMatrix<3, 3, qreal> projMatrix;
     //first row x
     projMatrix(0, 0) = 1;
@@ -84,7 +84,7 @@ QGenericMatrix<3, 3, qreal> rotationXMatrix(double phi){
     return projMatrix;
 }
 
-QGenericMatrix<3, 3, qreal> rotationYMatrix(double phi){
+QGenericMatrix<3, 3, qreal> rotationYMatrix(double phi) {
     QGenericMatrix<3, 3, qreal> projMatrix;
     //first row x
     projMatrix(0, 0) = cos(phi);
@@ -101,7 +101,7 @@ QGenericMatrix<3, 3, qreal> rotationYMatrix(double phi){
     return projMatrix;
 }
 
-QGenericMatrix<3, 3, qreal> rotationZMatrix(double phi){
+QGenericMatrix<3, 3, qreal> rotationZMatrix(double phi) {
     QGenericMatrix<3, 3, qreal> projMatrix;
     //first row x
     projMatrix(0, 0) = cos(phi);
@@ -118,7 +118,7 @@ QGenericMatrix<3, 3, qreal> rotationZMatrix(double phi){
     return projMatrix;
 }
 
-QGenericMatrix<3, 3, qreal> otrProjectionMatrix(){
+QGenericMatrix<3, 3, qreal> otrProjectionMatrix() {
     QGenericMatrix<3, 3, qreal> projMatrix;
     //first row x
     projMatrix(0, 0) = 1;
@@ -135,34 +135,54 @@ QGenericMatrix<3, 3, qreal> otrProjectionMatrix(){
     return projMatrix;
 }
 
-QGenericMatrix<4, 4, qreal> perProjectionMatrix(double fov, double far, double near){
+QGenericMatrix<4, 4, qreal> perProjectionMatrix(double fov, double near, double far, double aspectRatio) {
     QGenericMatrix<4, 4, qreal> pm;
     double S = 1 / tan(fov * 3.1459 / 360.0);
     double fn = far - near;
+//    //first row
+//    pm(0, 0) = S / aspectRatio;
+//    pm(1, 0) = 0;
+//    pm(2, 0) = 0;
+//    pm(3, 0) = 0;
+//    //second row
+//    pm(0, 1) = 0;
+//    pm(1, 1) = S;
+//    pm(2, 1) = 0;
+//    pm(3, 1) = 0;
+//    //third row
+//    pm(0, 2) = 0;
+//    pm(1, 2) = 0;
+//    pm(2, 2) = -(far + near) / fn;
+//    pm(3, 2) = -2 * far * near / fn;
+//    //fourth row
+//    pm(0, 3) = 0;
+//    pm(1, 3) = 0;
+//    pm(2, 3) = 1;
+//    pm(3, 3) = 0;
     //first row
-    pm(0, 0) = S;
+    pm(0, 0) = 1;
     pm(1, 0) = 0;
     pm(2, 0) = 0;
     pm(3, 0) = 0;
     //second row
     pm(0, 1) = 0;
-    pm(1, 1) = S;
+    pm(1, 1) = 1;
     pm(2, 1) = 0;
     pm(3, 1) = 0;
     //third row
     pm(0, 2) = 0;
     pm(1, 2) = 0;
-    pm(2, 2) = - far / fn;
-    pm(3, 2) = -1.0;
+    pm(2, 2) = 0;
+    pm(3, 2) = -1 / (fov + 1);
     //fourth row
     pm(0, 3) = 0;
     pm(1, 3) = 0;
-    pm(2, 3) = - far * near / fn;
-    pm(3, 3) = 0;
+    pm(2, 3) = 0;
+    pm(3, 3) = 1;
     return pm;
 };
 
-double get_sign(QGenericMatrix<1, 3, qreal> v, QGenericMatrix<3, 1, qreal> m){
+double get_sign(QGenericMatrix<1, 3, qreal> v, QGenericMatrix<3, 1, qreal> m) {
     double s;
     s = v(0, 0) * m(0, 0) + v(1, 0) * m(0, 1) + v(2, 0) * m(0, 2);
     return s;

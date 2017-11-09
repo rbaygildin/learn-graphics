@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     ui->menuBar->setNativeMenuBar(false);
+    color = QColor(0, 0, 0, 255);
 
     //Scene
     this->scene = new QGraphicsScene(ui->graphicsView);
@@ -33,11 +34,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->graphicsView->showFullScreen();
 
+//    QRect content = ui->graphicsView->contentsRect();
+//    ui->graphicsView->setSceneRect(0, 0, ui->graphicsView->width(), ui->graphicsView->height());
+
     //Create actions
     createActions();
 
     //Install event filter
-    ui->graphicsView->installEventFilter(this);
+    ui->graphicsView->scene()->installEventFilter(this);
 }
 
 void MainWindow::createActions() {
@@ -73,16 +77,14 @@ void MainWindow::createActions() {
 
     //Move
     //Move x
-    connect(ui->dxInput, SIGNAL(editingFinished()), this, SLOT(moveX()));
+    connect(ui->dxInp, SIGNAL(valueChanged(int)), this, SLOT(moveX()));
     //Move y
-    connect(ui->dyInput, SIGNAL(editingFinished()), this, SLOT(moveY()));
+    connect(ui->dyInp, SIGNAL(valueChanged(int)), this, SLOT(moveY()));
     //Move z
-    connect(ui->dzInput, SIGNAL(editingFinished()), this, SLOT(moveZ()));
+    connect(ui->dzInp, SIGNAL(valueChanged(int)), this, SLOT(moveZ()));
 
     //FOV
     connect(ui->fovInp, SIGNAL(valueChanged(int)), this, SLOT(redraw()));
-    connect(ui->farInp, SIGNAL(valueChanged(int)), this, SLOT(redraw()));
-    connect(ui->nearInp, SIGNAL(valueChanged(int)), this, SLOT(redraw()));
 
     //Select figure
     connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem * )), this, SLOT(select(QListWidgetItem * )));
@@ -126,6 +128,7 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     connect(drawTetrahedronAction, &QAction::triggered, this, [this, pos]() {
         addTetrahedron(pos);
     });
+
     connect(drawAction, SIGNAL(triggered(bool)), this, SLOT(redraw()));
     connect(clearAction, SIGNAL(triggered(bool)), this, SLOT(clear()));
     connect(restoreAction, SIGNAL(triggered(bool)), this, SLOT(restore()));
@@ -144,16 +147,18 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
 
 void MainWindow::redraw() {
     drawAxes();
+    ui->graphicsView->setSceneRect(0, 0, ui->graphicsView->width(), ui->graphicsView->height());
     sort(figures.begin(), figures.end(), [](const IFigure *a, const IFigure *b) -> bool {
         return const_cast<IFigure *>(a)->zIndex() < const_cast<IFigure *>(b)->zIndex();
     });
     if (ui->ortRadioBtn->isChecked()) {
         for (auto &figure : figures) {
-            figure->paint(false);
+            figure->paint(ui->removeLinesCheckBox->isChecked());
         }
     } else {
         for (auto &figure : figures) {
-            figure->paint(false, ui->farInp->value() + 10, -(ui->nearInp->value() + 10), ui->fovInp->value());
+            figure->paint(ui->removeLinesCheckBox->isChecked(), -depth, 0.01, 100,
+                          ui->graphicsView->height() * 1.0 / ui->graphicsView->width() * 1.0);
         }
     }
 }
@@ -309,9 +314,11 @@ void MainWindow::addTetrahedron(QPoint point) {
 void MainWindow::drawAxes() {
     QPen pen(Qt::blue);
     this->scene->clear();
-    this->scene->addLine(0, ui->graphicsView->height() / 2, ui->graphicsView->width(), ui->graphicsView->height() / 2,
+    double h = ui->graphicsView->height();
+    double w = ui->graphicsView->width();
+    this->scene->addLine(0, h / 2, w, h / 2,
                          pen);
-    this->scene->addLine(ui->graphicsView->width() / 2, 0, ui->graphicsView->width() / 2, ui->graphicsView->height(),
+    this->scene->addLine(w / 2, 0, w / 2, h,
                          pen);
 }
 
@@ -332,8 +339,34 @@ void MainWindow::clear() {
 
 
 bool MainWindow::eventFilter(QObject *target, QEvent *event) {
-    if (target == ui->graphicsView) {
-
+    if(event->type() == QEvent::KeyPress){
+        auto ev = dynamic_cast<QKeyEvent*>(event);
+        if(ev->key() == Qt::Key_U) {
+            depth += 20;
+            redraw();
+        }
+        else if(ev->key() == Qt::Key_D) {
+            depth = depth - 20;
+            depth = depth < 0 ? 0 : depth;
+            redraw();
+        }
+    }
+    else if(target == ui->graphicsView->scene()){
+        if(event->type() == QEvent::GraphicsSceneMousePress){
+            auto ev = dynamic_cast<QGraphicsSceneMouseEvent*>(event);
+            mousePoint = ev->scenePos();
+        }
+        else if(event->type() == QEvent::GraphicsSceneMouseRelease){
+            auto ev = dynamic_cast<QGraphicsSceneMouseEvent*>(event);
+            auto currentPoint = ev->scenePos();
+            double rX = abs(currentPoint.x() - mousePoint.x());
+            double rY = abs(currentPoint.y() - mousePoint.y());
+            if(selectedFigure != nullptr){
+                selectedFigure->transform(IFigure::RotateX, rX);
+                selectedFigure->transform(IFigure::RotateY, rY);
+                redraw();
+            }
+        }
     }
     return QMainWindow::eventFilter(target, event);
 }
@@ -345,10 +378,7 @@ void MainWindow::restore() {
 }
 
 void MainWindow::select(QListWidgetItem *item) {
-    if (selectedFigure != nullptr)
-        selectedFigure->setSelected(false);
     selectedFigure = (IFigure *) item->data(Qt::UserRole).value<void *>();
-    selectedFigure->setSelected(true);
 }
 
 void MainWindow::rotateX() {
@@ -395,21 +425,21 @@ void MainWindow::scaleZ() {
 
 void MainWindow::moveX() {
     if (selectedFigure != nullptr) {
-        selectedFigure->transform(IFigure::TranslateX, ui->dxInput->text().toDouble());
+        selectedFigure->transform(IFigure::TranslateX, (ui->dxInp->value() - 50) * 10);
         redraw();
     }
 }
 
 void MainWindow::moveY() {
     if (selectedFigure != nullptr) {
-        selectedFigure->transform(IFigure::TranslateY, ui->dyInput->text().toDouble());
+        selectedFigure->transform(IFigure::TranslateY, (ui->dyInp->value() - 50) * 10);
         redraw();
     }
 }
 
 void MainWindow::moveZ() {
     if (selectedFigure != nullptr) {
-        selectedFigure->transform(IFigure::TranslateZ, ui->dzInput->text().toDouble());
+        selectedFigure->transform(IFigure::TranslateZ, (ui->dzInp->value() - 50) * 10);
         redraw();
     }
 }
@@ -420,9 +450,17 @@ void MainWindow::showListWidgetMenu(QPoint pos) {
     menu.addAction("Delete", this, [this]() {
 //        for (int i = 0; i < this->ui->listWidget->selectedItems().size(); i++) {
 //            QListWidgetItem *item = this->ui->listWidget->takeItem(this->ui->listWidget->currentRow());
-//            item->data(Qt::UserRole)
+//            delete (IFigure*) item->data(Qt::UserRole).value<void *>();
 //            delete item;
 //        }
+//        redraw();
+    });
+    menu.addAction("Restore", this, [this]() {
+        for (int i = 0; i < this->ui->listWidget->selectedItems().size(); i++) {
+            QListWidgetItem *item = ui->listWidget->item(i);
+            ((IFigure *) item->data(Qt::UserRole).value<void *>())->restore();
+        }
+        redraw();
     });
     menu.exec(globalPos);
 }

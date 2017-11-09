@@ -45,7 +45,7 @@ public:
 
     virtual void paint(bool removeLines) = 0;
 
-    virtual void paint(bool removeLines, double far, double near, double fov) = 0;
+    virtual void paint(bool removeLines, double fov, double near, double far, double aspectRatio) = 0;
 
     virtual void restore() = 0;
 

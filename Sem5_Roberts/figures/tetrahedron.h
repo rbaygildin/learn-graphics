@@ -68,7 +68,7 @@ public:
                                                   transformations[RotateZ]);
         resV = scale(resV, transformations[ScaleX], transformations[ScaleY], transformations[ScaleZ]);
         resV = translate(resV, transformations[TranslateX], transformations[TranslateY], transformations[TranslateZ]);
-        vector<bool> hidden = removeLines(isRemoveLines, v, f);
+        vector<bool> hidden = removeLines(isRemoveLines, v, f, -6000);
         QGenericMatrix<4, 3, qreal> projV = parProject(resV);
         for (int i = 0; i < F; i++) {
             if (hidden[i])
@@ -84,8 +84,28 @@ public:
         }
     }
 
-    void paint(bool removeLines, double far, double near, double fov) override {
-
+    void paint(bool isRemoveLines, double fov, double near, double far, double aspectRatio) override {
+        QPen pen(Qt::black);
+        QBrush brush(Qt::white);
+        pen.setWidth(3);
+        QGenericMatrix<4, 3, qreal> resV = rotate(v, transformations[RotateX], transformations[RotateY],
+                                                  transformations[RotateZ]);
+        resV = scale(resV, transformations[ScaleX], transformations[ScaleY], transformations[ScaleZ]);
+        resV = translate(resV, transformations[TranslateX], transformations[TranslateY], transformations[TranslateZ]);
+        vector<bool> hidden = removeLines(isRemoveLines, v, f, fov);
+        QGenericMatrix<4, 4, qreal> projV = perProject(resV, fov, near, far, aspectRatio);
+        for (int i = 0; i < F; i++) {
+            if (hidden[i])
+                continue;
+            QPolygonF face;
+            for (int j = 0; j < P; j++) {
+                face << QPointF(
+                        rx2sx(projV(0, f(j, i))),
+                        ry2sy(projV(1, f(j, i)))
+                );
+            }
+            scene->addPolygon(face, pen);
+        }
     }
 
     void restore() override {
@@ -108,7 +128,7 @@ public:
         QJsonObject json;
         json["type"] = "TETRAHEDRON";
         QJsonArray array;
-        for(int i = 0; i < 9; i++) {
+        for (int i = 0; i < 9; i++) {
             array.push_back(transformations[i]);
         }
         json.insert("transformations", array);
@@ -173,8 +193,9 @@ private:
         return proj * v2;
     }
 
-    QGenericMatrix<4, 4, qreal> perProject(QGenericMatrix<4, 3, qreal> v2, double fov, double far, double near) {
-        QGenericMatrix<4, 4, qreal> proj = perProjectionMatrix(fov, far, near);
+    QGenericMatrix<4, 4, qreal>
+    perProject(QGenericMatrix<4, 3, qreal> v2, double fov, double near, double far, double aspectRatio) {
+        QGenericMatrix<4, 4, qreal> proj = perProjectionMatrix(fov, near, far, aspectRatio);
         QGenericMatrix<4, 4, qreal> vExt;
         for (int i = 0; i < V; i++) {
             vExt(0, i) = v2(0, i);
@@ -183,24 +204,25 @@ private:
             vExt(3, i) = 1;
         }
         QGenericMatrix<4, 4, qreal> projectedV2 = proj * vExt;
-        QGenericMatrix<4, 2, qreal> res;
         for (int i = 0; i < V; i++) {
-            if (abs(projectedV2(3, i) - 1.0) >= 0.01) {
-                projectedV2(0, i) /= projectedV2(3, i);
-                projectedV2(1, i) /= projectedV2(3, i);
+            double p = projectedV2(3, i);
+            if (abs(p - 1.0) >= 0.01) {
+                double x = projectedV2(0, i) / p;
+                double y = projectedV2(1, i) / p;
+                projectedV2(0, i) = x;
+                projectedV2(1, i) = y;
             }
-            res(0, i) = projectedV2(0, i);
-            res(1, i) = projectedV2(1, i);
         }
         return projectedV2;
     }
 
-    vector<bool> removeLines(bool isRemoveLines, QGenericMatrix<4, 3, qreal> v2, QGenericMatrix<4, 3, int> f2) {
+    vector<bool>
+    removeLines(bool isRemoveLines, QGenericMatrix<4, 3, qreal> v2, QGenericMatrix<4, 3, int> f2, double z0) {
         vector<bool> hidden;
         for (int i = 0; i < F; i++) {
             hidden.push_back(false);
         }
-        if(!isRemoveLines)
+        if (!isRemoveLines)
             return hidden;
         QGenericMatrix<1, 3, qreal> inner;
         inner.fill(0);
@@ -219,7 +241,7 @@ private:
         QGenericMatrix<1, 3, qreal> view;
         view(0, 0) = 0;
         view(1, 0) = 0;
-        view(2, 0) = -600000;
+        view(2, 0) = z0;
         for (int i = 0; i < F; i++) {
             QGenericMatrix<3, 3, qreal> x;
             for (int vj = 0; vj < 3; vj++) {
@@ -228,9 +250,11 @@ private:
                 x(2, vj) = v2(2, f2(vj, i));
             }
             QGenericMatrix<3, 1, qreal> coeff = d * inverseMatrix(x);
+            for(int ci = 0; ci < 3; ci++)
+                coeff(0, ci) = coeff(0, ci) < 0 ? -coeff(0, ci) : coeff(0, ci);
             double sign = get_sign(inner, coeff) + 1;
             double sign2 = get_sign(view, coeff) + 1;
-            hidden[i] = sign * sign2 >= 0;
+            hidden[i] = sign2 < 0;
         }
         return hidden;
     }

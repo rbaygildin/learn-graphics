@@ -31,7 +31,7 @@ public:
 
     void paint(bool isRemoveLines) final;
 
-    void paint(bool isRemoveLines, double far, double near, double fov) final;
+    void paint(bool isRemoveLines, double near, double far, double fov, double aspectRatio) final;
 
     void restore() final;
 
@@ -54,7 +54,8 @@ public:
     }
 
 protected:
-    vector<bool> removeLines(bool isRemoveLines, QGenericMatrix<V, 3, qreal> v2, QGenericMatrix<F, P, int> f2);
+    vector<bool> removeLines(bool isRemoveLines, QGenericMatrix<V, 3, qreal> v2, QGenericMatrix<F, P, int> f2,
+                                 double z0);
 
     QGenericMatrix<V, 3, qreal> rotate(QGenericMatrix<V, 3, qreal> v2, double a, double b, double c);
 
@@ -64,7 +65,8 @@ protected:
 
     QGenericMatrix<V, 3, qreal> parProject(QGenericMatrix<V, 3, qreal> v2);
 
-    QGenericMatrix<V, 4, qreal> perProject(QGenericMatrix<V, 3, qreal> v2, double fov, double far, double near);
+    QGenericMatrix<V, 4, qreal>
+    perProject(QGenericMatrix<V, 3, qreal> v2, double fov, double near, double far, double aspectRatio);
 
     virtual QGenericMatrix<V, 3, qreal> vertex() = 0;
 
@@ -142,8 +144,9 @@ QGenericMatrix<V, 3, qreal> Figure<V, E, F, P>::parProject(QGenericMatrix<V, 3, 
 }
 
 template<int V, int E, int F, int P>
-QGenericMatrix<V, 4, qreal> Figure<V, E, F, P>::perProject(QGenericMatrix<V, 3, qreal> v2, double fov, double far, double near) {
-    QGenericMatrix<4, 4, qreal> proj = perProjectionMatrix(fov, far, near);
+QGenericMatrix<V, 4, qreal>
+Figure<V, E, F, P>::perProject(QGenericMatrix<V, 3, qreal> v2, double fov, double near, double far, double aspectRatio) {
+    QGenericMatrix<4, 4, qreal> proj = perProjectionMatrix(fov, near, far, aspectRatio);
     QGenericMatrix<V, 4, qreal> vExt;
     for (int i = 0; i < V; i++) {
         vExt(0, i) = v2(0, i);
@@ -152,20 +155,21 @@ QGenericMatrix<V, 4, qreal> Figure<V, E, F, P>::perProject(QGenericMatrix<V, 3, 
         vExt(3, i) = 1;
     }
     QGenericMatrix<V, 4, qreal> projectedV2 = proj * vExt;
-    QGenericMatrix<V, 2, qreal> res;
     for (int i = 0; i < V; i++) {
-        if (abs(projectedV2(3, i) - 1.0) >= 0.01) {
-            projectedV2(0, i) /= projectedV2(3, i);
-            projectedV2(1, i) /= projectedV2(3, i);
+        double p = projectedV2(3, i);
+        if (abs(p - 1.0) >= 0.01) {
+            double x = projectedV2(0, i) / p;
+            double y = projectedV2(1, i) / p;
+            projectedV2(0, i) = x;
+            projectedV2(1, i) = y;
         }
-        res(0, i) = projectedV2(0, i);
-        res(1, i) = projectedV2(1, i);
     }
     return projectedV2;
 }
 
 template<int V, int E, int F, int P>
-vector<bool> Figure<V, E, F, P>::removeLines(bool isRemoveLines, QGenericMatrix<V, 3, qreal> v2, QGenericMatrix<F, P, int> f2) {
+vector<bool> Figure<V, E, F, P>::removeLines(bool isRemoveLines, QGenericMatrix<V, 3, qreal> v2, QGenericMatrix<F, P, int> f2,
+                                             double z0) {
     vector<bool> hidden;
     for (int i = 0; i < F; i++) {
         hidden.push_back(false);
@@ -189,7 +193,7 @@ vector<bool> Figure<V, E, F, P>::removeLines(bool isRemoveLines, QGenericMatrix<
     QGenericMatrix<1, 3, qreal> view;
     view(0, 0) = 0;
     view(1, 0) = 0;
-    view(2, 0) = -600000;
+    view(2, 0) = -2000;
     for (int i = 0; i < F; i++) {
         QGenericMatrix<3, 3, qreal> x;
         for (int vj = 0; vj < 3; vj++) {
@@ -198,9 +202,11 @@ vector<bool> Figure<V, E, F, P>::removeLines(bool isRemoveLines, QGenericMatrix<
             x(2, vj) = v2(2, f2(vj, i));
         }
         QGenericMatrix<3, 1, qreal> coeff = d * inverseMatrix(x);
+        for(int ci = 0; ci < 3; ci++)
+            coeff(0, ci) = coeff(0, ci) > 0 ? -coeff(0, ci) : coeff(0, ci);
         double sign = get_sign(inner, coeff) + 1;
         double sign2 = get_sign(view, coeff) + 1;
-        hidden[i] = sign * sign2 >= 0;
+        hidden[i] = sign2 < 0;
     }
     return hidden;
 }
@@ -213,7 +219,7 @@ void Figure<V, E, F, P>::paint(bool isRemoveLines) {
     QGenericMatrix<V, 3, qreal> resV = rotate(v, transformations[RotateX], transformations[RotateY], transformations[RotateZ]);
     resV = scale(resV, transformations[ScaleX], transformations[ScaleY], transformations[ScaleZ]);
     resV = translate(resV, transformations[TranslateX], transformations[TranslateY], transformations[TranslateZ]);
-    vector<bool> hidden = removeLines(isRemoveLines, v, f);
+    vector<bool> hidden = removeLines(isRemoveLines, v, f, 6000);
     QGenericMatrix<V, 3, qreal> projV = parProject(resV);
     for (int i = 0; i < F; i++) {
         if (hidden[i])
@@ -230,8 +236,27 @@ void Figure<V, E, F, P>::paint(bool isRemoveLines) {
 }
 
 template<int V, int E, int F, int P>
-void Figure<V, E, F, P>::paint(bool removeLines, double far, double near, double fov) {
-
+void Figure<V, E, F, P>::paint(bool isRemoveLines, double fov, double near, double far, double aspectRatio) {
+    QPen pen(Qt::black);
+    QBrush brush(Qt::white);
+    pen.setWidth(3);
+    QGenericMatrix<V, 3, qreal> resV = rotate(v, transformations[RotateX], transformations[RotateY], transformations[RotateZ]);
+    resV = scale(resV, transformations[ScaleX], transformations[ScaleY], transformations[ScaleZ]);
+    resV = translate(resV, transformations[TranslateX], transformations[TranslateY], transformations[TranslateZ]);
+    vector<bool> hidden = removeLines(isRemoveLines, v, f, fov);
+    QGenericMatrix<V, 4, qreal> projV = perProject(resV, fov, near, far, aspectRatio);
+    for (int i = 0; i < F; i++) {
+        if (hidden[i])
+            continue;
+        QPolygonF face;
+        for (int j = 0; j < P; j++) {
+            face << QPointF(
+                    rx2sx(projV(0, f(j, i))),
+                    ry2sy(projV(1, f(j, i)))
+            );
+        }
+        scene->addPolygon(face, pen);
+    }
 }
 
 template<int V, int E, int F, int P>
