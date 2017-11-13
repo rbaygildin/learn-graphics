@@ -6,5 +6,6 @@
   3. http://www.cuboslocos.com/tutorials/OSG-Shader 
   4. https://github.com/overtone/shadertone
   5. http://eax.me/opengl-lighting/
+  6. http://www.graphicon.ru/oldgr/courses/cg99/notes/lect12/prouzis/shading.htm 
   
 
