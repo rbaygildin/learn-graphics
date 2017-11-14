@@ -64,7 +64,7 @@
           <item>
            <widget class="QSlider" name="dxInp">
             <property name="value">
-             <number>50</number>
+             <number>0</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -85,7 +85,7 @@
           <item>
            <widget class="QSlider" name="dyInp">
             <property name="value">
-             <number>50</number>
+             <number>0</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -106,7 +106,7 @@
           <item>
            <widget class="QSlider" name="dzInp">
             <property name="value">
-             <number>50</number>
+             <number>0</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -146,7 +146,7 @@
           <item>
            <widget class="QSlider" name="sxInp">
             <property name="value">
-             <number>50</number>
+             <number>0</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -167,7 +167,7 @@
           <item>
            <widget class="QSlider" name="syInp">
             <property name="value">
-             <number>50</number>
+             <number>0</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -188,7 +188,7 @@
           <item>
            <widget class="QSlider" name="szInp">
             <property name="value">
-             <number>50</number>
+             <number>0</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -312,7 +312,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="edgeInp"/>
+         <widget class="QLineEdit" name="edgeInp">
+          <property name="text">
+           <string>100</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>

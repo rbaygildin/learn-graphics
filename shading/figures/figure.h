@@ -13,6 +13,7 @@
 class Figure : public QObject, public QGraphicsItem {
 Q_OBJECT
 public functions:
+
     explicit Figure(QObject *parent = nullptr);
 
     ~Figure() override;
@@ -25,8 +26,7 @@ signals:
 
     void signal1();
 
-protected fields:
-    double transformations[9]{};
+public fields:
     static constexpr auto ScaleX = 0;
     static constexpr auto ScaleY = 1;
     static constexpr auto ScaleZ = 2;
@@ -37,6 +37,8 @@ protected fields:
     static constexpr auto TranslateY = 7;
     static constexpr auto TranslateZ = 8;
 
+protected fields:
+    double transformations[9]{};
 };
 
 

@@ -148,7 +148,7 @@ namespace affine {
         pm(2, 0) = 0;
         pm(2, 1) = 0;
         pm(2, 2) = 0;
-        Matrix extM(m.size1(), m.size2());
+        Matrix extM(m.size1(), 4);
         for(ULONG r = 0; r < m.size1(); r++){
             for(ULONG c = 0; c < 3; c++){
                 extM(r, c) = m(r, c);
@@ -187,7 +187,7 @@ namespace affine {
         pm(3, 1) = 0;
         pm(3, 2) = 0;
         pm(3, 3) = 1;
-        Matrix extM(m.size1(), m.size2());
+        Matrix extM(m.size1(), 4);
         for(ULONG r = 0; r < m.size1(); r++){
             for(ULONG c = 0; c < 3; c++){
                 extM(r, c) = m(r, c);

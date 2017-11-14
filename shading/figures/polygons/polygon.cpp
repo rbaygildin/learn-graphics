@@ -78,7 +78,7 @@ Matrix Polygon::applyTransformations() {
     v = affine::scale(v, transformations[ScaleX], transformations[ScaleY], transformations[ScaleZ]);
     v = affine::translate(v, transformations[TranslateX], transformations[TranslateY], transformations[TranslateZ]);
     v = affine::rotateX(v, transformations[RotateX]);
-    v = affine::rotateX(v, transformations[RotateY]);
-    v = affine::rotateX(v, transformations[RotateZ]);
-    return v;
+    v = affine::rotateY(v, transformations[RotateY]);
+    v = affine::rotateZ(v, transformations[RotateZ]);
+    return affine::perProject(v, 200);
 }

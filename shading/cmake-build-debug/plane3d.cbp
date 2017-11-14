@@ -125,6 +125,9 @@
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp">
 			<Option target="shading"/>
 		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/common.cpp">
+			<Option target="shading"/>
+		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/common.h">
 			<Option target="shading"/>
 		</Unit>

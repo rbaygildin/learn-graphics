@@ -18,6 +18,30 @@ MainWindow::MainWindow(QWidget *parent) :
     //Context menu
     ui->graphicsView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->graphicsView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showGraphicsViewMenu(QPoint)));
+
+    //Rotation
+    //Rotate x
+    connect(ui->rxInp, SIGNAL(valueChanged(int)), this, SLOT(rotateX()));
+    //Rotate y
+    connect(ui->ryInp, SIGNAL(valueChanged(int)), this, SLOT(rotateY()));
+    //Rotate z
+    connect(ui->rzInp, SIGNAL(valueChanged(int)), this, SLOT(rotateZ()));
+
+    //Scale
+    //Scale x
+    connect(ui->sxInp, SIGNAL(valueChanged(int)), this, SLOT(scaleX()));
+    //Scale y
+    connect(ui->syInp, SIGNAL(valueChanged(int)), this, SLOT(scaleY()));
+    //Scale y
+    connect(ui->szInp, SIGNAL(valueChanged(int)), this, SLOT(scaleZ()));
+
+    //Move
+    //Move x
+    connect(ui->dxInp, SIGNAL(valueChanged(int)), this, SLOT(moveX()));
+    //Move y
+    connect(ui->dyInp, SIGNAL(valueChanged(int)), this, SLOT(moveY()));
+    //Move z
+    connect(ui->dzInp, SIGNAL(valueChanged(int)), this, SLOT(moveZ()));
 }
 
 
@@ -64,17 +88,13 @@ void MainWindow::open() {
         Figure *figure;
         if (figureJson["type"] == "CUBE") {
             figure = new Cube(figureJson["edge"].toDouble());
-        }
-        else if (figureJson["type"] == "REGULAR_PYRAMID") {
+        } else if (figureJson["type"] == "REGULAR_PYRAMID") {
             figure = new RegularPyramid(figureJson["edge"].toDouble());
-        }
-        else if (figureJson["type"] == "OCTAHEDRON") {
+        } else if (figureJson["type"] == "OCTAHEDRON") {
             figure = new Octahedron(figureJson["edge"].toDouble());
-        }
-        else if (figureJson["type"] == "ICOSAHEDRON") {
+        } else if (figureJson["type"] == "ICOSAHEDRON") {
             figure = new Icosahedron(figureJson["edge"].toDouble());
-        }
-        else
+        } else
             continue;
         QJsonArray trArray = figureJson["transformations"].toArray();
         for (int i = 0; i < trArray.size(); i++)
@@ -179,9 +199,99 @@ void MainWindow::clear() {
 }
 
 void MainWindow::redraw() {
-    ui->graphicsView->update();
+    scene->update();
 }
 
 void MainWindow::restore() {
 
+}
+
+void MainWindow::rotateX() {
+    for(auto &item : scene->items()){
+        auto figure = dynamic_cast<Figure*>(item);
+        if(item == nullptr)
+            continue;
+        figure->transform(Figure::RotateX, degree2radian(slider2degree(ui->rxInp->value())));
+    }
+    redraw();
+}
+
+void MainWindow::rotateY() {
+    for(auto &item : scene->items()){
+        auto figure = dynamic_cast<Figure*>(item);
+        if(item == nullptr)
+            continue;
+        figure->transform(Figure::RotateY, degree2radian(slider2degree(ui->ryInp->value())));
+    }
+    redraw();
+}
+
+void MainWindow::rotateZ() {
+    for(auto &item : scene->items()){
+        auto figure = dynamic_cast<Figure*>(item);
+        if(item == nullptr)
+            continue;
+        figure->transform(Figure::RotateZ, degree2radian(slider2degree(ui->rzInp->value())));
+    }
+    redraw();
+}
+
+void MainWindow::scaleX() {
+    for(auto &item : scene->items()){
+        auto figure = dynamic_cast<Figure*>(item);
+        if(item == nullptr)
+            continue;
+        figure->transform(Figure::ScaleX, slider2scale(ui->sxInp->value()));
+    }
+    redraw();
+}
+
+void MainWindow::scaleY() {
+    for(auto &item : scene->items()){
+        auto figure = dynamic_cast<Figure*>(item);
+        if(item == nullptr)
+            continue;
+        figure->transform(Figure::ScaleY, slider2scale(ui->syInp->value()));
+    }
+    redraw();
+}
+
+void MainWindow::scaleZ() {
+    for(auto &item : scene->items()){
+        auto figure = dynamic_cast<Figure*>(item);
+        if(item == nullptr)
+            continue;
+        figure->transform(Figure::ScaleZ, slider2scale(ui->szInp->value()));
+    }
+    redraw();
+}
+
+void MainWindow::moveX() {
+    for(auto &item : scene->items()){
+        auto figure = dynamic_cast<Figure*>(item);
+        if(item == nullptr)
+            continue;
+        figure->transform(Figure::TranslateX, ui->dxInp->value());
+    }
+    redraw();
+}
+
+void MainWindow::moveY() {
+    for(auto &item : scene->items()){
+        auto figure = dynamic_cast<Figure*>(item);
+        if(item == nullptr)
+            continue;
+        figure->transform(Figure::TranslateY, ui->dyInp->value());
+    }
+    redraw();
+}
+
+void MainWindow::moveZ() {
+    for(auto &item : scene->items()){
+        auto figure = dynamic_cast<Figure*>(item);
+        if(item == nullptr)
+            continue;
+        figure->transform(Figure::TranslateZ, ui->dzInp->value());
+    }
+    redraw();
 }
