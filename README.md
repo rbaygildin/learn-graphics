@@ -7,5 +7,6 @@
   4. https://github.com/overtone/shadertone
   5. http://eax.me/opengl-lighting/
   6. http://www.graphicon.ru/oldgr/courses/cg99/notes/lect12/prouzis/shading.htm 
+  7. http://web.eecs.utk.edu/~huangj/cs456/notes/456_rasterization.pdf 
   
 
