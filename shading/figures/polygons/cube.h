@@ -4,13 +4,15 @@
 
 #include "polygon.h"
 
-class Cube : public Polygon
-{
-public:
-    Cube(QObject *parent = 0);
-    virtual ~Cube() = default;
+class Cube : public Polygon {
+public FUNCTIONS:
 
-private:
+    explicit Cube(QObject *parent = 0);
+
+    ~Cube() override = default;
+
+private FUNCTIONS:
+
     Matrix verteces() const override;
 
     IntMatrix faces() const override;
@@ -23,7 +25,7 @@ private:
 
     unsigned int getP() const override;
 
-private:
+private FIELDS:
     static constexpr ULONG FRONT = 0;
     static constexpr ULONG RIGHT = 1;
     static constexpr ULONG BACK = 2;

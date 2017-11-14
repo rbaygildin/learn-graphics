@@ -3,7 +3,7 @@ file(REMOVE_RECURSE
   "shading_autogen/"
   "CMakeFiles/shading.dir/figures/polygons/cube.cpp.o"
   "CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o"
-  "CMakeFiles/shading.dir/figures/polygons/ipolygon.cpp.o"
+  "CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o"
   "CMakeFiles/shading.dir/main.cpp.o"
   "CMakeFiles/shading.dir/mainwindow.cpp.o"
   "CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o"

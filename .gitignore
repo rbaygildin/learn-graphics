@@ -347,9 +347,9 @@ tmp/
 /tests/unit/unittest/unittest
 
 # qbs builds
-/*-debug/
-/*-release/
-/*-Debug/
-/*-Release/
+/*-debug
+/*-release
+/*-Debug
+/*-Release
 
 .idea

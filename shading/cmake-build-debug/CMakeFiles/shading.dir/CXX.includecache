@@ -304,57 +304,67 @@ QtGui/qkeysequence.h
 QtGui/qevent.h
 -
 
-/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/shading_autogen/7NGSYPDKCM/moc_torus.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/7NGSYPDKCM/moc_torus.cpp
 ../../../figures/torus.h
-/Users/macbook/Documents/CompGraphics/shading/figures/torus.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/shading_autogen/EWIEGA46WW/moc_mainwindow.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/EWIEGA46WW/moc_mainwindow.cpp
 ../../../mainwindow.h
-/Users/macbook/Documents/CompGraphics/shading/mainwindow.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/shading_autogen/LRHII6BOYG/moc_ipolygon.cpp
-../../../figures/polygons/ipolygon.h
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/ipolygon.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/LRHII6BOYG/moc_polygon.cpp
+../../../figures/polygons/polygon.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp
-LRHII6BOYG/moc_ipolygon.cpp
-/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/shading_autogen/LRHII6BOYG/moc_ipolygon.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp
+LRHII6BOYG/moc_polygon.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/LRHII6BOYG/moc_polygon.cpp
 7NGSYPDKCM/moc_torus.cpp
-/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/shading_autogen/7NGSYPDKCM/moc_torus.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/7NGSYPDKCM/moc_torus.cpp
 EWIEGA46WW/moc_mainwindow.cpp
-/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/shading_autogen/EWIEGA46WW/moc_mainwindow.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/EWIEGA46WW/moc_mainwindow.cpp
 
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/cube.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.cpp
 cube.h
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/cube.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.h
 
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/cube.h
-ipolygon.h
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/ipolygon.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.h
+polygon.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.h
 
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/icosahedron.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/icosahedron.cpp
 icosahedron.h
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/icosahedron.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/icosahedron.h
 
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/icosahedron.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/icosahedron.h
+polygon.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.h
 
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/ipolygon.cpp
-ipolygon.h
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/ipolygon.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/octahedron.cpp
+octahedron.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/octahedron.h
 
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/ipolygon.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/octahedron.h
+polygon.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.h
+
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.cpp
+polygon.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.h
+
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.h
 QGraphicsItem
 -
 QObject
@@ -375,30 +385,30 @@ QVector3D
 -
 boost/numeric/ublas/matrix.hpp
 -
+cfloat
+-
+cmath
+-
 
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/octahedron.cpp
-octahedron.h
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/octahedron.h
-
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/octahedron.h
-
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/pyramid.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/pyramid.cpp
 pyramid.h
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/pyramid.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/pyramid.h
 
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/pyramid.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/pyramid.h
 
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/regularpyramid.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/regularpyramid.cpp
 regularpyramid.h
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/regularpyramid.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/regularpyramid.h
 
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/regularpyramid.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/regularpyramid.h
+polygon.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.h
 
-/Users/macbook/Documents/CompGraphics/shading/figures/torus.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.cpp
 torus.h
-/Users/macbook/Documents/CompGraphics/shading/figures/torus.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.h
 
-/Users/macbook/Documents/CompGraphics/shading/figures/torus.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.h
 QGraphicsItem
 -
 QObject
@@ -416,21 +426,27 @@ QRectF
 QDebug
 -
 
-/Users/macbook/Documents/CompGraphics/shading/main.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/main.cpp
 mainwindow.h
-/Users/macbook/Documents/CompGraphics/shading/mainwindow.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.h
 QApplication
 -
 
-/Users/macbook/Documents/CompGraphics/shading/mainwindow.cpp
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.cpp
 mainwindow.h
-/Users/macbook/Documents/CompGraphics/shading/mainwindow.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.h
 ui_mainwindow.h
-/Users/macbook/Documents/CompGraphics/shading/ui_mainwindow.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/ui_mainwindow.h
 figures/polygons/cube.h
-/Users/macbook/Documents/CompGraphics/shading/figures/polygons/cube.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.h
+figures/polygons/regularpyramid.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/regularpyramid.h
+figures/polygons/octahedron.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/octahedron.h
+figures/polygons/icosahedron.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/icosahedron.h
 
-/Users/macbook/Documents/CompGraphics/shading/mainwindow.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.h
 QMainWindow
 -
 QGraphicsScene
@@ -438,7 +454,7 @@ QGraphicsScene
 QMessageBox
 -
 figures/torus.h
-/Users/macbook/Documents/CompGraphics/shading/figures/torus.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.h
 
 /usr/local/include/boost/assert.hpp
 boost/config.hpp

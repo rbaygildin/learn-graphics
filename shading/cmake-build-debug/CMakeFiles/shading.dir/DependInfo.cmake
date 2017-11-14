@@ -4,16 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/macbook/Documents/CompGraphics/shading/figures/polygons/cube.cpp" "/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/cube.cpp.o"
-  "/Users/macbook/Documents/CompGraphics/shading/figures/polygons/icosahedron.cpp" "/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o"
-  "/Users/macbook/Documents/CompGraphics/shading/figures/polygons/ipolygon.cpp" "/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/ipolygon.cpp.o"
-  "/Users/macbook/Documents/CompGraphics/shading/figures/polygons/octahedron.cpp" "/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o"
-  "/Users/macbook/Documents/CompGraphics/shading/figures/polygons/pyramid.cpp" "/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o"
-  "/Users/macbook/Documents/CompGraphics/shading/figures/polygons/regularpyramid.cpp" "/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o"
-  "/Users/macbook/Documents/CompGraphics/shading/figures/torus.cpp" "/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/torus.cpp.o"
-  "/Users/macbook/Documents/CompGraphics/shading/main.cpp" "/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/main.cpp.o"
-  "/Users/macbook/Documents/CompGraphics/shading/mainwindow.cpp" "/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/mainwindow.cpp.o"
-  "/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp" "/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/cube.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/icosahedron.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/octahedron.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/pyramid.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/regularpyramid.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/torus.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/main.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/main.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/mainwindow.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

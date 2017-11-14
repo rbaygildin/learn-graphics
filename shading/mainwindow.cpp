@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "figures/polygons/cube.h"
+#include "figures/polygons/regularpyramid.h"
+#include "figures/polygons/octahedron.h"
+#include "figures/polygons/icosahedron.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,8 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     scene = new QGraphicsScene(ui->graphicsView);
-    auto torus = new Cube();
-    torus->setEdge(50);
+    auto torus = new Octahedron();
+    torus->setEdge(100);
+    torus->setSelected(true);
     ui->graphicsView->setScene(scene);
     connect(torus, SIGNAL(signal1()), this, SLOT(hello()));
     scene->addItem(torus);

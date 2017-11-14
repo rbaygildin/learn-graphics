@@ -1,6 +1,9 @@
 #ifndef IPOLYGON_H
 #define IPOLYGON_H
 
+#define FUNCTIONS
+#define FIELDS
+
 #include <QGraphicsItem>
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
@@ -11,33 +14,59 @@
 #include <QDebug>
 #include <QVector3D>
 #include <boost/numeric/ublas/matrix.hpp>
+#include <cfloat>
+#include <cmath>
 
 using namespace boost::numeric::ublas;
+using namespace std;
+
 typedef matrix<double> Matrix;
 typedef matrix<int> IntMatrix;
 typedef unsigned long ULONG;
 
-class Polygon : public QObject, public QGraphicsItem
-{
-    Q_OBJECT
-public:
-    Polygon(QObject *parent = 0);
-    virtual ~Polygon();
+class Polygon : public QObject, public QGraphicsItem {
+Q_OBJECT
+public FUNCTIONS:
+
+    explicit Polygon(QObject *parent = 0);
+
+    ~Polygon() override;
+
     void setEdge(double edge);
+
     void setCenter(QVector3D center);
+
     virtual unsigned int getV() const = 0;
+
     virtual unsigned int getE() const = 0;
+
     virtual unsigned int getF() const = 0;
+
     virtual unsigned int getP() const = 0;
+
     virtual Matrix verteces() const = 0;
+
     virtual IntMatrix faces() const = 0;
 
 signals:
+
     void signal1();
-protected:
+
+protected FUNCTIONS:
+
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
+
+private FUNCTIONS:
+
+    QRectF boundingRect() const;
+
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+
+protected FIELDS:
+
     double edge;
     QVector3D center;
+
     //verteces
     static constexpr ULONG V1 = 0;
     static constexpr ULONG V2 = 1;
@@ -83,9 +112,6 @@ protected:
     static constexpr ULONG Y = 1;
     static constexpr ULONG Z = 2;
 
-private:
-    QRectF boundingRect() const;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 };
 
 #endif // IPOLYGON_H

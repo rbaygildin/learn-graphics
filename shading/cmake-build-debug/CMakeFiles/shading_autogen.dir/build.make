@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/macbook/Documents/CompGraphics/shading
+CMAKE_SOURCE_DIR = /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/macbook/Documents/CompGraphics/shading/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug
 
 # Utility rule file for shading_autogen.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /Users/macbook/Documents/CompGraphics/shading/cmake-build-deb
 include CMakeFiles/shading_autogen.dir/progress.make
 
 CMakeFiles/shading_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target shading"
-	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -E cmake_autogen /Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading_autogen.dir/ Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target shading"
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -E cmake_autogen /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading_autogen.dir/ Debug
 
 shading_autogen: CMakeFiles/shading_autogen
 shading_autogen: CMakeFiles/shading_autogen.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/shading_autogen.dir/clean:
 .PHONY : CMakeFiles/shading_autogen.dir/clean
 
 CMakeFiles/shading_autogen.dir/depend:
-	cd /Users/macbook/Documents/CompGraphics/shading/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/macbook/Documents/CompGraphics/shading /Users/macbook/Documents/CompGraphics/shading /Users/macbook/Documents/CompGraphics/shading/cmake-build-debug /Users/macbook/Documents/CompGraphics/shading/cmake-build-debug /Users/macbook/Documents/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/shading_autogen.dir/depend
 
