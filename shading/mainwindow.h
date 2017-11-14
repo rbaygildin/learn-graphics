@@ -76,7 +76,6 @@ public slots:
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
-    std::vector<Polygon *> figures;
 };
 
 #endif // MAINWINDOW_H

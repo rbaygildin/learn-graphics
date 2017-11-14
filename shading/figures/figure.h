@@ -22,6 +22,8 @@ public functions:
 
     virtual void transform(int operation, double value);
 
+    virtual void identityTransform();
+
 signals:
 
     void signal1();

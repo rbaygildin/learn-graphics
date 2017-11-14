@@ -4,27 +4,30 @@
 
 #include "affine.h"
 
-namespace affine {
+namespace geom {
 
-    Matrix inverse(Matrix m) {
-        // computes the inverseMatrix of a matrix m
-        double det = m(0, 0) * (m(1, 1) * m(2, 2) - m(2, 1) * m(1, 2)) -
-                     m(0, 1) * (m(1, 0) * m(2, 2) - m(1, 2) * m(2, 0)) +
-                     m(0, 2) * (m(1, 0) * m(2, 1) - m(1, 1) * m(2, 0));
+    bool inverse(const Matrix &input, Matrix &inverse)
+    {
+        typedef permutation_matrix<std::size_t> pmatrix;
 
-        double invDet = 1 / det;
+        // create a working copy of the input
+        Matrix A(input);
 
-        Matrix result(3, 3); // inverseMatrix of matrix m
-        result(0, 0) = (m(1, 1) * m(2, 2) - m(2, 1) * m(1, 2)) * invDet;
-        result(0, 1) = (m(0, 2) * m(2, 1) - m(0, 1) * m(2, 2)) * invDet;
-        result(0, 2) = (m(0, 1) * m(1, 2) - m(0, 2) * m(1, 1)) * invDet;
-        result(1, 0) = (m(1, 2) * m(2, 0) - m(1, 0) * m(2, 2)) * invDet;
-        result(1, 1) = (m(0, 0) * m(2, 2) - m(0, 2) * m(2, 0)) * invDet;
-        result(1, 2) = (m(1, 0) * m(0, 2) - m(0, 0) * m(1, 2)) * invDet;
-        result(2, 0) = (m(1, 0) * m(2, 1) - m(2, 0) * m(1, 1)) * invDet;
-        result(2, 1) = (m(2, 0) * m(0, 1) - m(0, 0) * m(2, 1)) * invDet;
-        result(2, 2) = (m(0, 0) * m(1, 1) - m(1, 0) * m(0, 1)) * invDet;
-        return result;
+        // create a permutation matrix for the LU-factorization
+        pmatrix pm(A.size1());
+
+        // perform LU-factorization
+        unsigned long res = lu_factorize(A, pm);
+        if (res != 0)
+            return false;
+
+        // create identity matrix of "inverse"
+        inverse.assign(identity_matrix<double> (A.size1()));
+
+        // backsubstitute to get the inverse
+        lu_substitute(A, pm, inverse);
+
+        return true;
     }
 
     Matrix scale(const Matrix &m, double sx, double sy, double sz) {
@@ -195,10 +198,11 @@ namespace affine {
             extM(r, 3) = 1;
         }
         Matrix res(m.size1(), 3);
-        extM = trans(prod(pm, trans(extM)));
+        noalias(extM) = trans(prod(pm, trans(extM)));
         for(ULONG r = 0; r < m.size1(); r++){
+            double w = extM(r, 3);
             for(ULONG c = 0; c < 3; c++){
-                res(r, c) = extM(r, c);
+                res(r, c) = extM(r, c) / w;
             }
         }
         return res;

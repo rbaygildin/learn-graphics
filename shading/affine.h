@@ -6,12 +6,18 @@
 #define PLANE3D_AFFINE_H_H
 
 #include <QtGlobal>
-#include <QGenericMatrix>
 #include <cmath>
+#include <boost/numeric/ublas/matrix.hpp>
+#include <boost/numeric/ublas/lu.hpp>
+#include <boost/numeric/ublas/io.hpp>
+#include <QColor>
 #include "common.h"
 
-namespace affine {
-    Matrix inverse(Matrix m);
+using namespace boost::numeric::ublas;
+
+namespace geom {
+
+    bool inverse(const Matrix &input, Matrix &inverse);
 
     Matrix scale(const Matrix &m, double sx, double sy, double sz);
 

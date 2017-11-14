@@ -5,7 +5,7 @@ Polygon::Polygon(double edge, const QVector3D &center) : edge(edge), center(cent
 }
 
 QRectF Polygon::boundingRect() const {
-    Matrix v = const_cast<Polygon*>(this)->applyTransformations();
+    Matrix v = const_cast<Polygon *>(this)->applyTr();
     double xMin = numeric_limits<double>::max();
     double xMax = numeric_limits<double>::min();
     double yMin = numeric_limits<double>::max();
@@ -26,25 +26,23 @@ QRectF Polygon::boundingRect() const {
 }
 
 void Polygon::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
-    IntMatrix f = faces();
-    Matrix v = applyTransformations();
-    painter->setBrush(Qt::transparent);
+    auto f = sortFaces();
+    Matrix v = applyTr();
     painter->setPen(Qt::black);
-    QRectF b = boundingRect();
-//    painter->scale(1, -1);
     for (int i = 0; i < getF(); i++) {
-        QPolygonF face;
+        QPolygonF polygon;
+        std::vector<int> face = f[i];
         for (int j = 0; j < getP(); j++) {
-            face << QPointF(
-                    v(f(i, j), 0),
-                    -v(f(i, j), 1)
+            polygon << QPointF(
+                    v(face[j], 0),
+                    -v(face[j], 1)
             );
         }
-        painter->drawPolygon(face);
+        painter->drawPolygon(polygon);
     }
-    painter->setPen(Qt::red);
-    painter->setBrush(Qt::transparent);
-    painter->drawRect(boundingRect());
+//    painter->setPen(Qt::red);
+//    painter->setBrush(Qt::transparent);
+//    painter->drawRect(boundingRect());
     Q_UNUSED(option);
     Q_UNUSED(widget);
 }
@@ -73,12 +71,37 @@ QJsonObject Polygon::toJson() const {
     return json;
 }
 
-Matrix Polygon::applyTransformations() {
+Matrix Polygon::applyTr() {
     Matrix v = vertices();
-    v = affine::scale(v, transformations[ScaleX], transformations[ScaleY], transformations[ScaleZ]);
-    v = affine::translate(v, transformations[TranslateX], transformations[TranslateY], transformations[TranslateZ]);
-    v = affine::rotateX(v, transformations[RotateX]);
-    v = affine::rotateY(v, transformations[RotateY]);
-    v = affine::rotateZ(v, transformations[RotateZ]);
-    return affine::perProject(v, 200);
+    v = geom::scale(v, transformations[ScaleX], transformations[ScaleY], transformations[ScaleZ]);
+    v = geom::translate(v, transformations[TranslateX], transformations[TranslateY], transformations[TranslateZ]);
+    v = geom::rotateX(v, transformations[RotateX]);
+    v = geom::rotateY(v, transformations[RotateY]);
+    v = geom::rotateZ(v, transformations[RotateZ]);
+    return geom::perProject(v, -200);
+}
+
+std::vector<std::vector<int>> Polygon::sortFaces() {
+    IntMatrix f = faces();
+    Matrix v = applyTr();
+    std::vector<std::vector<int>> sortedFaces;
+    for (ULONG i = 0; i < getF(); i++) {
+        std::vector<int> p;
+        for (ULONG j = 0; j < getP(); j++) {
+            p.emplace_back(f(i, j));
+        }
+        sortedFaces.emplace_back(p);
+    }
+    std::sort(sortedFaces.begin(), sortedFaces.end(), [=](const std::vector<int> &a, const std::vector<int> &b) -> bool {
+        double zA = 0.0;
+        double zB = 0.0;
+        for (ULONG i = 0; i < a.size(); i++) {
+            zA += v(a[i], 2);
+            zB += v(b[i], 2);
+        }
+        zA /= a.size();
+        zB /= a.size();
+        return zA < zB;
+    });
+    return sortedFaces;
 }

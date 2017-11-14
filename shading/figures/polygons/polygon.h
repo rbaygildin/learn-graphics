@@ -15,6 +15,8 @@
 #include <boost/numeric/ublas/matrix.hpp>
 #include <cfloat>
 #include <cmath>
+#include <vector>
+#include <algorithm>
 #include "../figure.h"
 #include "../../common.h"
 #include "../../affine.h"
@@ -48,7 +50,8 @@ public functions:
 protected functions:
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
-    Matrix applyTransformations();
+    Matrix applyTr();
+    std::vector<std::vector<int>> sortFaces();
 
 private functions:
 

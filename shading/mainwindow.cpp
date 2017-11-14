@@ -61,7 +61,10 @@ void MainWindow::save() {
     }
     QJsonObject obj;
     QJsonArray array;
-    for (auto &figure : figures) {
+    for(auto &item : scene->items()){
+        auto figure = dynamic_cast<Figure*>(item);
+        if(item == nullptr)
+            continue;
         array.append(figure->toJson());
     }
     obj.insert("figures", array);
@@ -192,10 +195,8 @@ void MainWindow::addPyramid(QPoint pos) {
 }
 
 void MainWindow::clear() {
-    for (auto &figure : figures)
-        delete figure;
-    figures.clear();
     scene->clear();
+    redraw();
 }
 
 void MainWindow::redraw() {
@@ -203,7 +204,13 @@ void MainWindow::redraw() {
 }
 
 void MainWindow::restore() {
-
+    for(auto &item : scene->items()){
+        auto figure = dynamic_cast<Figure*>(item);
+        if(item == nullptr)
+            continue;
+        figure->identityTransform();
+    }
+    redraw();
 }
 
 void MainWindow::rotateX() {
