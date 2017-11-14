@@ -1,9 +1,9 @@
 #include "octahedron.h"
 
-Octahedron::Octahedron()
-{
+Octahedron::Octahedron(double edge, QVector3D center) : Polygon(edge, center){
 
 }
+
 
 unsigned int Octahedron::getV() const {
     return 6;
@@ -21,7 +21,7 @@ unsigned int Octahedron::getP() const {
     return 3;
 }
 
-Matrix Octahedron::verteces() const {
+Matrix Octahedron::vertices() const {
     Matrix v(getV(), 3);
     //v 1
     v(V1, X) = -this->edge / 2.0;
@@ -86,4 +86,10 @@ IntMatrix Octahedron::faces() const {
     f(LEFT_BOTTOM, P2) = V1;
     f(LEFT_BOTTOM, P3) = V6;
     return f;
+}
+
+QJsonObject Octahedron::toJson() const {
+    auto json = Polygon::toJson();
+    json.insert("type", "OCTAHEDRON");
+    return json;
 }

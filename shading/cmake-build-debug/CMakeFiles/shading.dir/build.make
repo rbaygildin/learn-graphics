@@ -273,9 +273,57 @@ CMakeFiles/shading.dir/figures/torus.cpp.o.provides: CMakeFiles/shading.dir/figu
 CMakeFiles/shading.dir/figures/torus.cpp.o.provides.build: CMakeFiles/shading.dir/figures/torus.cpp.o
 
 
+CMakeFiles/shading.dir/figures/figure.cpp.o: CMakeFiles/shading.dir/flags.make
+CMakeFiles/shading.dir/figures/figure.cpp.o: ../figures/figure.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/shading.dir/figures/figure.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/figure.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.cpp
+
+CMakeFiles/shading.dir/figures/figure.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/figure.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.cpp > CMakeFiles/shading.dir/figures/figure.cpp.i
+
+CMakeFiles/shading.dir/figures/figure.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/figure.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.cpp -o CMakeFiles/shading.dir/figures/figure.cpp.s
+
+CMakeFiles/shading.dir/figures/figure.cpp.o.requires:
+
+.PHONY : CMakeFiles/shading.dir/figures/figure.cpp.o.requires
+
+CMakeFiles/shading.dir/figures/figure.cpp.o.provides: CMakeFiles/shading.dir/figures/figure.cpp.o.requires
+	$(MAKE) -f CMakeFiles/shading.dir/build.make CMakeFiles/shading.dir/figures/figure.cpp.o.provides.build
+.PHONY : CMakeFiles/shading.dir/figures/figure.cpp.o.provides
+
+CMakeFiles/shading.dir/figures/figure.cpp.o.provides.build: CMakeFiles/shading.dir/figures/figure.cpp.o
+
+
+CMakeFiles/shading.dir/affine.cpp.o: CMakeFiles/shading.dir/flags.make
+CMakeFiles/shading.dir/affine.cpp.o: ../affine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/shading.dir/affine.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/affine.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.cpp
+
+CMakeFiles/shading.dir/affine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/affine.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.cpp > CMakeFiles/shading.dir/affine.cpp.i
+
+CMakeFiles/shading.dir/affine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/affine.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.cpp -o CMakeFiles/shading.dir/affine.cpp.s
+
+CMakeFiles/shading.dir/affine.cpp.o.requires:
+
+.PHONY : CMakeFiles/shading.dir/affine.cpp.o.requires
+
+CMakeFiles/shading.dir/affine.cpp.o.provides: CMakeFiles/shading.dir/affine.cpp.o.requires
+	$(MAKE) -f CMakeFiles/shading.dir/build.make CMakeFiles/shading.dir/affine.cpp.o.provides.build
+.PHONY : CMakeFiles/shading.dir/affine.cpp.o.provides
+
+CMakeFiles/shading.dir/affine.cpp.o.provides.build: CMakeFiles/shading.dir/affine.cpp.o
+
+
 CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o: shading_autogen/moc_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp
 
 CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.i: cmake_force
@@ -308,6 +356,8 @@ shading_OBJECTS = \
 "CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o" \
 "CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o" \
 "CMakeFiles/shading.dir/figures/torus.cpp.o" \
+"CMakeFiles/shading.dir/figures/figure.cpp.o" \
+"CMakeFiles/shading.dir/affine.cpp.o" \
 "CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o"
 
 # External object files for target shading
@@ -322,6 +372,8 @@ shading: CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o
 shading: CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o
 shading: CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o
 shading: CMakeFiles/shading.dir/figures/torus.cpp.o
+shading: CMakeFiles/shading.dir/figures/figure.cpp.o
+shading: CMakeFiles/shading.dir/affine.cpp.o
 shading: CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o
 shading: CMakeFiles/shading.dir/build.make
 shading: /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/QtWidgets
@@ -330,7 +382,7 @@ shading: /usr/local/lib/libboost_filesystem-mt.dylib
 shading: /Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/QtGui
 shading: /Applications/Qt/5.9.2/clang_64/lib/QtCore.framework/QtCore
 shading: CMakeFiles/shading.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable shading"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable shading"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/shading.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -347,6 +399,8 @@ CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/polygons/octahed
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o.requires
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o.requires
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/torus.cpp.o.requires
+CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/figure.cpp.o.requires
+CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/affine.cpp.o.requires
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o.requires
 
 .PHONY : CMakeFiles/shading.dir/requires

@@ -116,7 +116,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.cpp">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.h">
+			<Option target="shading"/>
+		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/common.h">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.cpp">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.h">
 			<Option target="shading"/>
 		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.cpp">

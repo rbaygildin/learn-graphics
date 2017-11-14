@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/affine.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/figure.cpp.o"
   "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/cube.cpp.o"
   "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/icosahedron.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o"
   "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/octahedron.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o"

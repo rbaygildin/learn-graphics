@@ -4,10 +4,12 @@
 
 #include "polygon.h"
 
-class Octahedron : public Polygon
-{
-public FUNCTIONS:
-    Octahedron();
+class Octahedron : public Polygon {
+public functions:
+
+    explicit Octahedron(double edge = 50, QVector3D center = QVector3D(0, 0, 0));
+
+    virtual QJsonObject toJson() const;
 
     unsigned int getV() const override;
 
@@ -17,11 +19,11 @@ public FUNCTIONS:
 
     unsigned int getP() const override;
 
-    Matrix verteces() const override;
+    Matrix vertices() const override;
 
     IntMatrix faces() const override;
 
-private FIELDS:
+private fields:
     static const int FRONT_TOP = 0;
     static const int RIGHT_TOP = 1;
     static const int BACK_TOP = 2;

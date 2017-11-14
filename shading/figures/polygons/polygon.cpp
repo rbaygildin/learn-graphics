@@ -1,15 +1,11 @@
 #include "polygon.h"
 
-Polygon::Polygon(QObject *parent) {
-
-}
-
-Polygon::~Polygon() {
+Polygon::Polygon(double edge, const QVector3D &center) : edge(edge), center(center) {
 
 }
 
 QRectF Polygon::boundingRect() const {
-    Matrix v = verteces();
+    Matrix v = const_cast<Polygon*>(this)->applyTransformations();
     double xMin = numeric_limits<double>::max();
     double xMax = numeric_limits<double>::min();
     double yMin = numeric_limits<double>::max();
@@ -31,8 +27,8 @@ QRectF Polygon::boundingRect() const {
 
 void Polygon::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     IntMatrix f = faces();
-    Matrix v = verteces();
-    painter->setBrush(Qt::blue);
+    Matrix v = applyTransformations();
+    painter->setBrush(Qt::transparent);
     painter->setPen(Qt::black);
     QRectF b = boundingRect();
 //    painter->scale(1, -1);
@@ -64,4 +60,25 @@ void Polygon::setEdge(double edge) {
 
 void Polygon::setCenter(QVector3D center) {
     this->center = center;
+}
+
+QJsonObject Polygon::toJson() const {
+    QJsonObject json;
+    json.insert("edge", edge);
+    QJsonArray array;
+    for (double transformation : transformations) {
+        array.push_back(transformation);
+    }
+    json.insert("transformations", array);
+    return json;
+}
+
+Matrix Polygon::applyTransformations() {
+    Matrix v = vertices();
+    v = affine::scale(v, transformations[ScaleX], transformations[ScaleY], transformations[ScaleZ]);
+    v = affine::translate(v, transformations[TranslateX], transformations[TranslateY], transformations[TranslateZ]);
+    v = affine::rotateX(v, transformations[RotateX]);
+    v = affine::rotateX(v, transformations[RotateY]);
+    v = affine::rotateX(v, transformations[RotateZ]);
+    return v;
 }

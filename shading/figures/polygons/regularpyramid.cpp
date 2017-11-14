@@ -1,6 +1,9 @@
 #include "regularpyramid.h"
 
-RegularPyramid::RegularPyramid() = default;
+
+RegularPyramid::RegularPyramid(double edge, QVector3D center) : Polygon(edge, center) {
+
+}
 
 unsigned int RegularPyramid::getV() const {
     return 4;
@@ -18,7 +21,7 @@ unsigned int RegularPyramid::getP() const {
     return 3;
 }
 
-Matrix RegularPyramid::verteces() const {
+Matrix RegularPyramid::vertices() const {
     Matrix v(getV(), 3);
     //v 1
     v(V1, X) = -this->edge / 2.0;
@@ -58,4 +61,10 @@ IntMatrix RegularPyramid::faces() const {
     f2(BOTTOM, P2) = V2;
     f2(BOTTOM, P3) = V3;
     return f2;
+}
+
+QJsonObject RegularPyramid::toJson() const {
+    auto json = Polygon::toJson();
+    json.insert("type", "REGULAR_PYRAMID");
+    return json;
 }

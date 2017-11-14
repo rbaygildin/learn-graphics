@@ -5,9 +5,11 @@
 #include "polygon.h"
 
 class Icosahedron : public Polygon {
-public FUNCTIONS:
+public functions:
 
-    Icosahedron();
+    Icosahedron(double edge = 50, QVector3D center = QVector3D(0, 0, 0));
+
+    virtual QJsonObject toJson() const;
 
     unsigned int getV() const override;
 
@@ -17,11 +19,11 @@ public FUNCTIONS:
 
     unsigned int getP() const override;
 
-    Matrix verteces() const override;
+    Matrix vertices() const override;
 
     IntMatrix faces() const override;
 
-private FIELDS:
+private fields:
     static const int TOP = 0;
     static const int TOP_V1 = 1;
     static const int TOP_V2 = 2;

@@ -1,6 +1,6 @@
 #include "cube.h"
 
-Cube::Cube(QObject *parent) : Polygon(parent) {
+Cube::Cube(double edge, QVector3D center) : Polygon(edge, center){
 
 }
 
@@ -20,7 +20,7 @@ unsigned int Cube::getP() const{
     return 4;
 }
 
-Matrix Cube::verteces() const {
+Matrix Cube::vertices() const {
     Matrix v2(getV(), 3);
     //v 1
     v2(V1, X) = -this->edge / 2.0;
@@ -91,4 +91,10 @@ IntMatrix Cube::faces() const {
     f2(BOTTOM, P3) = V3;
     f2(BOTTOM, P4) = V4;
     return f2;
+}
+
+QJsonObject Cube::toJson() const {
+    auto json = Polygon::toJson();
+    json.insert("type", "CUBE");
+    return json;
 }

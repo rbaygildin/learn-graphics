@@ -5,9 +5,11 @@
 #include "polygon.h"
 
 class RegularPyramid : public Polygon {
-public FUNCTIONS:
+public functions:
 
-    RegularPyramid();
+    explicit RegularPyramid(double edge = 50, QVector3D center = QVector3D(0, 0, 0));
+
+    virtual QJsonObject toJson() const;
 
     unsigned int getV() const override;
 
@@ -17,11 +19,11 @@ public FUNCTIONS:
 
     unsigned int getP() const override;
 
-    Matrix verteces() const override;
+    Matrix vertices() const override;
 
     IntMatrix faces() const override;
 
-private FIELDS:
+private fields:
     static constexpr ULONG LEFT = 0;
     static constexpr ULONG RIGHT = 1;
     static constexpr ULONG BACK = 2;

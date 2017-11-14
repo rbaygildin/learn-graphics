@@ -10,6 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o"
   "CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o"
   "CMakeFiles/shading.dir/figures/torus.cpp.o"
+  "CMakeFiles/shading.dir/figures/figure.cpp.o"
+  "CMakeFiles/shading.dir/affine.cpp.o"
   "CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o"
   "shading.pdb"
   "shading"

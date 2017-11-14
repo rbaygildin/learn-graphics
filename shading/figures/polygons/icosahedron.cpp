@@ -1,6 +1,8 @@
 #include "icosahedron.h"
 
-Icosahedron::Icosahedron() = default;
+Icosahedron::Icosahedron(double edge, QVector3D center) : Polygon(edge, center){
+
+}
 
 unsigned int Icosahedron::getV() const {
     return 12;
@@ -18,7 +20,7 @@ unsigned int Icosahedron::getP() const {
     return 3;
 }
 
-Matrix Icosahedron::verteces() const {
+Matrix Icosahedron::vertices() const {
     Matrix v(getV(), 3);
     double R = edge * sqrt(3.0) * (3.0 + sqrt(5.0)) / 12.0;
     double r = edge / (2.0 * sin(M_PI / 5.0));
@@ -132,4 +134,10 @@ IntMatrix Icosahedron::faces() const {
     f(19, Y) = TOP_V2;
     f(19, Z) = BOTTOM_V2;
     return f;
+}
+
+QJsonObject Icosahedron::toJson() const {
+    auto json = Polygon::toJson();
+    json.insert("type", "ICOSAHEDRON");
+    return json;
 }

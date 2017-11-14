@@ -1,9 +1,6 @@
 #ifndef IPOLYGON_H
 #define IPOLYGON_H
 
-#define FUNCTIONS
-#define FIELDS
-
 #include <QGraphicsItem>
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
@@ -13,24 +10,22 @@
 #include <QRectF>
 #include <QDebug>
 #include <QVector3D>
+#include <QJsonObject>
+#include <QJsonArray>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <cfloat>
 #include <cmath>
+#include "../figure.h"
+#include "../../common.h"
+#include "../../affine.h"
 
-using namespace boost::numeric::ublas;
 using namespace std;
 
-typedef matrix<double> Matrix;
-typedef matrix<int> IntMatrix;
-typedef unsigned long ULONG;
-
-class Polygon : public QObject, public QGraphicsItem {
+class Polygon : public Figure {
 Q_OBJECT
-public FUNCTIONS:
+public functions:
 
-    explicit Polygon(QObject *parent = 0);
-
-    ~Polygon() override;
+    explicit Polygon(double edge = 50, const QVector3D &center = QVector3D(0, 0, 0));
 
     void setEdge(double edge);
 
@@ -44,27 +39,26 @@ public FUNCTIONS:
 
     virtual unsigned int getP() const = 0;
 
-    virtual Matrix verteces() const = 0;
+    virtual Matrix vertices() const = 0;
 
     virtual IntMatrix faces() const = 0;
 
-signals:
+    QJsonObject toJson() const override;
 
-    void signal1();
+protected functions:
 
-protected FUNCTIONS:
+    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    Matrix applyTransformations();
 
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+private functions:
 
-private FUNCTIONS:
+    QRectF boundingRect() const override;
 
-    QRectF boundingRect() const;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+protected fields:
 
-protected FIELDS:
-
-    double edge;
+    double edge{};
     QVector3D center;
 
     //verteces
