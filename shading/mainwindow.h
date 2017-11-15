@@ -76,6 +76,10 @@ public slots:
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
+
+    void addTorus(QPoint point);
+
+    void addSphere(QPoint point);
 };
 
 #endif // MAINWINDOW_H

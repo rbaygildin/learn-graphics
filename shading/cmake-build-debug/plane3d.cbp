@@ -173,6 +173,12 @@
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/regularpyramid.h">
 			<Option target="shading"/>
 		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/sphere.cpp">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/sphere.h">
+			<Option target="shading"/>
+		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.cpp">
 			<Option target="shading"/>
 		</Unit>
@@ -186,6 +192,12 @@
 			<Option target="shading"/>
 		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.h">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/shading/FlatShading.cpp">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/shading/FlatShading.h">
 			<Option target="shading"/>
 		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/CMakeLists.txt">

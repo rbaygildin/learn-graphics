@@ -168,9 +168,9 @@ QtCore/qsize.h
 QtCore/qpoint.h
 -
 
-/Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/QGenericMatrix
-qgenericmatrix.h
-/Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/qgenericmatrix.h
+/Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/QColor
+qcolor.h
+/Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/qcolor.h
 
 /Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/QPainter
 qpainter.h
@@ -180,14 +180,16 @@ qpainter.h
 qvector3d.h
 /Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/qvector3d.h
 
-/Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/qgenericmatrix.h
+/Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/qcolor.h
 QtGui/qtguiglobal.h
 -
-QtCore/qmetatype.h
+QtGui/qrgb.h
 -
-QtCore/qdebug.h
+QtCore/qnamespace.h
 -
-QtCore/qdatastream.h
+QtCore/qstringlist.h
+-
+QtGui/qrgba64.h
 -
 
 /Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/qpainter.h
@@ -431,9 +433,15 @@ affine.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.h
 QtGlobal
 -
-QGenericMatrix
--
 cmath
+-
+boost/numeric/ublas/matrix.hpp
+-
+boost/numeric/ublas/lu.hpp
+-
+boost/numeric/ublas/io.hpp
+-
+QColor
 -
 common.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/common.h
@@ -441,14 +449,6 @@ common.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/7NGSYPDKCM/moc_figure.cpp
 ../../../figures/figure.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/7NGSYPDKCM/moc_torus.cpp
-../../../figures/torus.h
-/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
@@ -475,8 +475,6 @@ QtCore/qmetatype.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/7NGSYPDKCM/moc_figure.cpp
 LRHII6BOYG/moc_polygon.cpp
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/LRHII6BOYG/moc_polygon.cpp
-7NGSYPDKCM/moc_torus.cpp
-/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/7NGSYPDKCM/moc_torus.cpp
 EWIEGA46WW/moc_mainwindow.cpp
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/EWIEGA46WW/moc_mainwindow.cpp
 
@@ -555,9 +553,15 @@ QJsonArray
 -
 boost/numeric/ublas/matrix.hpp
 -
+boost/numeric/ublas/vector.hpp
+-
 cfloat
 -
 cmath
+-
+vector
+-
+algorithm
 -
 ../figure.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.h
@@ -580,9 +584,45 @@ regularpyramid.h
 polygon.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.h
 
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/sphere.cpp
+sphere.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/sphere.h
+QJsonObject
+-
+../affine.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.h
+
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/sphere.h
+QGraphicsItem
+-
+QObject
+-
+QGraphicsSceneMouseEvent
+-
+QPainter
+-
+QStyleOptionGraphicsItem
+-
+QWidget
+-
+QRectF
+-
+QDebug
+-
+QVector3D
+-
+figure.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.h
+cfloat
+-
+
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.cpp
+QJsonObject
+-
 torus.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.h
+../affine.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.h
 
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.h
 QGraphicsItem
@@ -601,6 +641,12 @@ QRectF
 -
 QDebug
 -
+QVector3D
+-
+figure.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.h
+cfloat
+-
 
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/main.cpp
 mainwindow.h
@@ -615,6 +661,8 @@ ui_mainwindow.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/ui_mainwindow.h
 figures/polygons/cube.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.h
+figures/sphere.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/sphere.h
 
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.h
 QMainWindow
@@ -647,6 +695,18 @@ figures/polygons/octahedron.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/octahedron.h
 figures/polygons/icosahedron.h
 /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/icosahedron.h
+
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/shading/FlatShading.cpp
+FlatShading.h
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/shading/FlatShading.h
+
+/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/shading/FlatShading.h
+boost/numeric/ublas/vector.hpp
+-
+QColor
+-
+QVector3D
+-
 
 /usr/local/include/boost/assert.hpp
 boost/config.hpp
@@ -3608,6 +3668,8 @@ boost/type_traits/is_same.hpp
 boost/utility/enable_if.hpp
 -
 
+/usr/local/include/boost/numeric/ublas/detail/temporary.hpp
+
 /usr/local/include/boost/numeric/ublas/detail/vector_assign.hpp
 boost/numeric/ublas/functional.hpp
 -
@@ -3660,6 +3722,26 @@ memory
 array
 -
 
+/usr/local/include/boost/numeric/ublas/io.hpp
+iosfwd
+-
+sstream
+-
+boost/numeric/ublas/matrix_expression.hpp
+-
+
+/usr/local/include/boost/numeric/ublas/lu.hpp
+boost/numeric/ublas/operation.hpp
+-
+boost/numeric/ublas/vector_proxy.hpp
+-
+boost/numeric/ublas/matrix_proxy.hpp
+-
+boost/numeric/ublas/vector.hpp
+-
+boost/numeric/ublas/triangular.hpp
+-
+
 /usr/local/include/boost/numeric/ublas/matrix.hpp
 boost/config.hpp
 -
@@ -3678,6 +3760,20 @@ boost/serialization/nvp.hpp
 
 /usr/local/include/boost/numeric/ublas/matrix_expression.hpp
 boost/numeric/ublas/vector_expression.hpp
+-
+
+/usr/local/include/boost/numeric/ublas/matrix_proxy.hpp
+boost/numeric/ublas/matrix_expression.hpp
+-
+boost/numeric/ublas/detail/vector_assign.hpp
+-
+boost/numeric/ublas/detail/matrix_assign.hpp
+-
+boost/numeric/ublas/detail/temporary.hpp
+-
+
+/usr/local/include/boost/numeric/ublas/operation.hpp
+boost/numeric/ublas/matrix_proxy.hpp
 -
 
 /usr/local/include/boost/numeric/ublas/storage.hpp
@@ -3730,6 +3826,14 @@ boost/type_traits/is_unsigned.hpp
 boost/mpl/and.hpp
 -
 
+/usr/local/include/boost/numeric/ublas/triangular.hpp
+boost/numeric/ublas/matrix.hpp
+-
+boost/numeric/ublas/detail/temporary.hpp
+-
+boost/type_traits/remove_const.hpp
+-
+
 /usr/local/include/boost/numeric/ublas/vector.hpp
 boost/config.hpp
 -
@@ -3752,6 +3856,14 @@ utility
 
 /usr/local/include/boost/numeric/ublas/vector_expression.hpp
 boost/numeric/ublas/expression_types.hpp
+-
+
+/usr/local/include/boost/numeric/ublas/vector_proxy.hpp
+boost/numeric/ublas/vector_expression.hpp
+-
+boost/numeric/ublas/detail/vector_assign.hpp
+-
+boost/numeric/ublas/detail/temporary.hpp
 -
 
 /usr/local/include/boost/operators.hpp

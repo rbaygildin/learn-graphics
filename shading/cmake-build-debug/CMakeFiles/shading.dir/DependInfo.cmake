@@ -13,9 +13,11 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o"
   "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/pyramid.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o"
   "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/regularpyramid.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/sphere.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/sphere.cpp.o"
   "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/figures/torus.cpp.o"
   "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/main.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/main.cpp.o"
   "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/mainwindow.cpp.o"
+  "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/shading/FlatShading.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/shading/FlatShading.cpp.o"
   "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp" "/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

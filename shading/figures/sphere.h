@@ -1,5 +1,10 @@
-#ifndef TORUS_H
-#define TORUS_H
+//
+// Created by Max Heartfield on 15.11.17.
+//
+
+#ifndef PLANE3D_SPHERE_H
+#define PLANE3D_SPHERE_H
+
 
 #include <QGraphicsItem>
 #include <QObject>
@@ -15,12 +20,12 @@
 
 using namespace std;
 
-class Torus : public Figure {
+class Sphere : public Figure{
 public functions:
 
-    Torus(double R = 250, double r = 50, QObject *parent = nullptr);
+    explicit Sphere(double R = 100, QObject *parent = nullptr);
 
-    ~Torus();
+    ~Sphere() override;
 
     QRectF boundingRect() const override;
 
@@ -35,8 +40,9 @@ private functions:
 private fields:
     static const ULONG vCount = 60;
     static const ULONG hCount = 60;
-    double R, r;
+    double R;
     Matrix *vs;
 };
 
-#endif // TORUS_H
+
+#endif //PLANE3D_SPHERE_H

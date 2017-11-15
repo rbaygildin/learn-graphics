@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "figures/polygons/cube.h"
+#include "figures/sphere.h"
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
@@ -61,9 +62,9 @@ void MainWindow::save() {
     }
     QJsonObject obj;
     QJsonArray array;
-    for(auto &item : scene->items()){
-        auto figure = dynamic_cast<Figure*>(item);
-        if(item == nullptr)
+    for (auto &item : scene->items()) {
+        auto figure = dynamic_cast<Figure *>(item);
+        if (item == nullptr)
             continue;
         array.append(figure->toJson());
     }
@@ -97,6 +98,10 @@ void MainWindow::open() {
             figure = new Octahedron(figureJson["edge"].toDouble());
         } else if (figureJson["type"] == "ICOSAHEDRON") {
             figure = new Icosahedron(figureJson["edge"].toDouble());
+        } else if (figureJson["type"] == "TORUS") {
+            figure = new Torus(figureJson["R"].toDouble(), figureJson["r"].toDouble());
+        } else if (figureJson["type"] == "SPHERE") {
+            figure = new Sphere(figureJson["R"].toDouble());
         } else
             continue;
         QJsonArray trArray = figureJson["transformations"].toArray();
@@ -104,7 +109,9 @@ void MainWindow::open() {
             figure->transform(i, trArray.at(i).toDouble());
         scene->addItem(figure);
     }
+
     redraw();
+
 }
 
 void MainWindow::about() {
@@ -124,23 +131,31 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     QAction *drawPyramidAction = new QAction("Добавить пирамиду", this);
     QAction *drawOctahedronAction = new QAction("Добавить октаэдр", this);
     QAction *drawIcosahedronAction = new QAction("Добавить икосаэдр", this);
-    QAction *drawTetrahedronAction = new QAction("Add tetrahedron", this);
+    QAction *drawTetrahedronAction = new QAction("Добавить тетраэдр", this);
+    QAction *drawSphereAction = new QAction("Добавить сферу", this);
+    QAction *drawTorusAction = new QAction("Добавить тор", this);
     QAction *drawAction = new QAction("Перерисовать", this);
     QAction *clearAction = new QAction("Очистить", this);
     QAction *restoreAction = new QAction("Восстановить", this);
 
     //Connect
     connect(drawCubeAction, &QAction::triggered, this, [this, pos]() {
-        addCube(QPoint());
+        addCube(pos);
     });
     connect(drawPyramidAction, &QAction::triggered, this, [this, pos]() {
-        addRegularPyramid(QPoint());
+        addRegularPyramid(pos);
     });
     connect(drawOctahedronAction, &QAction::triggered, this, [this, pos]() {
-        addOctahedron(QPoint());
+        addOctahedron(pos);
     });
     connect(drawIcosahedronAction, &QAction::triggered, this, [this, pos]() {
-        addIcosahedron(QPoint());
+        addIcosahedron(pos);
+    });
+    connect(drawTorusAction, &QAction::triggered, this, [this, pos]() {
+        addTorus(pos);
+    });
+    connect(drawSphereAction, &QAction::triggered, this, [this, pos]() {
+        addSphere(pos);
     });
 //    connect(drawTetrahedronAction, &QAction::triggered, this, [this, pos]() {
 //        addTetrahedron(pos);
@@ -156,6 +171,8 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     menu->addAction(drawOctahedronAction);
     menu->addAction(drawIcosahedronAction);
     menu->addAction(drawTetrahedronAction);
+    menu->addAction(drawTorusAction);
+    menu->addAction(drawSphereAction);
     menu->addAction(drawAction);
     menu->addAction(clearAction);
     menu->addAction(restoreAction);
@@ -190,6 +207,18 @@ void MainWindow::addIcosahedron(QPoint pos) {
     redraw();
 }
 
+void MainWindow::addTorus(QPoint pos) {
+    auto figure = new Torus();
+    scene->addItem(figure);
+    redraw();
+}
+
+void MainWindow::addSphere(QPoint point) {
+    auto figure = new Sphere();
+    scene->addItem(figure);
+    redraw();
+}
+
 void MainWindow::addPyramid(QPoint pos) {
 
 }
@@ -204,9 +233,9 @@ void MainWindow::redraw() {
 }
 
 void MainWindow::restore() {
-    for(auto &item : scene->items()){
-        auto figure = dynamic_cast<Figure*>(item);
-        if(item == nullptr)
+    for (auto &item : scene->items()) {
+        auto figure = dynamic_cast<Figure *>(item);
+        if (item == nullptr)
             continue;
         figure->identityTransform();
     }
@@ -214,9 +243,9 @@ void MainWindow::restore() {
 }
 
 void MainWindow::rotateX() {
-    for(auto &item : scene->items()){
-        auto figure = dynamic_cast<Figure*>(item);
-        if(item == nullptr)
+    for (auto &item : scene->items()) {
+        auto figure = dynamic_cast<Figure *>(item);
+        if (item == nullptr)
             continue;
         figure->transform(Figure::RotateX, degree2radian(slider2degree(ui->rxInp->value())));
     }
@@ -224,9 +253,9 @@ void MainWindow::rotateX() {
 }
 
 void MainWindow::rotateY() {
-    for(auto &item : scene->items()){
-        auto figure = dynamic_cast<Figure*>(item);
-        if(item == nullptr)
+    for (auto &item : scene->items()) {
+        auto figure = dynamic_cast<Figure *>(item);
+        if (item == nullptr)
             continue;
         figure->transform(Figure::RotateY, degree2radian(slider2degree(ui->ryInp->value())));
     }
@@ -234,9 +263,9 @@ void MainWindow::rotateY() {
 }
 
 void MainWindow::rotateZ() {
-    for(auto &item : scene->items()){
-        auto figure = dynamic_cast<Figure*>(item);
-        if(item == nullptr)
+    for (auto &item : scene->items()) {
+        auto figure = dynamic_cast<Figure *>(item);
+        if (item == nullptr)
             continue;
         figure->transform(Figure::RotateZ, degree2radian(slider2degree(ui->rzInp->value())));
     }
@@ -244,9 +273,9 @@ void MainWindow::rotateZ() {
 }
 
 void MainWindow::scaleX() {
-    for(auto &item : scene->items()){
-        auto figure = dynamic_cast<Figure*>(item);
-        if(item == nullptr)
+    for (auto &item : scene->items()) {
+        auto figure = dynamic_cast<Figure *>(item);
+        if (item == nullptr)
             continue;
         figure->transform(Figure::ScaleX, slider2scale(ui->sxInp->value()));
     }
@@ -254,9 +283,9 @@ void MainWindow::scaleX() {
 }
 
 void MainWindow::scaleY() {
-    for(auto &item : scene->items()){
-        auto figure = dynamic_cast<Figure*>(item);
-        if(item == nullptr)
+    for (auto &item : scene->items()) {
+        auto figure = dynamic_cast<Figure *>(item);
+        if (item == nullptr)
             continue;
         figure->transform(Figure::ScaleY, slider2scale(ui->syInp->value()));
     }
@@ -264,9 +293,9 @@ void MainWindow::scaleY() {
 }
 
 void MainWindow::scaleZ() {
-    for(auto &item : scene->items()){
-        auto figure = dynamic_cast<Figure*>(item);
-        if(item == nullptr)
+    for (auto &item : scene->items()) {
+        auto figure = dynamic_cast<Figure *>(item);
+        if (item == nullptr)
             continue;
         figure->transform(Figure::ScaleZ, slider2scale(ui->szInp->value()));
     }
@@ -274,9 +303,9 @@ void MainWindow::scaleZ() {
 }
 
 void MainWindow::moveX() {
-    for(auto &item : scene->items()){
-        auto figure = dynamic_cast<Figure*>(item);
-        if(item == nullptr)
+    for (auto &item : scene->items()) {
+        auto figure = dynamic_cast<Figure *>(item);
+        if (item == nullptr)
             continue;
         figure->transform(Figure::TranslateX, ui->dxInp->value());
     }
@@ -284,9 +313,9 @@ void MainWindow::moveX() {
 }
 
 void MainWindow::moveY() {
-    for(auto &item : scene->items()){
-        auto figure = dynamic_cast<Figure*>(item);
-        if(item == nullptr)
+    for (auto &item : scene->items()) {
+        auto figure = dynamic_cast<Figure *>(item);
+        if (item == nullptr)
             continue;
         figure->transform(Figure::TranslateY, ui->dyInp->value());
     }
@@ -294,9 +323,9 @@ void MainWindow::moveY() {
 }
 
 void MainWindow::moveZ() {
-    for(auto &item : scene->items()){
-        auto figure = dynamic_cast<Figure*>(item);
-        if(item == nullptr)
+    for (auto &item : scene->items()) {
+        auto figure = dynamic_cast<Figure *>(item);
+        if (item == nullptr)
             continue;
         figure->transform(Figure::TranslateZ, ui->dzInp->value());
     }

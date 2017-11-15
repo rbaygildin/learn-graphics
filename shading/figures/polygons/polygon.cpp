@@ -38,6 +38,7 @@ void Polygon::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
                     -v(face[j], 1)
             );
         }
+//        painter->setBrush(QBrush(flatShading(QColor::fromRgbF(255, 0, 0, 1.0), 1, 10, 0.5, i)));
         painter->drawPolygon(polygon);
     }
 //    painter->setPen(Qt::red);
@@ -78,7 +79,7 @@ Matrix Polygon::applyTr() {
     v = geom::rotateX(v, transformations[RotateX]);
     v = geom::rotateY(v, transformations[RotateY]);
     v = geom::rotateZ(v, transformations[RotateZ]);
-    return geom::perProject(v, -200);
+    return v;
 }
 
 std::vector<std::vector<int>> Polygon::sortFaces() {
@@ -92,16 +93,71 @@ std::vector<std::vector<int>> Polygon::sortFaces() {
         }
         sortedFaces.emplace_back(p);
     }
-    std::sort(sortedFaces.begin(), sortedFaces.end(), [=](const std::vector<int> &a, const std::vector<int> &b) -> bool {
-        double zA = 0.0;
-        double zB = 0.0;
-        for (ULONG i = 0; i < a.size(); i++) {
-            zA += v(a[i], 2);
-            zB += v(b[i], 2);
-        }
-        zA /= a.size();
-        zB /= a.size();
-        return zA < zB;
-    });
+    std::sort(sortedFaces.begin(), sortedFaces.end(),
+              [=](const std::vector<int> &a, const std::vector<int> &b) -> bool {
+                  double zA = 0.0;
+                  double zB = 0.0;
+                  for (ULONG i = 0; i < a.size(); i++) {
+                      zA += v(a[i], 2);
+                      zB += v(b[i], 2);
+                  }
+                  zA /= a.size();
+                  zB /= a.size();
+                  return zA > zB;
+              });
     return sortedFaces;
+}
+
+QColor Polygon::flatShading(const QColor &color, double ia, double id, double ka, int faceNumber) {
+    QVector3D normal;
+    normal.setX(0.0);
+    normal.setY(0.0);
+    normal.setZ(0.0);
+    auto v = applyTr();
+    auto f = faces();
+    QVector3D a;
+    a.setX(v(f(faceNumber, P2), X) - v(f(faceNumber, P1), X));
+    a.setY(v(f(faceNumber, P2), Y) - v(f(faceNumber, P1), Y));
+    a.setZ(v(f(faceNumber, P2), Z) - v(f(faceNumber, P1), Z));
+    QVector3D b;
+    b.setX(v(f(faceNumber, P3), X) - v(f(faceNumber, P2), X));
+    b.setY(v(f(faceNumber, P3), Y) - v(f(faceNumber, P2), Y));
+    b.setZ(v(f(faceNumber, P3), Z) - v(f(faceNumber, P2), Z));
+//    for (int i = 0, j = 1; i < getP(); i++, j++) {
+//        if (j == getP()) j = 0;
+//        normal.setX(normal.x() + (v(f(faceNumber, i), Z) - v(f(faceNumber, j), Z)) *
+//                                 (v(f(faceNumber, i), Y) - v(f(faceNumber, i), Y))
+//        );
+//        normal.setY(normal.y() + (v(f(faceNumber, i), X) - v(f(faceNumber, j), X)) *
+//                                 (v(f(faceNumber, i), Z) - v(f(faceNumber, j), Z))
+//        );
+//        normal.setZ(normal.z() + (v(f(faceNumber, i), Y) - v(f(faceNumber, j), Y)) *
+//                                 (v(f(faceNumber, i), X) - v(f(faceNumber, j), X))
+//        );
+//    }
+    a.normalize();
+    b.normalize();
+    QVector3D n = QVector3D::crossProduct(a, b);
+    double xC = 0.0, yC = 0.0, zC = 0.0;
+    for (int i = 0; i < getP(); i++) {
+        xC += v(f(faceNumber, i), X);
+        yC += v(f(faceNumber, i), Y);
+        zC += v(f(faceNumber, i), Z);
+    }
+    xC /= getP();
+    yC /= getP();
+    zC /= getP();
+    QVector3D lighter;
+    lighter.setX(0);
+    lighter.setY(0);
+    lighter.setZ(1000);
+    n.normalize();
+    lighter.normalize();
+
+    double cosinus = QVector3D::dotProduct(n, lighter);
+    double ambient = ia * 0.5;
+    double diffuse = id * 0.5 * cosinus;
+    double res = ambient + diffuse;
+    res = res > 1.0 ? 1.0 : res;
+    return QColor::fromRgbF(res, res, res, 1.0);
 }

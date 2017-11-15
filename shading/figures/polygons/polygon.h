@@ -13,6 +13,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <boost/numeric/ublas/matrix.hpp>
+#include <boost/numeric/ublas/vector.hpp>
 #include <cfloat>
 #include <cmath>
 #include <vector>
@@ -52,6 +53,7 @@ protected functions:
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     Matrix applyTr();
     std::vector<std::vector<int>> sortFaces();
+    QColor flatShading(const QColor &color, double ia, double id, double ka, int faceNumber);
 
 private functions:
 

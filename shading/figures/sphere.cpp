@@ -1,8 +1,13 @@
+//
+// Created by Max Heartfield on 15.11.17.
+//
+
+#include "sphere.h"
+
 #include <QJsonObject>
-#include "torus.h"
 #include "../affine.h"
 
-QRectF Torus::boundingRect() const {
+QRectF Sphere::boundingRect() const {
     double xMin = numeric_limits<double>::max();
     double xMax = numeric_limits<double>::min();
     double yMin = numeric_limits<double>::max();
@@ -24,7 +29,7 @@ QRectF Torus::boundingRect() const {
     return QRectF(QPointF(xMin, -yMin), QPointF(xMax, -yMax));
 }
 
-void Torus::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+void Sphere::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     Matrix v = applyTr();
     painter->setPen(Qt::black);
     for (int col = 1; col < hCount; col++) {
@@ -68,7 +73,7 @@ void Torus::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
     Q_UNUSED(widget);
 }
 
-Matrix Torus::applyTr() {
+Matrix Sphere::applyTr() {
     Matrix v(*vs);
     v = geom::scale(v, transformations[ScaleX], transformations[ScaleY], transformations[ScaleZ]);
     v = geom::translate(v, transformations[TranslateX], transformations[TranslateY], transformations[TranslateZ]);
@@ -78,15 +83,14 @@ Matrix Torus::applyTr() {
     return v;
 }
 
-QJsonObject Torus::toJson() const {
+QJsonObject Sphere::toJson() const {
     QJsonObject json;
     json.insert("type", "TORUS");
     json.insert("R", R);
-    json.insert("r", r);
     return json;
 }
 
-Torus::Torus(double R, double r, QObject *parent) : Figure(parent), R(R), r(r) {
+Sphere::Sphere(double R, QObject *parent) : Figure(parent), R(R){
     vs = new Matrix(vCount * hCount, 3);
     for (ULONG column = 0; column < hCount; column++) {
         for (ULONG row = 0; row < vCount; row++) {
@@ -98,16 +102,16 @@ Torus::Torus(double R, double r, QObject *parent) : Figure(parent), R(R), r(r) {
     }
 }
 
-Torus::~Torus() {
+Sphere::~Sphere() {
     delete vs;
 }
 
-std::vector<double> Torus::getCoords(ULONG row, ULONG column) {
-    double phi = 2 * M_PI / hCount * row - M_PI;
-    double xi = 2 * M_PI / vCount * column;
+std::vector<double> Sphere::getCoords(ULONG row, ULONG column) {
+    double phi = 2 * M_PI / hCount * row;
+    double teta = 2 * M_PI / vCount * column - M_PI;
     std::vector<double> res(3);
-    res[0] = (R + r * cos(phi)) * cos(xi);
-    res[1] = (R + r * cos(phi)) * sin(xi);
-    res[2] = r * sin(phi);
+    res[0] = R * cos(phi) * sin(teta);
+    res[1] = R * sin(phi) * sin(teta);
+    res[2] = R * cos(teta);
     return res;
 }
