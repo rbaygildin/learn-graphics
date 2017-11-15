@@ -1,16 +1,19 @@
-#include <QJsonObject>
-#include "torus.h"
-#include "../affine.h"
+//
+// Created by Max Heartfield on 15.11.17.
+//
 
-QRectF Torus::boundingRect() const {
+#include "nonconvex_figure.h"
+
+QRectF NonConvexFigure::boundingRect() const {
     double xMin = numeric_limits<double>::max();
     double xMax = numeric_limits<double>::min();
     double yMin = numeric_limits<double>::max();
     double yMax = numeric_limits<double>::min();
+    Matrix v = const_cast<NonConvexFigure*>(this)->applyTr();
     for (ULONG column = 0; column < hCount; column++) {
         for (ULONG row = 0; row < vCount; row++) {
-            double x = vs->operator()(row * hCount + column, 0);
-            double y = vs->operator()(row * hCount + column, 1);
+            double x = v.operator()(row * hCount + column, 0);
+            double y = v.operator()(row * hCount + column, 1);
             if (x < xMin)
                 xMin = x;
             if (x > xMax)
@@ -24,7 +27,7 @@ QRectF Torus::boundingRect() const {
     return QRectF(QPointF(xMin, -yMin), QPointF(xMax, -yMax));
 }
 
-void Torus::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+void NonConvexFigure::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     Matrix v = applyTr();
     painter->setPen(Qt::black);
     for (int col = 1; col < hCount; col++) {
@@ -64,12 +67,15 @@ void Torus::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
         );
         painter->drawPolygon(face);
     }
+    painter->setPen(Qt::red);
+    painter->setBrush(Qt::transparent);
+    painter->drawRect(boundingRect());
     Q_UNUSED(option);
     Q_UNUSED(widget);
 }
 
-Matrix Torus::applyTr() {
-    Matrix v(*vs);
+Matrix NonConvexFigure::applyTr() {
+    Matrix v(*vertices());
     v = geom::scale(v, transformations[ScaleX], transformations[ScaleY], transformations[ScaleZ]);
     v = geom::translate(v, transformations[TranslateX], transformations[TranslateY], transformations[TranslateZ]);
     v = geom::rotateX(v, transformations[RotateX]);
@@ -78,15 +84,17 @@ Matrix Torus::applyTr() {
     return v;
 }
 
-QJsonObject Torus::toJson() const {
-    QJsonObject json;
-    json.insert("type", "TORUS");
-    json.insert("R", R);
-    json.insert("r", r);
-    return json;
+NonConvexFigure::NonConvexFigure(QObject *parent) : Figure(parent){
+
 }
 
-Torus::Torus(double R, double r, QObject *parent) : Figure(parent), R(R), r(r) {
+NonConvexFigure::~NonConvexFigure() {
+    delete vs;
+}
+
+Matrix* NonConvexFigure::vertices() {
+    if(vs != nullptr)
+        return vs;
     vs = new Matrix(vCount * hCount, 3);
     for (ULONG column = 0; column < hCount; column++) {
         for (ULONG row = 0; row < vCount; row++) {
@@ -96,18 +104,5 @@ Torus::Torus(double R, double r, QObject *parent) : Figure(parent), R(R), r(r) {
             vs->operator()(row * hCount + column, 2) = coords[2];
         }
     }
-}
-
-Torus::~Torus() {
-    delete vs;
-}
-
-std::vector<double> Torus::getCoords(ULONG row, ULONG column) {
-    double phi = 2 * M_PI / hCount * row - M_PI;
-    double xi = 2 * M_PI / vCount * column;
-    std::vector<double> res(3);
-    res[0] = (R + r * cos(phi)) * cos(xi);
-    res[1] = (R + r * cos(phi)) * sin(xi);
-    res[2] = r * sin(phi);
-    return res;
+    return vs;
 }

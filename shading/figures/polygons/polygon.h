@@ -50,7 +50,7 @@ public functions:
 
 protected functions:
 
-    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
     Matrix applyTr();
     std::vector<std::vector<int>> sortFaces();
     QColor flatShading(const QColor &color, double ia, double id, double ka, int faceNumber);
@@ -111,6 +111,7 @@ protected fields:
     static constexpr ULONG Y = 1;
     static constexpr ULONG Z = 2;
 
+    bool isPressed = false;
 };
 
 #endif // IPOLYGON_H

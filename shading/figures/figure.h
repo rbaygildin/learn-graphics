@@ -38,6 +38,7 @@ public fields:
     static constexpr auto TranslateX = 6;
     static constexpr auto TranslateY = 7;
     static constexpr auto TranslateZ = 8;
+    bool isChosen = false;
 
 protected fields:
     double transformations[9]{};

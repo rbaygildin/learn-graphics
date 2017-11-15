@@ -137,6 +137,36 @@
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.h">
 			<Option target="shading"/>
 		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/klein_bottle.cpp">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/klein_bottle.h">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.cpp">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.h">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/sphere.cpp">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/sphere.h">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/spiral.cpp">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/spiral.h">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/torus.cpp">
+			<Option target="shading"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/torus.h">
+			<Option target="shading"/>
+		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.cpp">
 			<Option target="shading"/>
 		</Unit>
@@ -171,18 +201,6 @@
 			<Option target="shading"/>
 		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/regularpyramid.h">
-			<Option target="shading"/>
-		</Unit>
-		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/sphere.cpp">
-			<Option target="shading"/>
-		</Unit>
-		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/sphere.h">
-			<Option target="shading"/>
-		</Unit>
-		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.cpp">
-			<Option target="shading"/>
-		</Unit>
-		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/torus.h">
 			<Option target="shading"/>
 		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/main.cpp">

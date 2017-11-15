@@ -1,6 +1,12 @@
-#ifndef TORUS_H
-#define TORUS_H
+//
+// Created by Max Heartfield on 15.11.17.
+//
 
+#ifndef PLANE3D_NONCONVEXFIGURE_H
+#define PLANE3D_NONCONVEXFIGURE_H
+
+#include "../../common.h"
+#include "../../affine.h"
 #include <QGraphicsItem>
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
@@ -10,33 +16,36 @@
 #include <QRectF>
 #include <QDebug>
 #include <QVector3D>
-#include "figure.h"
+#include "../figure.h"
 #include <cfloat>
 
 using namespace std;
 
-class Torus : public Figure {
-public functions:
+class NonConvexFigure : public Figure {
+public
+    functions:
 
-    Torus(double R = 250, double r = 50, QObject *parent = nullptr);
+    explicit NonConvexFigure(QObject *parent);
 
-    ~Torus();
+    ~NonConvexFigure() override;
 
     QRectF boundingRect() const override;
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
-    QJsonObject toJson() const override;
-
 private functions:
-    std::vector<double> getCoords(ULONG row, ULONG c);
+
+    virtual std::vector<double> getCoords(ULONG row, ULONG c) = 0;
+
+    virtual Matrix * vertices();
+
     Matrix applyTr();
 
-private fields:
+protected fields:
     static const ULONG vCount = 60;
     static const ULONG hCount = 60;
-    double R, r;
-    Matrix *vs;
+    Matrix *vs = nullptr;
 };
 
-#endif // TORUS_H
+
+#endif //PLANE3D_NONCONVEXFIGURE_H

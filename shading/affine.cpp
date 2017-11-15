@@ -198,11 +198,11 @@ namespace geom {
             extM(r, 3) = 1;
         }
         Matrix res(m.size1(), 3);
-        noalias(extM) = trans(prod(pm, trans(extM)));
+        Matrix projectedM = trans(prod(pm, trans(extM)));
         for(ULONG r = 0; r < m.size1(); r++){
-            double w = extM(r, 3);
+            double w = projectedM(r, 3);
             for(ULONG c = 0; c < 3; c++){
-                res(r, c) = extM(r, c) / w;
+                res(r, c) = projectedM(r, c) / w;
             }
         }
         return res;

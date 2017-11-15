@@ -2,9 +2,8 @@
 // Created by Max Heartfield on 15.11.17.
 //
 
-#ifndef PLANE3D_SPHERE_H
-#define PLANE3D_SPHERE_H
-
+#ifndef PLANE3D_KLEINBOTTLE_H
+#define PLANE3D_KLEINBOTTLE_H
 
 #include <QGraphicsItem>
 #include <QObject>
@@ -15,17 +14,17 @@
 #include <QRectF>
 #include <QDebug>
 #include <QVector3D>
-#include "figure.h"
+#include "../figure.h"
 #include <cfloat>
 
 using namespace std;
 
-class Sphere : public Figure{
+class KleinBottle : public Figure {
 public functions:
 
-    explicit Sphere(double R = 100, QObject *parent = nullptr);
+    explicit KleinBottle(double R = 30, QObject *parent = nullptr);
 
-    ~Sphere() override;
+    ~KleinBottle() override;
 
     QRectF boundingRect() const override;
 
@@ -34,7 +33,9 @@ public functions:
     QJsonObject toJson() const override;
 
 private functions:
+
     std::vector<double> getCoords(ULONG row, ULONG c);
+
     Matrix applyTr();
 
 private fields:
@@ -45,4 +46,4 @@ private fields:
 };
 
 
-#endif //PLANE3D_SPHERE_H
+#endif //PLANE3D_KLEINBOTTLE_H

@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "figures/polygons/cube.h"
-#include "figures/sphere.h"
+#include "figures/nonconvex/sphere.h"
+#include "figures/nonconvex/klein_bottle.h"
+#include "figures/nonconvex/spiral.h"
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
@@ -102,6 +104,8 @@ void MainWindow::open() {
             figure = new Torus(figureJson["R"].toDouble(), figureJson["r"].toDouble());
         } else if (figureJson["type"] == "SPHERE") {
             figure = new Sphere(figureJson["R"].toDouble());
+        } else if (figureJson["type"] == "SPIRAL") {
+            figure = new Spiral(figureJson["R"].toDouble(), figureJson["r"].toDouble());
         } else
             continue;
         QJsonArray trArray = figureJson["transformations"].toArray();
@@ -121,6 +125,8 @@ void MainWindow::about() {
                     "<p>1. Реализация проецирования 3D фигур на плоскость</p>"
                     "<p>2. Базовые преобразования (вращение, масштабирование, перемещение)</p>"
                     "<p>3. Удаление невидимых граней и линий</p>"
+                    "<p>4. Рисование сферы и тора</p>"
+                    "<p>5. Освещение</p>"
     );
     msgBox.exec();
 }
@@ -134,6 +140,8 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     QAction *drawTetrahedronAction = new QAction("Добавить тетраэдр", this);
     QAction *drawSphereAction = new QAction("Добавить сферу", this);
     QAction *drawTorusAction = new QAction("Добавить тор", this);
+    QAction *drawSpiralAction = new QAction("Добавить спираль", this);
+    QAction *drawKleinBottleAction = new QAction("Добавить бутылку Клейна", this);
     QAction *drawAction = new QAction("Перерисовать", this);
     QAction *clearAction = new QAction("Очистить", this);
     QAction *restoreAction = new QAction("Восстановить", this);
@@ -157,6 +165,12 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     connect(drawSphereAction, &QAction::triggered, this, [this, pos]() {
         addSphere(pos);
     });
+    connect(drawSpiralAction, &QAction::triggered, this, [this, pos]() {
+        addSpiral(pos);
+    });
+    connect(drawKleinBottleAction, &QAction::triggered, this, [this, pos]() {
+        addKleinBottle(pos);
+    });
 //    connect(drawTetrahedronAction, &QAction::triggered, this, [this, pos]() {
 //        addTetrahedron(pos);
 //    });
@@ -173,6 +187,8 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     menu->addAction(drawTetrahedronAction);
     menu->addAction(drawTorusAction);
     menu->addAction(drawSphereAction);
+    menu->addAction(drawSpiralAction);
+    menu->addAction(drawKleinBottleAction);
     menu->addAction(drawAction);
     menu->addAction(clearAction);
     menu->addAction(restoreAction);
@@ -215,6 +231,18 @@ void MainWindow::addTorus(QPoint pos) {
 
 void MainWindow::addSphere(QPoint point) {
     auto figure = new Sphere();
+    scene->addItem(figure);
+    redraw();
+}
+
+void MainWindow::addSpiral(QPoint point) {
+    auto figure = new Spiral();
+    scene->addItem(figure);
+    redraw();
+}
+
+void MainWindow::addKleinBottle(QPoint point) {
+    auto figure = new KleinBottle();
     scene->addItem(figure);
     redraw();
 }
@@ -331,3 +359,5 @@ void MainWindow::moveZ() {
     }
     redraw();
 }
+
+

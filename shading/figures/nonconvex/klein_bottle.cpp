@@ -2,12 +2,12 @@
 // Created by Max Heartfield on 15.11.17.
 //
 
-#include "sphere.h"
+#include "klein_bottle.h"
 
 #include <QJsonObject>
-#include "../affine.h"
+#include "../../affine.h"
 
-QRectF Sphere::boundingRect() const {
+QRectF KleinBottle::boundingRect() const {
     double xMin = numeric_limits<double>::max();
     double xMax = numeric_limits<double>::min();
     double yMin = numeric_limits<double>::max();
@@ -29,7 +29,7 @@ QRectF Sphere::boundingRect() const {
     return QRectF(QPointF(xMin, -yMin), QPointF(xMax, -yMax));
 }
 
-void Sphere::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+void KleinBottle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     Matrix v = applyTr();
     painter->setPen(Qt::black);
     for (int col = 1; col < hCount; col++) {
@@ -73,7 +73,7 @@ void Sphere::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     Q_UNUSED(widget);
 }
 
-Matrix Sphere::applyTr() {
+Matrix KleinBottle::applyTr() {
     Matrix v(*vs);
     v = geom::scale(v, transformations[ScaleX], transformations[ScaleY], transformations[ScaleZ]);
     v = geom::translate(v, transformations[TranslateX], transformations[TranslateY], transformations[TranslateZ]);
@@ -83,14 +83,14 @@ Matrix Sphere::applyTr() {
     return v;
 }
 
-QJsonObject Sphere::toJson() const {
+QJsonObject KleinBottle::toJson() const {
     QJsonObject json;
     json.insert("type", "TORUS");
     json.insert("R", R);
     return json;
 }
 
-Sphere::Sphere(double R, QObject *parent) : Figure(parent), R(R){
+KleinBottle::KleinBottle(double R, QObject *parent) : Figure(parent), R(R){
     vs = new Matrix(vCount * hCount, 3);
     for (ULONG column = 0; column < hCount; column++) {
         for (ULONG row = 0; row < vCount; row++) {
@@ -102,16 +102,16 @@ Sphere::Sphere(double R, QObject *parent) : Figure(parent), R(R){
     }
 }
 
-Sphere::~Sphere() {
+KleinBottle::~KleinBottle() {
     delete vs;
 }
 
-std::vector<double> Sphere::getCoords(ULONG row, ULONG column) {
-    double phi = 2 * M_PI / hCount * row;
-    double teta = 2 * M_PI / vCount * column - M_PI;
+std::vector<double> KleinBottle::getCoords(ULONG row, ULONG column) {
+    double teta = 2 * M_PI / hCount * row;
+    double v = 2 * M_PI / vCount * column;
     std::vector<double> res(3);
-    res[0] = R * cos(phi) * sin(teta);
-    res[1] = R * sin(phi) * sin(teta);
-    res[2] = R * cos(teta);
+    res[0] = (R + cos(teta / 2.0) * sin(v) - sin(teta / 2.0) * sin(2 * v)) * cos(teta);
+    res[1] = (R + cos(teta / 2.0) * sin(v) - sin(teta / 2.0) * sin(2 * v)) * sin(teta);
+    res[2] = sin(teta / 2) * sin(v) + cos(teta / 2) * sin(2 * v);
     return res;
 }

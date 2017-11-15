@@ -33,8 +33,8 @@ set(SOURCE_FILES
         figures/polygons/pyramid.h
         figures/polygons/regularpyramid.cpp
         figures/polygons/regularpyramid.h
-        figures/torus.cpp
-        figures/torus.h figures/figure.cpp figures/figure.h common.h affine.cpp affine.h common.cpp shading/FlatShading.cpp shading/FlatShading.h figures/sphere.cpp figures/sphere.h)
+        figures/nonconvex/torus.cpp
+        figures/nonconvex/torus.h figures/figure.cpp figures/figure.h common.h affine.cpp affine.h common.cpp shading/FlatShading.cpp shading/FlatShading.h figures/nonconvex/sphere.cpp figures/nonconvex/sphere.h figures/nonconvex/klein_bottle.cpp figures/nonconvex/klein_bottle.h figures/nonconvex/nonconvex_figure.cpp figures/nonconvex/nonconvex_figure.h figures/nonconvex/spiral.cpp figures/nonconvex/spiral.h)
 
 add_executable(shading ${SOURCE_FILES})
 target_link_libraries(shading Qt5::Core Qt5::Widgets ${Boost_LIBRARIES})

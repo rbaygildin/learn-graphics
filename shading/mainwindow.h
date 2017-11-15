@@ -10,7 +10,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <vector>
-#include "figures/torus.h"
+#include "figures/nonconvex/torus.h"
 #include "figures/polygons/polygon.h"
 #include "figures/polygons/cube.h"
 #include "figures/polygons/regularpyramid.h"
@@ -80,6 +80,10 @@ private:
     void addTorus(QPoint point);
 
     void addSphere(QPoint point);
+
+    void addKleinBottle(QPoint point);
+
+    void addSpiral(QPoint point);
 };
 
 #endif // MAINWINDOW_H

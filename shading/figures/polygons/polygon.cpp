@@ -27,7 +27,7 @@ QRectF Polygon::boundingRect() const {
 
 void Polygon::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     auto f = sortFaces();
-    Matrix v = applyTr();
+    Matrix v = geom::perProject(applyTr(), 200);
     painter->setPen(Qt::black);
     for (int i = 0; i < getF(); i++) {
         QPolygonF polygon;
@@ -41,15 +41,18 @@ void Polygon::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
 //        painter->setBrush(QBrush(flatShading(QColor::fromRgbF(255, 0, 0, 1.0), 1, 10, 0.5, i)));
         painter->drawPolygon(polygon);
     }
-//    painter->setPen(Qt::red);
-//    painter->setBrush(Qt::transparent);
-//    painter->drawRect(boundingRect());
+    if (isPressed) {
+        painter->setPen(Qt::red);
+        painter->setBrush(Qt::transparent);
+        painter->drawRect(boundingRect());
+    }
     Q_UNUSED(option);
     Q_UNUSED(widget);
 }
 
 void Polygon::mousePressEvent(QGraphicsSceneMouseEvent *event) {
-    emit signal1();
+    isPressed ^= true;
+    update();
     QGraphicsItem::mousePressEvent(event);
 }
 
