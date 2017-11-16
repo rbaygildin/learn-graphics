@@ -41,9 +41,19 @@ private functions:
 
     Matrix applyTr();
 
+protected functions:
+    virtual QVector3D normal(QVector3D a, QVector3D b);
+    virtual QColor flatShading(QColor color, double ia, double id, double ka, QVector3D n, QVector3D l);
+
+    void paintMesh(QPainter *painter) override;
+
+    void paintWithLighting(QPainter *painter) override;
+
+    QColor flatShading(QVector3D a, QVector3D b);
+
 protected fields:
-    static const ULONG vCount = 60;
-    static const ULONG hCount = 60;
+    static const ULONG vCount = 30;
+    static const ULONG hCount = 30;
     Matrix *vs = nullptr;
 };
 

@@ -73,9 +73,12 @@ public slots:
 
     void moveZ();
 
+    void chooseColor();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
+    QColor color = Qt::black;
 
     void addTorus(QPoint point);
 
@@ -84,6 +87,8 @@ private:
     void addKleinBottle(QPoint point);
 
     void addSpiral(QPoint point);
+
+    void initItem(Figure* item);
 };
 
 #endif // MAINWINDOW_H

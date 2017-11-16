@@ -115,3 +115,11 @@ std::vector<double> KleinBottle::getCoords(ULONG row, ULONG column) {
     res[2] = sin(teta / 2) * sin(v) + cos(teta / 2) * sin(2 * v);
     return res;
 }
+
+void KleinBottle::paintMesh(QPainter *painter) {
+
+}
+
+void KleinBottle::paintWithLighting(QPainter *painter) {
+
+}

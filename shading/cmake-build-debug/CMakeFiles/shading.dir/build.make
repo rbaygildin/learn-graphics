@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading
+CMAKE_SOURCE_DIR = /Users/macbook/Documents/Education/4_Year/CompGraphics/shading
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/shading.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/shading.dir/flags.make
 
 CMakeFiles/shading.dir/figures/polygons/cube.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/polygons/cube.cpp.o: ../figures/polygons/cube.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/shading.dir/figures/polygons/cube.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/cube.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/shading.dir/figures/polygons/cube.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/cube.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/cube.cpp
 
 CMakeFiles/shading.dir/figures/polygons/cube.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/polygons/cube.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.cpp > CMakeFiles/shading.dir/figures/polygons/cube.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/cube.cpp > CMakeFiles/shading.dir/figures/polygons/cube.cpp.i
 
 CMakeFiles/shading.dir/figures/polygons/cube.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/polygons/cube.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/cube.cpp -o CMakeFiles/shading.dir/figures/polygons/cube.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/cube.cpp -o CMakeFiles/shading.dir/figures/polygons/cube.cpp.s
 
 CMakeFiles/shading.dir/figures/polygons/cube.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/shading.dir/figures/polygons/cube.cpp.o.provides.build: CMakeFiles/sh
 
 CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o: ../figures/polygons/icosahedron.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/icosahedron.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/icosahedron.cpp
 
 CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/icosahedron.cpp > CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/icosahedron.cpp > CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.i
 
 CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/icosahedron.cpp -o CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/icosahedron.cpp -o CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.s
 
 CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o.provides.build: CMakeF
 
 CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o: ../figures/polygons/polygon.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/polygon.cpp
 
 CMakeFiles/shading.dir/figures/polygons/polygon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/polygons/polygon.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.cpp > CMakeFiles/shading.dir/figures/polygons/polygon.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/polygon.cpp > CMakeFiles/shading.dir/figures/polygons/polygon.cpp.i
 
 CMakeFiles/shading.dir/figures/polygons/polygon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/polygons/polygon.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/polygon.cpp -o CMakeFiles/shading.dir/figures/polygons/polygon.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/polygon.cpp -o CMakeFiles/shading.dir/figures/polygons/polygon.cpp.s
 
 CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/shading.dir/main.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/shading.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/main.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/shading.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/main.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/main.cpp
 
 CMakeFiles/shading.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/main.cpp > CMakeFiles/shading.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/main.cpp > CMakeFiles/shading.dir/main.cpp.i
 
 CMakeFiles/shading.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/main.cpp -o CMakeFiles/shading.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/main.cpp -o CMakeFiles/shading.dir/main.cpp.s
 
 CMakeFiles/shading.dir/main.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/shading.dir/main.cpp.o.provides.build: CMakeFiles/shading.dir/main.cp
 
 CMakeFiles/shading.dir/mainwindow.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/mainwindow.cpp.o: ../mainwindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/shading.dir/mainwindow.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/mainwindow.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/shading.dir/mainwindow.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/mainwindow.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/mainwindow.cpp
 
 CMakeFiles/shading.dir/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/mainwindow.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.cpp > CMakeFiles/shading.dir/mainwindow.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/mainwindow.cpp > CMakeFiles/shading.dir/mainwindow.cpp.i
 
 CMakeFiles/shading.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/mainwindow.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/mainwindow.cpp -o CMakeFiles/shading.dir/mainwindow.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/mainwindow.cpp -o CMakeFiles/shading.dir/mainwindow.cpp.s
 
 CMakeFiles/shading.dir/mainwindow.cpp.o.requires:
 
@@ -177,18 +177,42 @@ CMakeFiles/shading.dir/mainwindow.cpp.o.provides: CMakeFiles/shading.dir/mainwin
 CMakeFiles/shading.dir/mainwindow.cpp.o.provides.build: CMakeFiles/shading.dir/mainwindow.cpp.o
 
 
+CMakeFiles/shading.dir/tetrahedroninput.cpp.o: CMakeFiles/shading.dir/flags.make
+CMakeFiles/shading.dir/tetrahedroninput.cpp.o: ../tetrahedroninput.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/shading.dir/tetrahedroninput.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/tetrahedroninput.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/tetrahedroninput.cpp
+
+CMakeFiles/shading.dir/tetrahedroninput.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/tetrahedroninput.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/tetrahedroninput.cpp > CMakeFiles/shading.dir/tetrahedroninput.cpp.i
+
+CMakeFiles/shading.dir/tetrahedroninput.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/tetrahedroninput.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/tetrahedroninput.cpp -o CMakeFiles/shading.dir/tetrahedroninput.cpp.s
+
+CMakeFiles/shading.dir/tetrahedroninput.cpp.o.requires:
+
+.PHONY : CMakeFiles/shading.dir/tetrahedroninput.cpp.o.requires
+
+CMakeFiles/shading.dir/tetrahedroninput.cpp.o.provides: CMakeFiles/shading.dir/tetrahedroninput.cpp.o.requires
+	$(MAKE) -f CMakeFiles/shading.dir/build.make CMakeFiles/shading.dir/tetrahedroninput.cpp.o.provides.build
+.PHONY : CMakeFiles/shading.dir/tetrahedroninput.cpp.o.provides
+
+CMakeFiles/shading.dir/tetrahedroninput.cpp.o.provides.build: CMakeFiles/shading.dir/tetrahedroninput.cpp.o
+
+
 CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o: ../figures/polygons/octahedron.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/octahedron.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/octahedron.cpp
 
 CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/octahedron.cpp > CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/octahedron.cpp > CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.i
 
 CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/octahedron.cpp -o CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/octahedron.cpp -o CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.s
 
 CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o.requires:
 
@@ -203,16 +227,16 @@ CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o: ../figures/polygons/pyramid.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/pyramid.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/pyramid.cpp
 
 CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/pyramid.cpp > CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/pyramid.cpp > CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.i
 
 CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/pyramid.cpp -o CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/pyramid.cpp -o CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.s
 
 CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o.requires:
 
@@ -227,16 +251,16 @@ CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o: ../figures/polygons/regularpyramid.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/regularpyramid.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/regularpyramid.cpp
 
 CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/regularpyramid.cpp > CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/regularpyramid.cpp > CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.i
 
 CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/polygons/regularpyramid.cpp -o CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/regularpyramid.cpp -o CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.s
 
 CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o.requires:
 
@@ -251,16 +275,16 @@ CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o.provides.build: CMa
 
 CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o: ../figures/nonconvex/torus.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/torus.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/torus.cpp
 
 CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/torus.cpp > CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/torus.cpp > CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.i
 
 CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/torus.cpp -o CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/torus.cpp -o CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.s
 
 CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o.requires:
 
@@ -275,16 +299,16 @@ CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/shading.dir/figures/figure.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/figure.cpp.o: ../figures/figure.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/shading.dir/figures/figure.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/figure.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/shading.dir/figures/figure.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/figure.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/figure.cpp
 
 CMakeFiles/shading.dir/figures/figure.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/figure.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.cpp > CMakeFiles/shading.dir/figures/figure.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/figure.cpp > CMakeFiles/shading.dir/figures/figure.cpp.i
 
 CMakeFiles/shading.dir/figures/figure.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/figure.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/figure.cpp -o CMakeFiles/shading.dir/figures/figure.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/figure.cpp -o CMakeFiles/shading.dir/figures/figure.cpp.s
 
 CMakeFiles/shading.dir/figures/figure.cpp.o.requires:
 
@@ -299,16 +323,16 @@ CMakeFiles/shading.dir/figures/figure.cpp.o.provides.build: CMakeFiles/shading.d
 
 CMakeFiles/shading.dir/affine.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/affine.cpp.o: ../affine.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/shading.dir/affine.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/affine.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/shading.dir/affine.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/affine.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/affine.cpp
 
 CMakeFiles/shading.dir/affine.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/affine.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.cpp > CMakeFiles/shading.dir/affine.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/affine.cpp > CMakeFiles/shading.dir/affine.cpp.i
 
 CMakeFiles/shading.dir/affine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/affine.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/affine.cpp -o CMakeFiles/shading.dir/affine.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/affine.cpp -o CMakeFiles/shading.dir/affine.cpp.s
 
 CMakeFiles/shading.dir/affine.cpp.o.requires:
 
@@ -323,16 +347,16 @@ CMakeFiles/shading.dir/affine.cpp.o.provides.build: CMakeFiles/shading.dir/affin
 
 CMakeFiles/shading.dir/common.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/common.cpp.o: ../common.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/shading.dir/common.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/common.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/common.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/shading.dir/common.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/common.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/common.cpp
 
 CMakeFiles/shading.dir/common.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/common.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/common.cpp > CMakeFiles/shading.dir/common.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/common.cpp > CMakeFiles/shading.dir/common.cpp.i
 
 CMakeFiles/shading.dir/common.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/common.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/common.cpp -o CMakeFiles/shading.dir/common.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/common.cpp -o CMakeFiles/shading.dir/common.cpp.s
 
 CMakeFiles/shading.dir/common.cpp.o.requires:
 
@@ -347,16 +371,16 @@ CMakeFiles/shading.dir/common.cpp.o.provides.build: CMakeFiles/shading.dir/commo
 
 CMakeFiles/shading.dir/shading/FlatShading.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/shading/FlatShading.cpp.o: ../shading/FlatShading.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/shading.dir/shading/FlatShading.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/shading/FlatShading.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/shading/FlatShading.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/shading.dir/shading/FlatShading.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/shading/FlatShading.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/shading/FlatShading.cpp
 
 CMakeFiles/shading.dir/shading/FlatShading.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/shading/FlatShading.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/shading/FlatShading.cpp > CMakeFiles/shading.dir/shading/FlatShading.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/shading/FlatShading.cpp > CMakeFiles/shading.dir/shading/FlatShading.cpp.i
 
 CMakeFiles/shading.dir/shading/FlatShading.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/shading/FlatShading.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/shading/FlatShading.cpp -o CMakeFiles/shading.dir/shading/FlatShading.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/shading/FlatShading.cpp -o CMakeFiles/shading.dir/shading/FlatShading.cpp.s
 
 CMakeFiles/shading.dir/shading/FlatShading.cpp.o.requires:
 
@@ -371,16 +395,16 @@ CMakeFiles/shading.dir/shading/FlatShading.cpp.o.provides.build: CMakeFiles/shad
 
 CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o: ../figures/nonconvex/sphere.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/sphere.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/sphere.cpp
 
 CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/sphere.cpp > CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/sphere.cpp > CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.i
 
 CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/sphere.cpp -o CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/sphere.cpp -o CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.s
 
 CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o.requires:
 
@@ -395,16 +419,16 @@ CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.o: ../figures/nonconvex/klein_bottle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/klein_bottle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/klein_bottle.cpp
 
 CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/klein_bottle.cpp > CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/klein_bottle.cpp > CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.i
 
 CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/klein_bottle.cpp -o CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/klein_bottle.cpp -o CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.s
 
 CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.o.requires:
 
@@ -419,16 +443,16 @@ CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.o.provides.build: CMak
 
 CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o: ../figures/nonconvex/nonconvex_figure.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.cpp
 
 CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.cpp > CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.cpp > CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.i
 
 CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.cpp -o CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.cpp -o CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.s
 
 CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o.requires:
 
@@ -443,16 +467,16 @@ CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o.provides.build: 
 
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o: ../figures/nonconvex/spiral.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/spiral.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/spiral.cpp
 
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/spiral.cpp > CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/spiral.cpp > CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.i
 
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/figures/nonconvex/spiral.cpp -o CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/spiral.cpp -o CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.s
 
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o.requires:
 
@@ -465,18 +489,42 @@ CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o.provides: CMakeFiles/shadi
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o.provides.build: CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o
 
 
+CMakeFiles/shading.dir/point3d.cpp.o: CMakeFiles/shading.dir/flags.make
+CMakeFiles/shading.dir/point3d.cpp.o: ../point3d.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/shading.dir/point3d.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/point3d.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/point3d.cpp
+
+CMakeFiles/shading.dir/point3d.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/point3d.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/point3d.cpp > CMakeFiles/shading.dir/point3d.cpp.i
+
+CMakeFiles/shading.dir/point3d.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/point3d.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/point3d.cpp -o CMakeFiles/shading.dir/point3d.cpp.s
+
+CMakeFiles/shading.dir/point3d.cpp.o.requires:
+
+.PHONY : CMakeFiles/shading.dir/point3d.cpp.o.requires
+
+CMakeFiles/shading.dir/point3d.cpp.o.provides: CMakeFiles/shading.dir/point3d.cpp.o.requires
+	$(MAKE) -f CMakeFiles/shading.dir/build.make CMakeFiles/shading.dir/point3d.cpp.o.provides.build
+.PHONY : CMakeFiles/shading.dir/point3d.cpp.o.provides
+
+CMakeFiles/shading.dir/point3d.cpp.o.provides.build: CMakeFiles/shading.dir/point3d.cpp.o
+
+
 CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o: CMakeFiles/shading.dir/flags.make
 CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o: shading_autogen/moc_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o -c /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp
 
 CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp > CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp > CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.i
 
 CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp -o CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/shading_autogen/moc_compilation.cpp -o CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.s
 
 CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o.requires:
 
@@ -496,6 +544,7 @@ shading_OBJECTS = \
 "CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o" \
 "CMakeFiles/shading.dir/main.cpp.o" \
 "CMakeFiles/shading.dir/mainwindow.cpp.o" \
+"CMakeFiles/shading.dir/tetrahedroninput.cpp.o" \
 "CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o" \
 "CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o" \
 "CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o" \
@@ -508,6 +557,7 @@ shading_OBJECTS = \
 "CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.o" \
 "CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o" \
 "CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o" \
+"CMakeFiles/shading.dir/point3d.cpp.o" \
 "CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o"
 
 # External object files for target shading
@@ -518,6 +568,7 @@ shading: CMakeFiles/shading.dir/figures/polygons/icosahedron.cpp.o
 shading: CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o
 shading: CMakeFiles/shading.dir/main.cpp.o
 shading: CMakeFiles/shading.dir/mainwindow.cpp.o
+shading: CMakeFiles/shading.dir/tetrahedroninput.cpp.o
 shading: CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o
 shading: CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o
 shading: CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o
@@ -530,6 +581,7 @@ shading: CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o
 shading: CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.o
 shading: CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o
 shading: CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o
+shading: CMakeFiles/shading.dir/point3d.cpp.o
 shading: CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o
 shading: CMakeFiles/shading.dir/build.make
 shading: /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/QtWidgets
@@ -538,7 +590,7 @@ shading: /usr/local/lib/libboost_filesystem-mt.dylib
 shading: /Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/QtGui
 shading: /Applications/Qt/5.9.2/clang_64/lib/QtCore.framework/QtCore
 shading: CMakeFiles/shading.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable shading"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable shading"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/shading.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -551,6 +603,7 @@ CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/polygons/icosahe
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/polygons/polygon.cpp.o.requires
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/main.cpp.o.requires
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/mainwindow.cpp.o.requires
+CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/tetrahedroninput.cpp.o.requires
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/polygons/octahedron.cpp.o.requires
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/polygons/pyramid.cpp.o.requires
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/polygons/regularpyramid.cpp.o.requires
@@ -563,6 +616,7 @@ CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/nonconvex/sphere
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/nonconvex/klein_bottle.cpp.o.requires
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o.requires
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o.requires
+CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/point3d.cpp.o.requires
 CMakeFiles/shading.dir/requires: CMakeFiles/shading.dir/shading_autogen/moc_compilation.cpp.o.requires
 
 .PHONY : CMakeFiles/shading.dir/requires
@@ -572,6 +626,6 @@ CMakeFiles/shading.dir/clean:
 .PHONY : CMakeFiles/shading.dir/clean
 
 CMakeFiles/shading.dir/depend:
-	cd /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug /Users/macbook/Documents/Education/4th_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/macbook/Documents/Education/4_Year/CompGraphics/shading /Users/macbook/Documents/Education/4_Year/CompGraphics/shading /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/cmake-build-debug/CMakeFiles/shading.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/shading.dir/depend
 

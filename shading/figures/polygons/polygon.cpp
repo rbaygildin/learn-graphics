@@ -1,4 +1,5 @@
 #include "polygon.h"
+#include <algorithm>
 
 Polygon::Polygon(double edge, const QVector3D &center) : edge(edge), center(center) {
 
@@ -26,34 +27,16 @@ QRectF Polygon::boundingRect() const {
 }
 
 void Polygon::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
-    auto f = sortFaces();
-    Matrix v = geom::perProject(applyTr(), 200);
-    painter->setPen(Qt::black);
-    for (int i = 0; i < getF(); i++) {
-        QPolygonF polygon;
-        std::vector<int> face = f[i];
-        for (int j = 0; j < getP(); j++) {
-            polygon << QPointF(
-                    v(face[j], 0),
-                    -v(face[j], 1)
-            );
-        }
-//        painter->setBrush(QBrush(flatShading(QColor::fromRgbF(255, 0, 0, 1.0), 1, 10, 0.5, i)));
-        painter->drawPolygon(polygon);
-    }
-    if (isPressed) {
+    if (mode == MESH)
+        paintMesh(painter);
+    else
+        paintWithLighting(painter);
+    if (isSelected()) {
         painter->setPen(Qt::red);
-        painter->setBrush(Qt::transparent);
         painter->drawRect(boundingRect());
     }
     Q_UNUSED(option);
     Q_UNUSED(widget);
-}
-
-void Polygon::mousePressEvent(QGraphicsSceneMouseEvent *event) {
-    isPressed ^= true;
-    update();
-    QGraphicsItem::mousePressEvent(event);
 }
 
 void Polygon::setEdge(double edge) {
@@ -111,7 +94,7 @@ std::vector<std::vector<int>> Polygon::sortFaces() {
     return sortedFaces;
 }
 
-QColor Polygon::flatShading(const QColor &color, double ia, double id, double ka, int faceNumber) {
+QColor Polygon::flatShading(ULONG faceNumber, std::vector<int> face) {
     QVector3D normal;
     normal.setX(0.0);
     normal.setY(0.0);
@@ -119,13 +102,13 @@ QColor Polygon::flatShading(const QColor &color, double ia, double id, double ka
     auto v = applyTr();
     auto f = faces();
     QVector3D a;
-    a.setX(v(f(faceNumber, P2), X) - v(f(faceNumber, P1), X));
-    a.setY(v(f(faceNumber, P2), Y) - v(f(faceNumber, P1), Y));
-    a.setZ(v(f(faceNumber, P2), Z) - v(f(faceNumber, P1), Z));
+    a.setX(v(face[P2], X) - v(face[P1], X));
+    a.setY(v(face[P2], Y) - v(face[P1], Y));
+    a.setZ(v(face[P2], Z) - v(face[P1], Z));
     QVector3D b;
-    b.setX(v(f(faceNumber, P3), X) - v(f(faceNumber, P2), X));
-    b.setY(v(f(faceNumber, P3), Y) - v(f(faceNumber, P2), Y));
-    b.setZ(v(f(faceNumber, P3), Z) - v(f(faceNumber, P2), Z));
+    b.setX(v(face[P3], X) - v(face[P2], X));
+    b.setY(v(face[P3], Y) - v(face[P2], Y));
+    b.setZ(v(face[P3], Z) - v(face[P2], Z));
 //    for (int i = 0, j = 1; i < getP(); i++, j++) {
 //        if (j == getP()) j = 0;
 //        normal.setX(normal.x() + (v(f(faceNumber, i), Z) - v(f(faceNumber, j), Z)) *
@@ -142,25 +125,60 @@ QColor Polygon::flatShading(const QColor &color, double ia, double id, double ka
     b.normalize();
     QVector3D n = QVector3D::crossProduct(a, b);
     double xC = 0.0, yC = 0.0, zC = 0.0;
-    for (int i = 0; i < getP(); i++) {
-        xC += v(f(faceNumber, i), X);
-        yC += v(f(faceNumber, i), Y);
-        zC += v(f(faceNumber, i), Z);
+    for (ULONG i = 0; i < getP(); i++) {
+        xC += v(face[i], X);
+        yC += v(face[i], Y);
+        zC += v(face[i], Z);
     }
     xC /= getP();
     yC /= getP();
     zC /= getP();
     QVector3D lighter;
-    lighter.setX(0);
-    lighter.setY(0);
-    lighter.setZ(1000);
+    lighter.setX(lamp.x());
+    lighter.setY(lamp.y());
+    lighter.setZ(lamp.z());
     n.normalize();
     lighter.normalize();
 
-    double cosinus = QVector3D::dotProduct(n, lighter);
+    double cos_ = QVector3D::dotProduct(n, lighter);
     double ambient = ia * 0.5;
-    double diffuse = id * 0.5 * cosinus;
-    double res = ambient + diffuse;
-    res = res > 1.0 ? 1.0 : res;
-    return QColor::fromRgbF(res, res, res, 1.0);
+    double diffuse = id * 0.5 * max(cos_, 0.0);
+    double res = (ambient + diffuse) * 0.1;
+    return QColor::fromRgbF(min(1.0, color.redF() * res),
+                            min(1.0, color.greenF() * res),
+                            min(1.0, color.blueF() * res), 1.0);
+}
+
+void Polygon::paintMesh(QPainter *painter) {
+    auto f = faces();
+    Matrix v = geom::perProject(applyTr(), 200);
+    painter->setPen(Qt::black);
+    for (ULONG i = 0; i < getF(); i++) {
+        QPolygonF polygon;
+        for (ULONG j = 0; j < getP(); j++) {
+            polygon << QPointF(
+                    v(f(i, j), 0),
+                    -v(f(i, j), 1)
+            );
+        }
+        painter->drawPolygon(polygon);
+    }
+}
+
+void Polygon::paintWithLighting(QPainter *painter) {
+    auto f = sortFaces();
+    Matrix v = geom::perProject(applyTr(), 200);
+    painter->setPen(Qt::transparent);
+    for (ULONG i = 0; i < getF(); i++) {
+        QPolygonF polygon;
+        std::vector<int> face = f[i];
+        for (ULONG j = 0; j < getP(); j++) {
+            polygon << QPointF(
+                    v(face.at(j), 0),
+                    -v(face.at(j), 1)
+            );
+        }
+        painter->setBrush(flatShading(i, face));
+        painter->drawPolygon(polygon);
+    }
 }

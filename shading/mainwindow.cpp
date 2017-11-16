@@ -1,9 +1,11 @@
+#include <QColorDialog>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "figures/polygons/cube.h"
 #include "figures/nonconvex/sphere.h"
 #include "figures/nonconvex/klein_bottle.h"
 #include "figures/nonconvex/spiral.h"
+#include "tetrahedroninput.h"
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
@@ -45,6 +47,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->dyInp, SIGNAL(valueChanged(int)), this, SLOT(moveY()));
     //Move z
     connect(ui->dzInp, SIGNAL(valueChanged(int)), this, SLOT(moveZ()));
+
+    //Choose color
+    connect(ui->chooseColorBtn, SIGNAL(clicked()), this, SLOT(chooseColor()));
 }
 
 
@@ -96,6 +101,19 @@ void MainWindow::open() {
             figure = new Cube(figureJson["edge"].toDouble());
         } else if (figureJson["type"] == "REGULAR_PYRAMID") {
             figure = new RegularPyramid(figureJson["edge"].toDouble());
+        } else if (figureJson["type"] == "PYRAMID") {
+            QJsonArray vArray = figureJson["vertex"].toArray();
+            std::vector<Point3D> vertex;
+            for (int i = 0; i < 4; i++) {
+                vertex.emplace_back(
+                        Point3D(
+                                vArray.at(i * 4 + 0).toDouble(),
+                                vArray.at(i * 4 + 1).toDouble(),
+                                vArray.at(i * 4 + 2).toDouble()
+                        )
+                );
+            }
+            figure = new Pyramid(vertex[0], vertex[1], vertex[2], vertex[3]);
         } else if (figureJson["type"] == "OCTAHEDRON") {
             figure = new Octahedron(figureJson["edge"].toDouble());
         } else if (figureJson["type"] == "ICOSAHEDRON") {
@@ -108,6 +126,7 @@ void MainWindow::open() {
             figure = new Spiral(figureJson["R"].toDouble(), figureJson["r"].toDouble());
         } else
             continue;
+        initItem(figure);
         QJsonArray trArray = figureJson["transformations"].toArray();
         for (int i = 0; i < trArray.size(); i++)
             figure->transform(i, trArray.at(i).toDouble());
@@ -134,10 +153,10 @@ void MainWindow::about() {
 void MainWindow::showGraphicsViewMenu(QPoint pos) {
     auto *menu = new QMenu(this);
     QAction *drawCubeAction = new QAction("Добавить куб", this);
-    QAction *drawPyramidAction = new QAction("Добавить пирамиду", this);
+    QAction *drawRegularPyramidAction = new QAction("Добавить правильную пирамиду", this);
+    QAction *drawPyramidAction = new QAction("Добавить тертраэдр", this);
     QAction *drawOctahedronAction = new QAction("Добавить октаэдр", this);
     QAction *drawIcosahedronAction = new QAction("Добавить икосаэдр", this);
-    QAction *drawTetrahedronAction = new QAction("Добавить тетраэдр", this);
     QAction *drawSphereAction = new QAction("Добавить сферу", this);
     QAction *drawTorusAction = new QAction("Добавить тор", this);
     QAction *drawSpiralAction = new QAction("Добавить спираль", this);
@@ -150,8 +169,11 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     connect(drawCubeAction, &QAction::triggered, this, [this, pos]() {
         addCube(pos);
     });
-    connect(drawPyramidAction, &QAction::triggered, this, [this, pos]() {
+    connect(drawRegularPyramidAction, &QAction::triggered, this, [this, pos]() {
         addRegularPyramid(pos);
+    });
+    connect(drawPyramidAction, &QAction::triggered, this, [this, pos]() {
+        addPyramid(pos);
     });
     connect(drawOctahedronAction, &QAction::triggered, this, [this, pos]() {
         addOctahedron(pos);
@@ -171,24 +193,23 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     connect(drawKleinBottleAction, &QAction::triggered, this, [this, pos]() {
         addKleinBottle(pos);
     });
-//    connect(drawTetrahedronAction, &QAction::triggered, this, [this, pos]() {
-//        addTetrahedron(pos);
-//    });
 
     connect(drawAction, SIGNAL(triggered(bool)), this, SLOT(redraw()));
     connect(clearAction, SIGNAL(triggered(bool)), this, SLOT(clear()));
     connect(restoreAction, SIGNAL(triggered(bool)), this, SLOT(restore()));
 
     //Add items
+    menu->addSection("Фигуры");
     menu->addAction(drawCubeAction);
+    menu->addAction(drawRegularPyramidAction);
     menu->addAction(drawPyramidAction);
     menu->addAction(drawOctahedronAction);
     menu->addAction(drawIcosahedronAction);
-    menu->addAction(drawTetrahedronAction);
     menu->addAction(drawTorusAction);
     menu->addAction(drawSphereAction);
     menu->addAction(drawSpiralAction);
     menu->addAction(drawKleinBottleAction);
+    menu->addSection("Операции");
     menu->addAction(drawAction);
     menu->addAction(clearAction);
     menu->addAction(restoreAction);
@@ -198,6 +219,7 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
 void MainWindow::addCube(QPoint pos) {
     double r = ui->edgeInp->text().toDouble();
     auto figure = new Cube(r == 0.0 ? 50 : r);
+    initItem(figure);
     scene->addItem(figure);
     redraw();
 }
@@ -205,6 +227,7 @@ void MainWindow::addCube(QPoint pos) {
 void MainWindow::addOctahedron(QPoint pos) {
     double r = ui->edgeInp->text().toDouble();
     auto figure = new Octahedron(r == 0.0 ? 50 : r);
+    initItem(figure);
     scene->addItem(figure);
     redraw();
 }
@@ -212,6 +235,7 @@ void MainWindow::addOctahedron(QPoint pos) {
 void MainWindow::addRegularPyramid(QPoint pos) {
     double r = ui->edgeInp->text().toDouble();
     auto figure = new RegularPyramid(r == 0.0 ? 50 : r);
+    initItem(figure);
     scene->addItem(figure);
     redraw();
 }
@@ -219,36 +243,46 @@ void MainWindow::addRegularPyramid(QPoint pos) {
 void MainWindow::addIcosahedron(QPoint pos) {
     double r = ui->edgeInp->text().toDouble();
     auto figure = new Icosahedron(r == 0.0 ? 50 : r);
+    initItem(figure);
     scene->addItem(figure);
     redraw();
 }
 
 void MainWindow::addTorus(QPoint pos) {
     auto figure = new Torus();
+    initItem(figure);
     scene->addItem(figure);
     redraw();
 }
 
 void MainWindow::addSphere(QPoint point) {
     auto figure = new Sphere();
+    initItem(figure);
     scene->addItem(figure);
     redraw();
 }
 
 void MainWindow::addSpiral(QPoint point) {
     auto figure = new Spiral();
+    initItem(figure);
     scene->addItem(figure);
     redraw();
 }
 
 void MainWindow::addKleinBottle(QPoint point) {
     auto figure = new KleinBottle();
+    initItem(figure);
     scene->addItem(figure);
     redraw();
 }
 
 void MainWindow::addPyramid(QPoint pos) {
-
+    auto *dialog = new TetrahedronInput(this);
+    dialog->exec();
+    auto figure = dialog->getPyramid();
+    initItem(figure);
+    scene->addItem(figure);
+    redraw();
 }
 
 void MainWindow::clear() {
@@ -358,6 +392,30 @@ void MainWindow::moveZ() {
         figure->transform(Figure::TranslateZ, ui->dzInp->value());
     }
     redraw();
+}
+
+void MainWindow::chooseColor() {
+    color = QColorDialog::getColor(Qt::red, this);
+    QPalette pal;
+    pal.setColor(QPalette::Background, color);
+    ui->colorLabel->setPalette(pal);
+}
+
+void MainWindow::initItem(Figure *item) {
+    if(ui->meshRadio->isChecked())
+        item->setMeshMode();
+    else
+        item->setWithLightingMode();
+    item->setColor(color);
+    item->setAmbient(ui->iaInp->value());
+    item->setDiffuse(ui->idInp->value());
+    connect(ui->iaInp, SIGNAL(valueChanged(int)), item, SLOT(setAmbient(int)));
+    connect(ui->idInp, SIGNAL(valueChanged(int)), item, SLOT(setDiffuse(int)));
+    connect(ui->meshRadio, SIGNAL(toggled(bool)), item, SLOT(setMeshMode()));
+    connect(ui->lightingRadio, SIGNAL(toggled(bool)), item, SLOT(setWithLightingMode()));
+    connect(ui->lampXInp, SIGNAL(valueChanged(int)), item, SLOT(setLampX(int)));
+    connect(ui->lampYInp, SIGNAL(valueChanged(int)), item, SLOT(setLampY(int)));
+    connect(ui->lampZInp, SIGNAL(valueChanged(int)), item, SLOT(setLampZ(int)));
 }
 
 

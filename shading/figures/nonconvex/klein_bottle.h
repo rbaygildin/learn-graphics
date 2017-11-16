@@ -38,6 +38,11 @@ private functions:
 
     Matrix applyTr();
 
+protected:
+    void paintMesh(QPainter *painter) override;
+
+    void paintWithLighting(QPainter *painter) override;
+
 private fields:
     static const ULONG vCount = 60;
     static const ULONG hCount = 60;

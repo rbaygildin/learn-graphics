@@ -50,10 +50,13 @@ public functions:
 
 protected functions:
 
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
     Matrix applyTr();
     std::vector<std::vector<int>> sortFaces();
-    QColor flatShading(const QColor &color, double ia, double id, double ka, int faceNumber);
+    QColor flatShading(ULONG faceNumber, std::vector<int> face);
+
+    void paintMesh(QPainter *painter) override;
+
+    void paintWithLighting(QPainter *painter) override;
 
 private functions:
 
