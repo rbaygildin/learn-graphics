@@ -3,6 +3,7 @@
 //
 
 #include "nonconvex_figure.h"
+#include "../../point3d.h"
 
 QRectF NonConvexFigure::boundingRect() const {
     double xMin = numeric_limits<double>::max();
@@ -136,56 +137,18 @@ void NonConvexFigure::paintMesh(QPainter *painter) {
 void NonConvexFigure::paintWithLighting(QPainter *painter) {
     Matrix v = applyTr();
     painter->setPen(Qt::transparent);
-    for (int col = 1; col < hCount; col++) {
-        for (int row = 1; row < vCount; row++) {
-            QPolygonF face;
-            face << QPointF(
-                    v(row * hCount + col, 0),
-                    -v(row * hCount + col, 1)
-            ) << QPointF(
-                    v((row - 1) * hCount + col, 0),
-                    -v((row - 1) * hCount + col, 1)
-            ) << QPointF(
-                    v((row - 1) * hCount + col - 1, 0),
-                    -v((row - 1) * hCount + col - 1, 1)
-            ) << QPointF(
-                    v(row * hCount + col - 1, 0),
-                    -v(row * hCount + col - 1, 1)
-            );
-            QVector3D a(
-                    face.boundingRect().bottomRight() - face.boundingRect().bottomLeft()
-            );
-            QVector3D b(
-                    face.boundingRect().topRight() - face.boundingRect().bottomRight()
-            );
-            painter->setBrush(QBrush(flatShading(a, b)));
-            painter->drawPolygon(face);
-        }
-    }
-    //Замкнуть
-    for (int row = 1; row < vCount; row++) {
-        QPolygonF face;
-        face << QPointF(
-                v(row * hCount, 0),
-                -v(row * hCount, 1)
-        ) << QPointF(
-                v((row - 1) * hCount, 0),
-                -v((row - 1) * hCount, 1)
-        ) << QPointF(
-                v((row - 1) * hCount + hCount - 1, 0),
-                -v((row - 1) * hCount + hCount - 1, 1)
-        ) << QPointF(
-                v(row * hCount + hCount - 1, 0),
-                -v(row * hCount + hCount - 1, 1)
-        );
-        QVector3D a(
-                face.boundingRect().bottomRight() - face.boundingRect().bottomLeft()
-        );
-        QVector3D b(
-                face.boundingRect().topRight() - face.boundingRect().bottomRight()
-        );
-        painter->setBrush(QBrush(flatShading(a, b)));
-        painter->drawPolygon(face);
+    auto faces_ = sortFaces();
+    for(auto &face : faces_){
+        QVector3D a(face[0].x - face[3].x, face[0].y - face[3].y, face[0].z - face[3].z);
+        QVector3D b(face[1].x - face[0].x, face[1].y - face[0].y, face[1].z - face[0].z);
+        QColor shadeColor = flatShading(a, b);
+        QPolygonF polygon;
+        polygon << QPointF(face[0].x, face[0].y)
+                << QPointF(face[1].x, face[1].y)
+                << QPointF(face[2].x, face[2].y)
+                << QPointF(face[3].x, face[3].y);
+        painter->setBrush(QBrush(shadeColor));
+        painter->drawPolygon(polygon);
     }
     painter->setPen(Qt::red);
     painter->setBrush(Qt::transparent);
@@ -213,4 +176,81 @@ QColor NonConvexFigure::flatShading(QVector3D a, QVector3D b) {
     return QColor::fromRgbF(min(1.0, color.redF() * res),
                             min(1.0, color.greenF() * res),
                             min(1.0, color.blueF() * res), 1.0);
+}
+
+std::vector<std::vector<Point3D>> NonConvexFigure::sortFaces() {
+    Matrix v = applyTr();
+    std::vector<std::vector<Point3D>> sortedFaces;
+    for (int col = 1; col < hCount; col++) {
+        for (int row = 1; row < vCount; row++) {
+            std::vector<Point3D> face;
+            face.emplace_back(
+                    Point3D(
+                            v(row * hCount + col, 0),
+                            -v(row * hCount + col, 1),
+                            v(row * hCount + col, 2))
+            );
+            face.emplace_back(
+                    Point3D(
+                            v((row - 1) * hCount + col, 0),
+                            -v((row - 1) * hCount + col, 1),
+                            v((row - 1) * hCount + col, 2)
+                    )
+            );
+            face.emplace_back(
+                    Point3D(
+                            v((row - 1) * hCount + col - 1, 0),
+                            -v((row - 1) * hCount + col - 1, 1),
+                            v((row - 1) * hCount + col - 1, 2)
+                    )
+            );
+            face.emplace_back(
+                    Point3D(
+                            v(row * hCount + col - 1, 0),
+                            -v(row * hCount + col - 1, 1),
+                            v(row * hCount + col - 1, 2)
+                    )
+            );
+            sortedFaces.emplace_back(face);
+        }
+    }
+    //Замкнуть
+    for (int row = 1; row < vCount; row++) {
+        std::vector<Point3D> face;
+        face.emplace_back(
+                Point3D(
+                        v(row * hCount, 0),
+                        -v(row * hCount, 1),
+                        v(row * hCount, 2))
+        );
+        face.emplace_back(
+                Point3D(
+                        v((row - 1) * hCount, 0),
+                        -v((row - 1) * hCount, 1),
+                        v((row - 1) * hCount, 2)
+                )
+        );
+        face.emplace_back(
+                Point3D(
+                        v((row - 1) * hCount + hCount - 1, 0),
+                        -v((row - 1) * hCount + hCount - 1, 1),
+                        v((row - 1) * hCount + hCount - 1, 2)
+                )
+        );
+        face.emplace_back(
+                Point3D(
+                        v(row * hCount + hCount - 1, 0),
+                        -v(row * hCount + hCount - 1, 1),
+                        v(row * hCount + hCount - 1, 2)
+                )
+        );
+        sortedFaces.emplace_back(face);
+    }
+    sort(sortedFaces.begin(), sortedFaces.end(), [=](const std::vector<Point3D> &a, const std::vector<Point3D> &b) {
+        double zA, zB;
+        zA = (a[0].z + a[1].z + a[2].z + a[4].z) / 4.0;
+        zB = (b[0].z + b[1].z + b[2].z + b[4].z) / 4.0;
+        return zA > zB;
+    });
+    return sortedFaces;
 }

@@ -17,6 +17,7 @@
 #include <QDebug>
 #include <QVector3D>
 #include "../figure.h"
+#include "../../point3d.h"
 #include <cfloat>
 
 using namespace std;
@@ -50,6 +51,8 @@ protected functions:
     void paintWithLighting(QPainter *painter) override;
 
     QColor flatShading(QVector3D a, QVector3D b);
+
+    std::vector<std::vector<Point3D>> sortFaces();
 
 protected fields:
     static const ULONG vCount = 30;
