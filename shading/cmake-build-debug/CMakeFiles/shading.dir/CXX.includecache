@@ -523,6 +523,8 @@ QMessageBox
 -
 QDebug
 -
+QGraphicsScene
+-
 utility
 -
 figure.h
@@ -573,6 +575,8 @@ cfloat
 /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.cpp
 nonconvex_figure.h
 /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.h
+../../point3d.h
+/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/point3d.h
 
 /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.h
 ../../common.h
@@ -599,6 +603,8 @@ QVector3D
 -
 ../figure.h
 /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/figure.h
+../../point3d.h
+/Users/macbook/Documents/Education/4_Year/CompGraphics/shading/point3d.h
 cfloat
 -
 

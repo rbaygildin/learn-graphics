@@ -1597,8 +1597,10 @@ CMakeFiles/shading.dir/figures/figure.cpp.o
  /Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/QVector3D
  /Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/qvector3d.h
  /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QGraphicsItem
+ /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QGraphicsScene
  /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox
  /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qgraphicsitem.h
+ /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qgraphicsscene.h
  /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/common.h
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/figure.cpp
@@ -3238,6 +3240,7 @@ CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/figure.h
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.cpp
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.h
+ /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/point3d.h
  /usr/local/include/boost/assert.hpp
  /usr/local/include/boost/checked_delete.hpp
  /usr/local/include/boost/config.hpp
@@ -4061,6 +4064,7 @@ CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.h
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/sphere.cpp
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/sphere.h
+ /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/point3d.h
  /usr/local/include/boost/assert.hpp
  /usr/local/include/boost/checked_delete.hpp
  /usr/local/include/boost/config.hpp
@@ -4884,6 +4888,7 @@ CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.h
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/spiral.cpp
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/spiral.h
+ /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/point3d.h
  /usr/local/include/boost/assert.hpp
  /usr/local/include/boost/checked_delete.hpp
  /usr/local/include/boost/config.hpp
@@ -5707,6 +5712,7 @@ CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/nonconvex_figure.h
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/torus.cpp
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/nonconvex/torus.h
+ /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/point3d.h
  /usr/local/include/boost/assert.hpp
  /usr/local/include/boost/checked_delete.hpp
  /usr/local/include/boost/config.hpp
@@ -11502,6 +11508,7 @@ CMakeFiles/shading.dir/main.cpp.o
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/figures/polygons/regularpyramid.h
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/main.cpp
  /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/mainwindow.h
+ /Users/macbook/Documents/Education/4_Year/CompGraphics/shading/point3d.h
  /usr/local/include/boost/assert.hpp
  /usr/local/include/boost/checked_delete.hpp
  /usr/local/include/boost/config.hpp

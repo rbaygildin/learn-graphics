@@ -55,8 +55,8 @@ protected functions:
     std::vector<std::vector<Point3D>> sortFaces();
 
 protected fields:
-    static const ULONG vCount = 30;
-    static const ULONG hCount = 30;
+    static const ULONG vCount = 50;
+    static const ULONG hCount = 50;
     Matrix *vs = nullptr;
 };
 

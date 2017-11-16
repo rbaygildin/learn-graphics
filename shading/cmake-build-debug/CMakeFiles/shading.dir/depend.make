@@ -1596,8 +1596,10 @@ CMakeFiles/shading.dir/figures/figure.cpp.o: /Applications/Qt/5.9.2/clang_64/lib
 CMakeFiles/shading.dir/figures/figure.cpp.o: /Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/QVector3D
 CMakeFiles/shading.dir/figures/figure.cpp.o: /Applications/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers/qvector3d.h
 CMakeFiles/shading.dir/figures/figure.cpp.o: /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QGraphicsItem
+CMakeFiles/shading.dir/figures/figure.cpp.o: /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QGraphicsScene
 CMakeFiles/shading.dir/figures/figure.cpp.o: /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox
 CMakeFiles/shading.dir/figures/figure.cpp.o: /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qgraphicsitem.h
+CMakeFiles/shading.dir/figures/figure.cpp.o: /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qgraphicsscene.h
 CMakeFiles/shading.dir/figures/figure.cpp.o: /Applications/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
 CMakeFiles/shading.dir/figures/figure.cpp.o: ../common.h
 CMakeFiles/shading.dir/figures/figure.cpp.o: ../figures/figure.cpp
@@ -3237,6 +3239,7 @@ CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o: ../common.h
 CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o: ../figures/figure.h
 CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o: ../figures/nonconvex/nonconvex_figure.cpp
 CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o: ../figures/nonconvex/nonconvex_figure.h
+CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o: ../point3d.h
 CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o: /usr/local/include/boost/assert.hpp
 CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o: /usr/local/include/boost/checked_delete.hpp
 CMakeFiles/shading.dir/figures/nonconvex/nonconvex_figure.cpp.o: /usr/local/include/boost/config.hpp
@@ -4060,6 +4063,7 @@ CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o: ../figures/figure.h
 CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o: ../figures/nonconvex/nonconvex_figure.h
 CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o: ../figures/nonconvex/sphere.cpp
 CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o: ../figures/nonconvex/sphere.h
+CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o: ../point3d.h
 CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o: /usr/local/include/boost/assert.hpp
 CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o: /usr/local/include/boost/checked_delete.hpp
 CMakeFiles/shading.dir/figures/nonconvex/sphere.cpp.o: /usr/local/include/boost/config.hpp
@@ -4883,6 +4887,7 @@ CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o: ../figures/figure.h
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o: ../figures/nonconvex/nonconvex_figure.h
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o: ../figures/nonconvex/spiral.cpp
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o: ../figures/nonconvex/spiral.h
+CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o: ../point3d.h
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o: /usr/local/include/boost/assert.hpp
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o: /usr/local/include/boost/checked_delete.hpp
 CMakeFiles/shading.dir/figures/nonconvex/spiral.cpp.o: /usr/local/include/boost/config.hpp
@@ -5706,6 +5711,7 @@ CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o: ../figures/figure.h
 CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o: ../figures/nonconvex/nonconvex_figure.h
 CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o: ../figures/nonconvex/torus.cpp
 CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o: ../figures/nonconvex/torus.h
+CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o: ../point3d.h
 CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o: /usr/local/include/boost/assert.hpp
 CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o: /usr/local/include/boost/checked_delete.hpp
 CMakeFiles/shading.dir/figures/nonconvex/torus.cpp.o: /usr/local/include/boost/config.hpp
@@ -11501,6 +11507,7 @@ CMakeFiles/shading.dir/main.cpp.o: ../figures/polygons/polygon.h
 CMakeFiles/shading.dir/main.cpp.o: ../figures/polygons/regularpyramid.h
 CMakeFiles/shading.dir/main.cpp.o: ../main.cpp
 CMakeFiles/shading.dir/main.cpp.o: ../mainwindow.h
+CMakeFiles/shading.dir/main.cpp.o: ../point3d.h
 CMakeFiles/shading.dir/main.cpp.o: /usr/local/include/boost/assert.hpp
 CMakeFiles/shading.dir/main.cpp.o: /usr/local/include/boost/checked_delete.hpp
 CMakeFiles/shading.dir/main.cpp.o: /usr/local/include/boost/config.hpp

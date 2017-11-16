@@ -164,6 +164,7 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     QAction *drawAction = new QAction("Перерисовать", this);
     QAction *clearAction = new QAction("Очистить", this);
     QAction *restoreAction = new QAction("Восстановить", this);
+    QAction *backgroundAction = new QAction("Цвет фона", this);
 
     //Connect
     connect(drawCubeAction, &QAction::triggered, this, [this, pos]() {
@@ -197,6 +198,7 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     connect(drawAction, SIGNAL(triggered(bool)), this, SLOT(redraw()));
     connect(clearAction, SIGNAL(triggered(bool)), this, SLOT(clear()));
     connect(restoreAction, SIGNAL(triggered(bool)), this, SLOT(restore()));
+    connect(backgroundAction, SIGNAL(triggered(bool)), this, SLOT(setBackground()));
 
     //Add items
     menu->addSection("Фигуры");
@@ -213,6 +215,7 @@ void MainWindow::showGraphicsViewMenu(QPoint pos) {
     menu->addAction(drawAction);
     menu->addAction(clearAction);
     menu->addAction(restoreAction);
+    menu->addAction(backgroundAction);
     menu->popup(ui->graphicsView->viewport()->mapToGlobal(pos));
 }
 
@@ -406,16 +409,23 @@ void MainWindow::initItem(Figure *item) {
         item->setMeshMode();
     else
         item->setWithLightingMode();
-    item->setColor(color);
-    item->setAmbient(ui->iaInp->value());
-    item->setDiffuse(ui->idInp->value());
-    connect(ui->iaInp, SIGNAL(valueChanged(int)), item, SLOT(setAmbient(int)));
-    connect(ui->idInp, SIGNAL(valueChanged(int)), item, SLOT(setDiffuse(int)));
+    item->color = color;
+    item->ia = ui->iaInp->value() / 5.0 + 1;
+    item->id = ui->idInp->value() / 5.0 + 1;
+    connect(ui->iaInp, SIGNAL(valueChanged(int)), item, SLOT(changeAmbient(int)));
+    connect(ui->idInp, SIGNAL(valueChanged(int)), item, SLOT(changeDiffuse(int)));
     connect(ui->meshRadio, SIGNAL(toggled(bool)), item, SLOT(setMeshMode()));
     connect(ui->lightingRadio, SIGNAL(toggled(bool)), item, SLOT(setWithLightingMode()));
-    connect(ui->lampXInp, SIGNAL(valueChanged(int)), item, SLOT(setLampX(int)));
-    connect(ui->lampYInp, SIGNAL(valueChanged(int)), item, SLOT(setLampY(int)));
-    connect(ui->lampZInp, SIGNAL(valueChanged(int)), item, SLOT(setLampZ(int)));
+    connect(ui->lampXInp, SIGNAL(valueChanged(int)), item, SLOT(changeLampX(int)));
+    connect(ui->lampYInp, SIGNAL(valueChanged(int)), item, SLOT(changeLampY(int)));
+    connect(ui->lampZInp, SIGNAL(valueChanged(int)), item, SLOT(changeLampZ(int)));
+    connect(ui->kdInp, SIGNAL(valueChanged(int)), item, SLOT(changeKd(int)));
+    connect(ui->kaInp, SIGNAL(valueChanged(int)), item, SLOT(changeKa(int)));
+}
+
+void MainWindow::setBackground() {
+    QColor col = QColorDialog::getColor(Qt::red, this);
+    scene->setBackgroundBrush(QBrush(col));
 }
 
 

@@ -75,6 +75,8 @@ public slots:
 
     void chooseColor();
 
+    void setBackground();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;

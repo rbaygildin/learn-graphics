@@ -141,8 +141,8 @@ QColor Polygon::flatShading(ULONG faceNumber, std::vector<int> face) {
     lighter.normalize();
 
     double cos_ = QVector3D::dotProduct(n, lighter);
-    double ambient = ia * 0.5;
-    double diffuse = id * 0.5 * max(cos_, 0.0);
+    double ambient = ia * ka;
+    double diffuse = id * kd * max(cos_, 0.0);
     double res = (ambient + diffuse) * 0.1;
     return QColor::fromRgbF(min(1.0, color.redF() * res),
                             min(1.0, color.greenF() * res),

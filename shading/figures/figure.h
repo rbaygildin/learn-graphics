@@ -33,12 +33,14 @@ signals:
 public slots:
     void setMeshMode();
     void setWithLightingMode();
-    void setColor(QColor color);
-    void setAmbient(int tick);
-    void setDiffuse(int tick);
-    void setLampX(int tick);
-    void setLampY(int tick);
-    void setLampZ(int tick);
+    void changeColor(QColor color);
+    void changeAmbient(int tick);
+    void changeDiffuse(int tick);
+    void changeKa(int tick);
+    void changeKd(int tick);
+    void changeLampX(int tick);
+    void changeLampY(int tick);
+    void changeLampZ(int tick);
 
 protected functions:
 
@@ -64,10 +66,12 @@ public fields:
 
 protected fields:
     double transformations[9]{};
-    QColor color;
-    double ia, ka, id, kd;
     QVector3D lamp;
     int mode = MESH;
+
+public fields:
+    double ia = 0.5, ka = 0.5, id = 0.5, kd = 0.5;
+    QColor color;
 };
 
 

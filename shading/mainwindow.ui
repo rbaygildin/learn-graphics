@@ -325,18 +325,11 @@
         <rect>
          <x>40</x>
          <y>430</y>
-         <width>151</width>
-         <height>80</height>
+         <width>198</width>
+         <height>24</height>
         </rect>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item>
-         <widget class="QRadioButton" name="meshRadio">
-          <property name="text">
-           <string>Каркас</string>
-          </property>
-         </widget>
-        </item>
+       <layout class="QHBoxLayout" name="horizontalLayout_15">
         <item>
          <widget class="QRadioButton" name="lightingRadio">
           <property name="text">
@@ -344,84 +337,16 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QRadioButton" name="meshRadio">
+          <property name="text">
+           <string>Каркас</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>41</x>
-         <y>531</y>
-         <width>244</width>
-         <height>131</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_8">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_5">
-          <item>
-           <widget class="QLabel" name="label_16">
-            <property name="text">
-             <string>Интенсивность окружающего света</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="iaInp">
-            <property name="value">
-             <number>50</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_6">
-          <item>
-           <widget class="QLabel" name="label_15">
-            <property name="text">
-             <string>Интенсивность точечного освещения</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="idInp">
-            <property name="value">
-             <number>50</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_7">
-          <item>
-           <widget class="QLabel" name="label_17">
-            <property name="text">
-             <string>Диффузное рассеивание</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="kdInp">
-            <property name="value">
-             <number>50</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="">
        <property name="geometry">
         <rect>
          <x>210</x>
@@ -450,11 +375,11 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>290</x>
-         <y>530</y>
+         <y>480</y>
          <width>171</width>
          <height>131</height>
         </rect>
@@ -522,6 +447,102 @@
              </widget>
             </item>
            </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>41</x>
+         <y>481</y>
+         <width>244</width>
+         <height>176</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QLabel" name="label_16">
+            <property name="text">
+             <string>Интенсивность окружающего света</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="iaInp">
+            <property name="value">
+             <number>50</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QLabel" name="label_15">
+            <property name="text">
+             <string>Интенсивность точечного освещения</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="idInp">
+            <property name="value">
+             <number>50</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QLabel" name="label_17">
+            <property name="text">
+             <string>Kd</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="kdInp">
+            <property name="value">
+             <number>50</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_21">
+            <property name="text">
+             <string>Ka</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="kaInp">
+            <property name="value">
+             <number>50</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>

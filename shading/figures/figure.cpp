@@ -4,6 +4,7 @@
 
 #include <QMessageBox>
 #include <QDebug>
+#include <QGraphicsScene>
 #include <utility>
 #include "figure.h"
 
@@ -65,41 +66,49 @@ QColor Figure::shade(QVector3D n) {
 
 void Figure::setMeshMode() {
     mode = MESH;
-    update();
 }
 
 void Figure::setWithLightingMode() {
     mode = WITH_LIGHTING;
-    update();
 }
 
-void Figure::setColor(QColor color) {
+void Figure::changeColor(QColor color) {
     this->color = std::move(color);
-    update();
+    scene()->update();
 }
 
-void Figure::setAmbient(int tick) {
+void Figure::changeAmbient(int tick) {
     this->ia = tick / 5.0 + 1;
-    update();
+    scene()->update();
 }
 
-void Figure::setDiffuse(int tick) {
+void Figure::changeDiffuse(int tick) {
     this->id = tick / 5.0 + 1;
-    update();
+    scene()->update();
 }
 
-void Figure::setLampX(int tick) {
+void Figure::changeLampX(int tick) {
     qDebug() << "Lamp x = " << tick;
     lamp.setX(tick - 50);
-    update();
+    scene()->update();
 }
 
-void Figure::setLampY(int tick) {
+void Figure::changeLampY(int tick) {
     lamp.setY(tick - 50);
-    update();
+    scene()->update();
 }
 
-void Figure::setLampZ(int tick) {
+void Figure::changeLampZ(int tick) {
     lamp.setZ(tick - 50);
-    update();
+    scene()->update();
+}
+
+void Figure::changeKa(int tick) {
+    ka = tick * 1.0 / 100.0;
+    scene()->update();
+}
+
+void Figure::changeKd(int tick) {
+    kd = tick * 1.0 / 100.0;
+    scene()->update();
 }
