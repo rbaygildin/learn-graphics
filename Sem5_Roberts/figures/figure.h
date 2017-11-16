@@ -193,20 +193,39 @@ vector<bool> Figure<V, E, F, P>::removeLines(bool isRemoveLines, QGenericMatrix<
     QGenericMatrix<1, 3, qreal> view;
     view(0, 0) = 0;
     view(1, 0) = 0;
-    view(2, 0) = -2000;
+    view(2, 0) = 2000;
     for (int i = 0; i < F; i++) {
         QGenericMatrix<3, 3, qreal> x;
-        for (int vj = 0; vj < 3; vj++) {
-            x(0, vj) = v2(0, f2(vj, i));
-            x(1, vj) = v2(1, f2(vj, i));
-            x(2, vj) = v2(2, f2(vj, i));
-        }
-        QGenericMatrix<3, 1, qreal> coeff = d * inverseMatrix(x);
-        for(int ci = 0; ci < 3; ci++)
-            coeff(0, ci) = coeff(0, ci) > 0 ? -coeff(0, ci) : coeff(0, ci);
-        double sign = get_sign(inner, coeff) + 1;
-        double sign2 = get_sign(view, coeff) + 1;
-        hidden[i] = sign2 < 0;
+        QVector3D a(
+                v2(X, f2(1, i)) - v2(X, f2(0, i)),
+                v2(Y, f2(1, i)) - v2(Y, f2(0, i)),
+                v2(Z, f2(1, i)) - v2(Z, f2(0, i))
+        );
+        QVector3D b(
+                v2(X, f2(2, i)) - v2(X, f2(1, i)),
+                v2(Y, f2(2, i)) - v2(Y, f2(1, i)),
+                v2(Z, f2(2, i)) - v2(Z, f2(1, i))
+        );
+        a.normalize();
+        b.normalize();
+        QVector3D n = QVector3D::crossProduct(a, b);
+//        for (int vj = 0; vj < 3; vj++) {
+//            x(0, vj) = v2(0, f2(vj, i));
+//            x(1, vj) = v2(1, f2(vj, i));
+//            x(2, vj) = v2(2, f2(vj, i));
+//        }
+//        QGenericMatrix<3, 1, qreal> coeff = d * inverseMatrix(x);
+//        for(int ci = 0; ci < 3; ci++)
+//            coeff(0, ci) = coeff(0, ci) > 0 ? -coeff(0, ci) : coeff(0, ci);
+//        double sign = get_sign(inner, coeff) + 1;
+//        double sign2 = get_sign(view, coeff) + 1;
+        QVector3D view_(
+                10, 10, 200
+        );
+        n.normalize();
+        view_.normalize();
+        double cos = QVector3D::dotProduct(view_, n);
+        hidden[i] = cos < 0;
     }
     return hidden;
 }

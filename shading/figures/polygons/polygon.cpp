@@ -109,18 +109,6 @@ QColor Polygon::flatShading(ULONG faceNumber, std::vector<int> face) {
     b.setX(v(face[P3], X) - v(face[P2], X));
     b.setY(v(face[P3], Y) - v(face[P2], Y));
     b.setZ(v(face[P3], Z) - v(face[P2], Z));
-//    for (int i = 0, j = 1; i < getP(); i++, j++) {
-//        if (j == getP()) j = 0;
-//        normal.setX(normal.x() + (v(f(faceNumber, i), Z) - v(f(faceNumber, j), Z)) *
-//                                 (v(f(faceNumber, i), Y) - v(f(faceNumber, i), Y))
-//        );
-//        normal.setY(normal.y() + (v(f(faceNumber, i), X) - v(f(faceNumber, j), X)) *
-//                                 (v(f(faceNumber, i), Z) - v(f(faceNumber, j), Z))
-//        );
-//        normal.setZ(normal.z() + (v(f(faceNumber, i), Y) - v(f(faceNumber, j), Y)) *
-//                                 (v(f(faceNumber, i), X) - v(f(faceNumber, j), X))
-//        );
-//    }
     a.normalize();
     b.normalize();
     QVector3D n = QVector3D::crossProduct(a, b);
@@ -143,7 +131,8 @@ QColor Polygon::flatShading(ULONG faceNumber, std::vector<int> face) {
     double cos_ = QVector3D::dotProduct(n, lighter);
     double ambient = ia * ka;
     double diffuse = id * kd * max(cos_, 0.0);
-    double res = (ambient + diffuse) * 0.1;
+    double s = ks * pow(cos_, this->n);
+    double res = (ambient + diffuse + s) * 0.1;
     return QColor::fromRgbF(min(1.0, color.redF() * res),
                             min(1.0, color.greenF() * res),
                             min(1.0, color.blueF() * res), 1.0);

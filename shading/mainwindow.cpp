@@ -412,6 +412,7 @@ void MainWindow::initItem(Figure *item) {
     item->color = color;
     item->ia = ui->iaInp->value() / 5.0 + 1;
     item->id = ui->idInp->value() / 5.0 + 1;
+    item->n = ui->nInp->value() / 10 + 1;
     connect(ui->iaInp, SIGNAL(valueChanged(int)), item, SLOT(changeAmbient(int)));
     connect(ui->idInp, SIGNAL(valueChanged(int)), item, SLOT(changeDiffuse(int)));
     connect(ui->meshRadio, SIGNAL(toggled(bool)), item, SLOT(setMeshMode()));
@@ -421,6 +422,8 @@ void MainWindow::initItem(Figure *item) {
     connect(ui->lampZInp, SIGNAL(valueChanged(int)), item, SLOT(changeLampZ(int)));
     connect(ui->kdInp, SIGNAL(valueChanged(int)), item, SLOT(changeKd(int)));
     connect(ui->kaInp, SIGNAL(valueChanged(int)), item, SLOT(changeKa(int)));
+    connect(ui->ksInp, SIGNAL(valueChanged(int)), item, SLOT(changeKs(int)));
+    connect(ui->nInp, SIGNAL(valueChanged(int)), item, SLOT(changeKa(int)));
 }
 
 void MainWindow::setBackground() {

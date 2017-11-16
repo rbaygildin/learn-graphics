@@ -172,7 +172,8 @@ QColor NonConvexFigure::flatShading(QVector3D a, QVector3D b) {
     double cos_ = QVector3D::dotProduct(n, lighter);
     double ambient = ia * ka;
     double diffuse = id * kd * max(cos_, 0.0);
-    double res = (ambient + diffuse) * 0.1;
+    double s = ks * pow(cos_, this->n);
+    double res = (ambient + diffuse + s) * 0.1;
     return QColor::fromRgbF(min(1.0, color.redF() * res),
                             min(1.0, color.greenF() * res),
                             min(1.0, color.blueF() * res), 1.0);

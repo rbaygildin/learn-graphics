@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>883</width>
-    <height>724</height>
+    <height>796</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -378,9 +378,9 @@
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>290</x>
+         <x>300</x>
          <y>480</y>
-         <width>171</width>
+         <width>161</width>
          <height>131</height>
         </rect>
        </property>
@@ -455,96 +455,114 @@
       <widget class="QWidget" name="">
        <property name="geometry">
         <rect>
-         <x>41</x>
-         <y>481</y>
-         <width>244</width>
-         <height>176</height>
+         <x>40</x>
+         <y>480</y>
+         <width>251</width>
+         <height>254</height>
         </rect>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_8">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_5">
-          <item>
-           <widget class="QLabel" name="label_16">
-            <property name="text">
-             <string>Интенсивность окружающего света</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="iaInp">
-            <property name="value">
-             <number>50</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QLabel" name="label_16">
+          <property name="text">
+           <string>Интенсивность окружающего света</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_6">
-          <item>
-           <widget class="QLabel" name="label_15">
-            <property name="text">
-             <string>Интенсивность точечного освещения</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="idInp">
-            <property name="value">
-             <number>50</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QSlider" name="iaInp">
+          <property name="value">
+           <number>50</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_7">
-          <item>
-           <widget class="QLabel" name="label_17">
-            <property name="text">
-             <string>Kd</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="kdInp">
-            <property name="value">
-             <number>50</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QLabel" name="label_15">
+          <property name="text">
+           <string>Интенсивность точечного освещения</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <widget class="QLabel" name="label_21">
-            <property name="text">
-             <string>Ka</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="kaInp">
-            <property name="value">
-             <number>50</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QSlider" name="idInp">
+          <property name="value">
+           <number>50</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_17">
+          <property name="text">
+           <string>Kd</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="kdInp">
+          <property name="value">
+           <number>50</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_21">
+          <property name="text">
+           <string>Ka</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="kaInp">
+          <property name="value">
+           <number>50</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_22">
+          <property name="text">
+           <string>Ks</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="ksInp">
+          <property name="value">
+           <number>50</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_23">
+          <property name="text">
+           <string>N</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="nInp">
+          <property name="value">
+           <number>50</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>

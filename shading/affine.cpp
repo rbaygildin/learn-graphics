@@ -184,7 +184,7 @@ namespace geom {
         pm(2, 0) = 0;
         pm(2, 1) = 0;
         pm(2, 2) = 0;
-        pm(2, 3) = -1 / (depth + 1);
+        pm(2, 3) = -1.0 / depth;
         //fourth row
         pm(3, 0) = 0;
         pm(3, 1) = 0;

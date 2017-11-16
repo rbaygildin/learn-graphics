@@ -41,6 +41,8 @@ public slots:
     void changeLampX(int tick);
     void changeLampY(int tick);
     void changeLampZ(int tick);
+    void changeKs(int tick);
+    void changeN(int tick);
 
 protected functions:
 
@@ -70,7 +72,7 @@ protected fields:
     int mode = MESH;
 
 public fields:
-    double ia = 0.5, ka = 0.5, id = 0.5, kd = 0.5;
+    double ia = 0.5, ka = 0.5, id = 0.5, kd = 0.5, ks = 0.5, n = 1;
     QColor color;
 };
 

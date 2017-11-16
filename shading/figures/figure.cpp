@@ -112,3 +112,12 @@ void Figure::changeKd(int tick) {
     kd = tick * 1.0 / 100.0;
     scene()->update();
 }
+
+void Figure::changeKs(int tick) {
+    ks = tick * 1.0 / 100;
+}
+
+void Figure::changeN(int tick) {
+    n = tick / 10 + 1;
+    scene()->update();
+}

@@ -70,16 +70,16 @@ IntMatrix Octahedron::faces() const {
     f(LEFT_TOP, P2) = V1;
     f(LEFT_TOP, P3) = V5;
     //front bottom
-    f(FRONT_BOTTOM, P1) = V1;
-    f(FRONT_BOTTOM, P2) = V2;
+    f(FRONT_BOTTOM, P1) = V2;
+    f(FRONT_BOTTOM, P2) = V1;
     f(FRONT_BOTTOM, P3) = V6;
     //right bottom
-    f(RIGHT_BOTTOM, P1) = V2;
-    f(RIGHT_BOTTOM, P2) = V3;
+    f(RIGHT_BOTTOM, P1) = V3;
+    f(RIGHT_BOTTOM, P2) = V2;
     f(RIGHT_BOTTOM, P3) = V6;
     //back bottom
-    f(BACK_BOTTOM, P1) = V3;
-    f(BACK_BOTTOM, P2) = V4;
+    f(BACK_BOTTOM, P1) = V4;
+    f(BACK_BOTTOM, P2) = V3;
     f(BACK_BOTTOM, P3) = V6;
     //left bottom
     f(LEFT_BOTTOM, P1) = V4;
