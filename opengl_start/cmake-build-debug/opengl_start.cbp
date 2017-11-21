@@ -102,13 +102,13 @@
 		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/NoelTree.h">
 			<Option target="opengl_start"/>
 		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/lighting.frag">
+			<Option target="opengl_start"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/lighting.vert">
+			<Option target="opengl_start"/>
+		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/main.cpp">
-			<Option target="opengl_start"/>
-		</Unit>
-		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/shader.frag">
-			<Option target="opengl_start"/>
-		</Unit>
-		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/shader.vert">
 			<Option target="opengl_start"/>
 		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/shaders/FragShader.cpp">
