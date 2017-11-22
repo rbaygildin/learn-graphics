@@ -5,6 +5,7 @@
 #include "Window.h"
 #include "shaders/VertexShader.h"
 #include "shaders/FragShader.h"
+#include "figures/NoelTree.h"
 
 Window::Window() {
 
@@ -20,38 +21,17 @@ Window::Window() {
     glfwMakeContextCurrent(wnd);
     glewInit();
     glfwSetKeyCallback(wnd, this->key_callback);
+    createScene();
     loadContext();
 }
 
 Window::~Window() {
-    delete vertexShader;
-    delete fragShader;
-    glDeleteBuffers(1, &vertexes);
-    glDeleteBuffers(1, &colors);
     glfwDestroyWindow(wnd);
     glfwTerminate();
 }
 
 void Window::run() {
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-
-    // Create light components
-    GLfloat ambientLight[] = { 0.2f, 0.2f, 0.2f, 1.0f };
-    GLfloat diffuseLight[] = { 0.8f, 0.8f, 0.8, 1.0f };
-    GLfloat specularLight[] = { 0.5f, 0.5f, 0.5f, 1.0f };
-    GLfloat position[] = { -1.5f, 1.0f, -4.0f, 1.0f };
-
-    // Assign created components to GL_LIGHT0
-    glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, specularLight);
-    glLightfv(GL_LIGHT0, GL_POSITION, position);
-
-    glEnable(GL_COLOR_MATERIAL);
-
     while (!glfwWindowShouldClose(wnd)) {
-        glUseProgram(program);
         float ratio;
         int width, height;
         glfwGetFramebufferSize(wnd, &width, &height);
@@ -61,22 +41,8 @@ void Window::run() {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         glOrtho(-ratio, ratio, -1.f, 1.f, 1.f, -1.f);
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
-        glRotatef((float) glfwGetTime() * 50.f, (float) glfwGetTime() * 10.f, 0.f, 1.f);
-
-        /* Vertex data */
-        glBindBuffer(GL_ARRAY_BUFFER, vertexes);
-        glVertexPointer(3, GL_FLOAT, 0, nullptr);
-        glEnableClientState(GL_VERTEX_ARRAY);
-
-        /* Color data */
-        glBindBuffer(GL_ARRAY_BUFFER, colors);
-        glColorPointer(3, GL_FLOAT, 0, nullptr);
-        glEnableClientState(GL_COLOR_ARRAY);
-
-        glDrawArrays(GL_POLYGON, 0, 4);
-
+        for (auto &figure : figures)
+            figure->draw();
         glfwSwapBuffers(wnd);
         glfwPollEvents();
     }
@@ -92,32 +58,6 @@ void Window::key_callback(GLFWwindow *window, int key, int scancode, int action,
 }
 
 void Window::loadContext() {
-    //Create buffers
-    static const GLfloat vertexVao[4][3] = {
-            {0.5f,  0.5f,  0.0f},
-            {-0.5f, 0.5f,  0.0f},
-            {-0.5f, -0.5f, 0.0f},
-            {0.5f,  -0.5f, 0.0f}
-    };
-
-    static const GLfloat colorsVao[4][3] = {
-            {1.0, 0.0, 0.0},
-            {0.0, 1.0, 0.0},
-            {0.0, 0.0, 1.0},
-            {1.0, 1.0, 1.0}
-    };
-
-    glGenBuffers(1, &vertexes);
-    glGenBuffers(1, &colors);
-
-    /* Vertex data */
-    glBindBuffer(GL_ARRAY_BUFFER, vertexes);
-    glBufferData(GL_ARRAY_BUFFER, 4 * 3 * sizeof(GLfloat), vertexVao, GL_STATIC_DRAW);
-
-    /* Color data */
-    glBindBuffer(GL_ARRAY_BUFFER, colors);
-    glBufferData(GL_ARRAY_BUFFER, 4 * 3 * sizeof(GLfloat), colorsVao, GL_STATIC_DRAW);
-
     //Create program
     program = glCreateProgram();
 
@@ -127,4 +67,28 @@ void Window::loadContext() {
 
     //Link program
     glLinkProgram(program);
+
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+
+    // Create light components
+    GLfloat ambientLight[] = {0.2f, 0.2f, 0.2f, 1.0f};
+    GLfloat diffuseLight[] = {0.8f, 0.8f, 0.8, 1.0f};
+    GLfloat specularLight[] = {0.5f, 0.5f, 0.5f, 1.0f};
+    GLfloat position[] = {-1.5f, 1.0f, -4.0f, 1.0f};
+
+    // Assign created components to GL_LIGHT0
+    glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, specularLight);
+    glLightfv(GL_LIGHT0, GL_POSITION, position);
+
+    glEnable(GL_COLOR_MATERIAL);
+    glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
+
+    glUseProgram(program);
+}
+
+void Window::createScene() {
+    figures.emplace_back(new NoelTree());
 }

@@ -13,7 +13,9 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <vector>
 #include "shaders/Shader.h"
+#include "figures/Figure.h"
 
 using namespace std;
 
@@ -39,6 +41,9 @@ private:
     GLFWwindow *wnd;
     Shader* vertexShader;
     Shader *fragShader;
+    vector<Figure*> figures;
+
+    void createScene();
 };
 
 

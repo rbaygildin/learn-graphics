@@ -7,11 +7,21 @@
 
 
 #include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include "Figure.h"
 
 class NoelTree : public Figure{
+public:
+    NoelTree();
+    ~NoelTree();
+
+    void draw() override;
+
 private:
-    GLuint faces[];
+    const static int FACES_COUNT = 4;
+    const static int FACE_VERTEX_COUNT = 3;
+    GLuint vertexVao;
+    GLuint colorVao;
 
 };
 

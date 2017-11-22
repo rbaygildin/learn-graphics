@@ -6,8 +6,11 @@
 #define OPENGL_START_FIGURE_H
 
 
-class Figure {
+#include <GL/glew.h>
 
+class Figure {
+public:
+    virtual void draw() = 0;
 };
 
 
