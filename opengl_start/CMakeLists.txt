@@ -27,7 +27,7 @@ SET(EXTRA_LIBS ${COCOA_LIBRARY} ${OpenGL_LIBRARY} ${IOKIT_LIBRARY} ${COREVIDEO_L
 set(SOURCE_FILES
         main.cpp
         lighting.frag
-        lighting.vert figures/NoelTree.cpp figures/NoelTree.h figures/Figure.cpp figures/Figure.h shaders/Shader.cpp shaders/Shader.h shaders/VertexShader.cpp shaders/VertexShader.h shaders/FragShader.cpp shaders/FragShader.h Window.cpp Window.h)
+        lighting.vert figures/NoelTree.cpp figures/NoelTree.h figures/Figure.cpp figures/Figure.h shaders/Shader.cpp shaders/Shader.h shaders/VertexShader.cpp shaders/VertexShader.h shaders/FragShader.cpp shaders/FragShader.h Window.cpp Window.h figures/Cube.cpp figures/Cube.h)
 
 add_executable(opengl_start ${SOURCE_FILES})
 

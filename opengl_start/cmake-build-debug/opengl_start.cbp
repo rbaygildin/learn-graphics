@@ -90,6 +90,12 @@
 		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/Window.h">
 			<Option target="opengl_start"/>
 		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Cube.cpp">
+			<Option target="opengl_start"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Cube.h">
+			<Option target="opengl_start"/>
+		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Figure.cpp">
 			<Option target="opengl_start"/>
 		</Unit>

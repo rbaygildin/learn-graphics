@@ -6,10 +6,13 @@
 #include "shaders/VertexShader.h"
 #include "shaders/FragShader.h"
 #include "figures/NoelTree.h"
+#include "figures/Cube.h"
+
+float Window::alpha;
 
 Window::Window() {
-
-    glfwSetErrorCallback(this->error_callback);
+    Window::alpha = 0;
+    glfwSetErrorCallback(this->errorCallback);
     if (!glfwInit())
         exit(EXIT_FAILURE);
 
@@ -20,12 +23,15 @@ Window::Window() {
     }
     glfwMakeContextCurrent(wnd);
     glewInit();
-    glfwSetKeyCallback(wnd, this->key_callback);
+    glfwSetKeyCallback(wnd, this->keyCallback);
+    glfwSetCursorPosCallback(wnd, this->mouseCallback);
     createScene();
     loadContext();
 }
 
 Window::~Window() {
+    for(auto& figure : figures)
+        delete(figure);
     glfwDestroyWindow(wnd);
     glfwTerminate();
 }
@@ -41,6 +47,7 @@ void Window::run() {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         glOrtho(-ratio, ratio, -1.f, 1.f, 1.f, -1.f);
+        glRotatef(static_cast<GLfloat>(glfwGetTime() * 60.0f), 1, 0, 0);
         for (auto &figure : figures)
             figure->draw();
         glfwSwapBuffers(wnd);
@@ -48,11 +55,11 @@ void Window::run() {
     }
 }
 
-void Window::error_callback(int error, const char *description) {
+void Window::errorCallback(int error, const char *description) {
     fputs(description, stderr);
 }
 
-void Window::key_callback(GLFWwindow *window, int key, int scancode, int action, int mods) {
+void Window::keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods) {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
 }
@@ -68,14 +75,20 @@ void Window::loadContext() {
     //Link program
     glLinkProgram(program);
 
+//    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+
+    glClearDepth(1);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DOUBLE | GL_DEPTH_BUFFER_BIT);
+
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
 
     // Create light components
-    GLfloat ambientLight[] = {0.2f, 0.2f, 0.2f, 1.0f};
+    GLfloat ambientLight[] = {0.1f, 0.2f, 0.2f, 1.0f};
     GLfloat diffuseLight[] = {0.8f, 0.8f, 0.8, 1.0f};
     GLfloat specularLight[] = {0.5f, 0.5f, 0.5f, 1.0f};
-    GLfloat position[] = {-1.5f, 1.0f, -4.0f, 1.0f};
+    GLfloat position[] = {0, 1.0f, 4.0f, 1.0f};
 
     // Assign created components to GL_LIGHT0
     glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
@@ -91,4 +104,11 @@ void Window::loadContext() {
 
 void Window::createScene() {
     figures.emplace_back(new NoelTree());
+    figures.emplace_back(new Cube());
+}
+
+void Window::mouseCallback(GLFWwindow *window, double xPos, double yPos) {
+    if(Window::alpha > 360.0)
+        Window::alpha = 0;
+    else Window::alpha += 10;
 }

@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o"
   "CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o"
   "CMakeFiles/opengl_start.dir/Window.cpp.o"
+  "CMakeFiles/opengl_start.dir/figures/Cube.cpp.o"
   "opengl_start.pdb"
   "opengl_start"
 )

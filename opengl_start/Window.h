@@ -28,9 +28,11 @@ public:
     void run();
 
 private:
-    static void error_callback(int error, const char *description);
+    static void errorCallback(int error, const char *description);
 
-    static void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
+    static void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
+
+    static void mouseCallback(GLFWwindow *window, double xPos, double yPos);
 
     void loadContext();
 
@@ -42,6 +44,7 @@ private:
     Shader* vertexShader;
     Shader *fragShader;
     vector<Figure*> figures;
+    static float alpha;
 
     void createScene();
 };

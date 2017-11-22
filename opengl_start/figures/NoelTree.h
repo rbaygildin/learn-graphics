@@ -8,6 +8,7 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <cmath>
 #include "Figure.h"
 
 class NoelTree : public Figure{
@@ -18,11 +19,13 @@ public:
     void draw() override;
 
 private:
-    const static int FACES_COUNT = 4;
-    const static int FACE_VERTEX_COUNT = 3;
+    const static int N = 3;
+    const static int V = 3;
+    const static int SV = 200;
     GLuint vertexVao;
     GLuint colorVao;
-
+    GLuint starVertexVao;
+    GLuint starColorVao;
 };
 
 

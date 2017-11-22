@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/Window.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles/opengl_start.dir/Window.cpp.o"
+  "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Cube.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles/opengl_start.dir/figures/Cube.cpp.o"
   "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Figure.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles/opengl_start.dir/figures/Figure.cpp.o"
   "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/NoelTree.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles/opengl_start.dir/figures/NoelTree.cpp.o"
   "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/main.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles/opengl_start.dir/main.cpp.o"

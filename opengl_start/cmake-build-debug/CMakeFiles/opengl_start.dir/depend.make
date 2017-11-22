@@ -3,21 +3,34 @@
 
 CMakeFiles/opengl_start.dir/Window.cpp.o: ../Window.cpp
 CMakeFiles/opengl_start.dir/Window.cpp.o: ../Window.h
+CMakeFiles/opengl_start.dir/Window.cpp.o: ../figures/Cube.h
+CMakeFiles/opengl_start.dir/Window.cpp.o: ../figures/Figure.h
+CMakeFiles/opengl_start.dir/Window.cpp.o: ../figures/NoelTree.h
 CMakeFiles/opengl_start.dir/Window.cpp.o: ../shaders/FragShader.h
 CMakeFiles/opengl_start.dir/Window.cpp.o: ../shaders/Shader.h
 CMakeFiles/opengl_start.dir/Window.cpp.o: ../shaders/VertexShader.h
 CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/GL/glew.h
 CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/GLFW/glfw3.h
 
+CMakeFiles/opengl_start.dir/figures/Cube.cpp.o: ../figures/Cube.cpp
+CMakeFiles/opengl_start.dir/figures/Cube.cpp.o: ../figures/Cube.h
+CMakeFiles/opengl_start.dir/figures/Cube.cpp.o: ../figures/Figure.h
+CMakeFiles/opengl_start.dir/figures/Cube.cpp.o: /usr/local/include/GL/glew.h
+CMakeFiles/opengl_start.dir/figures/Cube.cpp.o: /usr/local/include/GLFW/glfw3.h
+
 CMakeFiles/opengl_start.dir/figures/Figure.cpp.o: ../figures/Figure.cpp
 CMakeFiles/opengl_start.dir/figures/Figure.cpp.o: ../figures/Figure.h
+CMakeFiles/opengl_start.dir/figures/Figure.cpp.o: /usr/local/include/GL/glew.h
+CMakeFiles/opengl_start.dir/figures/Figure.cpp.o: /usr/local/include/GLFW/glfw3.h
 
 CMakeFiles/opengl_start.dir/figures/NoelTree.cpp.o: ../figures/Figure.h
 CMakeFiles/opengl_start.dir/figures/NoelTree.cpp.o: ../figures/NoelTree.cpp
 CMakeFiles/opengl_start.dir/figures/NoelTree.cpp.o: ../figures/NoelTree.h
 CMakeFiles/opengl_start.dir/figures/NoelTree.cpp.o: /usr/local/include/GL/glew.h
+CMakeFiles/opengl_start.dir/figures/NoelTree.cpp.o: /usr/local/include/GLFW/glfw3.h
 
 CMakeFiles/opengl_start.dir/main.cpp.o: ../Window.h
+CMakeFiles/opengl_start.dir/main.cpp.o: ../figures/Figure.h
 CMakeFiles/opengl_start.dir/main.cpp.o: ../main.cpp
 CMakeFiles/opengl_start.dir/main.cpp.o: ../shaders/Shader.h
 CMakeFiles/opengl_start.dir/main.cpp.o: /usr/local/include/GL/glew.h
