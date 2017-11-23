@@ -14,18 +14,21 @@
 #include <sstream>
 #include <iostream>
 
+#include <boost/log/trivial.hpp>
+
 using namespace std;
 
 class Shader {
 public:
-    explicit Shader(const string &filePath, GLuint program);
-    virtual void attach();
-    virtual void detach();
+    explicit Shader(const string &vertexPath, const string &fragPath, GLuint program);
+
     virtual ~Shader();
 
 protected:
-    string readFile(const string& filePath);
-    GLuint shaderId;
+    string readFile(const string &filePath);
+
+    GLuint vertexId;
+    GLuint fragId;
     GLuint program;
 };
 

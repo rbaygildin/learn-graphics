@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = -DGLFW_DLL
 
-CXX_INCLUDES = -isystem /usr/local/include 
+CXX_INCLUDES = -isystem /usr/local/include -I/usr/local/opt/boost/include 
 

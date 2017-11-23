@@ -8,6 +8,8 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <GL/glut.h>
+#include <boost/log/trivial.hpp>
 
 #include <string>
 #include <fstream>
@@ -16,6 +18,8 @@
 #include <vector>
 #include "shaders/Shader.h"
 #include "figures/Figure.h"
+#include "figures/Cube.h"
+#include "figures/NoelTree.h"
 
 using namespace std;
 
@@ -28,25 +32,26 @@ public:
     void run();
 
 private:
-    static void errorCallback(int error, const char *description);
+    void initLighting();
 
-    static void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
+    void loadShaders();
 
-    static void mouseCallback(GLFWwindow *window, double xPos, double yPos);
+    void deleteShaders();
 
-    void loadContext();
+    void createBuffers();
+
+    void deleteBuffers();
+
+    void drawCube();
+
+    void drawTree();
 
 private:
-    GLuint vertexes;
-    GLuint colors;
-    GLuint program;
     GLFWwindow *wnd;
-    Shader* vertexShader;
-    Shader *fragShader;
-    vector<Figure*> figures;
-    static float alpha;
-
-    void createScene();
+    Shader *shader;
+    Shader *lightShader;
+    GLuint program;
+    vector<Figure *> figures;
 };
 
 

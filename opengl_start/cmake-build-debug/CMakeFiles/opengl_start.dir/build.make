@@ -156,57 +156,9 @@ CMakeFiles/opengl_start.dir/shaders/Shader.cpp.o.provides: CMakeFiles/opengl_sta
 CMakeFiles/opengl_start.dir/shaders/Shader.cpp.o.provides.build: CMakeFiles/opengl_start.dir/shaders/Shader.cpp.o
 
 
-CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o: CMakeFiles/opengl_start.dir/flags.make
-CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o: ../shaders/VertexShader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/shaders/VertexShader.cpp
-
-CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/shaders/VertexShader.cpp > CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.i
-
-CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/shaders/VertexShader.cpp -o CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.s
-
-CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o.requires:
-
-.PHONY : CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o.requires
-
-CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o.provides: CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o.requires
-	$(MAKE) -f CMakeFiles/opengl_start.dir/build.make CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o.provides.build
-.PHONY : CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o.provides
-
-CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o.provides.build: CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o
-
-
-CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o: CMakeFiles/opengl_start.dir/flags.make
-CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o: ../shaders/FragShader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/shaders/FragShader.cpp
-
-CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/shaders/FragShader.cpp > CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.i
-
-CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/shaders/FragShader.cpp -o CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.s
-
-CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o.requires:
-
-.PHONY : CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o.requires
-
-CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o.provides: CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o.requires
-	$(MAKE) -f CMakeFiles/opengl_start.dir/build.make CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o.provides.build
-.PHONY : CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o.provides
-
-CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o.provides.build: CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o
-
-
 CMakeFiles/opengl_start.dir/Window.cpp.o: CMakeFiles/opengl_start.dir/flags.make
 CMakeFiles/opengl_start.dir/Window.cpp.o: ../Window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/opengl_start.dir/Window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/opengl_start.dir/Window.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl_start.dir/Window.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/Window.cpp
 
 CMakeFiles/opengl_start.dir/Window.cpp.i: cmake_force
@@ -230,7 +182,7 @@ CMakeFiles/opengl_start.dir/Window.cpp.o.provides.build: CMakeFiles/opengl_start
 
 CMakeFiles/opengl_start.dir/figures/Cube.cpp.o: CMakeFiles/opengl_start.dir/flags.make
 CMakeFiles/opengl_start.dir/figures/Cube.cpp.o: ../figures/Cube.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/opengl_start.dir/figures/Cube.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/opengl_start.dir/figures/Cube.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl_start.dir/figures/Cube.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Cube.cpp
 
 CMakeFiles/opengl_start.dir/figures/Cube.cpp.i: cmake_force
@@ -252,16 +204,139 @@ CMakeFiles/opengl_start.dir/figures/Cube.cpp.o.provides: CMakeFiles/opengl_start
 CMakeFiles/opengl_start.dir/figures/Cube.cpp.o.provides.build: CMakeFiles/opengl_start.dir/figures/Cube.cpp.o
 
 
+CMakeFiles/opengl_start.dir/figures/Torus.cpp.o: CMakeFiles/opengl_start.dir/flags.make
+CMakeFiles/opengl_start.dir/figures/Torus.cpp.o: ../figures/Torus.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/opengl_start.dir/figures/Torus.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl_start.dir/figures/Torus.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Torus.cpp
+
+CMakeFiles/opengl_start.dir/figures/Torus.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opengl_start.dir/figures/Torus.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Torus.cpp > CMakeFiles/opengl_start.dir/figures/Torus.cpp.i
+
+CMakeFiles/opengl_start.dir/figures/Torus.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opengl_start.dir/figures/Torus.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Torus.cpp -o CMakeFiles/opengl_start.dir/figures/Torus.cpp.s
+
+CMakeFiles/opengl_start.dir/figures/Torus.cpp.o.requires:
+
+.PHONY : CMakeFiles/opengl_start.dir/figures/Torus.cpp.o.requires
+
+CMakeFiles/opengl_start.dir/figures/Torus.cpp.o.provides: CMakeFiles/opengl_start.dir/figures/Torus.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opengl_start.dir/build.make CMakeFiles/opengl_start.dir/figures/Torus.cpp.o.provides.build
+.PHONY : CMakeFiles/opengl_start.dir/figures/Torus.cpp.o.provides
+
+CMakeFiles/opengl_start.dir/figures/Torus.cpp.o.provides.build: CMakeFiles/opengl_start.dir/figures/Torus.cpp.o
+
+
+CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o: CMakeFiles/opengl_start.dir/flags.make
+CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o: ../figures/Sphere.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Sphere.cpp
+
+CMakeFiles/opengl_start.dir/figures/Sphere.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opengl_start.dir/figures/Sphere.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Sphere.cpp > CMakeFiles/opengl_start.dir/figures/Sphere.cpp.i
+
+CMakeFiles/opengl_start.dir/figures/Sphere.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opengl_start.dir/figures/Sphere.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Sphere.cpp -o CMakeFiles/opengl_start.dir/figures/Sphere.cpp.s
+
+CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o.requires:
+
+.PHONY : CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o.requires
+
+CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o.provides: CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opengl_start.dir/build.make CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o.provides.build
+.PHONY : CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o.provides
+
+CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o.provides.build: CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o
+
+
+CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o: CMakeFiles/opengl_start.dir/flags.make
+CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o: ../figures/Teapot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Teapot.cpp
+
+CMakeFiles/opengl_start.dir/figures/Teapot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opengl_start.dir/figures/Teapot.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Teapot.cpp > CMakeFiles/opengl_start.dir/figures/Teapot.cpp.i
+
+CMakeFiles/opengl_start.dir/figures/Teapot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opengl_start.dir/figures/Teapot.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Teapot.cpp -o CMakeFiles/opengl_start.dir/figures/Teapot.cpp.s
+
+CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o.requires:
+
+.PHONY : CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o.requires
+
+CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o.provides: CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opengl_start.dir/build.make CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o.provides.build
+.PHONY : CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o.provides
+
+CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o.provides.build: CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o
+
+
+CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o: CMakeFiles/opengl_start.dir/flags.make
+CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o: ../figures/WireTorus.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/WireTorus.cpp
+
+CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/WireTorus.cpp > CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.i
+
+CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/WireTorus.cpp -o CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.s
+
+CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o.requires:
+
+.PHONY : CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o.requires
+
+CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o.provides: CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opengl_start.dir/build.make CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o.provides.build
+.PHONY : CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o.provides
+
+CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o.provides.build: CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o
+
+
+CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o: CMakeFiles/opengl_start.dir/flags.make
+CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o: ../figures/Dodecahedron.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Dodecahedron.cpp
+
+CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Dodecahedron.cpp > CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.i
+
+CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/figures/Dodecahedron.cpp -o CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.s
+
+CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o.requires:
+
+.PHONY : CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o.requires
+
+CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o.provides: CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opengl_start.dir/build.make CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o.provides.build
+.PHONY : CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o.provides
+
+CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o.provides.build: CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o
+
+
 # Object files for target opengl_start
 opengl_start_OBJECTS = \
 "CMakeFiles/opengl_start.dir/main.cpp.o" \
 "CMakeFiles/opengl_start.dir/figures/NoelTree.cpp.o" \
 "CMakeFiles/opengl_start.dir/figures/Figure.cpp.o" \
 "CMakeFiles/opengl_start.dir/shaders/Shader.cpp.o" \
-"CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o" \
-"CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o" \
 "CMakeFiles/opengl_start.dir/Window.cpp.o" \
-"CMakeFiles/opengl_start.dir/figures/Cube.cpp.o"
+"CMakeFiles/opengl_start.dir/figures/Cube.cpp.o" \
+"CMakeFiles/opengl_start.dir/figures/Torus.cpp.o" \
+"CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o" \
+"CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o" \
+"CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o" \
+"CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o"
 
 # External object files for target opengl_start
 opengl_start_EXTERNAL_OBJECTS =
@@ -270,16 +345,31 @@ opengl_start: CMakeFiles/opengl_start.dir/main.cpp.o
 opengl_start: CMakeFiles/opengl_start.dir/figures/NoelTree.cpp.o
 opengl_start: CMakeFiles/opengl_start.dir/figures/Figure.cpp.o
 opengl_start: CMakeFiles/opengl_start.dir/shaders/Shader.cpp.o
-opengl_start: CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o
-opengl_start: CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o
 opengl_start: CMakeFiles/opengl_start.dir/Window.cpp.o
 opengl_start: CMakeFiles/opengl_start.dir/figures/Cube.cpp.o
+opengl_start: CMakeFiles/opengl_start.dir/figures/Torus.cpp.o
+opengl_start: CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o
+opengl_start: CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o
+opengl_start: CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o
+opengl_start: CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o
 opengl_start: CMakeFiles/opengl_start.dir/build.make
 opengl_start: /usr/local/lib/libglfw.3.2.dylib
 opengl_start: /usr/local/lib/libGLEW.dylib
+opengl_start: /usr/local/opt/boost/lib/libboost_unit_test_framework-mt.a
+opengl_start: /usr/local/opt/boost/lib/libboost_program_options-mt.a
+opengl_start: /usr/local/opt/boost/lib/libboost_log-mt.a
+opengl_start: /usr/local/opt/boost/lib/libboost_log_setup-mt.a
+opengl_start: /usr/local/opt/boost/lib/libboost_system-mt.a
+opengl_start: /usr/local/opt/boost/lib/libboost_thread-mt.a
 opengl_start: /usr/local/lib/libGLEW.dylib
+opengl_start: /usr/local/opt/boost/lib/libboost_unit_test_framework-mt.a
+opengl_start: /usr/local/opt/boost/lib/libboost_program_options-mt.a
+opengl_start: /usr/local/opt/boost/lib/libboost_log-mt.a
+opengl_start: /usr/local/opt/boost/lib/libboost_log_setup-mt.a
+opengl_start: /usr/local/opt/boost/lib/libboost_system-mt.a
+opengl_start: /usr/local/opt/boost/lib/libboost_thread-mt.a
 opengl_start: CMakeFiles/opengl_start.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable opengl_start"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable opengl_start"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/opengl_start.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -291,10 +381,13 @@ CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/main.cpp.o.req
 CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/figures/NoelTree.cpp.o.requires
 CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/figures/Figure.cpp.o.requires
 CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/shaders/Shader.cpp.o.requires
-CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/shaders/VertexShader.cpp.o.requires
-CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/shaders/FragShader.cpp.o.requires
 CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/Window.cpp.o.requires
 CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/figures/Cube.cpp.o.requires
+CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/figures/Torus.cpp.o.requires
+CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/figures/Sphere.cpp.o.requires
+CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/figures/Teapot.cpp.o.requires
+CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/figures/WireTorus.cpp.o.requires
+CMakeFiles/opengl_start.dir/requires: CMakeFiles/opengl_start.dir/figures/Dodecahedron.cpp.o.requires
 
 .PHONY : CMakeFiles/opengl_start.dir/requires
 

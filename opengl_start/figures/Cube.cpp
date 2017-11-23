@@ -4,95 +4,99 @@
 
 #include "Cube.h"
 
-typedef struct {
-    GLfloat x;
-    GLfloat y;
-    GLfloat z;
-} vertex;
-
 void Cube::draw() {
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    glRotatef(static_cast<GLfloat>(glfwGetTime() * 10.0f), 0, 1, 1);
-    glTranslatef(-0.5f, -0.5f, 0);
-    //bottom
-    vertex A;
-    A.x = -0.25f;
-    A.y = -0.325f;
-    A.z = 0.25f;
-    vertex B;
-    B.x = 0.25f;
-    B.y = -0.325f;
-    B.z = 0.25f;
-    vertex C;
-    C.x = 0.25f;
-    C.y = -0.325f;
-    C.z = -0.25f;
-    vertex D;
-    D.x = -0.250f;
-    D.y = -0.325f;
-    D.z = -0.25f;
+    glMatrixMode(GL_MODELVIEW); //Switch to the drawing perspective
+    glLoadIdentity(); //Reset the drawing perspective
+
+    glRotatef(static_cast<GLfloat>(glfwGetTime() * 20.0f), 0, 1, 0);
+    glRotatef(static_cast<GLfloat>(glfwGetTime() * 50.0f), 1, 0, 0);
+
+    point3d a{}, b{}, c{}, d{};
+    GLfloat edge = 0.25;
+    point3d cen{};
+    cen.x = 0;
+    cen.y = 0;
+    cen.z = -0.8f;
+
+    a.x = -edge / 2 + cen.x;
+    a.y = -edge / 2 + cen.y;
+    a.z = -edge / 2 + cen.z;
+
+    b.x = edge / 2 + cen.x;
+    b.y = -edge / 2 + cen.y;
+    b.z = -edge / 2 + cen.z;
+
+    c.x = edge / 2 + cen.x;
+    c.y = -edge / 2 + cen.y;
+    c.z = edge / 2 + cen.z;
+
+    d.x = -edge / 2 + cen.x;
+    d.y = -edge / 2 + cen.y;
+    d.z = edge / 2 + cen.z;
+
+    point3d a1{}, b1{}, c1{}, d1{};
+    a1.x = a.x;
+    a1.y = a.y + edge;
+    a1.z = a.z;
+
+    b1.x = b.x;
+    b1.y = b.y + edge;
+    b1.z = b.z;
+
+    c1.x = c.x;
+    c1.y = c.y + edge;
+    c1.z = c.z;
+
+    d1.x = d.x;
+    d1.y = d.y + edge;
+    d1.z = d.z;
 
     glBegin(GL_QUADS);
     {
-        //front
-        glColor3f(1, 0, 0);
-        glVertex3f(A.x, A.y + 0.5f, A.z);
-        glColor3f(0, 1, 0);
-        glVertex3f(B.x, B.y + 0.5f, B.z);
-        glColor3f(0, 0, 1);
-        glVertex3f(B.x, B.y, B.z);
-        glColor3f(0, 1, 1);
-        glVertex3f(A.x, A.y, A.z);
-        //right
-        glColor3f(1, 0, 0);
-        glVertex3f(B.x, B.y + 0.5f, B.z);
-        glColor3f(0, 1, 0);
-        glVertex3f(C.x, C.y + 0.5f, C.z);
-        glColor3f(0, 0, 1);
-        glVertex3f(C.x, C.y, C.z);
-        glColor3f(0, 1, 1);
-        glVertex3f(B.x, B.y, B.z);
-        //back
-        glColor3f(1, 0, 0);
-        glVertex3f(C.x, C.y, C.z);
-        glColor3f(0, 1, 0);
-        glVertex3f(D.x, D.y, D.z);
-        glColor3f(0, 0, 1);
-        glVertex3f(D.x, D.y + 0.5f, D.z);
-        glColor3f(0, 1, 1);
-        glVertex3f(C.x, C.y + 0.5f, C.z);
-        //left
-        glColor3f(1, 0, 0);
-        glVertex3f(D.x, D.y + 0.5f, D.z);
-        glColor3f(0, 1, 0);
-        glVertex3f(A.x, A.y + 0.5f, A.z);
-        glColor3f(0, 0, 1);
-        glVertex3f(A.x, A.y, A.z);
-        glColor3f(0, 1, 1);
-        glVertex3f(D.x, D.y, D.z);
         //bottom
-        glColor3f(1, 0, 0);
-        glVertex3f(B.x, B.y, B.z);
-        glColor3f(0, 1, 0);
-        glVertex3f(C.x, C.y, C.z);
-        glColor3f(0, 0, 1);
-        glVertex3f(D.x, D.y, D.z);
-        glColor3f(0, 1, 1);
-        glVertex3f(A.x, A.y, A.z);
+        glColor3f(RED);
+        glVertex3f(VERTEX(a));
+        glVertex3f(VERTEX(b));
+        glVertex3f(VERTEX(c));
+        glVertex3f(VERTEX(d));
+
         //top
-        glColor3f(1, 0, 0);
-        glVertex3f(B.x, B.y + 0.5f, B.z);
-        glColor3f(0, 1, 0);
-        glVertex3f(C.x, C.y + 0.5f, C.z);
-        glColor3f(0, 0, 1);
-        glVertex3f(D.x, D.y + 0.5f, D.z);
-        glColor3f(0, 1, 1);
-        glVertex3f(A.x, A.y + 0.5f, A.z);
+        glColor3f(GREEN);
+        glVertex3f(VERTEX(a1));
+        glVertex3f(VERTEX(b1));
+        glVertex3f(VERTEX(c1));
+        glVertex3f(VERTEX(d1));
+
+        //front
+        glColor3f(BLUE);
+        glVertex3f(VERTEX(a));
+        glVertex3f(VERTEX(b));
+        glVertex3f(VERTEX(b1));
+        glVertex3f(VERTEX(a1));
+
+        //right
+        glColor3f(YELLOW);
+        glVertex3f(VERTEX(b));
+        glVertex3f(VERTEX(c));
+        glVertex3f(VERTEX(c1));
+        glColor3f(WHITE);
+        glVertex3f(VERTEX(b1));
+
+        //back
+        glColor3f(WHITE);
+        glVertex3f(VERTEX(c));
+        glVertex3f(VERTEX(d));
+        glVertex3f(VERTEX(d1));
+        glVertex3f(VERTEX(c1));
+
+        //left
+        glColor3f(PINK);
+        glVertex3f(VERTEX(d));
+        glVertex3f(VERTEX(a));
+        glVertex3f(VERTEX(a1));
+        glVertex3f(VERTEX(d1));
     }
     glEnd();
 }
 
-Cube::Cube() {
-
-}
+Cube::Cube() = default;

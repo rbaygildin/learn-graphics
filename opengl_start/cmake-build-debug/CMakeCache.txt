@@ -14,6 +14,66 @@
 # EXTERNAL cache entries
 ########################
 
+//The directory containing a CMake configuration file for Boost.
+Boost_DIR:PATH=Boost_DIR-NOTFOUND
+
+//Path to a file.
+Boost_INCLUDE_DIR:PATH=/usr/local/opt/boost/include
+
+//Boost library directory DEBUG
+Boost_LIBRARY_DIR_DEBUG:PATH=/usr/local/opt/boost/lib
+
+//Boost library directory RELEASE
+Boost_LIBRARY_DIR_RELEASE:PATH=/usr/local/opt/boost/lib
+
+//Boost log library (debug)
+Boost_LOG_LIBRARY_DEBUG:FILEPATH=/usr/local/opt/boost/lib/libboost_log-mt.a
+
+//Boost log library (release)
+Boost_LOG_LIBRARY_RELEASE:FILEPATH=/usr/local/opt/boost/lib/libboost_log-mt.a
+
+//Boost log_setup library (debug)
+Boost_LOG_SETUP_LIBRARY_DEBUG:FILEPATH=/usr/local/opt/boost/lib/libboost_log_setup-mt.a
+
+//Boost log_setup library (release)
+Boost_LOG_SETUP_LIBRARY_RELEASE:FILEPATH=/usr/local/opt/boost/lib/libboost_log_setup-mt.a
+
+//Boost numeric library (debug)
+Boost_NUMERIC_LIBRARY_DEBUG:FILEPATH=Boost_NUMERIC_LIBRARY_DEBUG-NOTFOUND
+
+//Boost numeric library (release)
+Boost_NUMERIC_LIBRARY_RELEASE:FILEPATH=Boost_NUMERIC_LIBRARY_RELEASE-NOTFOUND
+
+//Boost program_options library (debug)
+Boost_PROGRAM_OPTIONS_LIBRARY_DEBUG:FILEPATH=/usr/local/opt/boost/lib/libboost_program_options-mt.a
+
+//Boost program_options library (release)
+Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE:FILEPATH=/usr/local/opt/boost/lib/libboost_program_options-mt.a
+
+//Boost system library (debug)
+Boost_SYSTEM_LIBRARY_DEBUG:FILEPATH=/usr/local/opt/boost/lib/libboost_system-mt.a
+
+//Boost system library (release)
+Boost_SYSTEM_LIBRARY_RELEASE:FILEPATH=/usr/local/opt/boost/lib/libboost_system-mt.a
+
+//Boost thread library (debug)
+Boost_THREAD_LIBRARY_DEBUG:FILEPATH=/usr/local/opt/boost/lib/libboost_thread-mt.a
+
+//Boost thread library (release)
+Boost_THREAD_LIBRARY_RELEASE:FILEPATH=/usr/local/opt/boost/lib/libboost_thread-mt.a
+
+//Boost ublas library (debug)
+Boost_UBLAS_LIBRARY_DEBUG:FILEPATH=Boost_UBLAS_LIBRARY_DEBUG-NOTFOUND
+
+//Boost ublas library (release)
+Boost_UBLAS_LIBRARY_RELEASE:FILEPATH=Boost_UBLAS_LIBRARY_RELEASE-NOTFOUND
+
+//Boost unit_test_framework library (debug)
+Boost_UNIT_TEST_FRAMEWORK_LIBRARY_DEBUG:FILEPATH=/usr/local/opt/boost/lib/libboost_unit_test_framework-mt.a
+
+//Boost unit_test_framework library (release)
+Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE:FILEPATH=/usr/local/opt/boost/lib/libboost_unit_test_framework-mt.a
+
 //Path to a program.
 CMAKE_AR:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar
 
@@ -201,6 +261,15 @@ GLEW_LIBRARY_DEBUG:FILEPATH=GLEW_LIBRARY_DEBUG-NOTFOUND
 //Path to a library.
 GLEW_LIBRARY_RELEASE:FILEPATH=/usr/local/lib/libGLEW.dylib
 
+//Path to a file.
+GLUT_INCLUDE_DIR:PATH=/System/Library/Frameworks/GLUT.framework/Headers
+
+//Cocoa framework for OSX
+GLUT_cocoa_LIBRARY:FILEPATH=/System/Library/Frameworks/Cocoa.framework
+
+//GLUT library for OSX
+GLUT_glut_LIBRARY:FILEPATH=/System/Library/Frameworks/GLUT.framework
+
 //Path to a library.
 IOKIT_LIBRARY:FILEPATH=/System/Library/Frameworks/IOKit.framework
 
@@ -233,6 +302,46 @@ opengl_start_SOURCE_DIR:STATIC=/Users/macbook/Documents/Education/4_Year/CompGra
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: Boost_DIR
+Boost_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_INCLUDE_DIR
+Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LIBRARY_DIR_DEBUG
+Boost_LIBRARY_DIR_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LIBRARY_DIR_RELEASE
+Boost_LIBRARY_DIR_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LOG_LIBRARY_DEBUG
+Boost_LOG_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LOG_LIBRARY_RELEASE
+Boost_LOG_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LOG_SETUP_LIBRARY_DEBUG
+Boost_LOG_SETUP_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LOG_SETUP_LIBRARY_RELEASE
+Boost_LOG_SETUP_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_NUMERIC_LIBRARY_DEBUG
+Boost_NUMERIC_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_NUMERIC_LIBRARY_RELEASE
+Boost_NUMERIC_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_PROGRAM_OPTIONS_LIBRARY_DEBUG
+Boost_PROGRAM_OPTIONS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE
+Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_DEBUG
+Boost_SYSTEM_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_RELEASE
+Boost_SYSTEM_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_THREAD_LIBRARY_DEBUG
+Boost_THREAD_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_THREAD_LIBRARY_RELEASE
+Boost_THREAD_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_UBLAS_LIBRARY_DEBUG
+Boost_UBLAS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_UBLAS_LIBRARY_RELEASE
+Boost_UBLAS_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_UNIT_TEST_FRAMEWORK_LIBRARY_DEBUG
+Boost_UNIT_TEST_FRAMEWORK_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE
+Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
@@ -305,6 +414,10 @@ CMAKE_GENERATOR:INTERNAL=Unix Makefiles
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Have symbol pthread_create
+CMAKE_HAVE_LIBC_CREATE:INTERNAL=1
+//Have include pthread.h
+CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start
@@ -370,14 +483,22 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding GLEW
 FIND_PACKAGE_MESSAGE_DETAILS_GLEW:INTERNAL=[/usr/local/include][/usr/local/lib/libGLEW.dylib][v()]
+//Details about finding GLUT
+FIND_PACKAGE_MESSAGE_DETAILS_GLUT:INTERNAL=[/System/Library/Frameworks/GLUT.framework][/System/Library/Frameworks/GLUT.framework/Headers][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/System/Library/Frameworks/OpenGL.framework][/System/Library/Frameworks/OpenGL.framework][v()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: GLEW_INCLUDE_DIR
 GLEW_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLEW_LIBRARY_DEBUG
 GLEW_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLEW_LIBRARY_RELEASE
 GLEW_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLUT_INCLUDE_DIR
+GLUT_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLUT_glut_LIBRARY
+GLUT_glut_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_INCLUDE_DIR
 OPENGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_gl_LIBRARY
@@ -386,4 +507,22 @@ OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
 ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
+//Last used BOOST_LIBRARYDIR value.
+_BOOST_LIBRARYDIR_LAST:INTERNAL=/usr/local/opt/boost/lib64
+//Last used BOOST_ROOT value.
+_BOOST_ROOT_LAST:INTERNAL=/usr/local/opt/boost
+//Components requested for this build tree.
+_Boost_COMPONENTS_SEARCHED:INTERNAL=log;log_setup;numeric;program_options;system;thread;ublas;unit_test_framework
+//Last used Boost_INCLUDE_DIR value.
+_Boost_INCLUDE_DIR_LAST:INTERNAL=/usr/local/opt/boost/include
+//Last used Boost_LIBRARY_DIR_DEBUG value.
+_Boost_LIBRARY_DIR_DEBUG_LAST:INTERNAL=/usr/local/opt/boost/lib
+//Last used Boost_LIBRARY_DIR_RELEASE value.
+_Boost_LIBRARY_DIR_RELEASE_LAST:INTERNAL=/usr/local/opt/boost/lib
+//Last used Boost_NAMESPACE value.
+_Boost_NAMESPACE_LAST:INTERNAL=boost
+//Last used Boost_USE_MULTITHREADED value.
+_Boost_USE_MULTITHREADED_LAST:INTERNAL=TRUE
+//Last used Boost_USE_STATIC_LIBS value.
+_Boost_USE_STATIC_LIBS_LAST:INTERNAL=ON
 

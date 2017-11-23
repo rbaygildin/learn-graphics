@@ -7,10 +7,12 @@
 
 
 #include "Figure.h"
+#include "../common.h"
 
-class Cube : public Figure{
+class Cube : public Figure {
 public:
     Cube();
+
     void draw() override;
 
 };

@@ -5,7 +5,7 @@
 #include "NoelTree.h"
 
 NoelTree::NoelTree() {
-    static GLfloat vertexVbo[N * V][V] = {
+    static GLfloat vertexVbo[N * V][3] = {
             //Tree
             {0.5f, 0, 0.001f},
             {0, 0.5f, 0.001f},
@@ -19,7 +19,7 @@ NoelTree::NoelTree() {
             {0.5f, -0.5f, 0},
             {-0.5f, -0.5f, 0},
     };
-    static GLfloat colorVbo[N * V][V] = {
+    static GLfloat colorVbo[N * V][3] = {
             {0, 1, 0.2},
             {0, 1, 0.5},
             {0, 1, 0.4},
