@@ -8,6 +8,12 @@
 
 #include "Window.h"
 
+/**
+ * Entry point for application
+ * @param argc
+ * @param argv
+ * @return
+ */
 int main(int argc, char **argv) {
     auto * wnd = new Window();
     wnd->run();

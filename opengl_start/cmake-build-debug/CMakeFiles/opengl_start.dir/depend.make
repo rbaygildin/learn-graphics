@@ -925,6 +925,16 @@ CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/boost/utility/resul
 CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/boost/utility/string_ref_fwd.hpp
 CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/boost/utility/string_view_fwd.hpp
 CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/boost/version.hpp
+CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/glm/detail/_swizzle.hpp
+CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/glm/detail/_swizzle_func.hpp
+CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/glm/detail/precision.hpp
+CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/glm/detail/setup.hpp
+CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/glm/detail/type_int.hpp
+CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/glm/detail/type_vec.hpp
+CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/glm/detail/type_vec3.hpp
+CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/glm/detail/type_vec3.inl
+CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/glm/simd/platform.h
+CMakeFiles/opengl_start.dir/Window.cpp.o: /usr/local/include/glm/vec3.hpp
 
 CMakeFiles/opengl_start.dir/figures/Cube.cpp.o: ../common.h
 CMakeFiles/opengl_start.dir/figures/Cube.cpp.o: ../figures/Cube.cpp

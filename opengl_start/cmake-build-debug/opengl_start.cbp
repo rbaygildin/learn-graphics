@@ -5,7 +5,7 @@
 		<Option title="opengl_start"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glm\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/cmake-build-debug"/>
@@ -184,6 +184,15 @@
 		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/../../../../../../../usr/local/lib/cmake/glfw3/glfw3Targets-release.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/../../../../../../../usr/local/lib/cmake/glm/GLMConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glm\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/../../../../../../../usr/local/lib/cmake/glm/GLMConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glm\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl_start/../../../../../../../usr/local/lib/cmake/glm/glmTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glm\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

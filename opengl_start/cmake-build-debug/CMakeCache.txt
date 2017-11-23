@@ -261,6 +261,9 @@ GLEW_LIBRARY_DEBUG:FILEPATH=GLEW_LIBRARY_DEBUG-NOTFOUND
 //Path to a library.
 GLEW_LIBRARY_RELEASE:FILEPATH=/usr/local/lib/libGLEW.dylib
 
+//The directory containing a CMake configuration file for GLM.
+GLM_DIR:PATH=/usr/local/lib/cmake/glm
+
 //Path to a file.
 GLUT_INCLUDE_DIR:PATH=/System/Library/Frameworks/GLUT.framework/Headers
 

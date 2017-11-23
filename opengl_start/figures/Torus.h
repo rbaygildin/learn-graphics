@@ -25,6 +25,7 @@ private:
     int hCount, vCount;
     GLfloat R, r;
     GLuint vao;
+    GLuint *facesVao;
 };
 
 

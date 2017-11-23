@@ -23,6 +23,10 @@
 
 using namespace std;
 
+enum Mode{
+    X, Y
+};
+
 class Window {
 public:
     Window();
@@ -42,16 +46,14 @@ private:
 
     void deleteBuffers();
 
-    void drawCube();
-
-    void drawTree();
-
 private:
+    static void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
     GLFWwindow *wnd;
     Shader *shader;
     Shader *lightShader;
     GLuint program;
     vector<Figure *> figures;
+    Mode mode = Mode::X;
 };
 
 

@@ -18,6 +18,10 @@ include_directories(${OPENGL_INCLUDE_DIRS})
 find_package(GLUT REQUIRED)
 include_directories(${GLUT_INCLUDE_DIRS})
 
+# glm
+find_package(GLM REQUIRED)
+include_directories(${GLM_INCLUDE_DIRS})
+
 # glew
 find_package(GLEW REQUIRED)
 include_directories(${GLEW_INCLUDE_DIRS})
@@ -69,6 +73,7 @@ target_link_libraries(
         ${OPENGL_LIBRARIES}
         ${GLUT_LIBRARIES}
         ${GLEW_LIBRARIES}
+        ${GLM_LIBRARIES}
         ${Boost_LIBRARIES}
         ${EXTRA_LIBS}
 )
