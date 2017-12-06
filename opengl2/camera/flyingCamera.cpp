@@ -9,7 +9,7 @@ CFlyingCamera::CFlyingCamera(GLFWwindow *wnd) {
     vView = glm::vec3(0.0f, 0.0, -1.0f);
     vUp = glm::vec3(0.0f, 1.0f, 0.0f);
     fSpeed = 25.0f;
-    fSensitivity = 0.1f;
+    fSensitivity = 0.0001f;
     this->wnd = wnd;
 }
 
@@ -19,18 +19,16 @@ CFlyingCamera::CFlyingCamera(glm::vec3 a_vEye, glm::vec3 a_vView, glm::vec3 a_vU
     vView = a_vView;
     vUp = a_vUp;
     fSpeed = a_fSpeed;
-    fSensitivity = a_fSensitivity;
+    fSensitivity = 0.0001f;
     this->wnd = wnd;
 }
 
 // Checks for moving of mouse and rotates camera.
-void CFlyingCamera::RotateWithMouse() {
+void CFlyingCamera::RotateWithMouse(double xPos, double yPos) {
     int left, right, bottom, top;
-    double xPos, yPos;
     int w = 640, h = 480;
 //    glfwGetWindowSize(wnd, &w, &h);
 //    glfwGetWindowFrameSize(wnd, &left, &top, &right, &bottom);
-    glfwGetCursorPos(wnd, &xPos, &yPos);
     int iCentX = (w) >> 1, iCentY = (h) >> 1;
 
     float deltaX = (float) (iCentX - xPos) * fSensitivity;
@@ -90,8 +88,8 @@ void CFlyingCamera::SetMovingKeys(int a_iForw, int a_iBack, int a_iLeft, int a_i
 }
 
 // Performs updates of camera - moving and rotating.
-void CFlyingCamera::Update() {
-    RotateWithMouse();
+void CFlyingCamera::Update(int key) {
+//    RotateWithMouse(0, 0);
 
     // Get view direction
     glm::vec3 vMove = vView - vEye;
@@ -105,14 +103,14 @@ void CFlyingCamera::Update() {
     int iMove = 0;
     glm::vec3 vMoveBy;
     // Get vector of move
-//    if (Keys::Key(iForw))
-//        vMoveBy += vMove * 0.1;
-//    if (Keys::Key(iBack))
-//        vMoveBy -= vMove * 0.1;
-//    if (Keys::Key(iLeft))
-//        vMoveBy -= vStrafe * 0.1;
-//    if (Keys::Key(iRight))
-//        vMoveBy += vStrafe * 0.1;
+    if (key == GLFW_KEY_UP)
+        vMoveBy += vMove * 0.1f;
+    if (key == GLFW_KEY_DOWN)
+        vMoveBy -= vMove * 0.1f;
+    if (key == GLFW_KEY_LEFT)
+        vMoveBy -= vStrafe * 0.1f;
+    if (key == GLFW_KEY_RIGHT)
+        vMoveBy += vStrafe * 0.1f;
     vEye += vMoveBy;
     vView += vMoveBy;
 }

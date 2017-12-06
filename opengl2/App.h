@@ -36,7 +36,7 @@ private funcs:
     static void initScene();
 
     static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-    static void mouseCallback(GLFWwindow* window, double xPos, double yPos);
+    static void posCallback(GLFWwindow *window, double xPos, double yPos);
 
 private fields:
     static GLFWwindow *wnd;
@@ -48,6 +48,9 @@ private fields:
     static CDirectionalLight dlSun;
     static float fGlobalAngle;
     static float fTextureContribution;
+
+    static void mouseCallback(GLFWwindow *window, int button, int action, int mods);
+    static bool isRotating;
 };
 
 

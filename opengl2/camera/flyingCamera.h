@@ -8,8 +8,8 @@ public:
 	float fSensitivity; // How many degrees to rotate per pixel moved by mouse (nice value is 0.10)
 
 	// Main functions
-	void RotateWithMouse();
-	void Update();
+    void RotateWithMouse(double xPos, double yPos);
+	void Update(int key);
 	glm::mat4 Look();
 
 	void SetMovingKeys(int a_iForw, int a_iBack, int a_iLeft, int a_iRight);

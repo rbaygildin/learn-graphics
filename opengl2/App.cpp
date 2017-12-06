@@ -13,6 +13,7 @@ CSkybox App::sbMainSkybox;
 CDirectionalLight App::dlSun;
 float App::fGlobalAngle;
 float App::fTextureContribution = 0.5f;
+bool App::isRotating = false;
 
 void App::start(int argc, char **argv) {
     if (!glfwInit()) {
@@ -39,7 +40,8 @@ void App::start(int argc, char **argv) {
         exit(EXIT_FAILURE);
     initScene();
     glfwSetKeyCallback(wnd, keyCallback);
-    glfwSetCursorPosCallback(wnd, mouseCallback);
+    glfwSetCursorPosCallback(wnd, posCallback);
+    glfwSetMouseButtonCallback(wnd, mouseCallback);
 }
 
 void App::render() {
@@ -52,7 +54,7 @@ void App::render() {
 
         glm::mat4 mModelMatrix, mView;
 
-        glm::vec3 vCameraDir = glm::normalize(cCamera.vView-cCamera.vEye);
+        glm::vec3 vCameraDir = glm::normalize(cCamera.vView - cCamera.vEye);
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -74,7 +76,7 @@ void App::render() {
         mModelMatrix = glm::translate(glm::mat4(1.0f), cCamera.vEye);
 
         spMain.SetUniform("matrices.modelMatrix", &mModelMatrix);
-        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mView*mModelMatrix)));
+        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mView * mModelMatrix)));
 
         CDirectionalLight dlSun2 = dlSun;
 
@@ -95,7 +97,7 @@ void App::render() {
         spMain.SetUniform("fTextureContributions[0]", 1.0f - fTextureContribution);
         spMain.SetUniform("numTextures", 2);
 
-        float PI = float(atan(1.0)*4.0);
+        float PI = float(atan(1.0) * 4.0);
 
         glEnable(GL_CULL_FACE);
         //glFrontFace(GL_CCW); //Done by default
@@ -106,7 +108,7 @@ void App::render() {
         // We need to transform normals properly, it's done by transpose of inverse matrix of rotations and scales
         spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
         spMain.SetUniform("matrices.modelMatrix", mModelMatrix);
-        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)0);
+        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void *) 0);
         glDisable(GL_CULL_FACE);
 
         spMain.SetUniform("fTextureContributions[0]", 1.0f);
@@ -232,7 +234,7 @@ void App::initScene() {
     }
 //    // Load textures
 //
-    string sTextureNames[] = {"grass.png", "met_wall01a.jpg", "tower.jpg", "box.jpg", "ground.jpg"};
+    string sTextureNames[] = {"grass.png", "met_wall01a.jpg", "tower.jpg", "lego.jpg", "ground.jpg"};
 
     FOR(i, NUMTEXTURES) {
         tTextures[i].LoadTexture2D("data/textures/" + sTextureNames[i], true);
@@ -243,21 +245,37 @@ void App::initScene() {
     glClearDepth(1.0);
 ////    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
 //
-//    cCamera = CFlyingCamera(glm::vec3(0.0f, 10.0f, 120.0f), glm::vec3(0.0f, 10.0f, 119.0f), glm::vec3(0.0f, 1.0f, 0.0f),
-//                            25.0f, 0.001f, wnd);
-//    cCamera.SetMovingKeys('W', 'S', 'A', 'D');
+    cCamera = CFlyingCamera(glm::vec3(0.0f, 10.0f, 120.0f), glm::vec3(0.0f, 10.0f, 119.0f), glm::vec3(0.0f, 1.0f, 0.0f),
+                            25.0f, 0.001f, wnd);
+    cCamera.SetMovingKeys('W', 'S', 'A', 'D');
 //
-    sbMainSkybox.LoadSkybox("data/skyboxes/jajlands1/", "jajlands1_ft.jpg", "jajlands1_bk.jpg", "jajlands1_lf.jpg",
-                            "jajlands1_rt.jpg", "jajlands1_up.jpg", "jajlands1_dn.jpg");
-//
-//    dlSun = CDirectionalLight(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(sqrt(2.0f) / 2, -sqrt(2.0f) / 2, 0), 1.0f);
+    string skyBoxSet = "arctic-ice";
+    string picFormat = ".tga";
+    sbMainSkybox.LoadSkybox("data/skyboxes/" + skyBoxSet + "/", skyBoxSet + "_ft" + picFormat,
+                            skyBoxSet + "_bk" + picFormat, skyBoxSet + "_lf" + picFormat,
+                            skyBoxSet + "_rt" + picFormat, skyBoxSet + "_up" + picFormat,
+                            skyBoxSet + "_dn" + picFormat);
+
+    dlSun = CDirectionalLight(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(sqrt(2.0f) / 2, -sqrt(2.0f) / 2, 0), 1.0f);
 }
 
 void App::keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods) {
-//    cCamera.Update();
+    if (key == GLFW_KEY_R)
+        cCamera.ResetMouse();
+    cCamera.Update(key);
 }
 
-void App::mouseCallback(GLFWwindow *window, double xPos, double yPos) {
+void App::posCallback(GLFWwindow *window, double xPos, double yPos) {
     BOOST_LOG_TRIVIAL(info) << "Captured cursor at x = " << xPos << ", y = " << yPos;
-//    cCamera.Update();
+    if(isRotating)
+        cCamera.RotateWithMouse(xPos, yPos);
+}
+
+void App::mouseCallback(GLFWwindow *window, int button, int action, int mods) {
+    if (button == GLFW_MOUSE_BUTTON_LEFT) {
+        if (action == GLFW_PRESS)
+            isRotating = true;
+        else if(action == GLFW_RELEASE)
+            isRotating = false;
+    }
 }
