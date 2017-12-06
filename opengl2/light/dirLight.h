@@ -1,6 +1,6 @@
 #pragma once
 
-#include "shader/shaders.h"
+#include "../shader/shaders.h"
 
 // Support class for adding directional lights to scene.
 class CDirectionalLight

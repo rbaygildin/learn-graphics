@@ -1,4 +1,4 @@
-#include "common.h"
+#include "../common.h"
 #include "flyingCamera.h"
 #include <glm/gtx/rotate_vector.hpp>
 

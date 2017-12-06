@@ -1,7 +1,7 @@
 #pragma once
 
-#include "texture.h"
-#include "vertexBufferObject.h"
+#include "../texture/texture.h"
+#include "../buf/vertexBufferObject.h"
 
 // Class for using skybox.
 class CSkybox

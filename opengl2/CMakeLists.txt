@@ -50,12 +50,12 @@ include_directories(${Boost_INCLUDE_DIR})
 
 set(SOURCE_FILES
         shader/shaders.h shader/shaders.cpp
-        static_geometry.h static_geometry.cpp
-        vertexBufferObject.h vertexBufferObject.cpp
-        texture.h texture.cpp
-        skybox.h skybox.cpp
-        dirLight.h dirLight.cpp
-        flyingCamera.h flyingCamera.cpp
+        geom/static_geometry.h geom/static_geometry.cpp
+        buf/vertexBufferObject.h buf/vertexBufferObject.cpp
+        texture/texture.h texture/texture.cpp
+        skybox/skybox.h skybox/skybox.cpp
+        light/dirLight.h light/dirLight.cpp
+        camera/flyingCamera.h camera/flyingCamera.cpp
 #        renderScene.cpp
         main.cpp
         common.h

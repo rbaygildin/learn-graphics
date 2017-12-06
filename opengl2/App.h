@@ -11,12 +11,12 @@
 #include "common.h"
 #include "logger.h"
 #include "shader/shaders.h"
-#include "texture.h"
-#include "vertexBufferObject.h"
-#include "flyingCamera.h"
-#include "skybox.h"
-#include "dirLight.h"
-#include "static_geometry.h"
+#include "texture/texture.h"
+#include "buf/vertexBufferObject.h"
+#include "camera/flyingCamera.h"
+#include "skybox/skybox.h"
+#include "light/dirLight.h"
+#include "geom/static_geometry.h"
 
 
 #define NUMTEXTURES 5

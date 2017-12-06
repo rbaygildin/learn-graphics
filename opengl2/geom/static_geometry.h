@@ -1,6 +1,6 @@
 #pragma once
 
-#include "vertexBufferObject.h"
+#include "../buf/vertexBufferObject.h"
 
 extern glm::vec3 vCubeVertices[36];
 //extern glm::vec3 vCubeVertices2[24];
