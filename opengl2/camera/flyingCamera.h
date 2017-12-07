@@ -1,6 +1,6 @@
 #pragma once
 
-class CFlyingCamera
+class FlyingCamera
 {
 public:
 	glm::vec3 vEye, vView, vUp;
@@ -19,12 +19,16 @@ public:
 	float GetAngleX(), GetAngleY();
 
 	// Constructors
-	explicit CFlyingCamera(GLFWwindow *wnd);
-	CFlyingCamera(glm::vec3 a_vEye, glm::vec3 a_vView, glm::vec3 a_vUp, float a_fSpeed,
-                      float a_fSensitivity, GLFWwindow *wnd);
+	explicit FlyingCamera(GLFWwindow *wnd, int w, int h);
+	FlyingCamera(glm::vec3 a_vEye, glm::vec3 a_vView, glm::vec3 a_vUp, float a_fSpeed,
+                     float a_fSensitivity, GLFWwindow *wnd, int w, int h);
+
+    void SetWindowSize(int w, int h);
 
 private:
 // For mosue rotation
 	int iForw, iBack, iLeft, iRight;
 	GLFWwindow *wnd;
+    int w;
+	int h;
 };

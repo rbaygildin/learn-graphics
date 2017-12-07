@@ -3,7 +3,7 @@
 #include "skybox.h"
 
 // Loads skybox and creates VAO and VBO for it.
-void CSkybox::LoadSkybox(string a_sDirectory, string a_sFront, string a_sBack, string a_sLeft, string a_sRight,
+void Skybox::LoadSkybox(string a_sDirectory, string a_sFront, string a_sBack, string a_sLeft, string a_sRight,
                          string a_sTop, string a_sBottom) {
     tTextures[0].LoadTexture2D(a_sDirectory + a_sFront);
     tTextures[1].LoadTexture2D(a_sDirectory + a_sBack);
@@ -89,7 +89,7 @@ void CSkybox::LoadSkybox(string a_sDirectory, string a_sFront, string a_sBack, s
 }
 
 // Renders skybox.
-void CSkybox::RenderSkybox() {
+void Skybox::RenderSkybox() {
     glDepthMask(0);
     glBindVertexArray(uiVAO);
     FOR(i, 6) {
@@ -100,7 +100,7 @@ void CSkybox::RenderSkybox() {
 }
 
 // Deletes skybox and all associated memory.
-void CSkybox::DeleteSkybox() {
+void Skybox::DeleteSkybox() {
     FOR(i, 6)tTextures[i].DeleteTexture();
     glDeleteVertexArrays(1, &uiVAO);
     vboRenderData.DeleteVBO();

@@ -1,15 +1,19 @@
-//
-// Created by Max Heartfield on 06.12.17.
-//
+/**
+ * © Roman Yarnykh, 2017
+ */
 
 #ifndef OPENGL2_LOGGER_H
 #define OPENGL2_LOGGER_H
 
 #include "common.h"
 
+/**
+ * Logging
+ */
 class Logger {
 public:
     static void info(string text);
+
     static void error(string text);
 };
 

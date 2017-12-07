@@ -4,6 +4,9 @@
 
 #ifndef OPENGL2_APP_H
 #define OPENGL2_APP_H
+/**
+ * © Roman Yarnykh, 2017
+ */
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -21,9 +24,14 @@
 
 #define NUMTEXTURES 5
 
+/**
+ * Main Application context, rendering
+ */
 class App {
 
 public funcs:
+
+    App() {}
 
     static void start(int argc, char **argv);
 
@@ -35,21 +43,24 @@ private funcs:
 
     static void initScene();
 
-    static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
+    static void keyCallback(GLFWwindow *window, int key, int scanCode, int action, int mods);
+
     static void posCallback(GLFWwindow *window, double xPos, double yPos);
+
+    static void mouseCallback(GLFWwindow *window, int button, int action, int mods);
+
+    static void resizeCallback(GLFWwindow *window, int width, int height);
 
 private fields:
     static GLFWwindow *wnd;
-    static CVertexBufferObject vboSceneObjects, vboCubeInd, vboCube;
+    static CVertexBufferObject vboSceneObjects, vboCubeInd, vboCube, vboCylinder;
     static UINT uiVAOs[2];
-    static CTexture tTextures[NUMTEXTURES];
-    static CFlyingCamera cCamera;
-    static CSkybox sbMainSkybox;
-    static CDirectionalLight dlSun;
+    static Texture tTextures[NUMTEXTURES];
+    static FlyingCamera cCamera;
+    static Skybox sbMainSkybox;
+    static DirLight dlSun;
     static float fGlobalAngle;
     static float fTextureContribution;
-
-    static void mouseCallback(GLFWwindow *window, int button, int action, int mods);
     static bool isRotating;
 };
 

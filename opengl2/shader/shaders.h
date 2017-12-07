@@ -1,7 +1,7 @@
 #pragma once
 
 // Wraps OpenGL shader loading and compiling.
-class CShader
+class Shader
 {
 public:
 	bool LoadShader(string sFile, int a_iType);
@@ -12,7 +12,7 @@ public:
 	bool IsLoaded();
 	UINT GetShaderID();
 
-	CShader();
+	Shader();
 
 private:
 	UINT uiShader; // ID of shader
@@ -21,13 +21,13 @@ private:
 };
 
 // Wraps OpenGL shader program and make its usage easy.
-class CShaderProgram
+class ShaderProgram
 {
 public:
 	void CreateProgram();
 	void DeleteProgram();
 
-	bool AddShaderToProgram(CShader* shShader);
+	bool AddShaderToProgram(Shader* shShader);
 	bool LinkProgram();
 
 	void UseProgram();
@@ -58,7 +58,7 @@ public:
 	void SetUniform(string sName, int* iValues, int iCount = 1);
 	void SetUniform(string sName, const int iValue);
 
-	CShaderProgram();
+	ShaderProgram();
 
 private:
 	UINT uiProgram; // ID of program
@@ -69,5 +69,5 @@ bool PrepareShaderPrograms();
 
 #define NUMSHADERS 5
 
-extern CShader shShaders[NUMSHADERS];
-extern CShaderProgram spMain, spColor;
+extern Shader shShaders[NUMSHADERS];
+extern ShaderProgram spMain, spColor;

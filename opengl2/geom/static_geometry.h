@@ -14,4 +14,4 @@ int GenerateTorus(CVertexBufferObject &vboDest, float fRadius, float fTubeRadius
 int GenerateCylinder(CVertexBufferObject &vboDest, float fRadius, float fHeight, int iSubDivAround, float fMapU = 1.0f, float fMapV = 1.0f);
 void AddSceneObjects(CVertexBufferObject& vboDest);
 void AddCube(CVertexBufferObject& vboDest);
-extern int iTorusFaces, iTorusFaces2;
+extern int iTorusFaces, iTorusFaces2, iCylinder;
