@@ -8,7 +8,7 @@ void Cube::draw() {
     glMatrixMode(GL_MODELVIEW); //Switch to the drawing perspective
     glLoadIdentity(); //Reset the drawing perspective
 
-    glRotatef(static_cast<GLfloat>(glfwGetTime() * 20.0f), 0, 1, 0);
+    glRotatef(static_cast<GLfloat>(glfwGetTime() * 50.0f), 0, 1, 0);
     glRotatef(static_cast<GLfloat>(glfwGetTime() * 50.0f), 1, 0, 0);
 
     point3d a{}, b{}, c{}, d{};

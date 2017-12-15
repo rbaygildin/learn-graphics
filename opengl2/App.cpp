@@ -18,7 +18,11 @@ float App::fGlobalAngle;
 float App::fTextureContribution = 0.5f;
 bool App::isRotating = false;
 
-
+/**
+ * Start and init context
+ * @param argc
+ * @param argv
+ */
 void App::start(int argc, char **argv) {
     if (!glfwInit()) {
         Logger::error("Could not to initialize GLFW context");
@@ -50,6 +54,9 @@ void App::start(int argc, char **argv) {
     glEnable(GL_DEPTH_TEST);
 }
 
+/**
+ * Render objects
+ */
 void App::render() {
     Logger::info("Render content");
 
@@ -114,7 +121,18 @@ void App::render() {
         glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void *) nullptr);
 
 
-        tTextures[2].BindTexture();
+        tTextures[5].BindTexture();
+        vPos2 = glm::vec3(-5.0f, 8.0f, 0.0f);
+        mModelMatrix = glm::mat4(1.0f);
+        mModelMatrix = glm::translate(mModelMatrix, vPos2);
+        mModelMatrix = glm::scale(mModelMatrix, glm::vec3(20.0f, 20.0f, 20.0f));
+        mModelMatrix = glm::rotate(mModelMatrix, 5.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
+        spMain.SetUniform("matrices.modelMatrix", mModelMatrix);
+        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void *) nullptr);
+        glDisable(GL_CULL_FACE);
+
+        tTextures[6].BindTexture();
         vPos2 = glm::vec3(-5.0f, 40.0f, 0.0f);
         mModelMatrix = glm::mat4(1.0f);
         mModelMatrix = glm::translate(mModelMatrix, vPos2);
@@ -172,12 +190,13 @@ void App::render() {
 
         fGlobalAngle = static_cast<float>(glfwGetTime() * 10.0f);
 
-//        glBindTexture(GL_TEXTURE_2D, 0);
-//        glEnable(GL_COLOR_MATERIAL);
-//        glMatrixMode(GL_MODELVIEW);
-//        glLoadIdentity();
-//        glTranslatef(tX + 10, tY + 10, tZ + 10);
-//        glutSolidTeapot(10);
+
+        vPos = glm::vec3(-15.0f, 40.0f, 0.0f);
+        mModelMatrix = glm::translate(glm::mat4(1.0), vPos);
+        mModelMatrix = glm::rotate(mModelMatrix, static_cast<float>(glfwGetTime() * 5.0f), glm::vec3(1.0f, 1.0f, 0.0f));
+        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
+        spMain.SetUniform("matrices.modelMatrix", &mModelMatrix);
+        glutWireTeapot(5);
 
         glfwSwapBuffers(wnd);
         glfwPollEvents();
@@ -185,6 +204,9 @@ void App::render() {
 
 }
 
+/**
+ * Destroy objects
+ */
 void App::destroy() {
     Logger::info("Destroying scene");
     Logger::info("Delete textures");
@@ -201,6 +223,9 @@ void App::destroy() {
     vboCube.DeleteVBO();
 }
 
+/**
+ * Init scene
+ */
 void App::initScene() {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
@@ -256,7 +281,7 @@ void App::initScene() {
         Logger::error("Could not prepare program");
         exit(EXIT_FAILURE);
     }
-    string sTextureNames[] = {"met_wall01a.jpg", "light.jpg", "grass.png", "tower.jpg", "ground.jpg"};
+    string sTextureNames[] = {"met_wall01a.jpg", "light.jpg", "grass.png", "tower.jpg", "ground.jpg", "joy_division.jpg", "lego.jpg"};
 
     FOR(i, NUMTEXTURES) {
         tTextures[i].LoadTexture2D("data/textures/" + sTextureNames[i], true);
@@ -278,12 +303,26 @@ void App::initScene() {
     dlSun = DirLight(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(sqrt(2.0f) / 2, -sqrt(2.0f) / 2, 0), 1.0f);
 }
 
+/**
+ * Key callback
+ * @param window
+ * @param key
+ * @param scanCode
+ * @param action
+ * @param mods
+ */
 void App::keyCallback(GLFWwindow *window, int key, int scanCode, int action, int mods) {
     if (key == GLFW_KEY_R)
         cCamera.ResetMouse();
     cCamera.Update(key);
 }
 
+/**
+ * Cursor callback
+ * @param window
+ * @param xPos
+ * @param yPos
+ */
 void App::posCallback(GLFWwindow *window, double xPos, double yPos) {
     BOOST_LOG_TRIVIAL(info) << "Captured cursor at x = " << xPos << ", y = " << yPos;
     if (isRotating) {
@@ -292,6 +331,13 @@ void App::posCallback(GLFWwindow *window, double xPos, double yPos) {
     }
 }
 
+/**
+ * Mouse callback
+ * @param window
+ * @param button
+ * @param action
+ * @param mods
+ */
 void App::mouseCallback(GLFWwindow *window, int button, int action, int mods) {
     if (button == GLFW_MOUSE_BUTTON_LEFT) {
         if (action == GLFW_PRESS)
@@ -301,6 +347,12 @@ void App::mouseCallback(GLFWwindow *window, int button, int action, int mods) {
     }
 }
 
+/**
+ * Resize callback
+ * @param window
+ * @param width
+ * @param height
+ */
 void App::resizeCallback(GLFWwindow *window, int width, int height) {
     cCamera.SetWindowSize(width, height);
 }

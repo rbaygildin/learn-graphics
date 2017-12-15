@@ -22,7 +22,7 @@
 #include "geom/static_geometry.h"
 
 
-#define NUMTEXTURES 5
+#define NUMTEXTURES 7
 
 /**
  * Main Application context, rendering
@@ -31,7 +31,7 @@ class App {
 
 public funcs:
 
-    App() {}
+    App() = default;
 
     static void start(int argc, char **argv);
 

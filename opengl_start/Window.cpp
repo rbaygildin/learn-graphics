@@ -134,10 +134,10 @@ void Window::initLighting() {
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
 
-    GLfloat ambientLight[] = {0,0,0,1};
+    GLfloat ambientLight[] = {0.3,0.3,0.3,1};
     GLfloat diffuseLight[] = {1,1,1,1};
     GLfloat specularLight[] = {1,1,1,1};
-    GLfloat position[] = {0.0f, 0.2f, -0.6f, 1.0f};
+    GLfloat position[] = {0.2f, 0.6f, 0.2f, 4.0f};
 
     // Assign created components to GL_LIGHT0
     glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
