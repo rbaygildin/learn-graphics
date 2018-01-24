@@ -45,131 +45,131 @@ string GetDirectoryPath(string sFilePath)
 //sMtlFileName - relative path material file
 bool CObjModel::LoadModel(string sFileName, string sMtlFileName)
 {
-//	FILE* fp = fopen(sFileName.c_str(), "rt");
-//
-//	if(fp == NULL)return false;
-//
-//	char line[255];
-//
-//	vector<glm::vec3> vVertices;
-//	vector<glm::vec2> vTexCoords;
-//	vector<glm::vec3> vNormals;
-//
-//	iNumFaces = 0;
-//
-//	while(fgets(line, 255, fp))
-//	{
-//		// Error flag, that can be set when something is inconsistent throughout
-//		// data parsing
-//		bool bError = false;
-//
-//		// If it's an empty line, then skip
-//		if(strlen(line) <= 1)
-//			continue;
-//
-//		// Now we're going to process line
-//		stringstream ss(line);
-//		string sType;
-//		ss >> sType;
-//		// If it's a comment, skip it
-//		if(sType == "#")
-//			continue;
-//		// Vertex
-//		else if(sType == "v")
-//		{
-//			glm::vec3 vNewVertex;
-//			int dim = 0;
-//			while(dim < 3 && ss >> vNewVertex[dim])dim++;
-//			vVertices.push_back(vNewVertex);
-//			iAttrBitField |= 1;
-//		}
-//		// Texture coordinate
-//		else if(sType == "vt")
-//		{
-//			glm::vec2 vNewCoord;
-//			int dim = 0;
-//			while(dim < 2 && ss >> vNewCoord[dim])dim++;
-//			vTexCoords.push_back(vNewCoord);
-//			iAttrBitField |= 2;
-//		}
-//		// Normal
-//		else if(sType == "vn")
-//		{
-//			glm::vec3 vNewNormal;
-//			int dim = 0;
-//			while(dim < 3 && ss >> vNewNormal[dim])dim++;
-//			vNewNormal = glm::normalize(vNewNormal);
-//			vNormals.push_back(vNewNormal);
-//			iAttrBitField |= 4;
-//		}
-//		// Face definition
-//		else if(sType == "f")
-//		{
-//			string sFaceData;
-//			// This will run for as many vertex definitions as the face has
-//			// (for triangle, it's 3)
-//			while(ss >> sFaceData)
-//			{
-//				vector<string> data = split(sFaceData, "/");
-//				int iVertIndex = -1, iTexCoordIndex = -1, iNormalIndex = -1;
-//
-//				// If there were some vertices defined earlier
-//				if(iAttrBitField&1)
-//				{
-//					if(ESZ(data[0]) > 0)sscanf(data[0].c_str(), "%d", &iVertIndex);
-//					else bError = true;
-//				}
-//				// If there were some texture coordinates defined earlier
-//				if(iAttrBitField&2 && !bError)
-//				{
-//					if(ESZ(data) >= 1)
-//					{
-//						// Just a check whether face format isn't f v//vn
-//						// In that case, data[1] is empty string
-//						if(ESZ(data[1]) > 0)sscanf(data[1].c_str(), "%d", &iTexCoordIndex);
-//						else bError = true;
-//					}
-//					else bError = true;
-//				}
-//				// If there were some normals defined defined earlier
-//				if(iAttrBitField&4 && !bError)
-//				{
-//					if(ESZ(data) >= 2)
-//					{
-//						if(ESZ(data[2]) > 0)sscanf(data[2].c_str(), "%d", &iNormalIndex);
-//						else bError = true;
-//					}
-//					else bError = true;
-//				}
-//				if(bError)
-//				{
-//					fclose(fp);
-//					return false;
-//				}
-//
-//				// Check whether vertex index is within boundaries (indexed from 1)
-//				if(iVertIndex > 0 && iVertIndex <= ESZ(vVertices))
-//					vboModelData.AddData(&vVertices[iVertIndex-1], sizeof(glm::vec3));
-//				if(iTexCoordIndex > 0 && iTexCoordIndex <= ESZ(vTexCoords))
-//					vboModelData.AddData(&vTexCoords[iTexCoordIndex-1], sizeof(glm::vec2));
-//				if(iNormalIndex > 0 && iNormalIndex <= ESZ(vNormals))
-//					vboModelData.AddData(&vNormals[iNormalIndex-1], sizeof(glm::vec3));
-//			}
-//			iNumFaces++;
-//		}
-//		// Shading model, for now just skip it
-//		else if(sType == "s")
-//		{
-//			// Do nothing for now
-//		}
-//		// Material specified, skip it again
-//		else if(sType == "usemtl")
-//		{
-//			// Do nothing for now
-//		}
-//	}
-//
-//	fclose(fp);
+	FILE* fp = fopen(sFileName.c_str(), "rt");
+
+	if(fp == NULL)return false;
+
+	char line[255];
+
+	vector<glm::vec3> vVertices;
+	vector<glm::vec2> vTexCoords;
+	vector<glm::vec3> vNormals;
+
+	iNumFaces = 0;
+
+	while(fgets(line, 255, fp))
+	{
+		// Error flag, that can be set when something is inconsistent throughout
+		// data parsing
+		bool bError = false;
+
+		// If it's an empty line, then skip
+		if(strlen(line) <= 1)
+			continue;
+
+		// Now we're going to process line
+		stringstream ss(line);
+		string sType;
+		ss >> sType;
+		// If it's a comment, skip it
+		if(sType == "#")
+			continue;
+		// Vertex
+		else if(sType == "v")
+		{
+			glm::vec3 vNewVertex;
+			int dim = 0;
+			while(dim < 3 && ss >> vNewVertex[dim])dim++;
+			vVertices.push_back(vNewVertex);
+			iAttrBitField |= 1;
+		}
+		// Texture coordinate
+		else if(sType == "vt")
+		{
+			glm::vec2 vNewCoord;
+			int dim = 0;
+			while(dim < 2 && ss >> vNewCoord[dim])dim++;
+			vTexCoords.push_back(vNewCoord);
+			iAttrBitField |= 2;
+		}
+		// Normal
+		else if(sType == "vn")
+		{
+			glm::vec3 vNewNormal;
+			int dim = 0;
+			while(dim < 3 && ss >> vNewNormal[dim])dim++;
+			vNewNormal = glm::normalize(vNewNormal);
+			vNormals.push_back(vNewNormal);
+			iAttrBitField |= 4;
+		}
+		// Face definition
+		else if(sType == "f")
+		{
+			string sFaceData;
+			// This will run for as many vertex definitions as the face has
+			// (for triangle, it's 3)
+			while(ss >> sFaceData)
+			{
+				vector<string> data = split(sFaceData, "/");
+				int iVertIndex = -1, iTexCoordIndex = -1, iNormalIndex = -1;
+			
+				// If there were some vertices defined earlier
+				if(iAttrBitField&1)
+				{
+					if(ESZ(data[0]) > 0)sscanf(data[0].c_str(), "%d", &iVertIndex);
+					else bError = true;
+				}
+				// If there were some texture coordinates defined earlier
+				if(iAttrBitField&2 && !bError)
+				{
+					if(ESZ(data) >= 1)
+					{
+						// Just a check whether face format isn't f v//vn
+						// In that case, data[1] is empty string
+						if(ESZ(data[1]) > 0)sscanf(data[1].c_str(), "%d", &iTexCoordIndex);
+						else bError = true;
+					}
+					else bError = true;
+				}
+				// If there were some normals defined defined earlier
+				if(iAttrBitField&4 && !bError)
+				{
+					if(ESZ(data) >= 2)
+					{
+						if(ESZ(data[2]) > 0)sscanf(data[2].c_str(), "%d", &iNormalIndex);
+						else bError = true;
+					}
+					else bError = true;
+				}
+				if(bError)
+				{
+					fclose(fp);
+					return false;
+				}
+			
+				// Check whether vertex index is within boundaries (indexed from 1)
+				if(iVertIndex > 0 && iVertIndex <= ESZ(vVertices))
+					vboModelData.AddData(&vVertices[iVertIndex-1], sizeof(glm::vec3));
+				if(iTexCoordIndex > 0 && iTexCoordIndex <= ESZ(vTexCoords))
+					vboModelData.AddData(&vTexCoords[iTexCoordIndex-1], sizeof(glm::vec2));
+				if(iNormalIndex > 0 && iNormalIndex <= ESZ(vNormals))
+					vboModelData.AddData(&vNormals[iNormalIndex-1], sizeof(glm::vec3));
+			}
+			iNumFaces++;
+		}
+		// Shading model, for now just skip it
+		else if(sType == "s")
+		{
+			// Do nothing for now
+		}
+		// Material specified, skip it again
+		else if(sType == "usemtl")
+		{
+			// Do nothing for now
+		}
+	}
+
+	fclose(fp);
 
 	if(iAttrBitField == 0)
 		return false;

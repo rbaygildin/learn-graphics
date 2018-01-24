@@ -32,7 +32,7 @@ namespace FogParameters
     float fStart = 10.0f;
     float fEnd = 75.0f;
     glm::vec4 vFogColor = glm::vec4(0.6f, 0.6f, 0.6f, 1.0f);
-    int iFogEquation = FOG_EQUATION_EXP; // 0 = linear, 1 = exp, 2 = exp2
+    int iFogEquation = FOG_EQUATION_LINEAR; // 0 = linear, 1 = exp, 2 = exp2
 };
 
 /**
@@ -442,6 +442,34 @@ void App::initScene() {
  * @param mods
  */
 void App::keyCallback(GLFWwindow *window, int key, int scanCode, int action, int mods) {
+    if(key == GLFW_KEY_E)
+        FogParameters::iFogEquation = FOG_EQUATION_EXP;
+    if(key == GLFW_KEY_L)
+        FogParameters::iFogEquation = FOG_EQUATION_LINEAR;
+    if(key == GLFW_KEY_U){
+        if(FogParameters::iFogEquation == FOG_EQUATION_EXP){
+            BOOST_LOG_TRIVIAL(info) << "Increase density of fog";
+            FogParameters::fDensity += 0.01;
+        }
+        else if (FogParameters::iFogEquation == FOG_EQUATION_LINEAR){
+            if(FogParameters::fStart + 2.0 < FogParameters::fEnd) {
+                FogParameters::fStart += 2.0;
+                BOOST_LOG_TRIVIAL(info) << "Change start of fog [start =" << FogParameters::fStart << "]";
+            }
+        }
+    }
+    if(key == GLFW_KEY_D){
+        if(FogParameters::iFogEquation == FOG_EQUATION_EXP){
+            BOOST_LOG_TRIVIAL(info) << "Decrease density of fog";
+            FogParameters::fDensity -= 0.01;
+        }
+        else if (FogParameters::iFogEquation == FOG_EQUATION_LINEAR){
+            if(FogParameters::fStart - 2.0 >= 3.0) {
+                FogParameters::fStart -= 2.0;
+                BOOST_LOG_TRIVIAL(info) << "Change start of fog [start =" << FogParameters::fStart << "]";
+            }
+        }
+    }
     if (key == GLFW_KEY_R)
         cCamera.ResetMouse();
     cCamera.Update(key);

@@ -24,6 +24,9 @@ include_directories(${GLM_INCLUDE_DIRS})
 find_package(GLEW REQUIRED)
 include_directories(${GLEW_INCLUDE_DIRS})
 
+find_package(ASSIMP REQUIRED)
+include_directories(${ASSIMP_INCLUDE_DIRS})
+
 include_directories(/usr/local/Cellar/freeimage/3.17.0_1/include/)
 
 find_library(COCOA_LIBRARY Cocoa)
@@ -73,6 +76,7 @@ target_link_libraries(
         ${GLUT_LIBRARIES}
         ${GLEW_LIBRARIES}
         ${GLM_LIBRARIES}
+        ${ASSIMP_LIBRARIES}
         ${Boost_LIBRARIES}
         ${FREEIMAGE_LIBRARIES}
         ${EXTRA_LIBS}

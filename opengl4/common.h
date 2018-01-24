@@ -17,6 +17,9 @@
 #include <GL/freeglut.h>
 #include <glm/glm.hpp>
 #include <boost/log/trivial.hpp>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>           // Output data structure
+#include <assimp/postprocess.h>
 
 using namespace std;
 
