@@ -5,10 +5,10 @@
 // Support class for adding directional lights to scene.
 class DirLight {
 public:
-    glm::vec3 vColor; // Color of directional light
+    glm::vec3 color; // Color of directional light
     glm::vec3 vDirection; // and its direction
 
-    float fAmbient;
+    float ambient;
 
     void SetUniformData(ShaderProgram *spProgram, string sLightVarName);
 

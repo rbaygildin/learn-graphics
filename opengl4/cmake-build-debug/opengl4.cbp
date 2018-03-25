@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="opengl4"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glm\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\assimp-4.1\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="opengl4">
+				<Option output="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/opengl4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DGLFW_DLL"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/freeimage/3.17.0_1/include"/>
+					<Add directory="/usr/local/opt/boost/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 opengl4"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="opengl4/fast">
+				<Option output="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/opengl4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DGLFW_DLL"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/freeimage/3.17.0_1/include"/>
+					<Add directory="/usr/local/opt/boost/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 opengl4/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/Logger.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/Logger.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/app.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/app.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/buf/vbo.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/buf/vbo.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/camera/flyingCamera.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/camera/flyingCamera.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/common.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/geom/static_geometry.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/geom/static_geometry.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/light/dirLight.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/light/dirLight.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/light/pointLight.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/light/pointLight.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/light/spotLight.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/light/spotLight.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/logger.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/main.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/objModel.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/objModel.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/shader/shaders.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/shader/shaders.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/skybox/skybox.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/skybox/skybox.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/texture/texture.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/texture/texture.h">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/../../../../../../../usr/local/lib/cmake/glfw3/glfw3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/../../../../../../../usr/local/lib/cmake/glfw3/glfw3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/../../../../../../../usr/local/lib/cmake/glfw3/glfw3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/../../../../../../../usr/local/lib/cmake/glfw3/glfw3Targets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/../../../../../../../usr/local/lib/cmake/glm/GLMConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glm\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/../../../../../../../usr/local/lib/cmake/glm/GLMConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glm\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/../../../../../../../usr/local/lib/cmake/glm/glmTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\glm\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/../../../../../../../usr/local/lib/cmake/assimp-4.1/assimp-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\assimp-4.1\"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/../../../../../../../usr/local/lib/cmake/assimp-4.1/assimp-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\assimp-4.1\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

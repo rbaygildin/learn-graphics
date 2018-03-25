@@ -1,0 +1,126 @@
+"/Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
+  /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:50 (find_package)
+
+
+-- Boost version: 1.66.0
+-- Found the following Boost libraries:
+--   unit_test_framework
+--   program_options
+--   log
+--   log_setup
+--   system
+--   fileSystem
+--   thread
+--   date_time
+--   filesystem
+--   regex
+--   chrono
+--   atomic
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug

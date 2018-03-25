@@ -8,9 +8,9 @@
 #define WINDOW_H 480
 
 #define NUMTEXTURES 5
-#define FOG_EQUATION_LINEAR		0
-#define FOG_EQUATION_EXP		1
-#define FOG_EQUATION_EXP2		2
+#define FOG_EQUATION_LINEAR        0
+#define FOG_EQUATION_EXP        1
+#define FOG_EQUATION_EXP2        2
 
 GLFWwindow *App::wnd;
 VertexBufferObject App::vboSceneObjects, App::vboCubeInd, App::vboCube, App::vboCylinder;
@@ -20,14 +20,13 @@ FlyingCamera App::cCamera(nullptr, 0, 0);
 Skybox App::mainSkybox;
 CObjModel App::mdlHouse;
 DirLight App::dlSun;
-SpotLight App::slFlashLight;
-PointLight App::plLight;
 float App::fGlobalAngle;
 float App::fTextureContribution = 0.5f;
 bool App::isRotating = false;
 
-namespace FogParameters
-{
+bool isFog = false;
+
+namespace FogParameters {
     float fDensity = 0.06f;
     float fStart = 10.0f;
     float fEnd = 75.0f;
@@ -77,7 +76,7 @@ void App::start(int argc, char **argv) {
 void App::render() {
     Logger::info("Render content");
 
-    spMain.UseProgram();
+    program.UseProgram();
 
 
     while (!glfwWindowShouldClose(wnd)) {
@@ -85,204 +84,60 @@ void App::render() {
         glm::mat4 mModelMatrix, mView;
         glm::vec3 vCameraDir = glm::normalize(cCamera.vView - cCamera.vEye);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(FogParameters::vFogColor.r,
+                     FogParameters::vFogColor.g,
+                     FogParameters::vFogColor.b,
+                     FogParameters::vFogColor.a);
         int w, h;
         glfwGetWindowSize(wnd, &w, &h);
 
-//        glm::vec3 vSpotLightPos = cCamera.vEye;
-//        // Move down a little
-//        vSpotLightPos.y -= 3.2f;
-//
-//        // Find direction of spotlight
-//        glm::vec3 vSpotLightDir = (vSpotLightPos + vCameraDir * 75.0f) - vSpotLightPos;
-//        vSpotLightDir = glm::normalize(vSpotLightDir);
-//
-//        // Find vector of horizontal offset
-//        glm::vec3 vHorVector = glm::cross(cCamera.vView - cCamera.vEye, cCamera.vUp);
-//        vSpotLightPos += vHorVector * 3.3f;
-//
-//        // Set it
-//        slFlashLight.vPosition = vSpotLightPos;
-//        slFlashLight.vDirection = vSpotLightDir;
-//
-//        slFlashLight.SetUniformData(&spMain, "spotLight");
-////
-//        plLight.SetUniformData(&spMain, "pointLight");
-//
-//        int w, h;
-//        glfwGetWindowSize(wnd, &w, &h);
-//
-//        spMain.SetUniform("matrices.projMatrix", glm::perspective(45.0f, w / (float) h, 0.5f, 1000.0f));
-//        spMain.SetUniform("gSamplers[0]", 0);
-//        spMain.SetUniform("gSamplers[1]", 1);
-//        spMain.SetUniform("fTextureContributions[0]", 1.0f);
-//        spMain.SetUniform("fTextureContributions[1]", fTextureContribution);
-//        spMain.SetUniform("numTextures", 1);
-//
-//        mView = cCamera.Look();
-//        spMain.SetUniform("matrices.viewMatrix", &mView);
-//
-//        mModelMatrix = glm::translate(glm::mat4(1.0f), cCamera.vEye);
-//
-//        spMain.SetUniform("matrices.modelMatrix", &mModelMatrix);
-//        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mView * mModelMatrix)));
-//
-//        DirLight dlSun2 = dlSun;
-//
-//        // We set full ambient for skybox, so that its color isn't affected by directional light
-//
-//        dlSun2.fAmbient = 1;
-//        dlSun2.vColor = glm::vec3(1.0f, 1.0f, 1.0f);
-//        dlSun2.SetUniformData(&spMain, "sunLight");
-//
-////        mainSkybox.RenderSkybox();
-//        glBindVertexArray(uiVAOs[1]);
-//        // Render cubes
-//        glm::mat4 mModelToCamera;
-//
-//        tTextures[3].BindTexture();
-//
-//        spMain.SetUniform("fTextureContributions[0]", 1.0f - fTextureContribution);
-//        spMain.SetUniform("numTextures", 2);
-//
-//        float PI = float(atan(1.0) * 4.0);
-//
-//        glEnable(GL_CULL_FACE);
-//        //glFrontFace(GL_CCW); //Done by default
-//        glm::vec3 vPos2 = glm::vec3(30.0f, 8.0f, 0.0f);
-//        mModelMatrix = glm::mat4(1.0f);
-//        mModelMatrix = glm::translate(mModelMatrix, vPos2);
-//        mModelMatrix = glm::scale(mModelMatrix, glm::vec3(16.0f, 16.0f, 16.0f));
-//        mModelMatrix = glm::rotate(mModelMatrix, static_cast<float>(glfwGetTime() * 2), glm::vec3(0.0f, 1.0f, 0.0f));
-//        // We need to transform normals properly, it's done by transpose of inverse matrix of rotations and scales
-//        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
-//        spMain.SetUniform("matrices.modelMatrix", mModelMatrix);
-//        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void *) nullptr);
-//
-//
-//        tTextures[5].BindTexture();
-//        vPos2 = glm::vec3(-5.0f, 8.0f, 0.0f);
-//        mModelMatrix = glm::mat4(1.0f);
-//        mModelMatrix = glm::translate(mModelMatrix, vPos2);
-//        mModelMatrix = glm::scale(mModelMatrix, glm::vec3(20.0f, 20.0f, 20.0f));
-//        mModelMatrix = glm::rotate(mModelMatrix, 5.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-//        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
-//        spMain.SetUniform("matrices.modelMatrix", mModelMatrix);
-//        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void *) nullptr);
-//        glDisable(GL_CULL_FACE);
-//
-//        tTextures[6].BindTexture();
-//        vPos2 = glm::vec3(-5.0f, 40.0f, 0.0f);
-//        mModelMatrix = glm::mat4(1.0f);
-//        mModelMatrix = glm::translate(mModelMatrix, vPos2);
-//        mModelMatrix = glm::scale(mModelMatrix, glm::vec3(20.0f, 20.0f, 20.0f));
-//        mModelMatrix = glm::rotate(mModelMatrix, static_cast<float>(glfwGetTime() * 5), glm::vec3(1.0f, 1.0f, 0.0f));
-//        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
-//        spMain.SetUniform("matrices.modelMatrix", mModelMatrix);
-//        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void *) nullptr);
-//        glDisable(GL_CULL_FACE);
-//
-//        spMain.SetUniform("fTextureContributions[0]", 1.0f);
-//        spMain.SetUniform("numTextures", 1);
-//
-//        glBindVertexArray(uiVAOs[0]);
-//
-//        dlSun.SetUniformData(&spMain, "sunLight");
-//
-//        spMain.SetUniform("vColor", glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
-//        spMain.SetUniform("matrices.modelMatrix", glm::mat4(1.0f));
-//        spMain.SetUniform("matrices.normalMatrix", glm::mat4(1.0f));
-//
-//
-////        // Render ground
-//        tTextures[3].BindTexture();
-//        glDrawArrays(GL_TRIANGLES, 0, 6);
-//
-//        // render torus
-//        tTextures[1].BindTexture();
-//
-//        float R = 50;
-//        float tX = 30;
-//        float tY = 10;
-//        float tZ = 10;
-//        float k1 = 0.1;
-//        float k2 = 0.3;
-//        float c = 5;
-//
-//        auto a = static_cast<float>(fmod(glfwGetTime(), 100));
-//
-//        glm::vec3 vPos = glm::vec3(R * cos(a) + R * k2 * cos(c * a) + tX, tY, R * sin(a) + R * k2 * sin(c * a) + tZ);
-//
-//        mModelMatrix = glm::translate(glm::mat4(1.0), vPos);
-//        mModelMatrix = glm::rotate(mModelMatrix, static_cast<float>(glfwGetTime() * 2.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-//        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
-//        spMain.SetUniform("matrices.modelMatrix", &mModelMatrix);
-//        glDrawArrays(GL_TRIANGLES, 6, iTorusFaces * 3);
-//
-//        tTextures[2].BindTexture();
-//        vPos = glm::vec3(tX + 5, tY, tZ + 5);
-//        mModelMatrix = glm::translate(glm::mat4(1.0), vPos);
-//        mModelMatrix = glm::rotate(mModelMatrix, static_cast<float>(glfwGetTime() * 5.0f), glm::vec3(1.0f, 1.0f, 0.0f));
-//        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
-//        spMain.SetUniform("matrices.modelMatrix", &mModelMatrix);
-//        glDrawArrays(GL_TRIANGLES, 6 + iTorusFaces * 3, iTorusFaces2 * 3);
-//
-//        fGlobalAngle = static_cast<float>(glfwGetTime() * 10.0f);
-//
-//
-//        vPos = glm::vec3(-15.0f, 40.0f, 0.0f);
-//        mModelMatrix = glm::translate(glm::mat4(1.0), vPos);
-//        mModelMatrix = glm::rotate(mModelMatrix, static_cast<float>(glfwGetTime() * 5.0f), glm::vec3(1.0f, 1.0f, 0.0f));
-//        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
-//        spMain.SetUniform("matrices.modelMatrix", &mModelMatrix);
-//        glutWireTeapot(5);
-        spMain.UseProgram();
+        program.UseProgram();
+        program.SetUniform("isFog", (int) isFog);
 
-        spMain.SetUniform("matrices.projMatrix", glm::perspective(45.0f, w / (float) h, 0.5f, 1000.0f));
-        spMain.SetUniform("gSampler", 0);
-        spMain.SetUniform("fogParams.iEquation", FogParameters::iFogEquation);
-        spMain.SetUniform("fogParams.vFogColor", FogParameters::vFogColor);
+        program.SetUniform("matrices.projMatrix", glm::perspective(45.0f, w / (float) h, 0.5f, 1000.0f));
+        program.SetUniform("gSampler", 0);
+        program.SetUniform("fogParams.iEquation", FogParameters::iFogEquation);
+        program.SetUniform("fogParams.vFogColor", FogParameters::vFogColor);
         mView = cCamera.Look();
-        spMain.SetUniform("matrices.viewMatrix", &mView);
+        program.SetUniform("matrices.viewMatrix", &mView);
 
         mModelMatrix = glm::translate(glm::mat4(1.0f), cCamera.vEye);
 
-        spMain.SetUniform("matrices.modelMatrix", &mModelMatrix);
-        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mView*mModelMatrix)));
+        program.SetUniform("matrices.modelMatrix", &mModelMatrix);
+        program.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mView * mModelMatrix)));
 
-        if (FogParameters::iFogEquation == FOG_EQUATION_LINEAR)
-        {
-            spMain.SetUniform("fogParams.fStart", FogParameters::fStart);
-            spMain.SetUniform("fogParams.fEnd", FogParameters::fEnd);
-        }
-        else
-            spMain.SetUniform("fogParams.fDensity", FogParameters::fDensity);
+        if (FogParameters::iFogEquation == FOG_EQUATION_LINEAR) {
+            program.SetUniform("fogParams.fStart", FogParameters::fStart);
+            program.SetUniform("fogParams.fEnd", FogParameters::fEnd);
+        } else
+            program.SetUniform("fogParams.fDensity", FogParameters::fDensity);
 
-        DirLight dlSun2 = dlSun;
+        DirLight sun = dlSun;
 
         // We set full ambient for skybox, so that its color isn't affected by directional light
 
-        dlSun2.fAmbient = 1.0f;
-        dlSun2.vColor = glm::vec3(1.0f, 1.0f, 1.0f);
-        dlSun2.SetUniformData(&spMain, "sunLight");
+        sun.ambient = 0.2f;
+        sun.color = glm::vec3(1.0f, 1.0f, 1.0f);
+        sun.SetUniformData(&program, "sunLight");
 
-        mainSkybox.RenderSkybox();
+//        mainSkybox.RenderSkybox();
 
         glm::mat4 mModelToCamera;
 
         glBindVertexArray(uiVAOs[0]);
 
-        dlSun.SetUniformData(&spMain, "sunLight");
+        dlSun.SetUniformData(&program, "sunLight");
 
-        spMain.SetUniform("vColor", glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
-        spMain.SetUniform("matrices.modelMatrix", glm::mat4(1.0f));
-        spMain.SetUniform("matrices.normalMatrix", glm::mat4(1.0f));
+        program.SetUniform("vColor", glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+        program.SetUniform("matrices.modelMatrix", glm::mat4(1.0f));
+        program.SetUniform("matrices.normalMatrix", glm::mat4(1.0f));
 
 
         // Render ground
         tTextures[0].BindTexture();
         glDrawArrays(GL_TRIANGLES, 0, 6);
 
-                // render torus
+        // render torus
         tTextures[1].BindTexture();
 
         float R = 50;
@@ -299,27 +154,26 @@ void App::render() {
 
         mModelMatrix = glm::translate(glm::mat4(1.0), vPos);
         mModelMatrix = glm::rotate(mModelMatrix, static_cast<float>(glfwGetTime() * 2.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
-        spMain.SetUniform("matrices.modelMatrix", &mModelMatrix);
+        program.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
+        program.SetUniform("matrices.modelMatrix", &mModelMatrix);
         glDrawArrays(GL_TRIANGLES, 6, iTorusFaces * 3);
 
         tTextures[2].BindTexture();
         vPos = glm::vec3(tX + 5, tY, tZ + 5);
         mModelMatrix = glm::translate(glm::mat4(1.0), vPos);
         mModelMatrix = glm::rotate(mModelMatrix, static_cast<float>(glfwGetTime() * 5.0f), glm::vec3(1.0f, 1.0f, 0.0f));
-        spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
-        spMain.SetUniform("matrices.modelMatrix", &mModelMatrix);
+        program.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
+        program.SetUniform("matrices.modelMatrix", &mModelMatrix);
         glDrawArrays(GL_TRIANGLES, 6 + iTorusFaces * 3, iTorusFaces2 * 3);
 
         fGlobalAngle = static_cast<float>(glfwGetTime() * 10.0f);
 
-        FOR(i, 3)
-        {
+        FOR(i, 3) {
             glm::vec3 vPos = glm::vec3(0.0f, 0.0, 50 + i * -100.0f);
             mModelMatrix = glm::translate(glm::mat4(1.0), vPos);
             mModelMatrix = glm::scale(mModelMatrix, glm::vec3(8.0f, 8.0, 8.0f));
-            spMain.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
-            spMain.SetUniform("matrices.modelMatrix", &mModelMatrix);
+            program.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
+            program.SetUniform("matrices.modelMatrix", &mModelMatrix);
             mdlHouse.RenderModel();
         }
 
@@ -339,7 +193,7 @@ void App::destroy() {
     Logger::info("Delete skybox");
     mainSkybox.DeleteSkybox();
     Logger::info("Delete program");
-    spMain.DeleteProgram();
+    program.DeleteProgram();
     FOR(i, NUMSHADERS)shShaders[i].DeleteShader();
     Logger::info("Delete objects");
     glDeleteVertexArrays(2, uiVAOs);
@@ -419,18 +273,18 @@ void App::initScene() {
     cCamera = FlyingCamera(glm::vec3(0.0f, 10.0f, 120.0f), glm::vec3(0.0f, 10.0f, 119.0f), glm::vec3(0.0f, 1.0f, 0.0f),
                            25.0f, 0.001f, wnd, WINDOW_W, WINDOW_H);
     cCamera.SetMovingKeys('W', 'S', 'A', 'D');
-    string skyBoxSet = "darkskies";
-    string picFormat = ".tga";
+    string skyBoxSet = "moonwaw";
+    string picFormat = ".jpeg";
     mainSkybox.LoadSkybox("data/skyboxes/" + skyBoxSet + "/", skyBoxSet + "_ft" + picFormat,
                           skyBoxSet + "_bk" + picFormat, skyBoxSet + "_lf" + picFormat,
                           skyBoxSet + "_rt" + picFormat, skyBoxSet + "_up" + picFormat,
                           skyBoxSet + "_dn" + picFormat);
 
     dlSun = DirLight(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(sqrt(2.0f) / 2, -sqrt(2.0f) / 2, 0), 1.0f);
-    // Creating spotlight, position and direction will get updated every frame, that's why zero vectors
-//    slFlashLight = SpotLight(glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(10.0f, 10.0f, 1.0f), 1, 15.0f, 0.6f);
+//    slFlashLight = SpotLight(glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(10.0f, 10.0f, 1.0f), 1,
+//                             15.0f, 0.6f);
 //    plLight = PointLight(glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.8f, 0.3f, 0.007f, 0.00008f);
-    mdlHouse.LoadModel("data/models/house/house.obj", "house.mtl");
+    mdlHouse.LoadModel("data/models/house/house.obj", "data/models/house/house.mtl");
 }
 
 /**
@@ -442,29 +296,37 @@ void App::initScene() {
  * @param mods
  */
 void App::keyCallback(GLFWwindow *window, int key, int scanCode, int action, int mods) {
-    if(key == GLFW_KEY_E)
+    if (key == GLFW_KEY_E && FogParameters::iFogEquation == FOG_EQUATION_EXP)
+        FogParameters::iFogEquation = FOG_EQUATION_EXP2;
+    if (key == GLFW_KEY_E && FogParameters::iFogEquation == FOG_EQUATION_EXP2)
         FogParameters::iFogEquation = FOG_EQUATION_EXP;
-    if(key == GLFW_KEY_L)
+    if (key == GLFW_KEY_E)
+        FogParameters::iFogEquation = FOG_EQUATION_EXP;
+    if (key == GLFW_KEY_L)
         FogParameters::iFogEquation = FOG_EQUATION_LINEAR;
-    if(key == GLFW_KEY_U){
-        if(FogParameters::iFogEquation == FOG_EQUATION_EXP){
+    if (key == GLFW_KEY_0) {
+        isFog = false;
+    }
+    if (key == GLFW_KEY_1) {
+        isFog = true;
+    }
+    if (key == GLFW_KEY_U) {
+        if (FogParameters::iFogEquation == FOG_EQUATION_EXP) {
             BOOST_LOG_TRIVIAL(info) << "Increase density of fog";
             FogParameters::fDensity += 0.01;
-        }
-        else if (FogParameters::iFogEquation == FOG_EQUATION_LINEAR){
-            if(FogParameters::fStart + 2.0 < FogParameters::fEnd) {
+        } else if (FogParameters::iFogEquation == FOG_EQUATION_LINEAR) {
+            if (FogParameters::fStart + 2.0 < FogParameters::fEnd) {
                 FogParameters::fStart += 2.0;
                 BOOST_LOG_TRIVIAL(info) << "Change start of fog [start =" << FogParameters::fStart << "]";
             }
         }
     }
-    if(key == GLFW_KEY_D){
-        if(FogParameters::iFogEquation == FOG_EQUATION_EXP){
+    if (key == GLFW_KEY_D) {
+        if (FogParameters::iFogEquation == FOG_EQUATION_EXP) {
             BOOST_LOG_TRIVIAL(info) << "Decrease density of fog";
             FogParameters::fDensity -= 0.01;
-        }
-        else if (FogParameters::iFogEquation == FOG_EQUATION_LINEAR){
-            if(FogParameters::fStart - 2.0 >= 3.0) {
+        } else if (FogParameters::iFogEquation == FOG_EQUATION_LINEAR) {
+            if (FogParameters::fStart - 2.0 >= 3.0) {
                 FogParameters::fStart -= 2.0;
                 BOOST_LOG_TRIVIAL(info) << "Change start of fog [start =" << FogParameters::fStart << "]";
             }

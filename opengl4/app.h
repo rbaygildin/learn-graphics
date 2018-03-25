@@ -68,8 +68,6 @@ private fields:
     static float fGlobalAngle;
     static float fTextureContribution;
     static bool isRotating;
-    static SpotLight slFlashLight;
-    static PointLight plLight;
 };
 
 

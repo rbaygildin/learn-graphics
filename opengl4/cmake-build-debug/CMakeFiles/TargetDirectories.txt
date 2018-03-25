@@ -1,0 +1,3 @@
+/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles/opengl4.dir

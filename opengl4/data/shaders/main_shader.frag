@@ -8,16 +8,18 @@ out vec4 outputColor;
 
 uniform sampler2D gSampler;
 uniform vec4 vColor;
+uniform bool isFog;
 
 #include "dirLight.frag"
+
 uniform DirectionalLight sunLight;
+
 uniform struct FogParameters
 {
 	vec4 vFogColor; // Fog color
 	float fStart; // This is only for linear fog
 	float fEnd; // This is only for linear fog
 	float fDensity; // For exp and exp2 equation
-	
 	int iEquation; // 0 = linear, 1 = exp, 2 = exp2
 } fogParams;
 
@@ -42,8 +44,13 @@ void main()
 	
 	vec4 vTexColor = texture2D(gSampler, vTexCoord);
 	vec4 vDirLightColor = getDirectionalLightColor(sunLight, vNormal);
-	vec4 vMixedColor = vTexColor*vColor*vDirLightColor;
+	vec4 vMixedColor = vTexColor * vColor * vDirLightColor;
 	
-	float fFogCoord = abs(vEyeSpacePos.z/vEyeSpacePos.w);
-	outputColor = mix(vMixedColor, fogParams.vFogColor, getFogFactor(fogParams, fFogCoord));
+	float fFogCoord = abs(vEyeSpacePos.z / vEyeSpacePos.w);
+	if(isFog){
+	    outputColor = mix(vMixedColor, fogParams.vFogColor, getFogFactor(fogParams, fFogCoord));
+	}
+	else{
+	    outputColor = vMixedColor;
+	}
 }

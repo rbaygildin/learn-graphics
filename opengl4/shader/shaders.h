@@ -70,4 +70,4 @@ bool PrepareShaderPrograms();
 #define NUMSHADERS 7
 
 extern Shader shShaders[NUMSHADERS];
-extern ShaderProgram spMain, spColor;
+extern ShaderProgram program, spColor;

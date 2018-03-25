@@ -41,6 +41,7 @@ set(BOOST_COMPONENTS
         log
         log_setup
         system
+        fileSystem
         thread) # And other components you need
 
 set(Boost_USE_STATIC_LIBS ON) # Easier to deploy elsewhere

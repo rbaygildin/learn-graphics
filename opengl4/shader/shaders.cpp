@@ -10,7 +10,7 @@ Shader::Shader() {
 }
 
 Shader shShaders[NUMSHADERS];
-ShaderProgram spMain, spColor;
+ShaderProgram program, spColor;
 
 // Loads all shaders and creates shader programs.
 bool PrepareShaderPrograms() {
@@ -35,15 +35,15 @@ bool PrepareShaderPrograms() {
 
     // Create shader programs
 
-    spMain.CreateProgram();
-    spMain.AddShaderToProgram(&shShaders[0]);
-    spMain.AddShaderToProgram(&shShaders[1]);
-    spMain.AddShaderToProgram(&shShaders[2]);
-    spMain.AddShaderToProgram(&shShaders[3]);
-    spMain.AddShaderToProgram(&shShaders[6]);
-    spMain.LinkProgram();
+    program.CreateProgram();
+    program.AddShaderToProgram(&shShaders[0]);
+    program.AddShaderToProgram(&shShaders[1]);
+    program.AddShaderToProgram(&shShaders[2]);
+    program.AddShaderToProgram(&shShaders[3]);
+    program.AddShaderToProgram(&shShaders[6]);
+    program.LinkProgram();
 
-    if (!spMain.LinkProgram())
+    if (!program.LinkProgram())
         return false;
 
     spColor.CreateProgram();
