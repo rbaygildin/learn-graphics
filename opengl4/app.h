@@ -11,6 +11,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "objModels/model.h"
 #include "common.h"
 #include "logger.h"
 #include "shader/shaders.h"
@@ -83,6 +84,7 @@ private fields:
     static bool isColorSelecting;
     static bool isLight;
     static CObjModel suzanne;
+    static Mesh *mesh;
 };
 
 

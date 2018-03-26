@@ -153,6 +153,12 @@
 		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/objModel.h">
 			<Option target="opengl4"/>
 		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/objModels/model.cpp">
+			<Option target="opengl4"/>
+		</Unit>
+		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/objModels/model.h">
+			<Option target="opengl4"/>
+		</Unit>
 		<Unit filename="/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/shader/shaders.cpp">
 			<Option target="opengl4"/>
 		</Unit>

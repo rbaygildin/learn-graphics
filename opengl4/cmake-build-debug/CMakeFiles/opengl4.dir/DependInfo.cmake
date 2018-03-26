@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/light/spotLight.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles/opengl4.dir/light/spotLight.cpp.o"
   "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/main.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles/opengl4.dir/main.cpp.o"
   "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/objModel.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles/opengl4.dir/objModel.cpp.o"
+  "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/objModels/model.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles/opengl4.dir/objModels/model.cpp.o"
   "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/shader/shaders.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles/opengl4.dir/shader/shaders.cpp.o"
   "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/skybox/skybox.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles/opengl4.dir/skybox/skybox.cpp.o"
   "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/texture/texture.cpp" "/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles/opengl4.dir/texture/texture.cpp.o"

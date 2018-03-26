@@ -273,9 +273,33 @@ CMakeFiles/opengl4.dir/camera/flyingCamera.cpp.o.provides: CMakeFiles/opengl4.di
 CMakeFiles/opengl4.dir/camera/flyingCamera.cpp.o.provides.build: CMakeFiles/opengl4.dir/camera/flyingCamera.cpp.o
 
 
+CMakeFiles/opengl4.dir/objModels/model.cpp.o: CMakeFiles/opengl4.dir/flags.make
+CMakeFiles/opengl4.dir/objModels/model.cpp.o: ../objModels/model.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/opengl4.dir/objModels/model.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl4.dir/objModels/model.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/objModels/model.cpp
+
+CMakeFiles/opengl4.dir/objModels/model.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opengl4.dir/objModels/model.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/objModels/model.cpp > CMakeFiles/opengl4.dir/objModels/model.cpp.i
+
+CMakeFiles/opengl4.dir/objModels/model.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opengl4.dir/objModels/model.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/objModels/model.cpp -o CMakeFiles/opengl4.dir/objModels/model.cpp.s
+
+CMakeFiles/opengl4.dir/objModels/model.cpp.o.requires:
+
+.PHONY : CMakeFiles/opengl4.dir/objModels/model.cpp.o.requires
+
+CMakeFiles/opengl4.dir/objModels/model.cpp.o.provides: CMakeFiles/opengl4.dir/objModels/model.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opengl4.dir/build.make CMakeFiles/opengl4.dir/objModels/model.cpp.o.provides.build
+.PHONY : CMakeFiles/opengl4.dir/objModels/model.cpp.o.provides
+
+CMakeFiles/opengl4.dir/objModels/model.cpp.o.provides.build: CMakeFiles/opengl4.dir/objModels/model.cpp.o
+
+
 CMakeFiles/opengl4.dir/objModel.cpp.o: CMakeFiles/opengl4.dir/flags.make
 CMakeFiles/opengl4.dir/objModel.cpp.o: ../objModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/opengl4.dir/objModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/opengl4.dir/objModel.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl4.dir/objModel.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/objModel.cpp
 
 CMakeFiles/opengl4.dir/objModel.cpp.i: cmake_force
@@ -299,7 +323,7 @@ CMakeFiles/opengl4.dir/objModel.cpp.o.provides.build: CMakeFiles/opengl4.dir/obj
 
 CMakeFiles/opengl4.dir/main.cpp.o: CMakeFiles/opengl4.dir/flags.make
 CMakeFiles/opengl4.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/opengl4.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/opengl4.dir/main.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl4.dir/main.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/main.cpp
 
 CMakeFiles/opengl4.dir/main.cpp.i: cmake_force
@@ -323,7 +347,7 @@ CMakeFiles/opengl4.dir/main.cpp.o.provides.build: CMakeFiles/opengl4.dir/main.cp
 
 CMakeFiles/opengl4.dir/app.cpp.o: CMakeFiles/opengl4.dir/flags.make
 CMakeFiles/opengl4.dir/app.cpp.o: ../app.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/opengl4.dir/app.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/opengl4.dir/app.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl4.dir/app.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/app.cpp
 
 CMakeFiles/opengl4.dir/app.cpp.i: cmake_force
@@ -347,7 +371,7 @@ CMakeFiles/opengl4.dir/app.cpp.o.provides.build: CMakeFiles/opengl4.dir/app.cpp.
 
 CMakeFiles/opengl4.dir/Logger.cpp.o: CMakeFiles/opengl4.dir/flags.make
 CMakeFiles/opengl4.dir/Logger.cpp.o: ../Logger.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/opengl4.dir/Logger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/opengl4.dir/Logger.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl4.dir/Logger.cpp.o -c /Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/Logger.cpp
 
 CMakeFiles/opengl4.dir/Logger.cpp.i: cmake_force
@@ -380,6 +404,7 @@ opengl4_OBJECTS = \
 "CMakeFiles/opengl4.dir/light/pointLight.cpp.o" \
 "CMakeFiles/opengl4.dir/light/spotLight.cpp.o" \
 "CMakeFiles/opengl4.dir/camera/flyingCamera.cpp.o" \
+"CMakeFiles/opengl4.dir/objModels/model.cpp.o" \
 "CMakeFiles/opengl4.dir/objModel.cpp.o" \
 "CMakeFiles/opengl4.dir/main.cpp.o" \
 "CMakeFiles/opengl4.dir/app.cpp.o" \
@@ -397,6 +422,7 @@ opengl4: CMakeFiles/opengl4.dir/light/dirLight.cpp.o
 opengl4: CMakeFiles/opengl4.dir/light/pointLight.cpp.o
 opengl4: CMakeFiles/opengl4.dir/light/spotLight.cpp.o
 opengl4: CMakeFiles/opengl4.dir/camera/flyingCamera.cpp.o
+opengl4: CMakeFiles/opengl4.dir/objModels/model.cpp.o
 opengl4: CMakeFiles/opengl4.dir/objModel.cpp.o
 opengl4: CMakeFiles/opengl4.dir/main.cpp.o
 opengl4: CMakeFiles/opengl4.dir/app.cpp.o
@@ -431,7 +457,7 @@ opengl4: /usr/local/opt/boost/lib/libboost_chrono-mt.a
 opengl4: /usr/local/opt/boost/lib/libboost_atomic-mt.a
 opengl4: /usr/local/Cellar/freeimage/3.17.0_1/lib/libfreeimage.dylib
 opengl4: CMakeFiles/opengl4.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable opengl4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable opengl4"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/opengl4.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -448,6 +474,7 @@ CMakeFiles/opengl4.dir/requires: CMakeFiles/opengl4.dir/light/dirLight.cpp.o.req
 CMakeFiles/opengl4.dir/requires: CMakeFiles/opengl4.dir/light/pointLight.cpp.o.requires
 CMakeFiles/opengl4.dir/requires: CMakeFiles/opengl4.dir/light/spotLight.cpp.o.requires
 CMakeFiles/opengl4.dir/requires: CMakeFiles/opengl4.dir/camera/flyingCamera.cpp.o.requires
+CMakeFiles/opengl4.dir/requires: CMakeFiles/opengl4.dir/objModels/model.cpp.o.requires
 CMakeFiles/opengl4.dir/requires: CMakeFiles/opengl4.dir/objModel.cpp.o.requires
 CMakeFiles/opengl4.dir/requires: CMakeFiles/opengl4.dir/main.cpp.o.requires
 CMakeFiles/opengl4.dir/requires: CMakeFiles/opengl4.dir/app.cpp.o.requires

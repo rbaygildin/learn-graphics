@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/opengl4.dir/light/pointLight.cpp.o"
   "CMakeFiles/opengl4.dir/light/spotLight.cpp.o"
   "CMakeFiles/opengl4.dir/camera/flyingCamera.cpp.o"
+  "CMakeFiles/opengl4.dir/objModels/model.cpp.o"
   "CMakeFiles/opengl4.dir/objModel.cpp.o"
   "CMakeFiles/opengl4.dir/main.cpp.o"
   "CMakeFiles/opengl4.dir/app.cpp.o"

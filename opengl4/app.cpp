@@ -142,6 +142,7 @@ DirLight App::dlSun;
 PointLight App::plLight;
 SpotLight App::slFlashLight;
 CObjModel App::treasure, App::suzanne;
+Mesh* App::mesh;
 
 
 float App::fGlobalAngle;
@@ -290,6 +291,9 @@ void App::initRenderingPhase(glm::mat4 &mModelMatrix, glm::mat4 &mView) {
 
 void App::renderTorus(glm::mat4 mModelMatrix) {
     // render torus
+    auto a = static_cast<float>(fmod(glfwGetTime(), 100)) / 20.0f;
+    program.SetUniform("time", a);
+
     tTextures[1].BindTexture();
 
     float R = 20;
@@ -300,7 +304,7 @@ void App::renderTorus(glm::mat4 mModelMatrix) {
     float k2 = 0.3;
     float c = 5;
 
-    auto a = static_cast<float>(fmod(glfwGetTime(), 100));
+    a = static_cast<float>(fmod(glfwGetTime(), 100));
 
     glm::vec3 vPos = glm::vec3(R * cos(a) + R * k2 * cos(c * a) + tX, tY, R * sin(a) + R * k2 * sin(c * a) + tZ);
 
@@ -326,14 +330,17 @@ void App::renderGround() {
 }
 
 void App::renderHouses(glm::mat4 mModelMatrix) {
+
     FOR(i, 3) {
         FOR(j, 3) {
+            program.SetUniform("isGlow", j % 2);
             glm::vec3 vPos = glm::vec3(50 + j * -100.0f, 0.0, 50 + i * -100.0f);
             mModelMatrix = glm::translate(glm::mat4(1.0), vPos);
             mModelMatrix = glm::scale(mModelMatrix, glm::vec3(8.0f, 8.0, 8.0f));
             program.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
             program.SetUniform("matrices.modelMatrix", &mModelMatrix);
             mdlHouse.RenderModel();
+            program.SetUniform("isGlow", 0);
         }
     }
 
@@ -364,13 +371,27 @@ void App::renderHouses(glm::mat4 mModelMatrix) {
 
     FOR(i, 3) {
         FOR(j, 3) {
-            glm::vec3 vPos = glm::vec3(200 + j * -100.0f, 50, 50 + i * -100.0f);
+            program.SetUniform("isEmboss", j % 2);
+            glm::vec3 vPos = glm::vec3(500 + j * -100.0f, 0, 50 + i * -100.0f);
             mModelMatrix = glm::translate(glm::mat4(1.0), vPos);
-            mModelMatrix = glm::scale(mModelMatrix, glm::vec3(4.0f, 4.0, 4.0f));
-            mModelMatrix = glm::rotate(mModelMatrix, a, glm::vec3(0.0f, 1.0f, 0.0f));
+            mModelMatrix = glm::scale(mModelMatrix, glm::vec3(10.0f, 10.0, 10.0f));
             program.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
             program.SetUniform("matrices.modelMatrix", &mModelMatrix);
             treasure.RenderModel();
+            program.SetUniform("isEmboss", 0);
+        }
+    }
+
+    chessTexture.BindTexture(0);
+    FOR(i, 3) {
+        FOR(j, 3) {
+            glm::vec3 vPos = glm::vec3(200 + j * -100.0f, 50, 50 + i * -100.0f);
+            mModelMatrix = glm::translate(glm::mat4(1.0), vPos);
+            mModelMatrix = glm::scale(mModelMatrix, glm::vec3(2.0f, 2.0, 2.0f));
+            mModelMatrix = glm::rotate(mModelMatrix, a, glm::vec3(1.0f, 1.0f, 0.0f));
+            program.SetUniform("matrices.normalMatrix", glm::transpose(glm::inverse(mModelMatrix)));
+            program.SetUniform("matrices.modelMatrix", &mModelMatrix);
+            mesh->render();
         }
     }
 //    program.SetUniform("isMaterialColor", 0);
@@ -403,8 +424,10 @@ void App::destroy() {
 void App::initScene() {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
+    mesh = new Mesh("data/models/teapot/teapot.obj");
+
     // Prepare all scene objects
-    chessTexture.LoadTexture2D("data/models/treasure/treasure_chest.JPG", true);
+    chessTexture.LoadTexture2D("data/models/krujka/Krujka-Me.png", true);
     chessTexture.SetFiltering(TEXTURE_FILTER_MAG_BILINEAR, TEXTURE_FILTER_MIN_NEAREST_MIPMAP);
 
     vboSceneObjects.CreateVBO();
@@ -478,8 +501,8 @@ void App::initScene() {
                           skyBoxSet + "_dn" + picFormat);
 
     dlSun = DirLight(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(10 + sqrt(2.0f) / 2, 10 + -sqrt(2.0f) / 2, 10), 1.0f);
-    slFlashLight = SpotLight(glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(10.0f, 10.0f, 1.0f), 1,
-                             15.0f, 0.6f);
+    slFlashLight = SpotLight(glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, -20.0f), glm::vec3(0.0f, 0.0f, 0.0f), 1,
+                             90.0f, 0.6f);
     plLight = PointLight(glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.6f, 0.1f, 0.007f, 0.0008f);
     mdlHouse.LoadModel("data/models/house/house.obj", "data/models/house/house.mtl");
     treasure.LoadModel("data/models/house/house2.obj", "data/models/house/house2.mtl");

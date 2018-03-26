@@ -65,6 +65,7 @@ set(SOURCE_FILES
         light/pointLight.h light/pointLight.cpp
         light/spotLight.h light/spotLight.cpp
         camera/flyingCamera.h camera/flyingCamera.cpp
+        objModels/model.h objModels/model.cpp
         objModel.h objModel.cpp
         main.cpp
         common.h
