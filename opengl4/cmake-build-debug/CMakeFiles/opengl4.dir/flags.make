@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++11
 
 CXX_DEFINES = -DGLFW_DLL
 
-CXX_INCLUDES = -isystem /usr/local/include -I/usr/local/Cellar/freeimage/3.17.0_1/include -I/usr/local/opt/boost/include 
+CXX_INCLUDES = -isystem /usr/local/include -I/usr/local/Cellar/freeimage/3.17.0_1/include -I/usr/local/opt/boost/include -I/Users/macbook/Documents/Education/4_Year/CompGraphics/opengl4/include 
 

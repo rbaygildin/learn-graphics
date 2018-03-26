@@ -30,6 +30,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include"
   "/usr/local/Cellar/freeimage/3.17.0_1/include"
   "/usr/local/opt/boost/include"
+  "../include"
   )
 
 # Targets to which this target links.

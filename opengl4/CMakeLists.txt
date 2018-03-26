@@ -29,6 +29,8 @@ include_directories(${ASSIMP_INCLUDE_DIRS})
 
 include_directories(/usr/local/Cellar/freeimage/3.17.0_1/include/)
 
+find_package(OpenCL REQUIRED)
+
 find_library(COCOA_LIBRARY Cocoa)
 find_library(OpenGL_LIBRARY OpenGL)
 find_library(IOKIT_LIBRARY IOKit)
@@ -50,6 +52,7 @@ set(BOOST_LIBRARYDIR /usr/local/opt/boost/lib64)
 find_package(Boost REQUIRED COMPONENTS ${BOOST_COMPONENTS})
 
 include_directories(${Boost_INCLUDE_DIR})
+include_directories(include)
 
 
 set(SOURCE_FILES
@@ -82,5 +85,6 @@ target_link_libraries(
         ${Boost_LIBRARIES}
         ${FREEIMAGE_LIBRARIES}
         ${EXTRA_LIBS}
+        ${OpenCL_LIBRARIES}
         /usr/local/Cellar/freeimage/3.17.0_1/lib/libfreeimage.dylib
 )

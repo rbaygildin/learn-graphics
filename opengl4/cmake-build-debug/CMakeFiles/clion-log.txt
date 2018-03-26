@@ -5,7 +5,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
@@ -14,7 +14,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
@@ -23,7 +23,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
@@ -32,7 +32,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
@@ -41,7 +41,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
@@ -50,7 +50,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
@@ -59,7 +59,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
@@ -68,7 +68,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
@@ -77,7 +77,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
@@ -86,7 +86,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
@@ -95,7 +95,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:786 (message):
@@ -104,7 +104,7 @@ CMake Warning at /Users/macbook/Library/Application Support/JetBrains/Toolbox/ap
 Call Stack (most recent call first):
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:892 (_Boost_COMPONENT_DEPENDENCIES)
   /Users/macbook/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake:1523 (_Boost_MISSING_DEPENDENCIES)
-  CMakeLists.txt:50 (find_package)
+  CMakeLists.txt:52 (find_package)
 
 
 -- Boost version: 1.66.0

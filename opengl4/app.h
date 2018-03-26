@@ -81,6 +81,8 @@ private fields:
     static bool isRotating;
     static Texture chessTexture;
     static bool isColorSelecting;
+    static bool isLight;
+    static CObjModel suzanne;
 };
 
 
