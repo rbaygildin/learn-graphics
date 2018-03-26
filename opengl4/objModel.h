@@ -9,7 +9,7 @@ class CObjModel
 {
 public:
 	bool LoadModel(string sFileName, string sMtlFileName);
-	void RenderModel();
+	void RenderModel(bool useInnerTexture = true);
 	void DeleteModel();
 
 	int GetPolygonCount();

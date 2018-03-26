@@ -9,10 +9,16 @@ out vec4 outputColor;
 uniform sampler2D gSampler;
 uniform vec4 vColor;
 uniform bool isFog;
+uniform bool isColorMaterial;
+uniform vec4 materialColor;
 
 #include "dirLight.frag"
+#include "pointLight.frag"
+#include "spotLight.frag"
 
 uniform DirectionalLight sunLight;
+uniform PointLight pointLight;
+uniform SpotLight spotLight;
 
 uniform struct FogParameters
 {
@@ -41,12 +47,36 @@ float getFogFactor(FogParameters params, float fFogCoord)
 void main()
 {
 	vec3 vNormalized = normalize(vNormal);
-	
-	vec4 vTexColor = texture(gSampler, vTexCoord);
+
+	vec4 vTexColor = vec4(1.0, 1.0, 1.0, 1.0);
+
+	if(isColorMaterial){
+	    vTexColor = materialColor;
+	}
+	else{
+	    vTexColor = texture(gSampler, vTexCoord);
+	}
 	vec4 vDirLightColor = getDirectionalLightColor(sunLight, vNormal);
-	vec4 vMixedColor = vTexColor * vColor * vDirLightColor;
+	PointLight pointLightCopy = pointLight;
+
+	pointLightCopy.vPosition = vec3(vEyeSpacePos.x, vEyeSpacePos.y, vEyeSpacePos.z);
+
+	vec4 vPointLightColor = getPointLightColor(pointLightCopy, vWorldPos, vNormal);
+
+	pointLightCopy.vPosition = vec3(vEyeSpacePos.x, vEyeSpacePos.y, vEyeSpacePos.z);
+	pointLightCopy.vColor = vec3(1.0, 1.0, 0.0);
+	vec4 vPointLightColor2 = getPointLightColor(pointLightCopy, vWorldPos, vNormal);
+
+	vec4 vSpotLightColor = GetSpotLightColor(spotLight, vWorldPos);
+
+	vec4 mixDir = vTexColor * vColor * vDirLightColor;
+	vec4 mixPoint = vTexColor * vColor * vPointLightColor;
+	vec4 mixPoint2 = vTexColor * vColor * vPointLightColor2;
+	vec4 mixSpot = vTexColor * vColor * vSpotLightColor;
+	vec4 vMixedColor = clamp(mixDir + mixPoint + mixPoint2, 0.0, 1.0);
 	
 	float fFogCoord = abs(vEyeSpacePos.z / vEyeSpacePos.w);
+
 	if(isFog){
 	    outputColor = mix(vMixedColor, fogParams.vFogColor, getFogFactor(fogParams, fFogCoord));
 	}

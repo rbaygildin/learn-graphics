@@ -9,6 +9,8 @@ out vec4 outputColor;
 uniform sampler2D gSampler;
 uniform vec4 vColor;
 uniform bool isFog;
+uniform bool isColorMaterial;
+uniform vec4 materialColor;
 
 #include "dirLight.frag"
 
@@ -41,8 +43,15 @@ float getFogFactor(FogParameters params, float fFogCoord)
 void main()
 {
 	vec3 vNormalized = normalize(vNormal);
-	
-	vec4 vTexColor = texture2D(gSampler, vTexCoord);
+
+	vec4 vTexColor = vec4(1.0, 1.0, 1.0, 1.0);
+
+	if(isColorMaterial){
+	    vTexColor = materialColor;
+	}
+	else{
+	    vTexColor = texture(gSampler, vTexCoord);
+	}
 	vec4 vDirLightColor = getDirectionalLightColor(sunLight, vNormal);
 	vec4 vMixedColor = vTexColor * vColor * vDirLightColor;
 	

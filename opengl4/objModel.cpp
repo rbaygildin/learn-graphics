@@ -205,11 +205,12 @@ bool CObjModel::LoadModel(string sFileName, string sMtlFileName) {
 }
 
 // Renders model.
-void CObjModel::RenderModel() {
+void CObjModel::RenderModel(bool useInnerTexture) {
     if (!bLoaded)
         return;
     glBindVertexArray(uiVAO);
-    tAmbientTexture.BindTexture();
+    if(useInnerTexture)
+        tAmbientTexture.BindTexture();
     glDrawArrays(GL_TRIANGLES, 0, iNumFaces * 3);
 }
 

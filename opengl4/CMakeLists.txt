@@ -65,6 +65,7 @@ set(SOURCE_FILES
         objModel.h objModel.cpp
         main.cpp
         common.h
+#        Cube.h Cube.cpp
         app.cpp app.h Logger.cpp logger.cpp logger.h)
 
 add_executable(opengl4 ${SOURCE_FILES})

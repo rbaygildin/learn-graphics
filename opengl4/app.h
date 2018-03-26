@@ -25,9 +25,9 @@
 #include "objModel.h"
 
 #define NUMTEXTURES 5
-#define FOG_EQUATION_LINEAR		0
-#define FOG_EQUATION_EXP		1
-#define FOG_EQUATION_EXP2		2
+#define FOG_EQUATION_LINEAR        0
+#define FOG_EQUATION_EXP        1
+#define FOG_EQUATION_EXP2        2
 
 /**
  * Main Application context, rendering
@@ -56,6 +56,14 @@ private funcs:
 
     static void resizeCallback(GLFWwindow *window, int width, int height);
 
+    static void initRenderingPhase(glm::mat4 &mModelMatrix, glm::mat4 &mView);
+
+    static void renderGround();
+
+    static void renderTorus(glm::mat4);
+
+    static void renderHouses(glm::mat4);
+
 private fields:
     static GLFWwindow *wnd;
     static VertexBufferObject vboSceneObjects, vboCubeInd, vboCube, vboCylinder;
@@ -64,10 +72,15 @@ private fields:
     static FlyingCamera cCamera;
     static Skybox mainSkybox;
     static CObjModel mdlHouse;
+    static CObjModel treasure;
     static DirLight dlSun;
+    static PointLight plLight;
+    static SpotLight slFlashLight;
     static float fGlobalAngle;
     static float fTextureContribution;
     static bool isRotating;
+    static Texture chessTexture;
+    static bool isColorSelecting;
 };
 
 

@@ -193,7 +193,8 @@ void ShaderProgram::DeleteProgram() {
 
 // Tells OpenGL to use this program.
 void ShaderProgram::UseProgram() {
-    if (bLinked)glUseProgram(uiProgram);
+    if (bLinked)
+        glUseProgram(uiProgram);
 }
 
 // Returns OpenGL generated shader program ID.

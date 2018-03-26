@@ -5,18 +5,11 @@
 struct SpotLight
 {
 	vec3 vColor;
-  vec3 vPosition;
+    vec3 vPosition;
 	vec3 vDirection;
-  
-  // Used as boolean, whether spotlight is on
-  int bOn;
-
-  // If cone angle is set from program, we also provide its cosine,
-  // so that it isn't always recalculated
+    int bOn;
 	float fConeAngle, fConeCosine;
-  
-  // Only linear attenuation, you can code const and exp as well
-  float fLinearAtt;
+    float fLinearAtt;
 };
 
 vec4 GetSpotLightColor(const SpotLight spotLight, vec3 vWorldPos);
@@ -26,7 +19,8 @@ vec4 GetSpotLightColor(const SpotLight spotLight, vec3 vWorldPos);
 vec4 GetSpotLightColor(const SpotLight spotLight, vec3 vWorldPos)
 {
   // If flashlight isn't turned on, return no color
-  if(spotLight.bOn == 0)return vec4(0.0, 0.0, 0.0, 0.0);
+  if(spotLight.bOn == 0)
+    return vec4(0.0, 0.0, 0.0, 0.0);
   // Distance from fragment's position
 	float fDistance = distance(vWorldPos, spotLight.vPosition);
   
@@ -47,7 +41,7 @@ vec4 GetSpotLightColor(const SpotLight spotLight, vec3 vWorldPos)
   // If we're inside cone, calculate color
   if(fCosine > spotLight.fConeCosine)
     return vec4(spotLight.vColor, 1.0)*fFactor/(fDistance*spotLight.fLinearAtt);
-  
+
   // No color otherwise
   return vec4(0.0, 0.0, 0.0, 0.0);
 }
