@@ -1,6 +1,16 @@
+// Copyright 2016 - Roman Yarnykh. All Rights Reserved.
 //
-// Created by Max Heartfield on 22.11.17.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 #include <glm/vec3.hpp>
 #include "Window.h"
@@ -9,6 +19,8 @@
 #include "figures/Teapot.h"
 #include "figures/WireTorus.h"
 #include "figures/Dodecahedron.h"
+
+#define SHADER_PROGRAM(SHADER_NAME, SHADER_PROGRAM) new Shader("data/shaders((SHADER_NAME)).vert", "data/shaders((SHADER_NAME)).frag", SHADER_PROGRAM)
 
 /**
  * Initialize window context, add figures
@@ -110,8 +122,8 @@ void Window::deleteBuffers() {
  */
 void Window::loadShaders() {
     program = glCreateProgram();
-    shader = new Shader("shader.vert", "shader.frag", program);
-    lightShader = new Shader("lighting.vert", "lighting.frag", program);
+    shader = SHADER_PROGRAM("shader", program);
+    lightShader = SHADER_PROGRAM("lighting", program);
     glLinkProgram(program);
     glUseProgram(program);
 }
@@ -149,7 +161,7 @@ void Window::initLighting() {
     glLightf(GL_LIGHT2, GL_QUADRATIC_ATTENUATION, 0.4);
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 50.0);
 
-//    glFrontFace(GL_CCW);
+    glFrontFace(GL_CCW);
     glEnable(GL_COLOR_MATERIAL);
     glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
 }
