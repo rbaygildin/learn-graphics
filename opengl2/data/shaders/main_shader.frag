@@ -19,8 +19,8 @@ void main()
 {
 	vec3 vNormalized = normalize(vNormal);
 	
-	vec4 vTexColor1 = texture2D(gSamplers[0], vTexCoord);
-	vec4 vTexColor2 = texture2D(gSamplers[1], vTexCoord);
+	vec4 vTexColor1 = texture(gSamplers[0], vTexCoord);
+	vec4 vTexColor2 = texture(gSamplers[1], vTexCoord);
 	vec4 vMixedTexColor = vTexColor1*fTextureContributions[0];
 	if (numTextures > 1)
 		 vMixedTexColor += vTexColor2*fTextureContributions[1];

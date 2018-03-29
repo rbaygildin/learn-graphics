@@ -4,7 +4,7 @@ uniform struct Matrices
 {
 	mat4 projMatrix;
 	mat4 modelMatrix;
-	mat4 viewMatrix;                                                                           
+	mat4 viewMatrix;
 	mat4 normalMatrix;
 } matrices;
 
@@ -20,7 +20,7 @@ void main()
 	gl_Position = matrices.projMatrix*matrices.viewMatrix*matrices.modelMatrix*vec4(inPosition, 1.0);
 	vTexCoord = inCoord;
 	vec4 vRes = matrices.normalMatrix*vec4(inNormal, 0.0);
-	vNormal = vRes.xyz;	
+	vNormal = vRes.xyz;
     vec4 vWorldPosVertex = matrices.modelMatrix*vec4(inPosition, 1.0);
 	vWorldPos = vWorldPosVertex.xyz;
 }

@@ -56,13 +56,16 @@ set(SOURCE_FILES
         skybox/skybox.h skybox/skybox.cpp
         light/dirLight.h light/dirLight.cpp
         camera/flyingCamera.h camera/flyingCamera.cpp
-#        renderScene.cpp
+        #        renderScene.cpp
         main.cpp
         common.h
         App.cpp App.h Logger.cpp logger.cpp logger.h)
 
 add_executable(opengl2 ${SOURCE_FILES})
 
+add_custom_command(TARGET opengl2 POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/data ${CMAKE_CURRENT_BINARY_DIR}/data)
 
 target_link_libraries(
         opengl2
