@@ -1,4 +1,15 @@
-# Computer graphics
+# Computer graphics (OpenGL, plain CPU and Qt + OpenGL)
+
+## Examples
+
+### OpenGL 
+  * [Images processing](https://github.com/rbaygildin/awesome-graphics/tree/master/opengl7)
+  * [Rendering fog](https://github.com/rbaygildin/awesome-graphics/tree/master/opengl4)
+  * [Skybox and 3D scene](https://github.com/rbaygildin/awesome-graphics/tree/master/opengl2)
+  * [Rotating objects, lighting](https://github.com/rbaygildin/awesome-graphics/tree/master/opengl1)
+
+### Plain CPU rendering  
+  * [Simple shading](https://github.com/rbaygildin/awesome-graphics/tree/master/shading)
 
 ## Links
   * [OpenGL tutorial. Using mouse in GLUT (Russian)](http://grafika.me/node/133)
